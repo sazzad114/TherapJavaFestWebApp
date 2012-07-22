@@ -1,0 +1,153 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:s="http://jboss.com/products/seam/taglib"
+      xmlns:a="http://richfaces.org/a4j" xmlns:rich="http://richfaces.org/rich">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
+    <title>JBoss Suites: Seam Framework</title>
+    <!-- <link href="css/screen.css" rel="stylesheet" type="text/css"/>-->
+</head>
+<body>
+
+<div>
+    <h1>Register for Therap Java Fest !</h1>
+</div>
+
+
+<h:form id="register" enctype="multipart/form-data">
+    <fieldset>
+        <table>
+            <s:validateAll>
+                <tr>
+                    <td>
+                        <h:outputLabel value="Contestant Name:" for="contestantName"/>
+                    </td>
+                    <td>
+                        <h:inputText id="contestantName" value="#{contestant.contestantName}" required="true"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <h:outputLabel value="Email:" for="email"/>
+                    </td>
+                    <td>
+                        <h:inputText id="email" value="#{contestant.email}" required="true"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <h:outputLabel value="Phone" for="phone"/>
+                    </td>
+                    <td>
+                        <h:inputText id="phone" value="#{contestant.phone}" required="true"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <h:outputLabel value="Student Id:" for="studentId"/>
+                    </td>
+                    <td>
+                        <h:inputText id="studentId" value="#{contestant.studentId}" required="true"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <h:outputLabel value="Cgpa:" for="cgpa"/>
+                    </td>
+                    <td>
+                        <h:inputText id="cgpa" value="#{contestant.cgpa}" required="true"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <h:outputLabel value="University:" for="university"/>
+                    </td>
+                    <td>
+                        <h:selectOneMenu value="#{contestant.university}" id="university">
+                            <s:selectItems var="university" value="#{universities}" label="#{university.universityName}" noSelectionLabel="-- Select --"/>
+                            <s:convertEnum/>
+                        </h:selectOneMenu>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <h:outputLabel value="Date Of Birth:" for="dateOfBirth"/>
+                    </td>
+                    <td>
+                        <rich:calendar datePattern="yyyy-MM-dd" value="#{contestant.dateOfBirth}" id="dateOfBirth"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <h:outputLabel value="expected Graduation Date:" for="expectedGraduationDate"/>
+                    </td>
+                    <td>
+                        <rich:calendar datePattern="yyyy-MM-dd" value="#{contestant.expectedGraduationDate}"
+                                       id="expectedGraduationDate"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <h:outputLabel value="Gender:" for="gender"/>
+                    </td>
+                    <td>
+                        <h:selectOneRadio value="#{contestant.gender}" id="gender">
+                            <f:selectItem itemValue="Male" itemLabel="Male"/>
+                            <f:selectItem itemValue="Female" itemLabel="Female"/>
+                        </h:selectOneRadio>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <h:outputLabel value="Description:" for="description"/>
+                    </td>
+                    <td>
+                        <h:inputTextarea id="description" value="#{contestant.description}" required="true"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <h:outputLabel value="LinkedIn Profile Url:" for="linkedInProfile"/>
+                    </td>
+                    <td>
+                        <h:inputText id="linkedInProfile" value="#{contestant.linkedInProfile}"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <h:outputLabel value="Language Proficiency:" for="languageProficiency"/>
+                    </td>
+                    <td>
+                        <h:inputText id="languageProficiency" value="#{contestant.languageProficiency}"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <h:outputLabel value="Upload Image:" for="image"/>
+                    </td>
+                    <td>
+                        <s:fileUpload id="image" data="#{contestant.photo}" accept="images/png,images/jpg"/>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <h:outputLabel value="Upload CV:" for="curriculumVitae"/>
+                    </td>
+                    <td>
+                        <s:fileUpload id="curriculumVitae" data="#{contestant.curriculumVitae}"
+                                      accept="application/pdf"/>
+                    </td>
+                </tr>
+
+            </s:validateAll>
+        </table>
+    </fieldset>
+</h:form>
+
+</body>
+</html>
