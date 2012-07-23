@@ -1,11 +1,12 @@
 package net.therap.domain;
 
-import org.hibernate.validator.NotEmpty;
-import org.hibernate.validator.NotNull;
+import org.hibernate.validator.*;
+import org.jboss.seam.ScopeType;
 import org.jboss.seam.annotations.Name;
+import org.jboss.seam.annotations.Role;
 
 import javax.persistence.*;
-import java.sql.Blob;
+import javax.persistence.Version;
 import java.util.Date;
 import java.util.List;
 
@@ -18,12 +19,15 @@ import java.util.List;
 
 @Entity
 @Name("contestant")
-@Table(name = "Contestant")
+@Table(name = "CONTESTANT")
+@Role(name = "recipientContestant", scope = ScopeType.EVENT)
 public class Contestant {
 
     private long contestantId;
     private String contestantName;
     private String email;
+    private String password;
+    private String confirmPassword;
     private String phone;
     private String studentId;
     private double cgpa;
@@ -52,8 +56,8 @@ public class Contestant {
         this.contestantId = contestantId;
     }
 
-    @NotNull
-    @NotEmpty
+
+    //@Size(max = 50, min = 5)
     @Column(name = "CONTESTANT_NAME", nullable = false)
     public String getContestantName() {
         return contestantName;
@@ -63,6 +67,7 @@ public class Contestant {
         this.contestantName = contestantName;
     }
 
+    @Email
     @Column(name = "EMAIL")
     public String getEmail() {
         return email;
@@ -72,6 +77,7 @@ public class Contestant {
         this.email = email;
     }
 
+    //@Size(min = 7, max = 15)
     @Column(name = "PHONE")
     public String getPhone() {
         return phone;
@@ -81,6 +87,7 @@ public class Contestant {
         this.phone = phone;
     }
 
+    //@Size(max = 15)
     @Column(name = "STUDENT_ID")
     public String getStudentId() {
         return studentId;
@@ -90,8 +97,8 @@ public class Contestant {
         this.studentId = studentId;
     }
 
+    @NotNull
     @Column(name = "UNIVERSITY")
-    @Enumerated(EnumType.STRING)
     public String getUniversity() {
         return university;
     }
@@ -121,6 +128,7 @@ public class Contestant {
 
 
     @Column(name = "EXPECTED_GRADUATION_DATE")
+    @Temporal(value = TemporalType.DATE)
     public Date getExpectedGraduationDate() {
         return expectedGraduationDate;
     }
@@ -130,6 +138,7 @@ public class Contestant {
     }
 
     @Column(name = "GENDER")
+    @NotNull
     public String getGender() {
         return gender;
     }
@@ -139,6 +148,7 @@ public class Contestant {
     }
 
     @Column(name = "DESCRIPTION")
+    //@Size(min = 5, max=300)
     public String getDescription() {
         return description;
     }
@@ -148,6 +158,7 @@ public class Contestant {
     }
 
     @Column(name = "LINKEDIN_PROFILE")
+    @Pattern(regex = RegularExpressions.LINKED_IN)
     public String getLinkedInProfile() {
         return linkedInProfile;
     }
@@ -157,6 +168,7 @@ public class Contestant {
     }
 
     @Column(name = "LANGUAGE_PROFICIENCY")
+    @Pattern(regex = RegularExpressions.LANGUAGE_PROFICIENCY)
     public String getLanguageProficiency() {
         return languageProficiency;
     }
@@ -166,7 +178,8 @@ public class Contestant {
     }
 
     @Lob
-    @Column(name = "PHOTO")
+    @Column(name = "PHOTO",length = 16777215)
+
     public byte[] getPhoto() {
         return photo;
     }
@@ -176,7 +189,7 @@ public class Contestant {
     }
 
     @Lob
-    @Column(name = "CURRICULUM_VITAE")
+    @Column(name = "CURRICULUM_VITAE", length = 16777215)
     public byte[] getCurriculumVitae() {
         return curriculumVitae;
     }
@@ -211,6 +224,24 @@ public class Contestant {
 
     public void setScreeningTestResult(List<AnswerInfo> screeningTestResult) {
         this.screeningTestResult = screeningTestResult;
+    }
+
+    @Column(name = "PASSWORD",nullable = false)
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    @Transient
+    public String getConfirmPassword() {
+        return confirmPassword;
+    }
+
+    public void setConfirmPassword(String confirmPassword) {
+        this.confirmPassword = confirmPassword;
     }
 
     @Version

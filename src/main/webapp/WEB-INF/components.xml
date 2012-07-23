@@ -6,6 +6,9 @@
             xmlns:transaction="http://jboss.com/products/seam/transaction"
             xmlns:mail="http://jboss.com/products/seam/mail"
             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xmlns:async="http://jboss.com/products/seam/async
+                         http://jboss.com/products/seam/async
+                         http://jboss.com/products/seam/async-2.2.xsd"
             xsi:schemaLocation=
                     "http://jboss.com/products/seam/core http://jboss.com/products/seam/core-2.3.xsd
                  http://jboss.com/products/seam/persistence http://jboss.com/products/seam/persistence-2.3.xsd
@@ -15,7 +18,7 @@
 http://jboss.com/products/seam/mail ">
 
     <core:manager conversation-timeout="120000"
-                  concurrent-request-timeout="500"
+                  concurrent-request-timeout="5000"
                   conversation-id-parameter="cid"/>
 
     <core:init debug="true"/>
@@ -33,9 +36,17 @@ http://jboss.com/products/seam/mail ">
 
     <transaction:hibernate-transaction session="#{therapJavaFestDbSession}"/>
 
+    <factory name="session"  scope="STATELESS"  auto-create="true"  value="#{therapJavaFestDbSession}"/>
+
     <component class="org.jboss.seam.web.MultipartFilter">
         <property name="createTempFiles">true</property>
-        <property name="maxRequestSize">1000000</property>
+        <property name="maxRequestSize">16777215</property>
     </component>
+
+    <component name="org.jboss.seam.ui.EntityConverter">
+        <property name="session">#{therapJavaFestDbSession}</property>
+     </component>
+
+    <async:quartz-dispatcher/>
 
 </components>

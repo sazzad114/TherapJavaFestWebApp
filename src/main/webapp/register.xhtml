@@ -29,6 +29,9 @@
                     <td>
                         <h:inputText id="contestantName" value="#{contestant.contestantName}" required="true"/>
                     </td>
+                    <td>
+                        <h:message for="contestantName" styleClass="error"/>
+                    </td>
                 </tr>
                 <tr>
                     <td>
@@ -36,6 +39,9 @@
                     </td>
                     <td>
                         <h:inputText id="email" value="#{contestant.email}" required="true"/>
+                    </td>
+                     <td>
+                        <h:message for="email" styleClass="error"/>
                     </td>
                 </tr>
                 <tr>
@@ -45,6 +51,9 @@
                     <td>
                         <h:inputText id="phone" value="#{contestant.phone}" required="true"/>
                     </td>
+                     <td>
+                        <h:message for="phone" styleClass="error"/>
+                    </td>
                 </tr>
                 <tr>
                     <td>
@@ -52,6 +61,9 @@
                     </td>
                     <td>
                         <h:inputText id="studentId" value="#{contestant.studentId}" required="true"/>
+                    </td>
+                     <td>
+                        <h:message for="studentId" styleClass="error"/>
                     </td>
                 </tr>
                 <tr>
@@ -61,6 +73,9 @@
                     <td>
                         <h:inputText id="cgpa" value="#{contestant.cgpa}" required="true"/>
                     </td>
+                     <td>
+                        <h:message for="cgpa" styleClass="error"/>
+                    </td>
                 </tr>
                 <tr>
                     <td>
@@ -68,9 +83,13 @@
                     </td>
                     <td>
                         <h:selectOneMenu value="#{contestant.university}" id="university">
-                            <s:selectItems var="university" value="#{universities}" label="#{university.universityName}" noSelectionLabel="-- Select --"/>
-                            <s:convertEnum/>
+                            <s:selectItems var="university" value="#{universities}" label="#{university.universityName}" itemValue="#{university.universityName}"
+                                           noSelectionLabel="-- Select --"/>
+
                         </h:selectOneMenu>
+                    </td>
+                     <td>
+                        <h:message for="university" styleClass="error"/>
                     </td>
                 </tr>
                 <tr>
@@ -80,6 +99,9 @@
                     <td>
                         <rich:calendar datePattern="yyyy-MM-dd" value="#{contestant.dateOfBirth}" id="dateOfBirth"/>
                     </td>
+                     <td>
+                        <h:message for="dateOfBirth" styleClass="error"/>
+                    </td>
                 </tr>
                 <tr>
                     <td>
@@ -88,6 +110,9 @@
                     <td>
                         <rich:calendar datePattern="yyyy-MM-dd" value="#{contestant.expectedGraduationDate}"
                                        id="expectedGraduationDate"/>
+                    </td>
+                     <td>
+                        <h:message for="expectedGraduationDate" styleClass="error"/>
                     </td>
                 </tr>
                 <tr>
@@ -100,6 +125,9 @@
                             <f:selectItem itemValue="Female" itemLabel="Female"/>
                         </h:selectOneRadio>
                     </td>
+                     <td>
+                        <h:message for="gender" styleClass="error"/>
+                    </td>
                 </tr>
                 <tr>
                     <td>
@@ -107,6 +135,9 @@
                     </td>
                     <td>
                         <h:inputTextarea id="description" value="#{contestant.description}" required="true"/>
+                    </td>
+                    <td>
+                        <h:message for="description" styleClass="error"/>
                     </td>
                 </tr>
                 <tr>
@@ -116,6 +147,9 @@
                     <td>
                         <h:inputText id="linkedInProfile" value="#{contestant.linkedInProfile}"/>
                     </td>
+                    <td>
+                        <h:message for="linkedInProfile" styleClass="error"/>
+                    </td>
                 </tr>
                 <tr>
                     <td>
@@ -124,6 +158,9 @@
                     <td>
                         <h:inputText id="languageProficiency" value="#{contestant.languageProficiency}"/>
                     </td>
+                    <td>
+                        <h:message for="languageProficiency" styleClass="error"/>
+                    </td>
                 </tr>
                 <tr>
                     <td>
@@ -131,6 +168,9 @@
                     </td>
                     <td>
                         <s:fileUpload id="image" data="#{contestant.photo}" accept="images/png,images/jpg"/>
+                    </td>
+                    <td>
+                        <h:message for="image" styleClass="error"/>
                     </td>
                 </tr>
 
@@ -142,8 +182,34 @@
                         <s:fileUpload id="curriculumVitae" data="#{contestant.curriculumVitae}"
                                       accept="application/pdf"/>
                     </td>
+                    <td>
+                        <h:message for="curriculumVitae" styleClass="error"/>
+                    </td>
                 </tr>
 
+                <tr>
+                    <td>
+                        <h:outputLabel value="Please correctly enter the word shown below to verify you are not a bot:" for="verifyCaptcha"/>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <h:graphicImage value="/seam/resource/captcha?f=#{currentDate.time}"/>
+                    </td>
+                    <td>
+                        <h:inputText id="verifyCaptcha" value="#{captcha.response}" required="true"/>
+                    </td>
+                    <td>
+                        <h:message for="verifyCaptcha"/>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <h:commandButton value="Register" action="#{registrationService.register(contestant)}"/>
+                    </td>
+                </tr>
             </s:validateAll>
         </table>
     </fieldset>

@@ -21,7 +21,7 @@ public class ProjectSubmission {
     private Date lastSubmissionTime;
     private String gitHubUrl;
     private String youTubeUrl;
-    private Blob sourceCode;
+    private byte [] sourceCode;
     private long version;
 
     @Id
@@ -83,12 +83,12 @@ public class ProjectSubmission {
     }
 
     @Lob
-    @Column(name = "SOURCE_CODE")
-    public Blob getSourceCode() {
+    @Column(name = "SOURCE_CODE", length = 16777215)
+    public byte[] getSourceCode() {
         return sourceCode;
     }
 
-    public void setSourceCode(Blob sourceCode) {
+    public void setSourceCode(byte[] sourceCode) {
         this.sourceCode = sourceCode;
     }
 

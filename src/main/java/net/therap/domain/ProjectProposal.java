@@ -18,7 +18,7 @@ public class ProjectProposal {
     private Group group;
     private Contestant lastModifiedBy;
     private Date lastModificationTime;
-    private Blob proposal;
+    private byte[] proposal;
     private long version;
 
     @Id
@@ -63,12 +63,12 @@ public class ProjectProposal {
     }
 
     @Lob
-    @Column(name = "PROPOSAL")
-    public Blob getProposal() {
+    @Column(name = "PROPOSAL", length = 16777215)
+    public byte[] getProposal() {
         return proposal;
     }
 
-    public void setProposal(Blob proposal) {
+    public void setProposal(byte [] proposal) {
         this.proposal = proposal;
     }
 
