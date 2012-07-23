@@ -2,6 +2,7 @@ package net.therap.domain;
 
 import org.hibernate.validator.NotEmpty;
 import org.hibernate.validator.NotNull;
+import org.jboss.seam.annotations.Name;
 
 import javax.persistence.*;
 import java.sql.Blob;
@@ -16,6 +17,7 @@ import java.util.List;
  */
 
 @Entity
+@Name("contestant")
 @Table(name = "Contestant")
 public class Contestant {
 
@@ -25,15 +27,15 @@ public class Contestant {
     private String phone;
     private String studentId;
     private double cgpa;
-    private String University;
+    private String university;
     private Date dateOfBirth;
     private Date expectedGraduationDate;
     private String gender;
     private String description;
     private String linkedInProfile;
     private String languageProficiency;
-    private Blob photo;
-    private Blob curriculumVitae;
+    private byte[] photo;
+    private byte[] curriculumVitae;
     private String state;
     private Group myGroup;
     private List<AnswerInfo> screeningTestResult;
@@ -89,12 +91,13 @@ public class Contestant {
     }
 
     @Column(name = "UNIVERSITY")
+    @Enumerated(EnumType.STRING)
     public String getUniversity() {
-        return University;
+        return university;
     }
 
     public void setUniversity(String university) {
-        University = university;
+        this.university = university;
     }
 
     @Column(name = "CGPA")
@@ -164,21 +167,21 @@ public class Contestant {
 
     @Lob
     @Column(name = "PHOTO")
-    public Blob getPhoto() {
+    public byte[] getPhoto() {
         return photo;
     }
 
-    public void setPhoto(Blob photo) {
+    public void setPhoto(byte[] photo) {
         this.photo = photo;
     }
 
     @Lob
     @Column(name = "CURRICULUM_VITAE")
-    public Blob getCurriculumVitae() {
+    public byte[] getCurriculumVitae() {
         return curriculumVitae;
     }
 
-    public void setCurriculumVitae(Blob curriculumVitae) {
+    public void setCurriculumVitae(byte[] curriculumVitae) {
         this.curriculumVitae = curriculumVitae;
     }
 

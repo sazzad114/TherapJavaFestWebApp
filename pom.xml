@@ -20,7 +20,7 @@
 
         <!-- commons -->
 
-          <!--<dependency>
+        <!--<dependency>
             <groupId>dom4j</groupId>
             <artifactId>dom4j</artifactId>
             <version>1.6.1</version>
@@ -57,6 +57,22 @@
             <groupId>org.jboss.seam</groupId>
             <artifactId>jboss-seam-ui</artifactId>
             <version>2.0.2.GA</version>
+            <scope>compile</scope>
+        </dependency>
+
+        <!-- sending email jars -->
+
+        <dependency>
+            <groupId>org.jboss.seam</groupId>
+            <artifactId>jboss-seam-mail</artifactId>
+            <version>2.0.2.GA</version>
+            <scope>compile</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>javax.mail</groupId>
+            <artifactId>mail</artifactId>
+            <version>1.4.1</version>
             <scope>compile</scope>
         </dependency>
 
@@ -109,7 +125,6 @@
         </dependency>
 
 
-
         <!-- I like to have log4j without Hibernate as well -->
 
         <dependency>
@@ -118,7 +133,7 @@
             <version>1.2.14</version>
         </dependency>
 
-         <dependency>
+        <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
             <version>1.6.1</version>
@@ -152,13 +167,13 @@
             <version>3.3.0.ga</version>
         </dependency>
 
-     <!--   <dependency>
+        <!--   <dependency>
             <groupId>com.oracle</groupId>
             <artifactId>ojdbc14</artifactId>
             <version>10.2.0.4.0</version>
         </dependency>-->
 
-         <dependency>
+        <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
             <version>5.1.9</version>
