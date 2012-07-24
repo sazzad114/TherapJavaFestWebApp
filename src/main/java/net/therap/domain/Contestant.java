@@ -7,6 +7,7 @@ import org.jboss.seam.annotations.Role;
 
 import javax.persistence.*;
 import javax.persistence.Version;
+import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
@@ -20,8 +21,7 @@ import java.util.List;
 @Entity
 @Name("contestant")
 @Table(name = "CONTESTANT")
-@Role(name = "recipientContestant", scope = ScopeType.EVENT)
-public class Contestant {
+public class Contestant implements Serializable{
 
     private long contestantId;
     private String contestantName;

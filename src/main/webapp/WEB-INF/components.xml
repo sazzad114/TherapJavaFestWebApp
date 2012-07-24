@@ -6,9 +6,6 @@
             xmlns:transaction="http://jboss.com/products/seam/transaction"
             xmlns:mail="http://jboss.com/products/seam/mail"
             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-            xmlns:async="http://jboss.com/products/seam/async
-                         http://jboss.com/products/seam/async
-                         http://jboss.com/products/seam/async-2.2.xsd"
             xsi:schemaLocation=
                     "http://jboss.com/products/seam/core http://jboss.com/products/seam/core-2.3.xsd
                  http://jboss.com/products/seam/persistence http://jboss.com/products/seam/persistence-2.3.xsd
@@ -47,6 +44,6 @@ http://jboss.com/products/seam/mail ">
         <property name="session">#{therapJavaFestDbSession}</property>
      </component>
 
-    <async:quartz-dispatcher/>
+
 
 </components>

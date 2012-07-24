@@ -42,7 +42,6 @@ public class RegistrationService {
         contestant.setPassword(temporaryPassword);
         contestant.setState("temporaryStudent");
         session.save(contestant);
-        emailService.setContestant(contestant);
         emailService.sendMessage();
         log.debug("Saved contestant");
         return "success";
