@@ -6,12 +6,64 @@
     <page view-id="/register.xhtml">
         <navigation>
             <rule if-outcome="success">
-                <redirect view-id="/index.xhtml"/>
+                <redirect view-id="/emailsent.xhtml"/>
 
             </rule>
         </navigation>
     </page>
 
+    <page view-id="/home.xhtml" action="#{identity.isLoggedIn}">
 
+        <navigation from-action="#{identity.isLoggedIn}">
+            <rule if-outcome="true">
+                <redirect view-id="/greeting.xhtml"/>
+            </rule>
+            <rule if-outcome="false">
+                <render view-id="/home.xhtml"/>
+            </rule>
+        </navigation>
+
+    </page>
+
+      <page view-id="/greeting.xhtml" login-required="true">
+
+        <!--<navigation>
+
+
+
+        </navigation>-->
+
+    </page>
+
+    <page view-id="/changePassword.xhtml"
+          login-required="true">
+
+        <navigation>
+            <rule if="#{passwordChange.changed}">
+                <redirect view-id="/home.xhtml"/>
+            </rule>
+        </navigation>
+
+    </page>
+
+    <page view-id="*">
+
+        <navigation from-action="#{identity.logout}">
+            <redirect view-id="/home.xhtml"/>
+        </navigation>
+
+    </page>
+
+    <exception class="org.jboss.seam.security.NotLoggedInException">
+        <redirect view-id="/home.xhtml">
+            <message severity="warn">You must be logged in to use this feature</message>
+        </redirect>
+    </exception>
+
+    <exception class="javax.faces.application.ViewExpiredException">
+        <redirect view-id="/home.xhtml">
+            <message severity="warn">Session expired, please log in again</message>
+        </redirect>
+    </exception>
 
 </pages>

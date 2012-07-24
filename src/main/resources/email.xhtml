@@ -3,12 +3,12 @@
     xmlns:h="http://java.sun.com/jsf/html">
 
     <m:from name="TherapJavafest" address="javafest@therapservices.net" />
-    <m:to name="#{contestant.contestantName}" address="#{contestant.email}" />
+    <m:to name="#{newContestant.contestantName}" address="#{newContestant.email}" />
     <m:subject>Complete your registration for Therap Java Fest</m:subject>
     <m:body>
-        <p><h:outputText value="Dear #{contestant.contestantName}" />,</p>
+        <p><h:outputText value="Dear #{newContestant.contestantName}" />,</p>
         <p>Thanks for registering for Therap Java Fest. To complete your registration, you must login with your email
-            and password : <h:outputText value="#{contestant.password}" /> . Once you have logged in, you should
+            and password : <h:outputText value="#{newContestant.password}" /> . Once you have logged in, you should
             change this temporary password.</p>
 
         <!--<a href="http://labs.jboss.com/jbossseam">http://labs.jboss.com/jbossseam</a>.</p>

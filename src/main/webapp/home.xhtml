@@ -1,0 +1,34 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:s="http://jboss.com/products/seam/taglib">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
+    <title>JBoss Suites: Seam Framework</title>
+</head>
+<body>
+<h:form id="login">
+    <fieldset>
+        <div>
+            <h:outputLabel for="username">Login Name</h:outputLabel>
+            <h:inputText id="username" value="#{identity.username}" style="width: 175px;"/>
+
+            <div class="errors"><h:message for="username"/></div>
+        </div>
+        <div>
+            <h:outputLabel for="password">Password</h:outputLabel>
+            <h:inputSecret id="password" value="#{identity.password}" style="width: 175px;"/>
+        </div>
+        <div class="errors"><h:messages globalOnly="true"/></div>
+        <div class="buttonBox">
+            <h:commandButton id="login" action="#{identity.quietLogin}" value="Account Login"/></div>
+    </fieldset>
+</h:form>
+
+Not registered yet? you can register
+<s:link value=" here" action="/register.xhtml"/>
+</body>
+</html>
