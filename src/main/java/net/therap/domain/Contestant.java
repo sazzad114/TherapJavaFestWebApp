@@ -4,6 +4,7 @@ import org.hibernate.validator.*;
 import org.jboss.seam.ScopeType;
 import org.jboss.seam.annotations.Name;
 import org.jboss.seam.annotations.Role;
+import org.jboss.seam.annotations.Scope;
 
 import javax.persistence.*;
 import javax.persistence.Version;
@@ -18,8 +19,11 @@ import java.util.List;
  * Time: 5:07 PM
  */
 
+
+@Name("loggedInContestant")
+@Scope(ScopeType.SESSION)
+@Role(name = "newContestant",scope = ScopeType.PAGE)
 @Entity
-@Name("contestant")
 @Table(name = "CONTESTANT")
 public class Contestant implements Serializable{
 

@@ -27,7 +27,7 @@
                         <h:outputLabel value="Contestant Name:" for="contestantName"/>
                     </td>
                     <td>
-                        <h:inputText id="contestantName" value="#{contestant.contestantName}" required="true"/>
+                        <h:inputText id="contestantName" value="#{newContestant.contestantName}" required="true"/>
                     </td>
                     <td>
                         <h:message for="contestantName" styleClass="error"/>
@@ -38,7 +38,7 @@
                         <h:outputLabel value="Email:" for="email"/>
                     </td>
                     <td>
-                        <h:inputText id="email" value="#{contestant.email}" required="true"/>
+                        <h:inputText id="email" value="#{newContestant.email}" required="true"/>
                     </td>
                      <td>
                         <h:message for="email" styleClass="error"/>
@@ -49,7 +49,7 @@
                         <h:outputLabel value="Phone" for="phone"/>
                     </td>
                     <td>
-                        <h:inputText id="phone" value="#{contestant.phone}" required="true"/>
+                        <h:inputText id="phone" value="#{newContestant.phone}" required="true"/>
                     </td>
                      <td>
                         <h:message for="phone" styleClass="error"/>
@@ -60,7 +60,7 @@
                         <h:outputLabel value="Student Id:" for="studentId"/>
                     </td>
                     <td>
-                        <h:inputText id="studentId" value="#{contestant.studentId}" required="true"/>
+                        <h:inputText id="studentId" value="#{newContestant.studentId}" required="true"/>
                     </td>
                      <td>
                         <h:message for="studentId" styleClass="error"/>
@@ -71,7 +71,7 @@
                         <h:outputLabel value="Cgpa:" for="cgpa"/>
                     </td>
                     <td>
-                        <h:inputText id="cgpa" value="#{contestant.cgpa}" required="true"/>
+                        <h:inputText id="cgpa" value="#{newContestant.cgpa}" required="true"/>
                     </td>
                      <td>
                         <h:message for="cgpa" styleClass="error"/>
@@ -82,7 +82,7 @@
                         <h:outputLabel value="University:" for="university"/>
                     </td>
                     <td>
-                        <h:selectOneMenu value="#{contestant.university}" id="university">
+                        <h:selectOneMenu value="#{newContestant.university}" id="university">
                             <s:selectItems var="university" value="#{universities}" label="#{university.universityName}" itemValue="#{university.universityName}"
                                            noSelectionLabel="-- Select --"/>
 
@@ -97,7 +97,7 @@
                         <h:outputLabel value="Date Of Birth:" for="dateOfBirth"/>
                     </td>
                     <td>
-                        <rich:calendar datePattern="yyyy-MM-dd" value="#{contestant.dateOfBirth}" id="dateOfBirth"/>
+                        <rich:calendar datePattern="yyyy-MM-dd" value="#{newContestant.dateOfBirth}" id="dateOfBirth"/>
                     </td>
                      <td>
                         <h:message for="dateOfBirth" styleClass="error"/>
@@ -108,7 +108,7 @@
                         <h:outputLabel value="expected Graduation Date:" for="expectedGraduationDate"/>
                     </td>
                     <td>
-                        <rich:calendar datePattern="yyyy-MM-dd" value="#{contestant.expectedGraduationDate}"
+                        <rich:calendar datePattern="yyyy-MM-dd" value="#{newContestant.expectedGraduationDate}"
                                        id="expectedGraduationDate"/>
                     </td>
                      <td>
@@ -120,7 +120,7 @@
                         <h:outputLabel value="Gender:" for="gender"/>
                     </td>
                     <td>
-                        <h:selectOneRadio value="#{contestant.gender}" id="gender">
+                        <h:selectOneRadio value="#{newContestant.gender}" id="gender">
                             <f:selectItem itemValue="Male" itemLabel="Male"/>
                             <f:selectItem itemValue="Female" itemLabel="Female"/>
                         </h:selectOneRadio>
@@ -134,7 +134,7 @@
                         <h:outputLabel value="Description:" for="description"/>
                     </td>
                     <td>
-                        <h:inputTextarea id="description" value="#{contestant.description}" required="true"/>
+                        <h:inputTextarea id="description" value="#{newContestant.description}" required="true"/>
                     </td>
                     <td>
                         <h:message for="description" styleClass="error"/>
@@ -145,7 +145,7 @@
                         <h:outputLabel value="LinkedIn Profile Url:" for="linkedInProfile"/>
                     </td>
                     <td>
-                        <h:inputText id="linkedInProfile" value="#{contestant.linkedInProfile}"/>
+                        <h:inputText id="linkedInProfile" value="#{newContestant.linkedInProfile}"/>
                     </td>
                     <td>
                         <h:message for="linkedInProfile" styleClass="error"/>
@@ -156,7 +156,7 @@
                         <h:outputLabel value="Language Proficiency:" for="languageProficiency"/>
                     </td>
                     <td>
-                        <h:inputText id="languageProficiency" value="#{contestant.languageProficiency}"/>
+                        <h:inputText id="languageProficiency" value="#{newContestant.languageProficiency}"/>
                     </td>
                     <td>
                         <h:message for="languageProficiency" styleClass="error"/>
@@ -167,7 +167,7 @@
                         <h:outputLabel value="Upload Image:" for="image"/>
                     </td>
                     <td>
-                        <s:fileUpload id="image" data="#{contestant.photo}" accept="images/png,images/jpg"/>
+                        <s:fileUpload id="image" data="#{newContestant.photo}" accept="images/png,images/jpg"/>
                     </td>
                     <td>
                         <h:message for="image" styleClass="error"/>
@@ -179,7 +179,7 @@
                         <h:outputLabel value="Upload CV:" for="curriculumVitae"/>
                     </td>
                     <td>
-                        <s:fileUpload id="curriculumVitae" data="#{contestant.curriculumVitae}"
+                        <s:fileUpload id="curriculumVitae" data="#{newContestant.curriculumVitae}"
                                       accept="application/pdf"/>
                     </td>
                     <td>
@@ -189,14 +189,18 @@
 
                 <tr>
                     <td>
-                        <h:outputLabel value="Please correctly enter the word shown below to verify you are not a bot:" for="verifyCaptcha"/>
+                        <h:outputLabel value="Captcha:" for="verifyCaptcha"/>
+                    </td>
+                    <td>
+                        <h:graphicImage value="/seam/resource/captcha"/>
                     </td>
                 </tr>
 
                 <tr>
                     <td>
-                        <h:graphicImage value="/seam/resource/captcha?f=#{currentDate.time}"/>
+                        <h:outputLabel value="Correctly enter the word:" for="verifyCaptcha"/>
                     </td>
+
                     <td>
                         <h:inputText id="verifyCaptcha" value="#{captcha.response}" required="true"/>
                     </td>
@@ -207,7 +211,7 @@
 
                 <tr>
                     <td>
-                        <h:commandButton value="Register" action="#{registrationService.register(contestant)}"/>
+                        <h:commandButton value="Register" action="#{registrationService.register(newContestant)}"/>
                     </td>
                 </tr>
             </s:validateAll>
