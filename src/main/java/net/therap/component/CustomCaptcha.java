@@ -38,6 +38,7 @@ public class CustomCaptcha extends Captcha {
     public void init() {
         super.init();
 
+
         //setCaptchaString();
     }
 
