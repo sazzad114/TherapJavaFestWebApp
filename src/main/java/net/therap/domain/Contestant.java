@@ -1,5 +1,6 @@
 package net.therap.domain;
 
+import net.therap.util.RegularExpressions;
 import org.hibernate.validator.*;
 import org.jboss.seam.ScopeType;
 import org.jboss.seam.annotations.Name;
@@ -31,7 +32,6 @@ public class Contestant implements Serializable{
     private String contestantName;
     private String email;
     private String password;
-    private String confirmPassword;
     private String phone;
     private String studentId;
     private double cgpa;
@@ -44,10 +44,11 @@ public class Contestant implements Serializable{
     private String languageProficiency;
     private byte[] photo;
     private byte[] curriculumVitae;
-    private String state;
+    private int state;
     private Group myGroup;
     private List<AnswerInfo> screeningTestResult;
     private long version;
+
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -203,11 +204,11 @@ public class Contestant implements Serializable{
     }
 
     @Column(name = "STATE")
-    public String getState() {
+    public int getState() {
         return state;
     }
 
-    public void setState(String state) {
+    public void setState(int state) {
         this.state = state;
     }
 
@@ -239,15 +240,6 @@ public class Contestant implements Serializable{
         this.password = password;
     }
 
-    @Transient
-    public String getConfirmPassword() {
-        return confirmPassword;
-    }
-
-    public void setConfirmPassword(String confirmPassword) {
-        this.confirmPassword = confirmPassword;
-    }
-
     @Version
     @Column(name = "VERSION")
     public long getVersion() {
@@ -257,4 +249,6 @@ public class Contestant implements Serializable{
     public void setVersion(long version) {
         this.version = version;
     }
+
+
 }

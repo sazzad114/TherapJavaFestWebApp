@@ -33,7 +33,7 @@ http://jboss.com/products/seam/mail ">
 
     <transaction:hibernate-transaction session="#{therapJavaFestDbSession}"/>
 
-    <factory name="session"  scope="STATELESS"  auto-create="true"  value="#{therapJavaFestDbSession}"/>
+    <factory name="session" scope="STATELESS" auto-create="true" value="#{therapJavaFestDbSession}"/>
 
     <component class="org.jboss.seam.web.MultipartFilter">
         <property name="createTempFiles">true</property>
@@ -42,7 +42,12 @@ http://jboss.com/products/seam/mail ">
 
     <component name="org.jboss.seam.ui.EntityConverter">
         <property name="session">#{therapJavaFestDbSession}</property>
-     </component>
+    </component>
+
+    <event type="logout">
+        <action execute="#{identity.logout}"/>
+    </event>
+
 
 
 

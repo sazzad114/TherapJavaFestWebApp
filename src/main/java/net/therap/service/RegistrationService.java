@@ -1,5 +1,7 @@
-package net.therap.component;
+package net.therap.service;
 
+import net.therap.util.ContestantState;
+import net.therap.util.StringGeneratorUtil;
 import net.therap.domain.Contestant;
 import org.hibernate.Session;
 import org.jboss.seam.ScopeType;
@@ -37,10 +39,10 @@ public class RegistrationService {
 
     public String register(Contestant contestant) {
         log.debug("About to save contestant");
-        StringGenerator passwordGenerator = new StringGenerator(TEMPORARY_PASSWORD_LEN);
-        String temporaryPassword = passwordGenerator.createString();
+        StringGeneratorUtil passwordGeneratorUtil = new StringGeneratorUtil(TEMPORARY_PASSWORD_LEN);
+        String temporaryPassword = passwordGeneratorUtil.createString();
         contestant.setPassword(temporaryPassword);
-        contestant.setState("temporaryStudent");
+        contestant.setState(ContestantState.TEMPORARY_CONTESTANT);
         session.save(contestant);
         emailService.sendMessage();
         log.debug("Saved contestant");

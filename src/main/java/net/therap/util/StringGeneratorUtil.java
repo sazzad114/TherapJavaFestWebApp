@@ -1,4 +1,4 @@
-package net.therap.component;
+package net.therap.util;
 
 /**
  * Created by
@@ -6,13 +6,13 @@ package net.therap.component;
  * Date: 7/23/12
  * Time: 1:38 PM
  */
-public class StringGenerator {
+public class StringGeneratorUtil {
 
     private int charsToPrint;
     private String elegibleChars = "ABDEFGHJKLMRSTUVWXYabdefhjkmnrstuvwxy23456789";
     private char[] chars = elegibleChars.toCharArray();
 
-    public StringGenerator(int charsToPrint) {
+    public StringGeneratorUtil(int charsToPrint) {
         this.charsToPrint = charsToPrint;
     }
 
