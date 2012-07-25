@@ -37,7 +37,6 @@
 
     <page view-id="/changePassword.xhtml"
           login-required="true">
-
         <navigation>
             <rule if="#{passwordChange.changed}">
                 <redirect view-id="/home.xhtml"/>
