@@ -1,4 +1,4 @@
-package net.therap.component.captcha;
+package net.therap.captcha;
 
 /**
  * Created by
@@ -7,7 +7,7 @@ package net.therap.component.captcha;
  * Time: 6:07 PM
  */
 
-import net.therap.component.StringGenerator;
+import net.therap.util.StringGeneratorUtil;
 import org.jboss.seam.ScopeType;
 import org.jboss.seam.annotations.Create;
 import org.jboss.seam.annotations.Install;
@@ -41,8 +41,8 @@ public class CustomCaptcha extends Captcha {
     }
 
     private void setCaptchaString() {
-        StringGenerator stringGenerator = new StringGenerator(charsToPrint);
-        String finalString = stringGenerator.createString();
+        StringGeneratorUtil stringGeneratorUtil = new StringGeneratorUtil(charsToPrint);
+        String finalString = stringGeneratorUtil.createString();
         setChallenge(finalString);
         setCorrectResponse(finalString);
     }

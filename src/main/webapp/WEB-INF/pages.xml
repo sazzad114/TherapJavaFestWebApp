@@ -16,7 +16,7 @@
 
         <navigation from-action="#{identity.isLoggedIn}">
             <rule if-outcome="true">
-                <redirect view-id="/greeting.xhtml"/>
+                <redirect view-id="/greetings/greeting.xhtml"/>
             </rule>
             <rule if-outcome="false">
                 <render view-id="/home.xhtml"/>
@@ -25,7 +25,7 @@
 
     </page>
 
-      <page view-id="/greeting.xhtml" login-required="true">
+     <page view-id="/greetings/greeting.xhtml" login-required="true">
 
         <!--<navigation>
 

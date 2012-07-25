@@ -1,4 +1,4 @@
-package net.therap.component;
+package net.therap.util;
 
 import net.therap.domain.University;
 import org.jboss.seam.annotations.Factory;

@@ -1,13 +1,12 @@
-package net.therap.component;
+package net.therap.service;
 
 import net.therap.domain.Contestant;
 import org.hibernate.Session;
 import org.jboss.seam.ScopeType;
-import org.jboss.seam.annotations.In;
-import org.jboss.seam.annotations.Name;
-import org.jboss.seam.annotations.Out;
-import org.jboss.seam.annotations.Scope;
+import org.jboss.seam.annotations.*;
+import org.jboss.seam.core.Events;
 import org.jboss.seam.faces.FacesMessages;
+import org.jboss.seam.log.Log;
 
 /**
  * Created by IntelliJ IDEA.
@@ -18,6 +17,9 @@ import org.jboss.seam.faces.FacesMessages;
 @Name("passwordChange")
 @Scope(ScopeType.PAGE)
 public class PasswordChangeService {
+
+    @Logger
+    private Log log;
 
     @In
     @Out
@@ -64,6 +66,7 @@ public class PasswordChangeService {
         this.changed = changed;
     }
 
+
     public void changePassword() {
 
         if (loggedInContestant.getPassword().equals(currentPassword)) {
@@ -72,6 +75,8 @@ public class PasswordChangeService {
                 loggedInContestant.setPassword(newPassword);
                 session.update(loggedInContestant);
                 changed = true;
+                Events.instance().raiseEvent("logout");
+
              }
             else {
                  FacesMessages.instance().addToControl("confirmNewPassword", "New Password mismatch");
@@ -91,4 +96,6 @@ public class PasswordChangeService {
 
         }
     }
+
+
 }
