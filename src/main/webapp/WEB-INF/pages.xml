@@ -25,13 +25,51 @@
 
     </page>
 
-     <page view-id="/greetings/greeting.xhtml" login-required="true">
+    <page view-id="/greetings/greeting.xhtml" login-required="true" action="#{loggedInContestant.getState}">
 
-        <!--<navigation>
+        <navigation from-action="#{loggedInContestant.getState}">
+            <rule if="#{loggedInContestant.state == contestantState.NEW_CONTESTANT}">
+                <redirect view-id="/greetings/newContestantGreeting.xhtml"/>
+            </rule>
+            <rule if="#{loggedInContestant.state == contestantState.READY_FOR_TEST}">
+                <redirect view-id="/greetings/readyForTestGreeting.xhtml"/>
+            </rule>
+            <rule if="#{loggedInContestant.state == contestantState.DISQUALIFIED_AT_TEST}">
+                <redirect view-id="/greetings/disqualifiedAtTestGreeting.xhtml"/>
+            </rule>
+            <rule if="#{loggedInContestant.state == contestantState.ELIMINATED_AT_TEST}">
+                <redirect view-id="/greetings/eliminatedAtTestGreeting.xhtml"/>
+            </rule>
+            <rule if="#{loggedInContestant.state == contestantState.SELECTED_CANDIDATE}">
+                <redirect view-id="/greetings/selectedContestantGreeting.xhtml"/>
+            </rule>
+            <rule if="#{loggedInContestant.state == contestantState.PENDING_GROUP_FORMATION}">
+                <redirect view-id="/greetings/pendingGroupFormationGreeting.xhtml"/>
+            </rule>
+            <rule if="#{loggedInContestant.state == contestantState.ELIGIBLE_FOR_GROUP_REG}">
+                <redirect view-id="/greetings/eligibleForGroupRegGreeting.xhtml"/>
+            </rule>
+            <rule if="#{loggedInContestant.state == contestantState.FINISHED_GROUP_REG}">
+                <redirect view-id="/greetings/finishedGroupRegGreeting.xhtml"/>
+            </rule>
+            <rule if="#{loggedInContestant.state == contestantState.DISQUALIFIED_AT_FORMATION}">
+                <redirect view-id="/greetings/disqualifiedAtGroupFormation.xhtml"/>
+            </rule>
+            <rule if="#{loggedInContestant.state == contestantState.AT_BUSINESS_PROPOSAL}">
+                <redirect view-id="/greetings/atBusinessProposalGreeting.xhtml"/>
+            </rule>
+            <rule if="#{loggedInContestant.state == contestantState.DISQUALIFIED_AT_PROPOSAL}">
+                <redirect view-id="/greetings/disqualifiedAtProposalGreeting.xhtml"/>
+            </rule>
+            <rule if="#{loggedInContestant.state == contestantState.PENDING_PROPOSAL_RESULT}">
+                <redirect view-id="/greetings/pendingProposalResultGreeting.xhtml"/>
+            </rule>
+            <rule if="#{loggedInContestant.state == contestantState.ELIMINATED_AT_PROPOSAL}">
+                <redirect view-id="/greetings/eliminatedAtProposalGreeting.xhtml"/>
+            </rule>
 
 
-
-        </navigation>-->
+        </navigation>
 
     </page>
 

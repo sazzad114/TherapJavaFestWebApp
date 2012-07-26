@@ -6,6 +6,7 @@ import org.jboss.seam.ScopeType;
 import org.jboss.seam.annotations.Name;
 import org.jboss.seam.annotations.Role;
 import org.jboss.seam.annotations.Scope;
+import org.jboss.seam.core.Events;
 
 import javax.persistence.*;
 import javax.persistence.Version;
