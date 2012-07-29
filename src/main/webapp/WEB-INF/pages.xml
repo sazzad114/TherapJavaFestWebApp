@@ -37,6 +37,9 @@
             <rule if="#{loggedInContestant.state == contestantState.DISQUALIFIED_AT_TEST}">
                 <redirect view-id="/greetings/disqualifiedAtTestGreeting.xhtml"/>
             </rule>
+            <rule if="#{loggedInContestant.state == contestantState.PENDING_TEST_RESULT}">
+                <redirect view-id="/greetings/pendingTestResultGreeting.xhtml"/>
+            </rule>
             <rule if="#{loggedInContestant.state == contestantState.ELIMINATED_AT_TEST}">
                 <redirect view-id="/greetings/eliminatedAtTestGreeting.xhtml"/>
             </rule>
@@ -67,7 +70,24 @@
             <rule if="#{loggedInContestant.state == contestantState.ELIMINATED_AT_PROPOSAL}">
                 <redirect view-id="/greetings/eliminatedAtProposalGreeting.xhtml"/>
             </rule>
-
+            <rule if="#{loggedInContestant.state == contestantState.AT_FINAL_SUBMISSION}">
+                <redirect view-id="/greetings/atFinalSubmissionGreeting.xhtml"/>
+            </rule>
+            <rule if="#{loggedInContestant.state == contestantState.DISQUALIFIED_AT_SUBMISSION}">
+                <redirect view-id="/greetings/disqualifiedAtSubmission.xhtml"/>
+            </rule>
+            <rule if="#{loggedInContestant.state == contestantState.PENDING_SUBMISSION_RESULT}">
+                <redirect view-id="/greetings/pendingSubmissionResult.xhtml"/>
+            </rule>
+            <rule if="#{loggedInContestant.state == contestantState.ELIMINATED_AT_SUBMISSION}">
+                <redirect view-id="/greetings/eliminatedAtSubmissionGreeting.xhtml"/>
+            </rule>
+            <rule if="#{loggedInContestant.state == contestantState.AT_FINAL_STAGE}">
+                <redirect view-id="/greetings/atFinalStageGreeting.xhtml"/>
+            </rule>
+            <rule if="#{loggedInContestant.state == contestantState.BANNED}">
+                <redirect view-id="/greetings/bannedGreeting.xhtml"/>
+            </rule>
 
         </navigation>
 
