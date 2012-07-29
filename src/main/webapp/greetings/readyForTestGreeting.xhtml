@@ -1,19 +1,20 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:s="http://jboss.com/products/seam/taglib">
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
-    <title>JBoss Suites: Seam Framework</title>
-</head>
-<body>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:s="http://jboss.com/products/seam/taglib"
+                template="greeting.xhtml">
 
-Welcome,  #{loggedInContestant.contestantName} ...
+    <!-- menu -->
 
-Start your screening test here.
+    <ui:define name="dependingOnstate">
 
-</body>
-</html>
+        Welcome,  #{loggedInContestant.contestantName} ...
+
+        Start your screening test here.
+
+
+    </ui:define>
+</ui:composition>
