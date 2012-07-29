@@ -39,211 +39,215 @@
 <div id="page-bgbtm">
 <div id="content-reg">
 <div class="post">
-    <div class="meta">
-        <h1>Register for Therap Java Fest !</h1>
-    </div>
-</div>
-<div class="post">
+<h2 class="title">Register for Therap Java Fest !</h2>
+
+<p class="meta"></p>
+
+<div class="entry">
 <h:form id="register" enctype="multipart/form-data">
 
-    <table>
-        <s:validateAll>
-            <tr>
-                <td>
-                    <h:outputLabel value="*Contestant Name:" for="contestantName"/>
-                </td>
-                <td>
-                    <h:inputText id="contestantName" value="#{newContestant.contestantName}" required="true"/>
-                </td>
-                <td>
-                    <h:message for="contestantName" styleClass="error"/>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <h:outputLabel value="*Email:" for="email"/>
-                </td>
-                <td>
-                    <h:inputText id="email" value="#{newContestant.email}" required="true"/>
-                </td>
-                <td>
-                    <h:message for="email" styleClass="error"/>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <h:outputLabel value="*Phone" for="phone"/>
-                </td>
-                <td>
-                    <h:inputText id="phone" value="#{newContestant.phone}" required="true"/>
-                </td>
-                <td>
-                    <h:message for="phone" styleClass="error"/>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <h:outputLabel value="*Student Id:" for="studentId"/>
-                </td>
-                <td>
-                    <h:inputText id="studentId" value="#{newContestant.studentId}" required="true"/>
-                </td>
-                <td>
-                    <h:message for="studentId" styleClass="error"/>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <h:outputLabel value="*Cgpa:" for="cgpa"/>
-                </td>
-                <td>
-                    <h:inputText id="cgpa" value="#{newContestant.cgpa}" required="true"/>
-                </td>
-                <td>
-                    <h:message for="cgpa" styleClass="error"/>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <h:outputLabel value="*University:" for="university"/>
-                </td>
-                <td>
-                    <h:selectOneMenu value="#{newContestant.university}" id="university" required="true">
-                        <s:selectItems var="university" value="#{universities}" label="#{university.universityName}"
-                                       itemValue="#{university.universityName}"
-                                       noSelectionLabel="-- Select --"/>
+<table>
+    <s:validateAll>
+        <tr>
+            <td>
+                <h:outputLabel value="*Contestant Name:" for="contestantName"/>
+            </td>
+            <td>
+                <h:inputText id="contestantName" value="#{newContestant.contestantName}" required="true"/>
+            </td>
+            <td>
+                <h:message for="contestantName" styleClass="error"/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <h:outputLabel value="*Email:" for="email"/>
+            </td>
+            <td>
+                <h:inputText id="email" value="#{newContestant.email}" required="true"/>
+            </td>
+            <td>
+                <h:message for="email" styleClass="error"/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <h:outputLabel value="*Phone" for="phone"/>
+            </td>
+            <td>
+                <h:inputText id="phone" value="#{newContestant.phone}" required="true"/>
+            </td>
+            <td>
+                <h:message for="phone" styleClass="error"/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <h:outputLabel value="*Student Id:" for="studentId"/>
+            </td>
+            <td>
+                <h:inputText id="studentId" value="#{newContestant.studentId}" required="true"/>
+            </td>
+            <td>
+                <h:message for="studentId" styleClass="error"/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <h:outputLabel value="*Cgpa:" for="cgpa"/>
+            </td>
+            <td>
+                <h:inputText id="cgpa" value="#{newContestant.cgpa}" required="true"/>
+            </td>
+            <td>
+                <h:message for="cgpa" styleClass="error"/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <h:outputLabel value="*University:" for="university"/>
+            </td>
+            <td>
+                <h:selectOneMenu value="#{newContestant.university}" id="university" required="true">
+                    <s:selectItems var="university" value="#{universities}" label="#{university.universityName}"
+                                   itemValue="#{university.universityName}"
+                                   noSelectionLabel="-- Select --"/>
 
-                    </h:selectOneMenu>
-                </td>
-                <td>
-                    <h:message for="university" styleClass="error"/>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <h:outputLabel value="*Date Of Birth:" for="dateOfBirth"/>
-                </td>
-                <td>
-                    <rich:calendar datePattern="yyyy-MM-dd" value="#{newContestant.dateOfBirth}" id="dateOfBirth" required="true"/>
-                </td>
-                <td>
-                    <rich:message for="dateOfBirth" styleClass="error"/>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <h:outputLabel value="*Expected Graduation Date:" for="expectedGraduationDate"/>
-                </td>
-                <td>
-                    <rich:calendar datePattern="yyyy-MM-dd" value="#{newContestant.expectedGraduationDate}" required="true"
-                                   id="expectedGraduationDate"/>
-                </td>
-                <td>
-                    <rich:message for="expectedGraduationDate" styleClass="error"/>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <h:outputLabel value="*Gender:" for="gender"/>
-                </td>
-                <td>
-                    <h:selectOneRadio value="#{newContestant.gender}" id="gender">
-                        <f:selectItem itemValue="Male" itemLabel="Male"/>
-                        <f:selectItem itemValue="Female" itemLabel="Female"/>
-                    </h:selectOneRadio>
-                </td>
-                <td>
-                    <h:message for="gender" styleClass="error"/>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <h:outputLabel value="*Description:" for="description"/>
-                </td>
-                <td>
-                    <h:inputTextarea id="description" value="#{newContestant.description}" required="true"/>
-                </td>
-                <td>
-                    <h:message for="description" styleClass="error"/>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <h:outputLabel value="LinkedIn Profile Url:" for="linkedInProfile"/>
-                </td>
-                <td>
-                    <h:inputText id="linkedInProfile" value="#{newContestant.linkedInProfile}"/>
-                </td>
-                <td>
-                    <h:message for="linkedInProfile" styleClass="error"/>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <h:outputLabel value="*Language Proficiency:" for="languageProficiency"/>
-                </td>
-                <td>
-                    <h:inputText id="languageProficiency" value="#{newContestant.languageProficiency}" required="true"/>
-                </td>
-                <td>
-                    <h:message for="languageProficiency" styleClass="error"/>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <h:outputLabel value="*Upload Image:" for="image"/>
-                </td>
-                <td>
-                    <s:fileUpload id="image" data="#{newContestant.photo}" accept="images/png,images/jpg" contentType="true" immediate="true" required="true"/>
-                </td>
-                <td>
-                    <s:message for="image" styleClass="error"/>
-                </td>
-            </tr>
+                </h:selectOneMenu>
+            </td>
+            <td>
+                <h:message for="university" styleClass="error"/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <h:outputLabel value="*Date Of Birth:" for="dateOfBirth"/>
+            </td>
+            <td>
+                <rich:calendar datePattern="yyyy-MM-dd" value="#{newContestant.dateOfBirth}" id="dateOfBirth"
+                               required="true"/>
+            </td>
+            <td>
+                <rich:message for="dateOfBirth" styleClass="error"/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <h:outputLabel value="*Expected Graduation Date:" for="expectedGraduationDate"/>
+            </td>
+            <td>
+                <rich:calendar datePattern="yyyy-MM-dd" value="#{newContestant.expectedGraduationDate}"
+                               required="true"
+                               id="expectedGraduationDate"/>
+            </td>
+            <td>
+                <rich:message for="expectedGraduationDate" styleClass="error"/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <h:outputLabel value="*Gender:" for="gender"/>
+            </td>
+            <td>
+                <h:selectOneRadio value="#{newContestant.gender}" id="gender">
+                    <f:selectItem itemValue="Male" itemLabel="Male"/>
+                    <f:selectItem itemValue="Female" itemLabel="Female"/>
+                </h:selectOneRadio>
+            </td>
+            <td>
+                <h:message for="gender" styleClass="error"/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <h:outputLabel value="*Description:" for="description"/>
+            </td>
+            <td>
+                <h:inputTextarea id="description" value="#{newContestant.description}" required="true"/>
+            </td>
+            <td>
+                <h:message for="description" styleClass="error"/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <h:outputLabel value="LinkedIn Profile Url:" for="linkedInProfile"/>
+            </td>
+            <td>
+                <h:inputText id="linkedInProfile" value="#{newContestant.linkedInProfile}"/>
+            </td>
+            <td>
+                <h:message for="linkedInProfile" styleClass="error"/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <h:outputLabel value="*Language Proficiency:" for="languageProficiency"/>
+            </td>
+            <td>
+                <h:inputText id="languageProficiency" value="#{newContestant.languageProficiency}" required="true"/>
+            </td>
+            <td>
+                <h:message for="languageProficiency" styleClass="error"/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <h:outputLabel value="*Upload Image:" for="image"/>
+            </td>
+            <td>
+                <s:fileUpload id="image" data="#{newContestant.photo}" accept="images/png,images/jpg"
+                              contentType="true" immediate="true" required="true"/>
+            </td>
+            <td>
+                <s:message for="image" styleClass="error"/>
+            </td>
+        </tr>
 
-            <tr>
-                <td>
-                    <h:outputLabel value="Upload CV:" for="curriculumVitae"/>
-                </td>
-                <td>
-                    <s:fileUpload id="curriculumVitae" data="#{newContestant.curriculumVitae}"
-                                  accept="application/pdf"/>
-                </td>
-                <td>
-                    <s:message for="curriculumVitae" styleClass="error"/>
-                </td>
-            </tr>
+        <tr>
+            <td>
+                <h:outputLabel value="Upload CV:" for="curriculumVitae"/>
+            </td>
+            <td>
+                <s:fileUpload id="curriculumVitae" data="#{newContestant.curriculumVitae}"
+                              accept="application/pdf"/>
+            </td>
+            <td>
+                <s:message for="curriculumVitae" styleClass="error"/>
+            </td>
+        </tr>
 
-            <tr>
-                <td>
-                    <h:outputLabel value="Captcha:" for="verifyCaptcha"/>
-                </td>
-                <td>
-                    <h:graphicImage value="/seam/resource/captcha"/>
-                </td>
-            </tr>
+        <tr>
+            <td>
+                <h:outputLabel value="Captcha:" for="verifyCaptcha"/>
+            </td>
+            <td>
+                <h:graphicImage value="/seam/resource/captcha"/>
+            </td>
+        </tr>
 
-            <tr>
-                <td>
-                    <h:outputLabel value="*Correctly enter the word:" for="verifyCaptcha"/>
-                </td>
+        <tr>
+            <td>
+                <h:outputLabel value="*Correctly enter the word:" for="verifyCaptcha"/>
+            </td>
 
-                <td>
-                    <h:inputText id="verifyCaptcha" value="#{captcha.response}" required="true"/>
-                </td>
-                <td>
-                    <h:message for="verifyCaptcha" styleClass="error"/>
-                </td>
-            </tr>
+            <td>
+                <h:inputText id="verifyCaptcha" value="#{captcha.response}" required="true"/>
+            </td>
+            <td>
+                <h:message for="verifyCaptcha" styleClass="error"/>
+            </td>
+        </tr>
 
-            <tr>
-                <td>
-                    <h:commandButton value="Register" action="#{registrationService.register(newContestant)}"/>
-                </td>
-            </tr>
-        </s:validateAll>
-    </table>
+        <tr>
+            <td>
+                <h:commandButton value="Register" action="#{registrationService.register(newContestant)}"/>
+            </td>
+        </tr>
+    </s:validateAll>
+</table>
 </h:form>
+</div>
 </div>
 <div style="clear: both;">&nbsp;</div>
 </div>

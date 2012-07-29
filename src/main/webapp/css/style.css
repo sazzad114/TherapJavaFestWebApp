@@ -7,7 +7,7 @@ Released for free under a Creative Commons Attribution 2.5 License
 body {
     margin: 0;
     padding: 0;
-    background: #FFFFFF url(../images/img02.gif) repeat;
+    background: #FFFFFF url(/therapJavaFestWebApp/images/img02.gif) repeat;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 14px;
     color: #402C16;
@@ -311,7 +311,7 @@ img.aligncenter {
 #sidebar li li {
     padding-left: 20px;
     line-height: 35px;
-    background: url(../images/img01.gif) no-repeat left 12px;
+    background: url(/therapJavaFestWebApp/images/img01.gif) no-repeat left 12px;
 }
 
 #sidebar li li span {
