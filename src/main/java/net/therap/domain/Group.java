@@ -14,7 +14,7 @@ import java.util.List;
  */
 
 @Entity
-@Table(name = "GROUP")
+@Table(name = "CONTEST_GROUP")
 public class Group {
 
     private long groupId;

@@ -21,5 +21,10 @@ public class FactoryUtil {
         return Arrays.asList(University.values());
     }
 
+    @Factory("Questiontimemer")
+    public long getTimes(){
+        return 10;
+    }
+
 
 }
