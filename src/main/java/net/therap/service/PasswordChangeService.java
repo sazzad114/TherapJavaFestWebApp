@@ -1,7 +1,7 @@
 package net.therap.service;
 
+import net.therap.dao.ContestantDao;
 import net.therap.domain.Contestant;
-import org.hibernate.Session;
 import org.jboss.seam.ScopeType;
 import org.jboss.seam.annotations.*;
 import org.jboss.seam.core.Events;
@@ -26,7 +26,7 @@ public class PasswordChangeService {
     private Contestant loggedInContestant;
 
     @In
-    private Session session;
+    private ContestantDao contestantDao;
 
 
     private String currentPassword;
@@ -70,10 +70,11 @@ public class PasswordChangeService {
     public void changePassword() {
 
         if (loggedInContestant.getPassword().equals(currentPassword)) {
-             if(newPassword.equals(confirmNewPassword))
+
+            if(newPassword.equals(confirmNewPassword))
              {
                 loggedInContestant.setPassword(newPassword);
-                session.update(loggedInContestant);
+                contestantDao.updateContestant(loggedInContestant);
                 changed = true;
                 Events.instance().raiseEvent("logout");
 

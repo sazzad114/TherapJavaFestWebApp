@@ -369,3 +369,14 @@ img.aligncenter {
 #footer a {
     color: #676767;
 }
+
+  /*.content:-webkit-full-screen {
+    width: 100%;
+    height: 100%;
+    background:WHITE;
+  }
+  .content:-moz-full-screen {
+    width: 100%;
+    height: 100%;
+      background:WHITE;
+  }*/

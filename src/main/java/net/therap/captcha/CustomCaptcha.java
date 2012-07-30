@@ -41,8 +41,8 @@ public class CustomCaptcha extends Captcha {
     }
 
     private void setCaptchaString() {
-        StringGeneratorUtil stringGeneratorUtil = new StringGeneratorUtil(charsToPrint);
-        String finalString = stringGeneratorUtil.createString();
+
+        String finalString = StringGeneratorUtil.generateString(charsToPrint);
         setChallenge(finalString);
         setCorrectResponse(finalString);
     }

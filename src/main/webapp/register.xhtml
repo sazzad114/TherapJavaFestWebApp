@@ -1,43 +1,26 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:s="http://jboss.com/products/seam/taglib"
-      xmlns:a="http://richfaces.org/a4j" xmlns:rich="http://richfaces.org/rich">
-<head>
-    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
-    <title>Therap Java Fest</title>
-    <link href="css/style.css" rel="stylesheet" type="text/css"/>
-</head>
-<body>
-<div id="wrapper">
-<div id="header-wrapper">
-    <div id="header">
-        <div id="logo">
-            <h1><a href="#">Therap Java Fest </a></h1>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:s="http://jboss.com/products/seam/taglib" xmlns:rich="http://richfaces.org/rich"
+                template="formTemplate.xhtml">
 
-            <p>Way to your dream...</p>
-        </div>
-    </div>
-</div>
 
-<div id="menu">
+<ui:define name="menu">
+
     <ul>
-        <li class="current_page_item"><a href="#">Home</a></li>
-        <li><a href="#">Blog</a></li>
-        <li><a href="#">Photos</a></li>
+        <li class="current_page_item"><s:link value="Home" view="/home.xhtml"/></li>
+        <li><a href="#">Profile</a></li>
         <li><a href="#">About</a></li>
         <li><a href="#">Links</a></li>
-        <li><a href="#">Contact</a></li>
-    </ul>
-</div>
 
-<div id="page">
-<div id="page-bgtop">
-<div id="page-bgbtm">
-<div id="content-reg">
+    </ul>
+
+</ui:define>
+
+<ui:define name="content">
 <div class="post">
 <h2 class="title">Register for Therap Java Fest !</h2>
 
@@ -249,22 +232,11 @@
 </h:form>
 </div>
 </div>
-<div style="clear: both;">&nbsp;</div>
-</div>
-<!-- end #content -->
-<!-- end #sidebar -->
-<div style="clear: both;">&nbsp;</div>
-</div>
-</div>
-</div>
+
+</ui:define>
 
 
-</div>
-<div id="footer">
-    <p>Copyright (c) 2011 Sitename.com. All rights reserved. Design by <a
-            href="http://www.freecsstemplates.org/">FCT</a>.</p>
-</div>
-</body>
-</html>
+</ui:composition>
+
 
 

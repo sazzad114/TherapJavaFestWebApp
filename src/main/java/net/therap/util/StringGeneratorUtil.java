@@ -8,22 +8,21 @@ package net.therap.util;
  */
 public class StringGeneratorUtil {
 
-    private int charsToPrint;
-    private String elegibleChars = "ABDEFGHJKLMRSTUVWXYabdefhjkmnrstuvwxy23456789";
-    private char[] chars = elegibleChars.toCharArray();
 
-    public StringGeneratorUtil(int charsToPrint) {
-        this.charsToPrint = charsToPrint;
-    }
+    private static String elegibleChars = "ABDEFGHJKLMRSTUVWXYabdefhjkmnrstuvwxy23456789";
 
-    public String createString() {
+    public static String generateString(int stringLength) {
+
+        char[] chars = elegibleChars.toCharArray();
         StringBuffer finalString = new StringBuffer();
-        for (int i = 0; i < charsToPrint; i++) {
+
+        for (int i = 0; i < stringLength; i++) {
             double randomValue = Math.random();
             int randomIndex = (int) Math.round(randomValue * (chars.length - 1));
             char characterToShow = chars[randomIndex];
             finalString.append(characterToShow);
         }
+
         return finalString.toString();
     }
 
