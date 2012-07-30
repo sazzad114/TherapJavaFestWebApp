@@ -17,10 +17,11 @@ import java.util.List;
 public class ScreeningTest {
 
     private long screeningTestId;
+    private Contestant contestant;
     private Date startingTime;
     private Date endingTime;
-    private List<Long> questionOrder;
-    private long currentQuestion;
+    private List<Integer> questionOrder;
+    private int currentQuestion;
     private long version;
 
     @Id
@@ -54,23 +55,32 @@ public class ScreeningTest {
         this.endingTime = endingTime;
     }
 
+    @OneToOne(mappedBy = "screeningTest")
+    public Contestant getContestant() {
+        return contestant;
+    }
+
+    public void setContestant(Contestant contestant) {
+        this.contestant = contestant;
+    }
+
     @CollectionOfElements
     @JoinTable(name = "QUESTION_ORDER", joinColumns = @JoinColumn(name = "SCREENING_TEST_ID"))
-    @Column(name = "ORDER")
-    public List<Long> getQuestionOrder() {
+    @Column(name = "Q_ORDER")
+    public List<Integer> getQuestionOrder() {
         return questionOrder;
     }
 
-    public void setQuestionOrder(List<Long> questionOrder) {
+    public void setQuestionOrder(List<Integer> questionOrder) {
         this.questionOrder = questionOrder;
     }
 
     @Column(name = "CURRENT_QUESTION")
-    public long getCurrentQuestion() {
+    public int getCurrentQuestion() {
         return currentQuestion;
     }
 
-    public void setCurrentQuestion(long currentQuestion) {
+    public void setCurrentQuestion(int currentQuestion) {
         this.currentQuestion = currentQuestion;
     }
 

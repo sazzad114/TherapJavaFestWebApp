@@ -34,6 +34,9 @@
             <rule if="#{loggedInContestant.state == contestantState.READY_FOR_TEST}">
                 <redirect view-id="/greetings/readyForTestGreeting.xhtml"/>
             </rule>
+            <rule if="#{loggedInContestant.state == contestantState.AT_TEST}">
+                <redirect view-id="/test.xhtml"/>
+            </rule>
             <rule if="#{loggedInContestant.state == contestantState.DISQUALIFIED_AT_TEST}">
                 <redirect view-id="/greetings/disqualifiedAtTestGreeting.xhtml"/>
             </rule>
@@ -101,6 +104,10 @@
             </rule>
         </navigation>
 
+    </page>
+
+    <page view-id="/test.xhtml">
+        <action execute="#{testService.startTest}" if="#{not facesContext.renderKit.responseStateManager.isPostback(facesContext)}"/>
     </page>
 
     <page view-id="*">

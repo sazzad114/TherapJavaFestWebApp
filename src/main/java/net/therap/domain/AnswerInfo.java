@@ -21,7 +21,9 @@ public class AnswerInfo {
     private boolean correct;
     private long version;
 
+
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "ANSWER_INFO_ID")
     public long getAnswerInfoId() {
         return answerInfoId;

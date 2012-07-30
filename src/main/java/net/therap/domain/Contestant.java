@@ -47,6 +47,7 @@ public class Contestant implements Serializable{
     private byte[] curriculumVitae;
     private int state;
     private Group myGroup;
+    private ScreeningTest screeningTest;
     private List<AnswerInfo> screeningTestResult;
     private long version;
 
@@ -239,6 +240,16 @@ public class Contestant implements Serializable{
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    @OneToOne
+    @JoinColumn(name = "SCREENING_TEST_ID")
+    public ScreeningTest getScreeningTest() {
+        return screeningTest;
+    }
+
+    public void setScreeningTest(ScreeningTest screeningTest) {
+        this.screeningTest = screeningTest;
     }
 
     @Version
