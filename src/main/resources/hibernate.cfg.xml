@@ -16,7 +16,7 @@
         <property name="show_sql">true</property>
         <property name="hbm2ddl.auto">update</property>
 
-       <mapping class="net.therap.domain.Admin"/>
+        <mapping class="net.therap.domain.Admin"/>
         <mapping class="net.therap.domain.AnswerInfo"/>
         <mapping class="net.therap.domain.AuditInfo"/>
         <mapping class="net.therap.domain.Contestant"/>
@@ -25,6 +25,7 @@
         <mapping class="net.therap.domain.ProjectProposal"/>
         <mapping class="net.therap.domain.ProjectSubmission"/>
         <mapping class="net.therap.domain.ScreeningTest"/>
+        <mapping class="net.therap.domain.ScreeningTestStateInfo"/>
 
     </session-factory>
 

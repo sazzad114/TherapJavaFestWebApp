@@ -6,7 +6,7 @@
     <page view-id="/register.xhtml">
         <navigation>
             <rule if-outcome="success">
-                <redirect view-id="/emailsent.xhtml"/>
+                <redirect view-id="/emailSent.xhtml"/>
 
             </rule>
         </navigation>
@@ -35,7 +35,7 @@
                 <redirect view-id="/greetings/readyForTestGreeting.xhtml"/>
             </rule>
             <rule if="#{loggedInContestant.state == contestantState.AT_TEST}">
-                <redirect view-id="/test.xhtml"/>
+                <redirect view-id="/screeningTest.xhtml"/>
             </rule>
             <rule if="#{loggedInContestant.state == contestantState.DISQUALIFIED_AT_TEST}">
                 <redirect view-id="/greetings/disqualifiedAtTestGreeting.xhtml"/>
@@ -106,8 +106,11 @@
 
     </page>
 
-    <page view-id="/test.xhtml">
-        <action execute="#{testService.startTest}" if="#{not facesContext.renderKit.responseStateManager.isPostback(facesContext)}"/>
+    <page view-id="/screeningTest.xhtml">
+        <!--<action execute="#{testService.loadFirstQuestion}" if="#{ not testService.notFirstLoad and not facesContext.renderKit.responseStateManager.isPostback(facesContext)}"/>
+        -->
+        <action execute="#{testService.loadFirstQuestion}" if="#{not notFirstLoad and not facesContext.renderKit.responseStateManager.isPostback(facesContext)}"/>
+        <action execute="#{testService.loadCurrentQuestion}" if="#{notFirstLoad and not facesContext.renderKit.responseStateManager.isPostback(facesContext)}"/>
     </page>
 
     <page view-id="*">

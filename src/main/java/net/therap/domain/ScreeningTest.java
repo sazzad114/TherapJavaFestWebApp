@@ -21,7 +21,7 @@ public class ScreeningTest {
     private Date startingTime;
     private Date endingTime;
     private List<Integer> questionOrder;
-    private int currentQuestion;
+    private ScreeningTestStateInfo currentQuestionState;
     private long version;
 
     @Id
@@ -75,13 +75,13 @@ public class ScreeningTest {
         this.questionOrder = questionOrder;
     }
 
-    @Column(name = "CURRENT_QUESTION")
-    public int getCurrentQuestion() {
-        return currentQuestion;
+    @Embedded
+    public ScreeningTestStateInfo getCurrentQuestionState() {
+        return currentQuestionState;
     }
 
-    public void setCurrentQuestion(int currentQuestion) {
-        this.currentQuestion = currentQuestion;
+    public void setCurrentQuestionState(ScreeningTestStateInfo currentQuestionState) {
+        this.currentQuestionState = currentQuestionState;
     }
 
     @Version

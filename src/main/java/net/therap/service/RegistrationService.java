@@ -25,7 +25,7 @@ public class RegistrationService {
     private final int TEMPORARY_PASSWORD_LEN = 10;
 
 
-    @In
+    @In(create = true)
     private ContestantDao contestantDao;
 
     @In

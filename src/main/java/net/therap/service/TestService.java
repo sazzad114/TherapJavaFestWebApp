@@ -12,6 +12,9 @@ import net.therap.util.ContestantState;
 import org.jboss.seam.ScopeType;
 import org.jboss.seam.annotations.*;
 import org.jboss.seam.faces.Redirect;
+import org.jboss.seam.log.Log;
+
+import java.util.Date;
 
 /**
  * Created by
@@ -24,23 +27,34 @@ import org.jboss.seam.faces.Redirect;
 @Scope(ScopeType.CONVERSATION)
 public class TestService {
 
+    @Logger
+    Log log;
+
     @In(create = true)
-    QuestionBank questionBank;
+    private QuestionBank questionBank;
 
     @In
-    Contestant loggedInContestant;
+    private Contestant loggedInContestant;
 
-    @In
-    AnswerInfoDao answerInfoDao;
+    @In(create = true)
+    private AnswerInfoDao answerInfoDao;
 
-    @In
-    ContestantDao contestantDao;
+    @In(create = true)
+    private ContestantDao contestantDao;
 
-    @In
-    ScreeningTestDao screeningTestDao;
+    @In(create = true)
+    private ScreeningTestDao screeningTestDao;
+
+    @In(create = true)
+    @Out
+    private Boolean notFirstLoad;
+
 
     @Out
-    Question currentQuestion;
+    private Question currentQuestion;
+
+
+    private long timeLeft;
 
     private Integer selectedOptionId;
 
@@ -52,19 +66,65 @@ public class TestService {
         this.selectedOptionId = selectedOptionId;
     }
 
-    private static int index = 0;
+    public long getTimeLeft() {
+        return timeLeft;
+    }
 
     @Begin
-    public void startTest() {
-
-        ScreeningTest screeningTest = loggedInContestant.getScreeningTest();
-
-        currentQuestion = questionBank.getQuestions().get(screeningTest.getCurrentQuestion());
-
+    public void loadFirstQuestion() {
+        log.info("Invoking loadFirstQuestion");
         selectedOptionId = -1;
+        ScreeningTest screeningTest = loggedInContestant.getScreeningTest();
+        Question question = questionBank.getQuestions().get(screeningTest.getCurrentQuestionState().getCurrentQuestionId());
+        Date currentDateTime = new Date();
+        long timeElapsed = currentDateTime.getTime() - screeningTest.getCurrentQuestionState().getLastLoadingTime().getTime();
+
+        timeElapsed = timeElapsed / 1000;
+        log.info("value of time elapsed" + timeElapsed);
+
+        log.info("get current question");
+        screeningTest.getCurrentQuestionState().setLastLoadingTime(currentDateTime);
+        timeLeft = screeningTest.getCurrentQuestionState().getTimeLeft() - timeElapsed;
+        screeningTest.getCurrentQuestionState().setTimeLeft(timeLeft);
+        currentQuestion = question;
+        screeningTestDao.updateScreeningTest(screeningTest);
+        notFirstLoad = true;
 
     }
 
+
+    public void loadCurrentQuestion() {
+        log.info("Invoking loadCurrentQuestion");
+
+        selectedOptionId = -1;
+        ScreeningTest screeningTest = loggedInContestant.getScreeningTest();
+        Question question = questionBank.getQuestions().get(screeningTest.getCurrentQuestionState().getCurrentQuestionId());
+        Date currentDateTime = new Date();
+        long timeElapsed = currentDateTime.getTime() - screeningTest.getCurrentQuestionState().getLastLoadingTime().getTime();
+
+        timeElapsed = timeElapsed / 1000;
+        log.info("value of time elapsed" + timeElapsed);
+        log.info("value of time left" + timeLeft);
+        log.info("value of question's time" + screeningTest.getCurrentQuestionState().getTimeLeft());
+
+        if (timeElapsed+2 >= screeningTest.getCurrentQuestionState().getTimeLeft()) {
+            log.info("into next question");
+            getNextQuestion();
+
+        } else {
+            log.info("get current question");
+            screeningTest.getCurrentQuestionState().setLastLoadingTime(currentDateTime);
+            timeLeft = screeningTest.getCurrentQuestionState().getTimeLeft() - timeElapsed;
+            screeningTest.getCurrentQuestionState().setTimeLeft(timeLeft);
+            currentQuestion = question;
+            screeningTestDao.updateScreeningTest(screeningTest);
+
+        }
+
+
+    }
+
+    @Begin(join = true)
     public void getNextQuestion() {
 
         AnswerInfo answerInfo = new AnswerInfo();
@@ -91,21 +151,22 @@ public class TestService {
         }
 
 
-
-
         if (currentIndex == screeningTest.getQuestionOrder().size() - 1) {
             loggedInContestant.setState(ContestantState.PENDING_TEST_RESULT);
             contestantDao.updateContestant(loggedInContestant);
             Redirect redirect = Redirect.instance();
             redirect.setViewId("/greetings/greeting.xhtml");
             redirect.execute();
-        }
-        else {
+        } else {
 
 
             currentQuestion = questionBank.getQuestions().get(screeningTest.getQuestionOrder().get(currentIndex));
             selectedOptionId = -1;
-            screeningTest.setCurrentQuestion(currentQuestion.getQuestionId());
+
+            screeningTest.getCurrentQuestionState().setCurrentQuestionId(currentQuestion.getQuestionId());
+            screeningTest.getCurrentQuestionState().setLastLoadingTime(new Date());
+            timeLeft = currentQuestion.getAllottedTime();
+            screeningTest.getCurrentQuestionState().setTimeLeft(timeLeft);
             screeningTestDao.updateScreeningTest(screeningTest);
         }
 

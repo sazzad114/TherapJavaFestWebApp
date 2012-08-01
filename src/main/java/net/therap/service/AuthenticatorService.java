@@ -3,6 +3,7 @@ package net.therap.service;
 import net.therap.dao.ContestantDao;
 import net.therap.domain.Contestant;
 import net.therap.util.ContestantState;
+import org.jboss.seam.ScopeType;
 import org.jboss.seam.annotations.In;
 import org.jboss.seam.annotations.Logger;
 import org.jboss.seam.annotations.Name;
@@ -11,13 +12,11 @@ import org.jboss.seam.core.Events;
 import org.jboss.seam.log.Log;
 import org.jboss.seam.security.Identity;
 
-import static org.jboss.seam.ScopeType.SESSION;
-
 @Name("authenticator")
 public class AuthenticatorService {
 
 
-    @In
+    @In(create = true)
     private ContestantDao contestantDao;
 
     @In
@@ -26,7 +25,7 @@ public class AuthenticatorService {
     @Logger
     Log log;
 
-    @Out(required = false, scope = SESSION)
+    @Out(required = false,scope = ScopeType.SESSION)
     private Contestant loggedInContestant;
 
     public boolean authenticate() {

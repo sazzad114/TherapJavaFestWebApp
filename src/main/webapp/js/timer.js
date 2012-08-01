@@ -8,6 +8,7 @@
 
 var javascript_countdown = function () {
 	var time_left = 10; //number of seconds for countdown
+    var conversationId = 4;
 	var output_element_id = 'javascript_countdown_time';
 	var keep_counting = 1;
 	var no_time_left_message = 'No time left for JavaScript countdown!';
@@ -61,7 +62,7 @@ var javascript_countdown = function () {
 				setTimeout("javascript_countdown.timer();", 1000);
 			} else {
 				no_time_left();
-                window.location="/therapJavaFestWebApp/question.seam";
+                window.location="/therapJavaFestWebApp/screeningTest.seam?cid="+conversationId;
 			}
 		},
 		//Kristian Messer requested recalculation of time that is left
@@ -71,8 +72,9 @@ var javascript_countdown = function () {
 				javascript_countdown.timer();
 			}
 		},
-		init: function (t, element_id) {
+		init: function (t, element_id,cid) {
 			time_left = t;
+            conversationId = cid;
 			output_element_id = element_id;
 			javascript_countdown.timer();
 		}

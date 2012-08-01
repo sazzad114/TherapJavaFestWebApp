@@ -1,0 +1,71 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:s="http://jboss.com/products/seam/taglib">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title>Therap Java Fest</title>
+    <link href="/therapJavaFestWebApp/css/style.css" rel="stylesheet" type="text/css"/>
+     <script src="js/timer.js" type="text/javascript"></script>
+</head>
+<body onload="javascript_countdown.init('#{testService.timeLeft}','javascript_countdown_time','#{conversation.id}')">
+<div id="wrapper">
+    <div id="header-wrapper">
+        <div id="header">
+            <div id="logo">
+                <h1><a href="#">Therap Java Fest </a></h1>
+
+                <p>Way to your dream...</p>
+            </div>
+        </div>
+    </div>
+    <!-- end #header -->
+
+        <div id="javascript_countdown_time">
+
+        </div>
+
+    <div id="page">
+        <div id="page-bgtop">
+            <div id="page-bgbtm">
+                <div id="content-reg">
+
+                    <h:form>
+
+                        <table>
+                            <tr>
+                                <td>
+                                    <s:label>#{currentQuestion.questionString}</s:label>
+                                </td>
+                            </tr>
+                            <h:selectOneRadio value="#{testService.selectedOptionId}" id="selectedQuestionOption"
+                                              required="true" layout="pageDirection">
+                                <s:selectItems var="selectedOption" value="#{currentQuestion.options}"
+                                               label="#{selectedOption.optionString}"
+                                               itemValue="#{selectedOption.optionId}"/>
+
+                            </h:selectOneRadio>
+                            <h:commandButton value="Get Next Question" action="#{testService.getNextQuestion}"/>
+
+                            <h:commandButton value="End test" action="#{testService.endTest}"/>
+                        </table>
+                    </h:form>
+
+                </div>
+
+                <!-- end #content -->
+
+                <div style="clear: both;">&nbsp;</div>
+            </div>
+        </div>
+    </div>
+    <!-- end #page -->
+</div>
+<div id="footer">
+    <p>Copyright (c) 2011 Sitename.com. All rights reserved. Design by <a
+            href="http://www.freecsstemplates.org/">FCT</a>.</p>
+</div>
+<!-- end #footer -->
+</body>
+</html>

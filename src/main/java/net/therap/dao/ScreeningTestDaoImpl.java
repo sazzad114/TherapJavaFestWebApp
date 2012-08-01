@@ -6,7 +6,6 @@ import org.jboss.seam.ScopeType;
 import org.jboss.seam.annotations.In;
 import org.jboss.seam.annotations.Name;
 import org.jboss.seam.annotations.Scope;
-import org.jboss.seam.annotations.Startup;
 
 /**
  * Created by
@@ -16,8 +15,7 @@ import org.jboss.seam.annotations.Startup;
  */
 
 @Name("screeningTestDao")
-@Scope(ScopeType.APPLICATION)
-@Startup
+@Scope(ScopeType.STATELESS)
 public class ScreeningTestDaoImpl implements ScreeningTestDao{
 
     @In

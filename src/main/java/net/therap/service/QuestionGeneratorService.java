@@ -4,6 +4,8 @@ import net.therap.dao.ContestantDao;
 import net.therap.dao.ScreeningTestDao;
 import net.therap.domain.Contestant;
 import net.therap.domain.ScreeningTest;
+import net.therap.domain.ScreeningTestStateInfo;
+import net.therap.domain.question.Question;
 import net.therap.domain.question.QuestionBank;
 import net.therap.util.ContestantState;
 import net.therap.util.OrderGenerator;
@@ -33,10 +35,10 @@ public class QuestionGeneratorService {
     @In
     Contestant loggedInContestant;
 
-    @In
+    @In(create = true)
     ScreeningTestDao screeningTestDao;
 
-    @In
+    @In(create = true)
     ContestantDao contestantDao;
 
     @In(create = true)
@@ -49,13 +51,16 @@ public class QuestionGeneratorService {
             screeningTest.setContestant(loggedInContestant);
             screeningTest.setStartingTime(new Date());
 
-            orderGenerator.setInputSetSize(questionBank.getQuestions().size());
-            orderGenerator.setOutputSetSize(5);
-
-            List<Integer> questionOrder = orderGenerator.generateOrder();
+            List<Integer> questionOrder = orderGenerator.generateOrder(questionBank.getQuestions().size(), 5); // order generation temporarily
 
             screeningTest.setQuestionOrder(questionOrder);
-            screeningTest.setCurrentQuestion(questionOrder.get(0));
+            Question firstQuestion = questionBank.getQuestions().get(questionOrder.get(0));
+
+            ScreeningTestStateInfo screeningTestStateInfo = new ScreeningTestStateInfo();
+            screeningTestStateInfo.setCurrentQuestionId(firstQuestion.getQuestionId());
+            screeningTestStateInfo.setLastLoadingTime(new Date());
+            screeningTestStateInfo.setTimeLeft(firstQuestion.getAllottedTime());
+            screeningTest.setCurrentQuestionState(screeningTestStateInfo);
 
             loggedInContestant.setScreeningTest(screeningTest);
             loggedInContestant.setState(ContestantState.AT_TEST);
@@ -64,7 +69,7 @@ public class QuestionGeneratorService {
             contestantDao.updateContestant(loggedInContestant);
 
             Redirect redirect = Redirect.instance();
-            redirect.setViewId("/test.xhtml");
+            redirect.setViewId("/screeningTest.xhtml");
             redirect.execute();
 
         }

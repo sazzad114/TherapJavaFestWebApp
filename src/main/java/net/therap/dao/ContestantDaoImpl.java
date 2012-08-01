@@ -15,8 +15,7 @@ import java.util.List;
  * Time: 5:58 PM
  */
  @Name("contestantDao")
-@Scope(ScopeType.APPLICATION)
-@Startup
+@Scope(ScopeType.STATELESS)
 public class ContestantDaoImpl implements ContestantDao {
 
     @In
