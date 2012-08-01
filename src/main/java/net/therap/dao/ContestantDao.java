@@ -14,6 +14,8 @@ public interface ContestantDao {
 
    public Contestant getContestantByEmail(String email);
 
+   public Contestant getContestantById (long id);
+
    public void updateContestant(Contestant contestant);
 
 }

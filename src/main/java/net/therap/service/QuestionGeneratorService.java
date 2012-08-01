@@ -10,6 +10,7 @@ import net.therap.domain.question.QuestionBank;
 import net.therap.util.ContestantState;
 import net.therap.util.OrderGenerator;
 import org.jboss.seam.ScopeType;
+import org.jboss.seam.annotations.Begin;
 import org.jboss.seam.annotations.In;
 import org.jboss.seam.annotations.Name;
 import org.jboss.seam.annotations.Scope;
@@ -44,8 +45,7 @@ public class QuestionGeneratorService {
     @In(create = true)
     QuestionBank questionBank;
 
-
-    public void generateQuestion() {
+     public void generateQuestion() {
         if (loggedInContestant.getState() == ContestantState.READY_FOR_TEST) {
             ScreeningTest screeningTest = new ScreeningTest();
             screeningTest.setContestant(loggedInContestant);
@@ -62,17 +62,17 @@ public class QuestionGeneratorService {
             screeningTestStateInfo.setTimeLeft(firstQuestion.getAllottedTime());
             screeningTest.setCurrentQuestionState(screeningTestStateInfo);
 
+
             loggedInContestant.setScreeningTest(screeningTest);
             loggedInContestant.setState(ContestantState.AT_TEST);
 
             screeningTestDao.saveScreeningTest(screeningTest);
             contestantDao.updateContestant(loggedInContestant);
-
-            Redirect redirect = Redirect.instance();
-            redirect.setViewId("/screeningTest.xhtml");
-            redirect.execute();
-
         }
+
+        Redirect redirect = Redirect.instance();
+        redirect.setViewId("/screeningTest.xhtml");
+        redirect.execute();
 
 
     }

@@ -1,5 +1,6 @@
 package net.therap.dao;
 
+import net.therap.domain.Contestant;
 import net.therap.domain.ScreeningTest;
 
 /**
@@ -13,4 +14,6 @@ public interface ScreeningTestDao {
     public void saveScreeningTest(ScreeningTest screeningTest);
 
     public void updateScreeningTest(ScreeningTest screeningTest);
+
+    public ScreeningTest getScreeningTestForContestant(Contestant contestant);
 }

@@ -34,6 +34,7 @@ public class TestService {
     private QuestionBank questionBank;
 
     @In
+    @Out
     private Contestant loggedInContestant;
 
     @In(create = true)
@@ -70,11 +71,11 @@ public class TestService {
         return timeLeft;
     }
 
-    @Begin
+    @Begin(join = true)
     public void loadFirstQuestion() {
         log.info("Invoking loadFirstQuestion");
         selectedOptionId = -1;
-        ScreeningTest screeningTest = loggedInContestant.getScreeningTest();
+        ScreeningTest screeningTest = screeningTestDao.getScreeningTestForContestant(loggedInContestant);
         Question question = questionBank.getQuestions().get(screeningTest.getCurrentQuestionState().getCurrentQuestionId());
         Date currentDateTime = new Date();
         long timeElapsed = currentDateTime.getTime() - screeningTest.getCurrentQuestionState().getLastLoadingTime().getTime();
@@ -87,6 +88,7 @@ public class TestService {
         timeLeft = screeningTest.getCurrentQuestionState().getTimeLeft() - timeElapsed;
         screeningTest.getCurrentQuestionState().setTimeLeft(timeLeft);
         currentQuestion = question;
+        loggedInContestant.setScreeningTest(screeningTest);
         screeningTestDao.updateScreeningTest(screeningTest);
         notFirstLoad = true;
 
@@ -96,7 +98,7 @@ public class TestService {
     public void loadCurrentQuestion() {
         log.info("Invoking loadCurrentQuestion");
 
-        selectedOptionId = -1;
+
         ScreeningTest screeningTest = loggedInContestant.getScreeningTest();
         Question question = questionBank.getQuestions().get(screeningTest.getCurrentQuestionState().getCurrentQuestionId());
         Date currentDateTime = new Date();
@@ -106,10 +108,15 @@ public class TestService {
         log.info("value of time elapsed" + timeElapsed);
         log.info("value of time left" + timeLeft);
         log.info("value of question's time" + screeningTest.getCurrentQuestionState().getTimeLeft());
+        log.info("Selected Option Id: " + selectedOptionId);
 
-        if (timeElapsed+2 >= screeningTest.getCurrentQuestionState().getTimeLeft()) {
+        if (timeElapsed + 2 >= screeningTest.getCurrentQuestionState().getTimeLeft() || selectedOptionId != -1) {
             log.info("into next question");
+            if (selectedOptionId != -1) {
+                log.info("came from postback");
+            }
             getNextQuestion();
+            selectedOptionId = -1;
 
         } else {
             log.info("get current question");
@@ -118,7 +125,7 @@ public class TestService {
             screeningTest.getCurrentQuestionState().setTimeLeft(timeLeft);
             currentQuestion = question;
             screeningTestDao.updateScreeningTest(screeningTest);
-
+            selectedOptionId = -1;
         }
 
 
@@ -152,6 +159,7 @@ public class TestService {
 
 
         if (currentIndex == screeningTest.getQuestionOrder().size() - 1) {
+            loggedInContestant = contestantDao.getContestantById(loggedInContestant.getContestantId());
             loggedInContestant.setState(ContestantState.PENDING_TEST_RESULT);
             contestantDao.updateContestant(loggedInContestant);
             Redirect redirect = Redirect.instance();
@@ -171,6 +179,14 @@ public class TestService {
         }
 
 
+    }
+
+    public void postAnswer() {
+        getNextQuestion();
+
+        Redirect redirect = Redirect.instance();
+        redirect.setViewId("/screeningTest.xhtml");
+        redirect.execute();
     }
 
     @End

@@ -51,4 +51,8 @@ public class ContestantDaoImpl implements ContestantDao {
     public void updateContestant(Contestant contestant) {
         session.update(contestant);
     }
+
+    public Contestant getContestantById(long id) {
+          return (Contestant)session.get(Contestant.class, id);
+    }
 }
