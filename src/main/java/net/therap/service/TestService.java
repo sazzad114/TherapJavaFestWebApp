@@ -76,6 +76,9 @@ public class TestService {
         log.info("Invoking loadFirstQuestion");
         selectedOptionId = -1;
         ScreeningTest screeningTest = screeningTestDao.getScreeningTestForContestant(loggedInContestant);
+        for (int i= 0; i<screeningTest.getQuestionOrderList().size();i++) {
+            log.info("Question Id: " + screeningTest.getQuestionOrderList().get(i).getQuestionOrder());
+        }
         Question question = questionBank.getQuestions().get(screeningTest.getCurrentQuestionState().getCurrentQuestionId());
         Date currentDateTime = new Date();
         long timeElapsed = currentDateTime.getTime() - screeningTest.getCurrentQuestionState().getLastLoadingTime().getTime();
@@ -87,6 +90,7 @@ public class TestService {
         screeningTest.getCurrentQuestionState().setLastLoadingTime(currentDateTime);
         timeLeft = screeningTest.getCurrentQuestionState().getTimeLeft() - timeElapsed;
         screeningTest.getCurrentQuestionState().setTimeLeft(timeLeft);
+        log.info("Setting current question to: " + question.getQuestionId());
         currentQuestion = question;
         loggedInContestant.setScreeningTest(screeningTest);
         screeningTestDao.updateScreeningTest(screeningTest);
@@ -123,6 +127,7 @@ public class TestService {
             screeningTest.getCurrentQuestionState().setLastLoadingTime(currentDateTime);
             timeLeft = screeningTest.getCurrentQuestionState().getTimeLeft() - timeElapsed;
             screeningTest.getCurrentQuestionState().setTimeLeft(timeLeft);
+            log.info("Setting current question to: " + question.getQuestionId());
             currentQuestion = question;
             screeningTestDao.updateScreeningTest(screeningTest);
             selectedOptionId = -1;
@@ -150,15 +155,15 @@ public class TestService {
 
         int currentIndex = 0;
 
-        for (int i = 0; i < screeningTest.getQuestionOrder().size(); i++) {
-            if (currentQuestion.getQuestionId() == screeningTest.getQuestionOrder().get(i)) {
+        for (int i = 0; i < screeningTest.getQuestionOrderList().size(); i++) {
+            if (currentQuestion.getQuestionId() == screeningTest.getQuestionOrderList().get(i).getQuestionOrder()) {
                 currentIndex = i + 1;
                 break;
             }
         }
 
 
-        if (currentIndex == screeningTest.getQuestionOrder().size() - 1) {
+        if (currentIndex == screeningTest.getQuestionOrderList().size() - 1) {
             loggedInContestant = contestantDao.getContestantById(loggedInContestant.getContestantId());
             loggedInContestant.setState(ContestantState.PENDING_TEST_RESULT);
             contestantDao.updateContestant(loggedInContestant);
@@ -167,8 +172,8 @@ public class TestService {
             redirect.execute();
         } else {
 
-
-            currentQuestion = questionBank.getQuestions().get(screeningTest.getQuestionOrder().get(currentIndex));
+            log.info("Setting current question to: " + questionBank.getQuestions().get(screeningTest.getQuestionOrderList().get(currentIndex).getQuestionOrder()).getQuestionId());
+            currentQuestion = questionBank.getQuestions().get(screeningTest.getQuestionOrderList().get(currentIndex).getQuestionOrder());
             selectedOptionId = -1;
 
             screeningTest.getCurrentQuestionState().setCurrentQuestionId(currentQuestion.getQuestionId());

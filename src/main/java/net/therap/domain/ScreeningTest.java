@@ -20,7 +20,7 @@ public class ScreeningTest {
     private Contestant contestant;
     private Date startingTime;
     private Date endingTime;
-    private List<Integer> questionOrder;
+    private List<QuestionOrder> questionOrderList;
     private ScreeningTestStateInfo currentQuestionState;
     private long version;
 
@@ -64,15 +64,14 @@ public class ScreeningTest {
         this.contestant = contestant;
     }
 
-    @CollectionOfElements
-    @JoinTable(name = "QUESTION_ORDER", joinColumns = @JoinColumn(name = "SCREENING_TEST_ID"))
-    @Column(name = "Q_ORDER")
-    public List<Integer> getQuestionOrder() {
-        return questionOrder;
+    @OneToMany(mappedBy = "screeningTest",cascade = CascadeType.ALL)
+    @OrderBy("questionOrderId")
+    public List<QuestionOrder> getQuestionOrderList() {
+        return questionOrderList;
     }
 
-    public void setQuestionOrder(List<Integer> questionOrder) {
-        this.questionOrder = questionOrder;
+    public void setQuestionOrderList(List<QuestionOrder> questionOrderList) {
+        this.questionOrderList = questionOrderList;
     }
 
     @Embedded

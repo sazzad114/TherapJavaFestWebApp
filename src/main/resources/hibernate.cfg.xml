@@ -26,6 +26,7 @@
         <mapping class="net.therap.domain.ProjectSubmission"/>
         <mapping class="net.therap.domain.ScreeningTest"/>
         <mapping class="net.therap.domain.ScreeningTestStateInfo"/>
+        <mapping class="net.therap.domain.QuestionOrder"/>
 
     </session-factory>
 
