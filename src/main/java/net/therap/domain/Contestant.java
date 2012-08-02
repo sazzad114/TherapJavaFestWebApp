@@ -50,7 +50,13 @@ public class Contestant implements Serializable{
     private ScreeningTest screeningTest;
     private List<AnswerInfo> screeningTestResult;
     private long version;
+    private UploadedFile pdfFileWrapper;
+    private UploadedFile imageFileWrapper;
 
+    public Contestant() {
+        pdfFileWrapper = new UploadedFile();
+        imageFileWrapper = new UploadedFile();
+    }
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -64,7 +70,7 @@ public class Contestant implements Serializable{
     }
 
 
-    //@Size(max = 50, min = 5)
+    @Length(max = 50, min = 5)
     @Column(name = "CONTESTANT_NAME", nullable = false)
     public String getContestantName() {
         return contestantName;
@@ -84,7 +90,7 @@ public class Contestant implements Serializable{
         this.email = email;
     }
 
-    //@Size(min = 7, max = 15)
+    @Length(min = 7, max = 15)
     @Column(name = "PHONE")
     public String getPhone() {
         return phone;
@@ -94,7 +100,7 @@ public class Contestant implements Serializable{
         this.phone = phone;
     }
 
-    //@Size(max = 15)
+    @Length(max = 15)
     @Column(name = "STUDENT_ID")
     public String getStudentId() {
         return studentId;
@@ -154,8 +160,8 @@ public class Contestant implements Serializable{
         this.gender = gender;
     }
 
+    @Length(min = 5, max=300)
     @Column(name = "DESCRIPTION")
-    //@Size(min = 5, max=300)
     public String getDescription() {
         return description;
     }
@@ -186,7 +192,6 @@ public class Contestant implements Serializable{
 
     @Lob
     @Column(name = "PHOTO",length = 16777215)
-
     public byte[] getPhoto() {
         return photo;
     }
@@ -262,5 +267,21 @@ public class Contestant implements Serializable{
         this.version = version;
     }
 
+    @Transient
+    public UploadedFile getPdfFileWrapper() {
+        return pdfFileWrapper;
+    }
 
+    public void setPdfFileWrapper(UploadedFile pdfFileWrapper) {
+        this.pdfFileWrapper = pdfFileWrapper;
+    }
+
+    @Transient
+    public UploadedFile getImageFileWrapper() {
+        return imageFileWrapper;
+    }
+
+    public void setImageFileWrapper(UploadedFile imageFileWrapper) {
+        this.imageFileWrapper = imageFileWrapper;
+    }
 }

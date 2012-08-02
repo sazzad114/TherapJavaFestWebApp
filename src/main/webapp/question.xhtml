@@ -4,7 +4,7 @@
                 xmlns:ui="http://java.sun.com/jsf/facelets"
                 xmlns:h="http://java.sun.com/jsf/html"
                 xmlns:f="http://java.sun.com/jsf/core"
-                xmlns:s="http://jboss.com/products/seam/taglib"
+                xmlns:s="http://jboss.com/products/seam/taglib" xmlns:rich="http://richfaces.org/rich"
                 template="template.xhtml">
 
     <!-- menu -->
@@ -26,13 +26,51 @@
 
     <ui:define name="content">
 
-        Question Page...
+       <!-- <div>
+            <script type="text/javascript">
 
-        This is a question page..............
+                var _validFileExtensions = [".jpg", ".jpeg", ".bmp", ".gif", ".png"];
 
+                function Validate(oForm) {
+                    var arrInputs = oForm.getElementsByTagName("input");
+                    for (var i = 0; arrInputs.length > i; i++) {
+                        var oInput = arrInputs[i];
+                        if (oInput.type == "file") {
+                            var sFileName = oInput.value;
+                            if (sFileName.length > 0) {
+                                var blnValid = false;
+                                for (var j = 0; _validFileExtensions.length > j; j++) {
+                                    var sCurExtension = _validFileExtensions[j];
+                                    if (sFileName.substr(sFileName.length - sCurExtension.length, sCurExtension.length).toLowerCase() == sCurExtension.toLowerCase()) {
+                                        blnValid = true;
+                                        break;
+                                    }
+                                }
 
+                                if (!blnValid) {
+                                    alert("Sorry, " + sFileName + " is invalid, allowed extensions are: " + _validFileExtensions.join(", "));
+                                    return false;
+                                }
+                            }
+                        }
+                    }
 
+                    return true;
+                }
+            </script>
 
+            <h:form>
+                <s:fileUpload
+                        id="file"
+                        data="#{therapFileWrapper.data}"
+                        contentType="#{therapFileWrapper.contentType}"
+                        fileName="#{therapFileWrapper.fileName}"
+                        fileSize="#{therapFileWrapper.size}"
+                        rendered="#{otacAttachment.therapFile == null}"/>
+                <h:outputLabel value="#{otacAttachment.name}"  rendered="#{otacAttachment.therapFile != null}"/>
+                <h:commandButton value="Submit" />
+            </h:form>
+        </div>-->
 
     </ui:define>
 

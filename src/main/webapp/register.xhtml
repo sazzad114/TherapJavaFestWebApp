@@ -179,11 +179,15 @@
                 <h:outputLabel value="*Upload Image:" for="image"/>
             </td>
             <td>
-                <s:fileUpload id="image" data="#{newContestant.photo}" accept="images/png,images/jpg"
-                              contentType="true" immediate="true" required="true"/>
+                <s:fileUpload
+                        id="image"
+                        data="#{newContestant.imageFileWrapper.fileData}"
+                        contentType="#{newContestant.imageFileWrapper.contentType}"
+                        fileSize="#{newContestant.imageFileWrapper.size}"
+                        />
             </td>
             <td>
-                <s:message for="image" styleClass="error"/>
+                <h:message for="image" styleClass="error"/>
             </td>
         </tr>
 
@@ -192,11 +196,15 @@
                 <h:outputLabel value="Upload CV:" for="curriculumVitae"/>
             </td>
             <td>
-                <s:fileUpload id="curriculumVitae" data="#{newContestant.curriculumVitae}"
-                              accept="application/pdf"/>
+                <s:fileUpload
+                        id="curriculumVitae"
+                        data="#{newContestant.pdfFileWrapper.fileData}"
+                        contentType="#{newContestant.pdfFileWrapper.contentType}"
+                        fileSize="#{newContestant.pdfFileWrapper.size}"
+                        />
             </td>
             <td>
-                <s:message for="curriculumVitae" styleClass="error"/>
+                <h:message for="curriculumVitae" styleClass="error"/>
             </td>
         </tr>
 

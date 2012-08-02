@@ -36,7 +36,7 @@ public class ProjectSubmission {
     }
 
     @OneToOne
-    @PrimaryKeyJoinColumn
+    @JoinColumn(name = "GROUP_ID")
     public Group getGroup() {
         return group;
     }
@@ -46,7 +46,7 @@ public class ProjectSubmission {
     }
 
     @OneToOne
-    @PrimaryKeyJoinColumn
+    @JoinColumn(name = "CONTESTANT_ID")
     public Contestant getLastSubmittedBy() {
         return lastSubmittedBy;
     }
