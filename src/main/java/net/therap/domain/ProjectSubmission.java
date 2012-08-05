@@ -16,7 +16,7 @@ import java.util.Date;
 public class ProjectSubmission {
 
     private long projectId;
-    private Group group;
+    private Group submittingGroup;
     private Contestant lastSubmittedBy;
     private Date lastSubmissionTime;
     private String gitHubUrl;
@@ -37,12 +37,12 @@ public class ProjectSubmission {
 
     @OneToOne
     @JoinColumn(name = "GROUP_ID")
-    public Group getGroup() {
-        return group;
+    public Group getSubmittingGroup() {
+        return submittingGroup;
     }
 
-    public void setGroup(Group group) {
-        this.group = group;
+    public void setSubmittingGroup(Group submittingGroup) {
+        this.submittingGroup = submittingGroup;
     }
 
     @OneToOne

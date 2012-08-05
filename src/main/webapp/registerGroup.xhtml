@@ -1,0 +1,96 @@
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:s="http://jboss.com/products/seam/taglib" xmlns:rich="http://richfaces.org/rich"
+                template="formTemplate.xhtml">
+
+
+<ui:define name="menu">
+
+    <ul>
+        <li class="current_page_item"><s:link value="Home" view="/home.xhtml"/></li>
+        <li><a href="#">Profile</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Links</a></li>
+
+    </ul>
+
+</ui:define>
+
+<ui:define name="content">
+<div class="post">
+<h2 class="title">Register for Therap Java Fest !</h2>
+
+<p class="meta"></p>
+
+<div class="entry">
+<h:form id="register" enctype="multipart/form-data">
+
+<table>
+    <s:validateAll>
+        <tr>
+            <td>
+                <h:outputLabel value="Group Name:" for="groupName"/>
+            </td>
+            <td>
+                <h:inputText id="groupName" value="#{groupRegCmd.groupName}" required="true"/>
+            </td>
+            <td>
+                <h:message for="groupName" styleClass="error"/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <h:outputLabel value="Partner's email:" for="partnerEmail"/>
+            </td>
+            <td>
+                <h:inputText id="partnerEmail" value="#{groupRegCmd.partnerEmail}" required="true"/>
+            </td>
+            <td>
+                <h:message for="partnerEmail" styleClass="error"/>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <h:outputLabel value="Captcha:" for="verifyCaptcha"/>
+            </td>
+            <td>
+                <h:graphicImage value="/seam/resource/captcha"/>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <h:outputLabel value="*Correctly enter the word:" for="verifyCaptcha"/>
+            </td>
+
+            <td>
+                <h:inputText id="verifyCaptcha" value="#{captcha.response}" required="true"/>
+            </td>
+            <td>
+                <h:message for="verifyCaptcha" styleClass="error"/>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <h:commandButton value="Register" action="#{groupRegistrationService.registerGroup(groupRegCmd)}"/>
+            </td>
+        </tr>
+    </s:validateAll>
+</table>
+</h:form>
+</div>
+</div>
+
+</ui:define>
+
+
+</ui:composition>
+
+
+

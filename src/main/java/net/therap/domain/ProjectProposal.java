@@ -33,7 +33,7 @@ public class ProjectProposal {
     }
 
     @OneToOne
-    @PrimaryKeyJoinColumn
+    @JoinColumn(name = "GROUP_ID")
     public Group getGroup() {
         return group;
     }
@@ -43,7 +43,7 @@ public class ProjectProposal {
     }
 
     @OneToOne
-    @PrimaryKeyJoinColumn
+    @JoinColumn(name = "CONTESTANT_ID")
     public Contestant getLastModifiedBy() {
         return lastModifiedBy;
     }

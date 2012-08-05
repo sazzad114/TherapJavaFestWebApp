@@ -65,7 +65,7 @@ public class Group {
         this.projectProposal = projectProposal;
     }
 
-    @OneToOne(mappedBy = "group")
+    @OneToOne(mappedBy = "submittingGroup")
     public ProjectSubmission getSubmittedProject() {
         return submittedProject;
     }

@@ -10,12 +10,14 @@ import net.therap.domain.Contestant;
  */
 public interface ContestantDao {
 
-   public void saveContestant(Contestant contestant);
+    public void saveContestant(Contestant contestant);
 
-   public Contestant getContestantByEmail(String email);
+    public Contestant getContestantByEmail(String email);
 
-   public Contestant getContestantById (long id);
+    public Contestant getContestantById(long id);
 
-   public void updateContestant(Contestant contestant);
+    public void updateContestant(Contestant contestant);
+
+    public Contestant getSelectedContestantByEmail(String email);
 
 }

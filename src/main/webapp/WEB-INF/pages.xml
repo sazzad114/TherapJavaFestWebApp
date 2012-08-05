@@ -106,11 +106,19 @@
 
     </page>
 
-    <page view-id="/screeningTest.xhtml">
+    <page view-id="/screeningTest.xhtml" login-required="true">
         <!--<action execute="#{testService.loadFirstQuestion}" if="#{ not testService.notFirstLoad and not facesContext.renderKit.responseStateManager.isPostback(facesContext)}"/>
         -->
         <action execute="#{testService.loadFirstQuestion}" if="#{not notFirstLoad and not facesContext.renderKit.responseStateManager.isPostback(facesContext)}"/>
         <action execute="#{testService.loadCurrentQuestion}" if="#{notFirstLoad and not facesContext.renderKit.responseStateManager.isPostback(facesContext)}"/>
+    </page>
+
+    <page view-id="/registerGroup.xhtml" login-required="true">
+        <navigation>
+             <rule if-outcome="success">
+                    <redirect view-id="/greetings/finishedGroupRegGreeting.xhtml"/>
+             </rule>
+        </navigation>
     </page>
 
     <page view-id="*">
