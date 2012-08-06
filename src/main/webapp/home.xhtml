@@ -12,12 +12,18 @@
     <ui:define name="menu">
 
         <ul>
-            <li class="current_page_item"><a href="#">Home</a></li>
+            <li><a href="#">Home</a></li>
+
             <li><a href="#">Blog</a></li>
+
             <li><a href="#">Photos</a></li>
+
             <li><a href="#">About</a></li>
+
             <li><a href="#">Links</a></li>
+
             <li><a href="#">Contact</a></li>
+
         </ul>
 
     </ui:define>
@@ -81,41 +87,44 @@
         <ul>
             <li>
                 <h2>Login</h2>
-                <h:form id="login">
-                    <table>
-                        <tr>
-                            <td>
-                                <h:outputLabel for="username">*Email:</h:outputLabel>
-                            </td>
-                            <td>
-                                <h:inputText id="username" value="#{identity.username}"
-                                             style="width: 175px;"/>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <h:outputLabel for="password">*Password:</h:outputLabel>
-                            </td>
-                            <td>
-                                <h:inputSecret id="password" value="#{identity.password}"
-                                               style="width: 175px;"/>
-                            </td>
-                        </tr>
-                    </table>
-                    <div>
-                        <h:outputLabel for="rememberMe">Remember Me: </h:outputLabel>
 
-                        <h:selectBooleanCheckbox id="rememberMe" value="#{identity.rememberMe}"/>
-                    </div>
+                <p>
+                    <h:form id="login">
+                        <table>
+                            <tr>
+                                <td>
+                                    <h:outputLabel for="username">*Email:</h:outputLabel>
+                                </td>
+                                <td>
+                                    <h:inputText id="username" value="#{identity.username}"
+                                                 style="width: 175px;"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <h:outputLabel for="password">*Password:</h:outputLabel>
+                                </td>
+                                <td>
+                                    <h:inputSecret id="password" value="#{identity.password}"
+                                                   style="width: 175px;"/>
+                                </td>
+                            </tr>
+                        </table>
+                        <div>
+                            <h:outputLabel for="rememberMe">Remember Me: </h:outputLabel>
 
-                    <h:messages globalOnly="true" styleClass="error"/>
+                            <h:selectBooleanCheckbox id="rememberMe" value="#{identity.rememberMe}"/>
+                        </div>
 
-                    <div>
-                        <h:commandButton id="login" action="#{identity.login}"
-                                         value="Login"/>
-                    </div>
+                        <h:messages globalOnly="true" styleClass="error"/>
 
-                </h:form>
+                        <div>
+                            <h:commandButton id="login" action="#{identity.login}"
+                                             value="Login"/>
+                        </div>
+
+                    </h:form>
+                </p>
             </li>
             <li>
                 <h2>Register</h2>

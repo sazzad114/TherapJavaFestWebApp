@@ -4,6 +4,7 @@ import org.hibernate.validator.NotEmpty;
 import org.hibernate.validator.NotNull;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.List;
 
 /**
@@ -56,7 +57,7 @@ public class Group {
         this.members = members;
     }
 
-    @OneToOne(mappedBy = "group")
+    @OneToOne(mappedBy = "proposingGroup")
     public ProjectProposal getProjectProposal() {
         return projectProposal;
     }

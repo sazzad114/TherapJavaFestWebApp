@@ -1,7 +1,11 @@
 package net.therap.domain;
 
+import org.jboss.seam.ScopeType;
+import org.jboss.seam.annotations.Name;
+import org.jboss.seam.annotations.Scope;
+
 import javax.persistence.*;
-import java.sql.Blob;
+import java.io.Serializable;
 import java.util.Date;
 
 /**
@@ -10,16 +14,23 @@ import java.util.Date;
  * Date: 7/19/12
  * Time: 3:06 PM
  */
+@Name("projectProposal")
+@Scope(ScopeType.PAGE)
 @Entity
 @Table(name = "PROJECT_PROPOSAL")
-public class ProjectProposal {
+public class ProjectProposal implements Serializable{
 
     private long proposalId;
-    private Group group;
+    private Group proposingGroup;
     private Contestant lastModifiedBy;
     private Date lastModificationTime;
     private byte[] proposal;
+    private UploadedFile uploadedProposal;
     private long version;
+
+    public ProjectProposal() {
+        this.uploadedProposal = new UploadedFile();
+    }
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -34,12 +45,12 @@ public class ProjectProposal {
 
     @OneToOne
     @JoinColumn(name = "GROUP_ID")
-    public Group getGroup() {
-        return group;
+    public Group getProposingGroup() {
+        return proposingGroup;
     }
 
-    public void setGroup(Group group) {
-        this.group = group;
+    public void setProposingGroup(Group proposingGroup) {
+        this.proposingGroup = proposingGroup;
     }
 
     @OneToOne
@@ -80,5 +91,14 @@ public class ProjectProposal {
 
     public void setVersion(long version) {
         this.version = version;
+    }
+
+    @Transient
+    public UploadedFile getUploadedProposal() {
+        return uploadedProposal;
+    }
+
+    public void setUploadedProposal(UploadedFile uploadedProposal) {
+        this.uploadedProposal = uploadedProposal;
     }
 }

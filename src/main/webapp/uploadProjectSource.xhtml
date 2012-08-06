@@ -22,63 +22,57 @@
 
 <ui:define name="content">
 <div class="post">
-<h2 class="title">Register for Therap Java Fest !</h2>
+<h2 class="title">Upload Your Project Source Code</h2>
 
 <p class="meta"></p>
 
 <div class="entry">
-<h:form id="registerGroup">
+<h:form id="uploadProjectSource" enctype="multipart/form-data">
 
 <table>
     <s:validateAll>
         <tr>
             <td>
-                <h:outputLabel value="Group Name:" for="groupName"/>
+                <h:outputLabel value="Github Url*:" for="githubUrl"/>
             </td>
             <td>
-                <h:inputText id="groupName" value="#{groupRegCmd.groupName}" required="true"/>
+                <h:inputText id="githubUrl" value="#{projectSubmission.gitHubUrl}"/>
             </td>
             <td>
-                <h:message for="groupName" styleClass="error"/>
+                <h:message for="githubUrl" styleClass="error"/>
             </td>
         </tr>
         <tr>
             <td>
-                <h:outputLabel value="Partner's email:" for="partnerEmail"/>
+                <h:outputLabel value="Youtube Url*:" for="youtubeUrl"/>
             </td>
             <td>
-                <h:inputText id="partnerEmail" value="#{groupRegCmd.partnerEmail}" required="true"/>
+                <h:inputText id="youtubeUrl" value="#{projectSubmission.youTubeUrl}"/>
             </td>
             <td>
-                <h:message for="partnerEmail" styleClass="error"/>
-            </td>
-        </tr>
-
-        <tr>
-            <td>
-                <h:outputLabel value="Captcha:" for="verifyCaptcha"/>
-            </td>
-            <td>
-                <h:graphicImage value="/seam/resource/captcha"/>
+                <h:message for="youtubeUrl" styleClass="error"/>
             </td>
         </tr>
-
-        <tr>
+          <tr>
             <td>
-                <h:outputLabel value="*Correctly enter the word:" for="verifyCaptcha"/>
-            </td>
-
-            <td>
-                <h:inputText id="verifyCaptcha" value="#{captcha.response}" required="true"/>
+                <h:outputLabel value="Upload Your Project Source Code*:" for="sourceCodeUpload"/>
             </td>
             <td>
-                <h:message for="verifyCaptcha" styleClass="error"/>
+                <s:fileUpload
+                        id="sourceCodeUpload"
+                        data="#{projectSubmission.uploadedSourceCode.fileData}"
+                        contentType="#{projectSubmission.uploadedSourceCode.contentType}"
+                        fileSize="#{projectSubmission.uploadedSourceCode.size}"
+                        />
+            </td>
+            <td>
+                <h:message for="sourceCodeUpload" styleClass="error"/>
             </td>
         </tr>
 
         <tr>
             <td>
-                <h:commandButton value="Register" action="#{groupRegistrationService.registerGroup(groupRegCmd)}"/>
+                <h:commandButton value="Upload" action="#{projectSubmissionService.submitProjectSource(projectSubmission)}"/>
             </td>
         </tr>
     </s:validateAll>

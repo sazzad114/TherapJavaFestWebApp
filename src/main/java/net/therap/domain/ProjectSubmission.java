@@ -1,7 +1,11 @@
 package net.therap.domain;
 
+import org.jboss.seam.ScopeType;
+import org.jboss.seam.annotations.Name;
+import org.jboss.seam.annotations.Scope;
+
 import javax.persistence.*;
-import java.sql.Blob;
+import java.io.Serializable;
 import java.util.Date;
 
 /**
@@ -10,10 +14,11 @@ import java.util.Date;
  * Date: 7/19/12
  * Time: 3:20 PM
  */
-
+@Name("projectSubmission")
+@Scope(ScopeType.PAGE)
 @Entity
 @Table(name = "PROJECT_SUBMISSION")
-public class ProjectSubmission {
+public class ProjectSubmission implements Serializable{
 
     private long projectId;
     private Group submittingGroup;
@@ -21,8 +26,14 @@ public class ProjectSubmission {
     private Date lastSubmissionTime;
     private String gitHubUrl;
     private String youTubeUrl;
-    private byte [] sourceCode;
+    private byte[] sourceCode;
+    private UploadedFile uploadedSourceCode;
     private long version;
+
+     public ProjectSubmission() {
+        this.uploadedSourceCode = new UploadedFile();
+    }
+
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -100,5 +111,14 @@ public class ProjectSubmission {
 
     public void setVersion(long version) {
         this.version = version;
+    }
+
+    @Transient
+    public UploadedFile getUploadedSourceCode() {
+        return uploadedSourceCode;
+    }
+
+    public void setUploadedSourceCode(UploadedFile uploadedSourceCode) {
+        this.uploadedSourceCode = uploadedSourceCode;
     }
 }
