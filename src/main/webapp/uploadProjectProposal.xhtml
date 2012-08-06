@@ -1,0 +1,68 @@
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:s="http://jboss.com/products/seam/taglib" xmlns:rich="http://richfaces.org/rich"
+                template="formTemplate.xhtml">
+
+
+<ui:define name="menu">
+
+    <ul>
+        <li class="current_page_item"><s:link value="Home" view="/home.xhtml"/></li>
+        <li><a href="#">Profile</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Links</a></li>
+
+    </ul>
+
+</ui:define>
+
+<ui:define name="content">
+<div class="post">
+<h2 class="title">Upload Your Project Proposal</h2>
+
+<p class="meta"></p>
+
+<div class="entry">
+<h:form id="uploadProjectProposal" enctype="multipart/form-data">
+
+<table>
+    <s:validateAll>
+          <tr>
+            <td>
+                <h:outputLabel value="Upload Your Project Proposal*:" for="proposalUpload"/>
+            </td>
+            <td>
+                <s:fileUpload
+                        id="proposalUpload"
+                        data="#{projectProposal.uploadedProposal.fileData}"
+                        contentType="#{projectProposal.uploadedProposal.contentType}"
+                        fileSize="#{projectProposal.uploadedProposal.size}"
+                        />
+            </td>
+            <td>
+                <h:message for="proposalUpload" styleClass="error"/>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <h:commandButton value="Upload" action="#{proposalSubmissionService.submitProposal(projectProposal)}"/>
+            </td>
+        </tr>
+    </s:validateAll>
+</table>
+</h:form>
+</div>
+</div>
+
+</ui:define>
+
+
+</ui:composition>
+
+
+

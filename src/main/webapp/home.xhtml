@@ -12,12 +12,18 @@
     <ui:define name="menu">
 
         <ul>
-            <li class="current_page_item"><a href="#">Home</a></li>
+            <li><a href="#">Home</a></li>
+
             <li><a href="#">Blog</a></li>
+
             <li><a href="#">Photos</a></li>
+
             <li><a href="#">About</a></li>
+
             <li><a href="#">Links</a></li>
+
             <li><a href="#">Contact</a></li>
+
         </ul>
 
     </ui:define>
@@ -26,49 +32,29 @@
 
     <ui:define name="content">
         <div class="post">
-            <h2 class="title"><a href="#">Welcome to Timeless </a></h2>
+            <h2 class="title">Welcome to Therap Java Fest</h2>
 
-            <p class="meta">Posted by <a href="#">Someone</a> on August 10, 2011
-                &nbsp;&bull;&nbsp; <a href="#" class="comments">Comments (64)</a> &nbsp;&bull;&nbsp;
-                <a href="#" class="permalink">Full article</a></p>
 
             <div class="entry">
-                <p><img src="images/img03.jpg" width="186" height="186" alt=""
-                        class="alignleft border"/>This is
-                    <strong>Timeless </strong>, a free, fully standards-compliant CSS template designed by
-                    <a href="http://www.freecsstemplates.org">FCT</a>. The picture in this template is from
-                    <a href="#">PDPhoto.org</a>. This free template is released under a <a
-                            href="http://creativecommons.org/licenses/by/2.5/">Creative Commons Attributions 2.5</a> license, so you’re pretty much free to do whatever you want with it (even use it commercially) provided you keep the links in the footer intact. Aside from that, have fun with it :)
-                </p>
 
-                <p>Sed lacus. Donec lectus. Nullam pretium nibh ut turpis. Nam bibendum. In nulla tortor, elementum ipsum. Proin imperdiet est. Phasellus dapibus semper urna. Pellentesque ornare, orci in felis. Donec ut ante. In id eros. Suspendisse lacus turpis, cursus egestas at sem.</p>
-            </div>
-        </div>
-        <div class="post">
-            <h2 class="title"><a href="#">Lorem ipsum sed aliquam</a></h2>
+                <p>The festival will start from 1st September, 2012.
+                    A dedicated Facebook page will serve as the entry point of the festival.
+                    A web application will be launched to facilitate the festival activities.
+                    A forum will be used to provide feedback to the participants. Interested participants will
+                    at first register individually and take a preliminary screening test designed to evaluate
+                    their basic programming skills. The selected participants will then form a group of two
+                    members for developing a java web application or android project. Each group will initially
+                    submit a project proposal and then will implement the project idea. After evaluating
+                    the projects, top ranked participants will be invited for a live presentation of
+                    their projects. Prizes will be awarded to the top three projects and the festival
+                    will be concluded with the prize giving ceremony on 3rd November, 2012. </p>
 
-            <p class="meta">Posted by <a href="#">Someone</a> on August 8, 2011
-                &nbsp;&bull;&nbsp; <a href="#" class="comments">Comments (64)</a> &nbsp;&bull;&nbsp;
-                <a href="#" class="permalink">Full article</a></p>
-
-            <div class="entry">
-                <p><img src="images/img03.jpg" width="186" height="186" alt=""
-                        class="alignleft border"/>Sed lacus. Donec lectus. Nullam pretium nibh ut turpis. Nam bibendum. In nulla tortor, elementum vel, tempor at, varius non, purus. Mauris vitae nisl nec metus placerat consectetuer. Donec ipsum. Proin imperdiet est. Phasellus
-                    <a href="#">dapibus semper urna</a>. Pellentesque ornare, consectetuer nisl felis ac diam. Sed lacus. Donec lectus. Nullam pretium nibh ut turpis. Nam bibendum. Mauris vitae nisl nec metus placerat consectetuer.
-                </p>
-            </div>
-        </div>
-        <div class="post">
-            <h2 class="title"><a href="#">Phasellus pellentesque turpis </a></h2>
-
-            <p class="meta">Posted by <a href="#">Someone</a> on August 8, 2011
-                &nbsp;&bull;&nbsp; <a href="#" class="comments">Comments (64)</a> &nbsp;&bull;&nbsp;
-                <a href="#" class="permalink">Full article</a></p>
-
-            <div class="entry">
-                <p><img src="images/img03.jpg" width="186" height="186" alt=""
-                        class="alignleft border"/>Sed lacus. Donec lectus. Nullam pretium nibh ut turpis. Nam bibendum. In nulla tortor, elementum vel, tempor at, varius non, purus. Mauris vitae nisl nec metus placerat consectetuer. Donec ipsum. Proin imperdiet est. Pellentesque ornare, orci in consectetuer hendrerit, urna elit eleifend nunc. Donec ipsum. Proin imperdiet est. Pellentesque ornare, orci in consectetuer hendrerit, urna elit eleifend nunc.
-                </p>
+                <p>Prizes:</p>
+                <ul>
+                    <li>First prize : two Google Nexus 7 16GB( 267 USD each including tax)</li>
+                    <li>Second prize : two Google Nexus 7 8GB( 213 USD each including tax)</li>
+                    <li>Third prize : two Amazon Kindle touch ( 107 USD each including tax)</li>
+                </ul>
             </div>
         </div>
         <div style="clear: both;">&nbsp;</div>
@@ -81,79 +67,49 @@
         <ul>
             <li>
                 <h2>Login</h2>
-                <h:form id="login">
-                    <table>
-                        <tr>
-                            <td>
-                                <h:outputLabel for="username">*Email:</h:outputLabel>
-                            </td>
-                            <td>
-                                <h:inputText id="username" value="#{identity.username}"
-                                             style="width: 175px;"/>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <h:outputLabel for="password">*Password:</h:outputLabel>
-                            </td>
-                            <td>
-                                <h:inputSecret id="password" value="#{identity.password}"
-                                               style="width: 175px;"/>
-                            </td>
-                        </tr>
-                    </table>
-                    <div>
-                        <h:outputLabel for="rememberMe">Remember Me: </h:outputLabel>
 
-                        <h:selectBooleanCheckbox id="rememberMe" value="#{identity.rememberMe}"/>
-                    </div>
+                <p>
+                    <h:form id="login">
+                        <table>
+                            <tr>
+                                <td>
+                                    <h:outputLabel for="username">*Email:</h:outputLabel>
+                                </td>
+                                <td>
+                                    <h:inputText id="username" value="#{identity.username}"
+                                                 style="width: 175px;"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <h:outputLabel for="password">*Password:</h:outputLabel>
+                                </td>
+                                <td>
+                                    <h:inputSecret id="password" value="#{identity.password}"
+                                                   style="width: 175px;"/>
+                                </td>
+                            </tr>
+                        </table>
+                        <div>
+                            <h:outputLabel for="rememberMe">Remember Me: </h:outputLabel>
 
-                    <h:messages globalOnly="true" styleClass="error"/>
+                            <h:selectBooleanCheckbox id="rememberMe" value="#{identity.rememberMe}"/>
+                        </div>
 
-                    <div>
-                        <h:commandButton id="login" action="#{identity.login}"
-                                         value="Login"/>
-                    </div>
+                        <h:messages globalOnly="true" styleClass="error"/>
 
-                </h:form>
+                        <div>
+                            <h:commandButton id="login" action="#{identity.login}"
+                                             value="Login"/>
+                        </div>
+
+                    </h:form>
+                </p>
             </li>
             <li>
                 <h2>Register</h2>
 
                 <p>Not registered yet? you can register<s:link value=" here" action="/register.xhtml"/>!</p>
-            </li>
-            <li>
-                <h2>Categories</h2>
-                <ul>
-                    <li><a href="#">Aliquam libero</a></li>
-                    <li><a href="#">Consectetuer adipiscing elit</a></li>
-                    <li><a href="#">Metus aliquam pellentesque</a></li>
-                    <li><a href="#">Suspendisse iaculis mauris</a></li>
-                    <li><a href="#">Urnanet non molestie semper</a></li>
-                    <li><a href="#">Proin gravida orci porttitor</a></li>
-                </ul>
-            </li>
-            <li>
-                <h2>Blogroll</h2>
-                <ul>
-                    <li><a href="#">Aliquam libero</a></li>
-                    <li><a href="#">Consectetuer adipiscing elit</a></li>
-                    <li><a href="#">Metus aliquam pellentesque</a></li>
-                    <li><a href="#">Suspendisse iaculis mauris</a></li>
-                    <li><a href="#">Urnanet non molestie semper</a></li>
-                    <li><a href="#">Proin gravida orci porttitor</a></li>
-                </ul>
-            </li>
-            <li>
-                <h2>Archives</h2>
-                <ul>
-                    <li><a href="#">Aliquam libero</a></li>
-                    <li><a href="#">Consectetuer adipiscing elit</a></li>
-                    <li><a href="#">Metus aliquam pellentesque</a></li>
-                    <li><a href="#">Suspendisse iaculis mauris</a></li>
-                    <li><a href="#">Urnanet non molestie semper</a></li>
-                    <li><a href="#">Proin gravida orci porttitor</a></li>
-                </ul>
             </li>
         </ul>
 

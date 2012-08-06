@@ -1,9 +1,12 @@
 package net.therap.util;
 
+import net.therap.domain.Contestant;
+import net.therap.domain.ProjectProposal;
 import net.therap.domain.University;
 import net.therap.domain.question.QuestionBank;
 import org.jboss.seam.ScopeType;
 import org.jboss.seam.annotations.Factory;
+import org.jboss.seam.annotations.In;
 import org.jboss.seam.annotations.Name;
 import org.jboss.seam.contexts.ServletLifecycle;
 
@@ -22,20 +25,25 @@ import java.util.List;
 @Name("factory")
 public class FactoryUtil {
 
+    private static final String QUESTIONBANK_XML = "/WEB-INF/classes/questionbank.xml";
+
+    @In(required = false)
+    Contestant loggedInContestant;
+
+
     @Factory("universities")
     public List<University> getUniversities() {
         return Arrays.asList(University.values());
     }
 
     @Factory("Questiontimemer")
-    public long getTimes(){
+    public long getTimes() {
         return 10;
     }
 
-    private static final String QUESTIONBANK_XML = "/WEB-INF/classes/questionbank.xml";
 
-    @Factory(value = "questionBank",scope = ScopeType.APPLICATION)
-    public QuestionBank getQuestionBank() throws Exception{
+    @Factory(value = "questionBank", scope = ScopeType.APPLICATION)
+    public QuestionBank getQuestionBank() throws Exception {
 
         JAXBContext questionBankContext = JAXBContext.newInstance(QuestionBank.class);
         Unmarshaller unmarshaller = questionBankContext.createUnmarshaller();
@@ -44,10 +52,14 @@ public class FactoryUtil {
 
     }
 
-    @Factory(value = "notFirstLoad", scope = ScopeType.CONVERSATION, autoCreate = true)
+    @Factory(value = "notFirstLoad", scope = ScopeType.CONVERSATION)
     public Boolean getFirstLoad() {
         return false;
     }
 
+    @Factory(value = "existingProposal", scope = ScopeType.PAGE)
+    public ProjectProposal getProjectProposal() {
+        return loggedInContestant.getMyGroup().getProjectProposal();
+    }
 
 }

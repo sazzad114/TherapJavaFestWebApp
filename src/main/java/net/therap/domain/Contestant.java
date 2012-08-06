@@ -170,7 +170,8 @@ public class Contestant implements Serializable{
         this.description = description;
     }
 
-    @Column(name = "LINKEDIN_PROFILE")
+    @Column(name = "LINKEDIN_PROFILE",nullable = true)
+
     @Pattern(regex = RegularExpressions.LINKED_IN)
     public String getLinkedInProfile() {
         return linkedInProfile;

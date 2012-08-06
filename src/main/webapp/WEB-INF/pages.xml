@@ -116,7 +116,23 @@
     <page view-id="/registerGroup.xhtml" login-required="true">
         <navigation>
              <rule if-outcome="success">
-                    <redirect view-id="/greetings/finishedGroupRegGreeting.xhtml"/>
+                    <redirect view-id="/greetings/greeting.xhtml"/>
+             </rule>
+        </navigation>
+    </page>
+
+    <page view-id="/uploadProjectProposal.xhtml" login-required="true">
+        <navigation>
+             <rule if-outcome="success">
+                    <redirect view-id="/greetings/greeting.xhtml"/>
+             </rule>
+        </navigation>
+    </page>
+
+    <page view-id="/updateProjectProposal.xhtml" login-required="true">
+        <navigation>
+             <rule if-outcome="success">
+                    <redirect view-id="/greetings/greeting.xhtml"/>
              </rule>
         </navigation>
     </page>
