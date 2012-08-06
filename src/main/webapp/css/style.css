@@ -146,10 +146,6 @@ img.aligncenter {
 
 }
 
-#menu .current_page_item a {
-    background: #f2622d;
-}
-
 #menu a:hover {
     text-decoration: none;
     background: #f2622d;
