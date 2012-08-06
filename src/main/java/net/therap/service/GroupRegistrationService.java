@@ -39,36 +39,36 @@ public class GroupRegistrationService {
     FacesMessages facesMessages;
 
 
-
     public String registerGroup(GroupRegCmd groupRegCmd) {
+        if (loggedInContestant.getState() == ContestantState.SELECTED_CANDIDATE) {
+            Contestant partner = contestantDao.getSelectedContestantByEmail(groupRegCmd.getPartnerEmail());
 
-        Contestant partner = contestantDao.getSelectedContestantByEmail(groupRegCmd.getPartnerEmail());
+            if (partner != null) {
+                Group group = new Group();
+                group.setGroupName(groupRegCmd.getGroupName());
 
-        if (partner != null) {
-            Group group = new Group();
-            group.setGroupName(groupRegCmd.getGroupName());
+                List<Contestant> groupMembers = new ArrayList<Contestant>();
 
-            List<Contestant> groupMembers = new ArrayList<Contestant>();
+                groupMembers.add(loggedInContestant);
+                groupMembers.add(partner);
 
-            groupMembers.add(loggedInContestant);
-            groupMembers.add(partner);
+                loggedInContestant.setMyGroup(group);
+                partner.setMyGroup(group);
 
-            loggedInContestant.setMyGroup(group);
-            partner.setMyGroup(group);
+                loggedInContestant.setState(ContestantState.FINISHED_GROUP_REG);
+                partner.setState(ContestantState.FINISHED_GROUP_REG);
 
-            loggedInContestant.setState(ContestantState.FINISHED_GROUP_REG);
-            partner.setState(ContestantState.FINISHED_GROUP_REG);
+                groupDao.saveGroup(group);
+                contestantDao.updateContestant(loggedInContestant);
 
-            groupDao.saveGroup(group);
-            contestantDao.updateContestant(loggedInContestant);
+                return "success";
 
-            return "success";
-
+            } else {
+                facesMessages.addToControl("partnerEmail", "Email does not exist or has already been registered");
+                return "failure";
+            }
         }
-        else {
-            facesMessages.addToControl("partnerEmail", "Email does not exist or has already been registered");
-            return "failure";
-        }
+        return "failure";
 
     }
 }
