@@ -1,0 +1,96 @@
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:s="http://jboss.com/products/seam/taglib" xmlns:rich="http://richfaces.org/rich"
+                template="formTemplate.xhtml">
+
+
+    <ui:define name="menu">
+
+        <ul>
+            <li class="current_page_item"><s:link value="Home" view="/home.xhtml"/></li>
+            <li><a href="#">Profile</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Links</a></li>
+
+        </ul>
+
+    </ui:define>
+
+    <ui:define name="content">
+        <div class="post">
+            <h2 class="title">Update Your Project Source Code</h2>
+
+            <p class="meta"></p>
+
+            <div class="entry">
+                <h:form id="updateProjectSource" enctype="multipart/form-data">
+
+                    <table>
+                        <s:validateAll>
+                            <tr>
+                                <td>
+                                    <h:outputLabel value="Github Url*:" for="githubUrl"/>
+                                </td>
+                                <td>
+                                    <h:inputText id="githubUrl" value="#{existingProjectSubmission.gitHubUrl}"/>
+                                </td>
+                                <td>
+                                    <h:message for="githubUrl" styleClass="error"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <h:outputLabel value="Youtube Url*:" for="youtubeUrl"/>
+                                </td>
+                                <td>
+                                    <h:inputText id="youtubeUrl" value="#{existingProjectSubmission.youTubeUrl}"/>
+                                </td>
+                                <td>
+                                    <h:message for="youtubeUrl" styleClass="error"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <h:outputLabel value="Upload Your Project Source Code*:" for="sourceCodeUpload"/>
+                                </td>
+                                <td>
+                                    <s:fileUpload
+                                            id="sourceCodeUpload"
+                                            data="#{existingProjectSubmission.uploadedSourceCode.fileData}"
+                                            contentType="#{existingProjectSubmission.uploadedSourceCode.contentType}"
+                                            fileSize="#{existingProjectSubmission.uploadedSourceCode.size}"
+                                            />
+                                </td>
+                                <td>
+                                    <h:message for="sourceCodeUpload" styleClass="error"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <h:messages globalOnly="true" styleClass="error"/>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <h:commandButton value="Upload"
+                                                     action="#{projectSubmissionService.updateProjectSource(existingProjectSubmission)}"/>
+                                </td>
+                            </tr>
+                        </s:validateAll>
+                    </table>
+                </h:form>
+            </div>
+        </div>
+
+    </ui:define>
+
+
+</ui:composition>
+
+
+

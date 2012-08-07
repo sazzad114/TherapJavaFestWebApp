@@ -2,6 +2,7 @@ package net.therap.util;
 
 import net.therap.domain.Contestant;
 import net.therap.domain.ProjectProposal;
+import net.therap.domain.ProjectSubmission;
 import net.therap.domain.University;
 import net.therap.domain.question.QuestionBank;
 import org.jboss.seam.ScopeType;
@@ -61,5 +62,12 @@ public class FactoryUtil {
     public ProjectProposal getProjectProposal() {
         return loggedInContestant.getMyGroup().getProjectProposal();
     }
+
+    @Factory(value = "existingProjectSubmission", scope = ScopeType.PAGE)
+    public ProjectSubmission getExistingProjectSubmission() {
+        return loggedInContestant.getMyGroup().getSubmittedProject();
+    }
+
+
 
 }

@@ -137,6 +137,22 @@
         </navigation>
     </page>
 
+    <page view-id="/uploadProjectSource.xhtml" login-required="true">
+        <navigation>
+             <rule if-outcome="success">
+                    <redirect view-id="/greetings/greeting.xhtml"/>
+             </rule>
+        </navigation>
+    </page>
+
+     <page view-id="/updateProjectSource.xhtml" login-required="true">
+        <navigation>
+             <rule if-outcome="success">
+                    <redirect view-id="/greetings/greeting.xhtml"/>
+             </rule>
+        </navigation>
+    </page>
+
     <page view-id="*">
 
         <navigation from-action="#{identity.logout}">
