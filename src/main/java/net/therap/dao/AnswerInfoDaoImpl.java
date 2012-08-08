@@ -6,6 +6,7 @@ import org.jboss.seam.ScopeType;
 import org.jboss.seam.annotations.In;
 import org.jboss.seam.annotations.Name;
 import org.jboss.seam.annotations.Scope;
+import org.jboss.seam.annotations.Startup;
 
 /**
  * Created by
@@ -15,7 +16,8 @@ import org.jboss.seam.annotations.Scope;
  */
 
 @Name("answerInfoDao")
-@Scope(ScopeType.STATELESS)
+@Scope(ScopeType.APPLICATION)
+@Startup
 public class AnswerInfoDaoImpl implements AnswerInfoDao{
 
     @In

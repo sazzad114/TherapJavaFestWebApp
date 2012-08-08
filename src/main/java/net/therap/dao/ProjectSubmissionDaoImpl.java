@@ -6,6 +6,7 @@ import org.jboss.seam.ScopeType;
 import org.jboss.seam.annotations.In;
 import org.jboss.seam.annotations.Name;
 import org.jboss.seam.annotations.Scope;
+import org.jboss.seam.annotations.Startup;
 
 /**
  * Created by IntelliJ IDEA.
@@ -14,7 +15,8 @@ import org.jboss.seam.annotations.Scope;
  * @since: 8/7/12 1:42 PM
  */
 @Name("projectSubmissionDao")
-@Scope(ScopeType.STATELESS)
+@Scope(ScopeType.APPLICATION)
+@Startup
 public class ProjectSubmissionDaoImpl implements ProjectSubmissionDao {
 
     @In

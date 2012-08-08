@@ -36,10 +36,10 @@ public class ProjectSubmissionService {
     @Out
     Contestant loggedInContestant;
 
-    @In(create = true)
+    @In
     ProjectSubmissionDao projectSubmissionDao;
 
-    @In(create = true)
+    @In
     ContestantDao contestantDao;
 
 

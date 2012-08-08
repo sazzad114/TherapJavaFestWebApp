@@ -37,13 +37,13 @@ public class ProposalSubmissionService {
     @Out
     Contestant loggedInContestant;
 
-    @In(create = true)
+    @In
     ProjectProposalDao projectProposalDao;
 
-    @In(create = true)
+    @In
     ContestantDao contestantDao;
 
-    @In(create = true)
+    @In
     GroupDao groupDao;
 
     public String submitProposal(ProjectProposal projectProposal) {

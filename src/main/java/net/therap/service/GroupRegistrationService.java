@@ -26,10 +26,10 @@ import java.util.List;
 @Scope(ScopeType.EVENT)
 public class GroupRegistrationService {
 
-    @In(create = true)
+    @In
     GroupDao groupDao;
 
-    @In(create = true)
+    @In
     ContestantDao contestantDao;
 
     @In

@@ -14,7 +14,7 @@ import org.jboss.seam.security.Identity;
 public class AuthenticatorService {
 
 
-    @In(create = true)
+    @In
     private ContestantDao contestantDao;
 
     @In

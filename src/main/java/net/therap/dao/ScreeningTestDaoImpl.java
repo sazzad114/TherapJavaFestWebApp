@@ -5,10 +5,7 @@ import net.therap.domain.ScreeningTest;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.jboss.seam.ScopeType;
-import org.jboss.seam.annotations.In;
-import org.jboss.seam.annotations.Logger;
-import org.jboss.seam.annotations.Name;
-import org.jboss.seam.annotations.Scope;
+import org.jboss.seam.annotations.*;
 import org.jboss.seam.log.Log;
 
 import java.util.List;
@@ -21,7 +18,8 @@ import java.util.List;
  */
 
 @Name("screeningTestDao")
-@Scope(ScopeType.STATELESS)
+@Scope(ScopeType.APPLICATION)
+@Startup
 public class ScreeningTestDaoImpl implements ScreeningTestDao{
 
     @Logger

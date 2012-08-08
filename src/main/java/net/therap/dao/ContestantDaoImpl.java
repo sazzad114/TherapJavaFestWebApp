@@ -8,6 +8,7 @@ import org.jboss.seam.ScopeType;
 import org.jboss.seam.annotations.In;
 import org.jboss.seam.annotations.Name;
 import org.jboss.seam.annotations.Scope;
+import org.jboss.seam.annotations.Startup;
 
 import java.util.List;
 
@@ -18,7 +19,8 @@ import java.util.List;
  * Time: 5:58 PM
  */
 @Name("contestantDao")
-@Scope(ScopeType.STATELESS)
+@Scope(ScopeType.APPLICATION)
+@Startup
 public class ContestantDaoImpl implements ContestantDao {
 
     @In

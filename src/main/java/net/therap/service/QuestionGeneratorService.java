@@ -39,10 +39,10 @@ public class QuestionGeneratorService {
     @In
     Contestant loggedInContestant;
 
-    @In(create = true)
+    @In
     ScreeningTestDao screeningTestDao;
 
-    @In(create = true)
+    @In
     ContestantDao contestantDao;
 
     @In(create = true)

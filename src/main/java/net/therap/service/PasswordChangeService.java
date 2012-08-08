@@ -25,7 +25,7 @@ public class PasswordChangeService {
     @Out
     private Contestant loggedInContestant;
 
-    @In(create = true)
+    @In
     private ContestantDao contestantDao;
 
 

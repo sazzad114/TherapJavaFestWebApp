@@ -326,17 +326,7 @@
 
     </page>
 
-    <page view-id="/screeningTest.xhtml" login-required="true" action="#{loggedInContestant.getState}">
-        <!--<action execute="#{testService.loadFirstQuestion}" if="#{ not testService.notFirstLoad and not facesContext.renderKit.responseStateManager.isPostback(facesContext)}"/>
-        -->
-        <navigation from-action="#{loggedInContestant.getState}">
-            <rule if="#{loggedInContestant.state == contestantState.AT_TEST}">
-                <render view-id="/screeningTest.xhtml"/>
-            </rule>
-            <rule if="#{loggedInContestant.state != contestantState.AT_TEST}">
-                <redirect view-id="/greetings/greeting.xhtml"/>
-            </rule>
-        </navigation>
+    <page view-id="/screeningTest.xhtml" login-required="true">
         <action execute="#{testService.loadFirstQuestion}"
                 if="#{not notFirstLoad and not facesContext.renderKit.responseStateManager.isPostback(facesContext)}"/>
         <action execute="#{testService.loadCurrentQuestion}"

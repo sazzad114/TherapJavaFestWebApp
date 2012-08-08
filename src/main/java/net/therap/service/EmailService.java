@@ -13,7 +13,6 @@ import org.jboss.seam.log.Log;
  */
 @Name("emailService")
 @Scope(ScopeType.EVENT)
-@AutoCreate
 public class EmailService {
     @Logger
     private Log log;

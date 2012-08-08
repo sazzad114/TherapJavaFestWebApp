@@ -31,10 +31,10 @@ public class RegistrationService {
     private final int UPLOADED_IMAGE_SIZE = 5;
     private final int UPLOADED_CV_SIZE = 5;
 
-    @In(create = true)
+    @In
     private ContestantDao contestantDao;
 
-    @In
+    @In(create = true)
     private EmailService emailService;
 
     @In
