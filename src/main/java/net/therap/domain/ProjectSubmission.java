@@ -1,5 +1,9 @@
 package net.therap.domain;
 
+import net.therap.util.RegularExpressions;
+import org.hibernate.validator.NotEmpty;
+import org.hibernate.validator.NotNull;
+import org.hibernate.validator.Pattern;
 import org.jboss.seam.ScopeType;
 import org.jboss.seam.annotations.Name;
 import org.jboss.seam.annotations.Scope;
@@ -76,6 +80,7 @@ public class ProjectSubmission implements Serializable{
     }
 
     @Column(name = "GITHUB_URL")
+    @Pattern(regex = RegularExpressions.GITHUB_URL, message = "invalid github url")
     public String getGitHubUrl() {
         return gitHubUrl;
     }
@@ -85,6 +90,7 @@ public class ProjectSubmission implements Serializable{
     }
 
     @Column(name = "YOUTUBE_URL")
+    @Pattern(regex = RegularExpressions.YOUTUBE_URL, message = "invalid youtube url")
     public String getYouTubeUrl() {
         return youTubeUrl;
     }

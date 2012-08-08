@@ -4,15 +4,13 @@ import net.therap.dao.ContestantDao;
 import net.therap.domain.Contestant;
 import net.therap.util.ContestantState;
 import org.jboss.seam.ScopeType;
-import org.jboss.seam.annotations.In;
-import org.jboss.seam.annotations.Logger;
-import org.jboss.seam.annotations.Name;
-import org.jboss.seam.annotations.Out;
+import org.jboss.seam.annotations.*;
 import org.jboss.seam.core.Events;
 import org.jboss.seam.log.Log;
 import org.jboss.seam.security.Identity;
 
 @Name("authenticator")
+@Scope(ScopeType.EVENT)
 public class AuthenticatorService {
 
 

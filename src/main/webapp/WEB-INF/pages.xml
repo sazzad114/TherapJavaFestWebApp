@@ -49,12 +49,6 @@
             <rule if="#{loggedInContestant.state == contestantState.SELECTED_CANDIDATE}">
                 <redirect view-id="/greetings/selectedContestantGreeting.xhtml"/>
             </rule>
-            <rule if="#{loggedInContestant.state == contestantState.PENDING_GROUP_FORMATION}">
-                <redirect view-id="/greetings/pendingGroupFormationGreeting.xhtml"/>
-            </rule>
-            <rule if="#{loggedInContestant.state == contestantState.ELIGIBLE_FOR_GROUP_REG}">
-                <redirect view-id="/greetings/eligibleForGroupRegGreeting.xhtml"/>
-            </rule>
             <rule if="#{loggedInContestant.state == contestantState.FINISHED_GROUP_REG}">
                 <redirect view-id="/greetings/finishedGroupRegGreeting.xhtml"/>
             </rule>
@@ -96,6 +90,232 @@
 
     </page>
 
+    <page view-id="/greetings/newContestantGreeting.xhtml" login-required="true"
+          action="#{loggedInContestant.getState}">
+
+        <navigation from-action="#{loggedInContestant.getState}">
+            <rule if="#{loggedInContestant.state == contestantState.NEW_CONTESTANT}">
+                <render view-id="/greetings/newContestantGreeting.xhtml"/>
+            </rule>
+            <rule if="#{loggedInContestant.state != contestantState.NEW_CONTESTANT}">
+                <redirect view-id="/greetings/greeting.xhtml"/>
+            </rule>
+        </navigation>
+    </page>
+
+    <page view-id="/greetings/readyForTestGreeting.xhtml" login-required="true" action="#{loggedInContestant.getState}">
+
+        <navigation from-action="#{loggedInContestant.getState}">
+            <rule if="#{loggedInContestant.state == contestantState.READY_FOR_TEST}">
+                <render view-id="/greetings/readyForTestGreeting.xhtml"/>
+            </rule>
+            <rule if="#{loggedInContestant.state != contestantState.READY_FOR_TEST}">
+                <redirect view-id="/greetings/greeting.xhtml"/>
+            </rule>
+        </navigation>
+    </page>
+
+    <page view-id="/greetings/disqualifiedAtTestGreeting.xhtml" login-required="true"
+          action="#{loggedInContestant.getState}">
+
+        <navigation from-action="#{loggedInContestant.getState}">
+            <rule if="#{loggedInContestant.state == contestantState.DISQUALIFIED_AT_TEST}">
+                <render view-id="/greetings/disqualifiedAtTestGreeting.xhtml"/>
+            </rule>
+            <rule if="#{loggedInContestant.state != contestantState.DISQUALIFIED_AT_TEST}">
+                <redirect view-id="/greetings/greeting.xhtml"/>
+            </rule>
+        </navigation>
+    </page>
+
+
+    <page view-id="/greetings/pendingTestResultGreeting.xhtml" login-required="true"
+          action="#{loggedInContestant.getState}">
+
+        <navigation from-action="#{loggedInContestant.getState}">
+            <rule if="#{loggedInContestant.state == contestantState.PENDING_TEST_RESULT}">
+                <render view-id="/greetings/pendingTestResultGreeting.xhtml"/>
+            </rule>
+            <rule if="#{loggedInContestant.state != contestantState.PENDING_TEST_RESULT}">
+                <redirect view-id="/greetings/greeting.xhtml"/>
+            </rule>
+        </navigation>
+    </page>
+
+    <page view-id="/greetings/eliminatedAtTestGreeting.xhtml" login-required="true" action="#{loggedInContestant.getState}">
+
+        <navigation from-action="#{loggedInContestant.getState}">
+            <rule if="#{loggedInContestant.state == contestantState.ELIMINATED_AT_TEST}">
+                <render view-id="/greetings/eliminatedAtTestGreeting.xhtml"/>
+            </rule>
+            <rule if="#{loggedInContestant.state != contestantState.ELIMINATED_AT_TEST}">
+                <redirect view-id="/greetings/greeting.xhtml"/>
+            </rule>
+        </navigation>
+    </page>
+
+    <page view-id="/greetings/selectedContestantGreeting.xhtml" login-required="true"
+          action="#{loggedInContestant.getState}">
+
+        <navigation from-action="#{loggedInContestant.getState}">
+            <rule if="#{loggedInContestant.state == contestantState.SELECTED_CANDIDATE}">
+                <render view-id="/greetings/selectedContestantGreeting.xhtml"/>
+            </rule>
+            <rule if="#{loggedInContestant.state != contestantState.SELECTED_CANDIDATE}">
+                <redirect view-id="/greetings/greeting.xhtml"/>
+            </rule>
+        </navigation>
+    </page>
+
+    <page view-id="/greetings/disqualifiedAtGroupFormation.xhtml" login-required="true"
+          action="#{loggedInContestant.getState}">
+
+        <navigation from-action="#{loggedInContestant.getState}">
+            <rule if="#{loggedInContestant.state == contestantState.DISQUALIFIED_AT_FORMATION}">
+                <render view-id="/greetings/disqualifiedAtGroupFormation.xhtml"/>
+            </rule>
+            <rule if="#{loggedInContestant.state != contestantState.DISQUALIFIED_AT_FORMATION}">
+                <redirect view-id="/greetings/greeting.xhtml"/>
+            </rule>
+        </navigation>
+    </page>
+
+    <page view-id="/greetings/finishedGroupRegGreeting.xhtml" login-required="true"
+          action="#{loggedInContestant.getState}">
+
+        <navigation from-action="#{loggedInContestant.getState}">
+            <rule if="#{loggedInContestant.state == contestantState.FINISHED_GROUP_REG}">
+                <render view-id="/greetings/finishedGroupRegGreeting.xhtml"/>
+            </rule>
+            <rule if="#{loggedInContestant.state != contestantState.FINISHED_GROUP_REG}">
+                <redirect view-id="/greetings/greeting.xhtml"/>
+            </rule>
+        </navigation>
+    </page>
+
+    <page view-id="/greetings/atBusinessProposalGreeting.xhtml" login-required="true"
+          action="#{loggedInContestant.getState}">
+
+        <navigation from-action="#{loggedInContestant.getState}">
+            <rule if="#{loggedInContestant.state == contestantState.AT_BUSINESS_PROPOSAL}">
+                <render view-id="/greetings/atBusinessProposalGreeting.xhtml"/>
+            </rule>
+            <rule if="#{loggedInContestant.state != contestantState.AT_BUSINESS_PROPOSAL}">
+                <redirect view-id="/greetings/greeting.xhtml"/>
+            </rule>
+        </navigation>
+    </page>
+
+
+    <!--done upto this-->
+
+    <page view-id="/greetings/pendingProposalResultGreeting.xhtml" login-required="true"
+          action="#{loggedInContestant.getState}">
+        <navigation from-action="#{loggedInContestant.getState}">
+            <rule if="#{loggedInContestant.state == contestantState.PENDING_PROPOSAL_RESULT}">
+                <render view-id="/greetings/pendingProposalResultGreeting.xhtml"/>
+            </rule>
+            <rule if="#{loggedInContestant.state != contestantState.PENDING_PROPOSAL_RESULT}">
+                <redirect view-id="/greetings/greeting.xhtml"/>
+            </rule>
+        </navigation>
+    </page>
+
+    <page view-id="/greetings/disqualifiedAtProposalGreeting.xhtml" login-required="true"
+          action="#{loggedInContestant.getState}">
+        <navigation from-action="#{loggedInContestant.getState}">
+            <rule if="#{loggedInContestant.state == contestantState.DISQUALIFIED_AT_PROPOSAL}">
+                <render view-id="/greetings/disqualifiedAtProposalGreeting.xhtml"/>
+            </rule>
+            <rule if="#{loggedInContestant.state != contestantState.DISQUALIFIED_AT_PROPOSAL}">
+                <redirect view-id="/greetings/greeting.xhtml"/>
+            </rule>
+        </navigation>
+    </page>
+
+    <page view-id="/greetings/eliminatedAtProposalGreeting.xhtml" login-required="true"
+          action="#{loggedInContestant.getState}">
+        <navigation from-action="#{loggedInContestant.getState}">
+            <rule if="#{loggedInContestant.state == contestantState.ELIMINATED_AT_PROPOSAL}">
+                <render view-id="/greetings/eliminatedAtProposalGreeting.xhtml"/>
+            </rule>
+            <rule if="#{loggedInContestant.state != contestantState.ELIMINATED_AT_PROPOSAL}">
+                <redirect view-id="/greetings/greeting.xhtml"/>
+            </rule>
+        </navigation>
+    </page>
+
+    <page view-id="/greetings/atFinalSubmissionGreeting.xhtml" login-required="true"
+          action="#{loggedInContestant.getState}">
+        <navigation from-action="#{loggedInContestant.getState}">
+            <rule if="#{loggedInContestant.state == contestantState.AT_FINAL_SUBMISSION}">
+                <render view-id="/greetings/atFinalSubmissionGreeting.xhtml"/>
+            </rule>
+            <rule if="#{loggedInContestant.state != contestantState.AT_FINAL_SUBMISSION}">
+                <redirect view-id="/greetings/greeting.xhtml"/>
+            </rule>
+        </navigation>
+    </page>
+
+    <page view-id="/greetings/pendingSubmissionResult.xhtml" login-required="true"
+          action="#{loggedInContestant.getState}">
+        <navigation from-action="#{loggedInContestant.getState}">
+            <rule if="#{loggedInContestant.state == contestantState.PENDING_SUBMISSION_RESULT}">
+                <render view-id="/greetings/pendingSubmissionResult.xhtml"/>
+            </rule>
+            <rule if="#{loggedInContestant.state != contestantState.PENDING_SUBMISSION_RESULT}">
+                <redirect view-id="/greetings/greeting.xhtml"/>
+            </rule>
+        </navigation>
+    </page>
+
+    <page view-id="/greetings/disqualifiedAtSubmission.xhtml" login-required="true"
+          action="#{loggedInContestant.getState}">
+        <navigation from-action="#{loggedInContestant.getState}">
+            <rule if="#{loggedInContestant.state == contestantState.DISQUALIFIED_AT_SUBMISSION}">
+                <render view-id="/greetings/disqualifiedAtSubmission.xhtml"/>
+            </rule>
+            <rule if="#{loggedInContestant.state != contestantState.DISQUALIFIED_AT_SUBMISSION}">
+                <redirect view-id="/greetings/greeting.xhtml"/>
+            </rule>
+        </navigation>
+    </page>
+
+    <page view-id="/greetings/atFinalStageGreeting.xhtml" login-required="true" action="#{loggedInContestant.getState}">
+        <navigation from-action="#{loggedInContestant.getState}">
+            <rule if="#{loggedInContestant.state == contestantState.AT_FINAL_STAGE}">
+                <render view-id="/greetings/atFinalStageGreeting.xhtml"/>
+            </rule>
+            <rule if="#{loggedInContestant.state != contestantState.AT_FINAL_STAGE}">
+                <redirect view-id="/greetings/greeting.xhtml"/>
+            </rule>
+        </navigation>
+    </page>
+
+    <page view-id="/greetings/eliminatedAtSubmissionGreeting.xhtml" login-required="true"
+          action="#{loggedInContestant.getState}">
+        <navigation from-action="#{loggedInContestant.getState}">
+            <rule if="#{loggedInContestant.state == contestantState.ELIMINATED_AT_SUBMISSION}">
+                <render view-id="/greetings/eliminatedAtSubmissionGreeting.xhtml"/>
+            </rule>
+            <rule if="#{loggedInContestant.state != contestantState.ELIMINATED_AT_SUBMISSION}">
+                <redirect view-id="/greetings/greeting.xhtml"/>
+            </rule>
+        </navigation>
+    </page>
+
+    <page view-id="/greetings/bannedGreeting.xhtml" login-required="true" action="#{loggedInContestant.getState}">
+        <navigation from-action="#{loggedInContestant.getState}">
+            <rule if="#{loggedInContestant.state == contestantState.BANNED}">
+                <render view-id="/greetings/bannedGreeting.xhtml"/>
+            </rule>
+            <rule if="#{loggedInContestant.state != contestantState.BANNED}">
+                <redirect view-id="/greetings/greeting.xhtml"/>
+            </rule>
+        </navigation>
+    </page>
+
+
     <page view-id="/changePassword.xhtml"
           login-required="true">
         <navigation>
@@ -106,50 +326,93 @@
 
     </page>
 
-    <page view-id="/screeningTest.xhtml" login-required="true">
+    <page view-id="/screeningTest.xhtml" login-required="true" action="#{loggedInContestant.getState}">
         <!--<action execute="#{testService.loadFirstQuestion}" if="#{ not testService.notFirstLoad and not facesContext.renderKit.responseStateManager.isPostback(facesContext)}"/>
         -->
-        <action execute="#{testService.loadFirstQuestion}" if="#{not notFirstLoad and not facesContext.renderKit.responseStateManager.isPostback(facesContext)}"/>
-        <action execute="#{testService.loadCurrentQuestion}" if="#{notFirstLoad and not facesContext.renderKit.responseStateManager.isPostback(facesContext)}"/>
+        <navigation from-action="#{loggedInContestant.getState}">
+            <rule if="#{loggedInContestant.state == contestantState.AT_TEST}">
+                <render view-id="/screeningTest.xhtml"/>
+            </rule>
+            <rule if="#{loggedInContestant.state != contestantState.AT_TEST}">
+                <redirect view-id="/greetings/greeting.xhtml"/>
+            </rule>
+        </navigation>
+        <action execute="#{testService.loadFirstQuestion}"
+                if="#{not notFirstLoad and not facesContext.renderKit.responseStateManager.isPostback(facesContext)}"/>
+        <action execute="#{testService.loadCurrentQuestion}"
+                if="#{notFirstLoad and not facesContext.renderKit.responseStateManager.isPostback(facesContext)}"/>
     </page>
+
 
     <page view-id="/registerGroup.xhtml" login-required="true">
         <navigation>
-             <rule if-outcome="success">
-                    <redirect view-id="/greetings/greeting.xhtml"/>
-             </rule>
+            <rule if-outcome="success">
+                <redirect view-id="/greetings/greeting.xhtml"/>
+            </rule>
         </navigation>
     </page>
 
-    <page view-id="/uploadProjectProposal.xhtml" login-required="true">
+    <page view-id="/uploadProjectProposal.xhtml" login-required="true" action="#{loggedInContestant.getState}">
         <navigation>
-             <rule if-outcome="success">
-                    <redirect view-id="/greetings/greeting.xhtml"/>
-             </rule>
+            <rule if-outcome="success">
+                <redirect view-id="/greetings/greeting.xhtml"/>
+            </rule>
+        </navigation>
+        <navigation from-action="#{loggedInContestant.getState}">
+            <rule if="#{loggedInContestant.state == contestantState.AT_BUSINESS_PROPOSAL}">
+                <render view-id="/uploadProjectProposal.xhtml"/>
+            </rule>
+            <rule if="#{loggedInContestant.state != contestantState.AT_BUSINESS_PROPOSAL}">
+                <redirect view-id="/greetings/greeting.xhtml"/>
+            </rule>
         </navigation>
     </page>
 
-    <page view-id="/updateProjectProposal.xhtml" login-required="true">
+    <page view-id="/updateProjectProposal.xhtml" login-required="true" action="#{loggedInContestant.getState}">
         <navigation>
-             <rule if-outcome="success">
-                    <redirect view-id="/greetings/greeting.xhtml"/>
-             </rule>
+            <rule if-outcome="success">
+                <redirect view-id="/greetings/greeting.xhtml"/>
+            </rule>
+        </navigation>
+        <navigation from-action="#{loggedInContestant.getState}">
+            <rule if="#{loggedInContestant.state == contestantState.PENDING_PROPOSAL_RESULT}">
+                <render view-id="/updateProjectProposal.xhtml"/>
+            </rule>
+            <rule if="#{loggedInContestant.state != contestantState.PENDING_PROPOSAL_RESULT}">
+                <redirect view-id="/greetings/greeting.xhtml"/>
+            </rule>
         </navigation>
     </page>
 
-    <page view-id="/uploadProjectSource.xhtml" login-required="true">
+    <page view-id="/uploadProjectSource.xhtml" login-required="true" action="#{loggedInContestant.getState}">
         <navigation>
-             <rule if-outcome="success">
-                    <redirect view-id="/greetings/greeting.xhtml"/>
-             </rule>
+            <rule if-outcome="success">
+                <redirect view-id="/greetings/greeting.xhtml"/>
+            </rule>
+        </navigation>
+        <navigation from-action="#{loggedInContestant.getState}">
+            <rule if="#{loggedInContestant.state == contestantState.AT_FINAL_SUBMISSION}">
+                <render view-id="/uploadProjectSource.xhtml"/>
+            </rule>
+            <rule if="#{loggedInContestant.state != contestantState.AT_FINAL_SUBMISSION}">
+                <redirect view-id="/greetings/greeting.xhtml"/>
+            </rule>
         </navigation>
     </page>
 
-     <page view-id="/updateProjectSource.xhtml" login-required="true">
+    <page view-id="/updateProjectSource.xhtml" login-required="true" action="#{loggedInContestant.getState}">
         <navigation>
-             <rule if-outcome="success">
-                    <redirect view-id="/greetings/greeting.xhtml"/>
-             </rule>
+            <rule if-outcome="success">
+                <redirect view-id="/greetings/greeting.xhtml"/>
+            </rule>
+        </navigation>
+         <navigation from-action="#{loggedInContestant.getState}">
+            <rule if="#{loggedInContestant.state == contestantState.PENDING_SUBMISSION_RESULT}">
+                <render view-id="/updateProjectSource.xhtml"/>
+            </rule>
+            <rule if="#{loggedInContestant.state != contestantState.PENDING_SUBMISSION_RESULT}">
+                <redirect view-id="/greetings/greeting.xhtml"/>
+            </rule>
         </navigation>
     </page>
 
