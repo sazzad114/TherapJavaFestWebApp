@@ -1,5 +1,6 @@
 package net.therap.util;
 
+import net.therap.dao.ContestantDao;
 import net.therap.domain.Contestant;
 import net.therap.domain.ProjectProposal;
 import net.therap.domain.ProjectSubmission;
@@ -31,6 +32,8 @@ public class FactoryUtil {
     @In(required = false)
     Contestant loggedInContestant;
 
+    @In(create = true)
+    ContestantDao contestantDao;
 
     @Factory("universities")
     public List<University> getUniversities() {
@@ -68,6 +71,10 @@ public class FactoryUtil {
         return loggedInContestant.getMyGroup().getSubmittedProject();
     }
 
+    @Factory(value = "myProfile",scope = ScopeType.EVENT)
+    public Contestant getMyProfile() {
+        return contestantDao.getContestantById(loggedInContestant.getContestantId());
+    }
 
 
 }
