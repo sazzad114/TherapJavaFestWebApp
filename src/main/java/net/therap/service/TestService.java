@@ -137,8 +137,7 @@ public class TestService {
                 screeningTestDao.updateScreeningTest(screeningTest);
                 selectedOptionId = -1;
             }
-        }
-        else {
+        } else {
             endTest();
         }
 
@@ -147,6 +146,8 @@ public class TestService {
 
     @Begin(join = true)
     public void getNextQuestion() {
+
+        log.info("Invoking getNextQuestion");
 
         AnswerInfo answerInfo = new AnswerInfo();
 
@@ -171,8 +172,9 @@ public class TestService {
             }
         }
 
+        log.info("Current Index: " + currentIndex);
 
-        if (currentIndex == screeningTest.getQuestionOrderList().size() - 1) {
+        if (currentIndex == screeningTest.getQuestionOrderList().size()) {
             loggedInContestant = contestantDao.getContestantById(loggedInContestant.getContestantId());
             loggedInContestant.setState(ContestantState.PENDING_TEST_RESULT);
             contestantDao.updateContestant(loggedInContestant);
@@ -204,6 +206,8 @@ public class TestService {
 
     @End
     public void endTest() {
+        log.info("Ending test");
+        log.info("Contestant state: " + loggedInContestant.getState());
         Redirect redirect = Redirect.instance();
         redirect.setViewId("/greetings/greeting.xhtml");
         redirect.execute();
