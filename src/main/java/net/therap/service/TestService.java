@@ -14,7 +14,11 @@ import org.jboss.seam.annotations.*;
 import org.jboss.seam.faces.Redirect;
 import org.jboss.seam.log.Log;
 
+import javax.faces.context.ExternalContext;
+import javax.faces.context.FacesContext;
+import javax.servlet.ServletContext;
 import java.util.Date;
+import java.util.Map;
 
 /**
  * Created by
@@ -53,7 +57,6 @@ public class TestService {
 
     @Out(required = false)
     private Question currentQuestion;
-
 
     private long timeLeft;
 
@@ -153,6 +156,22 @@ public class TestService {
 
         answerInfo.setContestant(loggedInContestant);
         answerInfo.setQuestionId(currentQuestion.getQuestionId());
+        log.info("Selected Option Id: " + selectedOptionId);
+
+
+
+        Map<String,String> paramMap = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap();
+
+        for (String key: paramMap.keySet()) {
+            log.info("Param: " + key + " Value: " + paramMap.get(key));
+            if (key.contains("selectedQuestionOption")) {
+                log.info("OptionParam: " + key + " Value: " + paramMap.get(key));
+                selectedOptionId = Integer.parseInt(paramMap.get(key));
+            }
+        }
+
+
+
         if (currentQuestion.getCorrectOption().getOptionId() == selectedOptionId) {
             answerInfo.setCorrect(true);
         } else {
