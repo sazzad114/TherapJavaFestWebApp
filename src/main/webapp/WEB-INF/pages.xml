@@ -406,6 +406,8 @@
         </navigation>
     </page>
 
+    <page view-id="/viewProfile.xhtml" login-required="true"/>
+
     <page view-id="*">
 
         <navigation from-action="#{identity.logout}">
