@@ -35,16 +35,16 @@ public class ProposalSubmissionService {
 
     @In
     @Out
-    Contestant loggedInContestant;
+    private Contestant loggedInContestant;
 
     @In
-    ProjectProposalDao projectProposalDao;
+    private ProjectProposalDao projectProposalDao;
 
     @In
-    ContestantDao contestantDao;
+    private ContestantDao contestantDao;
 
     @In
-    GroupDao groupDao;
+    private GroupDao groupDao;
 
     public String submitProposal(ProjectProposal projectProposal) {
         List<String> proposalFileType = new ArrayList<String>();

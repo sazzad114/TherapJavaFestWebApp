@@ -30,17 +30,17 @@ public class ProjectSubmissionService {
     Log log;
 
     @In
-    FacesMessages facesMessages;
+    private FacesMessages facesMessages;
 
     @In
     @Out
-    Contestant loggedInContestant;
+    private Contestant loggedInContestant;
 
     @In
-    ProjectSubmissionDao projectSubmissionDao;
+    private ProjectSubmissionDao projectSubmissionDao;
 
     @In
-    ContestantDao contestantDao;
+    private ContestantDao contestantDao;
 
 
     private final int UPLOADED_SOURCE_CODE_SIZE = 10;

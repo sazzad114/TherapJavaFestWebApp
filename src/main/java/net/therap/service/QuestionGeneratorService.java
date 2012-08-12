@@ -34,19 +34,19 @@ public class QuestionGeneratorService {
     Log log;
 
     @In(create = true)
-    OrderGenerator orderGenerator;
+    private OrderGenerator orderGenerator;
 
     @In
-    Contestant loggedInContestant;
+    private Contestant loggedInContestant;
 
     @In
-    ScreeningTestDao screeningTestDao;
+    private ScreeningTestDao screeningTestDao;
 
     @In
-    ContestantDao contestantDao;
+    private ContestantDao contestantDao;
 
     @In(create = true)
-    QuestionBank questionBank;
+    private QuestionBank questionBank;
 
      public void generateQuestion() {
         if (loggedInContestant.getState() == ContestantState.READY_FOR_TEST && loggedInContestant.getScreeningTest()==null) {

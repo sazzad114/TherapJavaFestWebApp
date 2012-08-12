@@ -6,9 +6,11 @@ import net.therap.dao.ScreeningTestDao;
 import net.therap.domain.AnswerInfo;
 import net.therap.domain.Contestant;
 import net.therap.domain.ScreeningTest;
+import net.therap.domain.question.Option;
 import net.therap.domain.question.Question;
 import net.therap.domain.question.QuestionBank;
 import net.therap.util.ContestantState;
+import net.therap.util.OrderGenerator;
 import org.jboss.seam.ScopeType;
 import org.jboss.seam.annotations.*;
 import org.jboss.seam.faces.Redirect;
@@ -17,7 +19,9 @@ import org.jboss.seam.log.Log;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 import javax.servlet.ServletContext;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -36,6 +40,9 @@ public class TestService {
 
     @In(create = true)
     private QuestionBank questionBank;
+
+    @In(create = true)
+    private OrderGenerator orderGenerator;
 
     @In
     @Out
@@ -94,8 +101,12 @@ public class TestService {
             screeningTest.getCurrentQuestionState().setLastLoadingTime(currentDateTime);
             timeLeft = screeningTest.getCurrentQuestionState().getTimeLeft() - timeElapsed;
             screeningTest.getCurrentQuestionState().setTimeLeft(timeLeft);
+
+            shuffleOptions(question);
+
             log.info("Setting current question to: " + question.getQuestionId());
             currentQuestion = question;
+
             loggedInContestant.setScreeningTest(screeningTest);
             screeningTestDao.updateScreeningTest(screeningTest);
             notFirstLoad = true;
@@ -203,6 +214,7 @@ public class TestService {
 
             log.info("Setting current question to: " + questionBank.getQuestions().get(screeningTest.getQuestionOrderList().get(currentIndex).getQuestionOrder()).getQuestionId());
             currentQuestion = questionBank.getQuestions().get(screeningTest.getQuestionOrderList().get(currentIndex).getQuestionOrder());
+            shuffleOptions(currentQuestion);
             selectedOptionId = -1;
 
             screeningTest.getCurrentQuestionState().setCurrentQuestionId(currentQuestion.getQuestionId());
@@ -232,5 +244,16 @@ public class TestService {
         redirect.execute();
     }
 
+    public void shuffleOptions(Question question) {
+        List<Integer> generatedOptionOrder = orderGenerator.generateOrder(question.getOptions().size(),question.getOptions().size());
 
+        List<Option> reshuffledOptions = new ArrayList<Option>();
+
+        for (int j = 0; j < question.getOptions().size(); j++) {
+            Option option = question.getOptions().get(generatedOptionOrder.get(j));
+            reshuffledOptions.add(option);
+        }
+
+        question.setOptions(reshuffledOptions);
+    }
 }

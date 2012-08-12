@@ -30,10 +30,10 @@ public class FactoryUtil {
     private static final String QUESTIONBANK_XML = "/WEB-INF/classes/questionbank.xml";
 
     @In(required = false)
-    Contestant loggedInContestant;
+    private Contestant loggedInContestant;
 
     @In(create = true)
-    ContestantDao contestantDao;
+    private ContestantDao contestantDao;
 
     @Factory("universities")
     public List<University> getUniversities() {

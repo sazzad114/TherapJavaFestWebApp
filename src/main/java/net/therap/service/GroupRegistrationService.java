@@ -27,16 +27,16 @@ import java.util.List;
 public class GroupRegistrationService {
 
     @In
-    GroupDao groupDao;
+    private GroupDao groupDao;
 
     @In
-    ContestantDao contestantDao;
+    private ContestantDao contestantDao;
 
     @In
-    Contestant loggedInContestant;
+    private Contestant loggedInContestant;
 
     @In
-    FacesMessages facesMessages;
+    private FacesMessages facesMessages;
 
 
     public String registerGroup(GroupRegCmd groupRegCmd) {
