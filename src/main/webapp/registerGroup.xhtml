@@ -8,86 +8,86 @@
                 template="formTemplate.xhtml">
 
 
-<ui:define name="menu">
+    <ui:define name="menu">
 
-    <ul>
-        <li class="current_page_item"><s:link value="Home" view="/home.xhtml"/></li>
-        <li><a href="#">Profile</a></li>
-        <li><a href="#">About</a></li>
-        <li><a href="#">Links</a></li>
+        <ul>
+            <li class="current_page_item"><s:link value="Home" view="/greetings/greeting.xhtml"/></li>
+            <li><s:link value="Profile" view="/viewProfile.xhtml"/></li>
+            <li><s:link value="Change password" view="/changePassword.xhtml"/></li>
+            <li><s:link value="Logout" action="#{identity.logout}"/></li>
+        </ul>
 
-    </ul>
+    </ui:define>
 
-</ui:define>
+    <ui:define name="content">
+        <div class="post">
+            <h2 class="title">Register for Therap Java Fest !</h2>
 
-<ui:define name="content">
-<div class="post">
-<h2 class="title">Register for Therap Java Fest !</h2>
+            <p class="meta"></p>
 
-<p class="meta"></p>
+            <div class="entry">
+                <h:form id="registerGroup">
 
-<div class="entry">
-<h:form id="registerGroup">
+                    <table>
+                        <s:validateAll>
+                            <tr>
+                                <td>
+                                    <h:outputLabel value="Group Name:" for="groupName"/>
+                                </td>
+                                <td>
+                                    <h:inputText id="groupName" value="#{groupRegCmd.groupName}" required="true"/>
+                                </td>
+                                <td>
+                                    <h:message for="groupName" styleClass="error"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <h:outputLabel value="Partner's email:" for="partnerEmail"/>
+                                </td>
+                                <td>
+                                    <h:inputText id="partnerEmail" value="#{groupRegCmd.partnerEmail}" required="true"/>
+                                </td>
+                                <td>
+                                    <h:message for="partnerEmail" styleClass="error"/>
+                                </td>
+                            </tr>
 
-<table>
-    <s:validateAll>
-        <tr>
-            <td>
-                <h:outputLabel value="Group Name:" for="groupName"/>
-            </td>
-            <td>
-                <h:inputText id="groupName" value="#{groupRegCmd.groupName}" required="true"/>
-            </td>
-            <td>
-                <h:message for="groupName" styleClass="error"/>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <h:outputLabel value="Partner's email:" for="partnerEmail"/>
-            </td>
-            <td>
-                <h:inputText id="partnerEmail" value="#{groupRegCmd.partnerEmail}" required="true"/>
-            </td>
-            <td>
-                <h:message for="partnerEmail" styleClass="error"/>
-            </td>
-        </tr>
+                            <tr>
+                                <td>
+                                    <h:outputLabel value="Captcha:" for="verifyCaptcha"/>
+                                </td>
+                                <td>
+                                    <h:graphicImage value="/seam/resource/captcha"/>
+                                </td>
+                            </tr>
 
-        <tr>
-            <td>
-                <h:outputLabel value="Captcha:" for="verifyCaptcha"/>
-            </td>
-            <td>
-                <h:graphicImage value="/seam/resource/captcha"/>
-            </td>
-        </tr>
+                            <tr>
+                                <td>
+                                    <h:outputLabel value="*Correctly enter the word:" for="verifyCaptcha"/>
+                                </td>
 
-        <tr>
-            <td>
-                <h:outputLabel value="*Correctly enter the word:" for="verifyCaptcha"/>
-            </td>
+                                <td>
+                                    <h:inputText id="verifyCaptcha" value="#{captcha.response}" required="true"/>
+                                </td>
+                                <td>
+                                    <h:message for="verifyCaptcha" styleClass="error"/>
+                                </td>
+                            </tr>
 
-            <td>
-                <h:inputText id="verifyCaptcha" value="#{captcha.response}" required="true"/>
-            </td>
-            <td>
-                <h:message for="verifyCaptcha" styleClass="error"/>
-            </td>
-        </tr>
+                            <tr>
+                                <td>
+                                    <h:commandButton value="Register"
+                                                     action="#{groupRegistrationService.registerGroup(groupRegCmd)}"/>
+                                </td>
+                            </tr>
+                        </s:validateAll>
+                    </table>
+                </h:form>
+            </div>
+        </div>
 
-        <tr>
-            <td>
-                <h:commandButton value="Register" action="#{groupRegistrationService.registerGroup(groupRegCmd)}"/>
-            </td>
-        </tr>
-    </s:validateAll>
-</table>
-</h:form>
-</div>
-</div>
-
-</ui:define>
+    </ui:define>
 
 
 </ui:composition>

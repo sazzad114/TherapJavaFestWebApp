@@ -1,0 +1,44 @@
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:s="http://jboss.com/products/seam/taglib" xmlns:rich="http://richfaces.org/rich"
+                template="template.xhtml">
+
+
+    <ui:define name="menu">
+
+        <ul>
+            <li><s:link value="Home" view="/home.xhtml"/></li>
+
+            <li><s:link value="Blog" view="/aboutUs.xhtml"/></li>
+
+            <li><s:link value="About Us" view="/aboutUs.xhtml"/></li>
+
+            <li><s:link value="Contact" view="/aboutUs.xhtml"/></li>
+        </ul>
+
+    </ui:define>
+
+    <ui:define name="content">
+        <div class="post">
+            <h2 class="title">About Us</h2>
+
+            <p class="meta"></p>
+
+            <div class="entry">
+
+                We are therapists... :D
+
+            </div>
+        </div>
+
+    </ui:define>
+
+
+</ui:composition>
+
+
+
