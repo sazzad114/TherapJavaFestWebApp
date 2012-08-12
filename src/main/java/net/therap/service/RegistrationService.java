@@ -79,6 +79,13 @@ public class RegistrationService {
             validationFails = true;
         }
 
+        Contestant existingContestant = contestantDao.getContestantByEmail(contestant.getEmail());
+
+        if (existingContestant != null) {
+            facesMessages.addToControl("email", "provided email has already been registered");
+            validationFails = true;
+        }
+
 
         if (!validationFails) {
 

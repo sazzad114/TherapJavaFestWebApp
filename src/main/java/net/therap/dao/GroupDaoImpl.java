@@ -1,12 +1,16 @@
 package net.therap.dao;
 
+import net.therap.domain.Contestant;
 import net.therap.domain.Group;
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.jboss.seam.ScopeType;
 import org.jboss.seam.annotations.In;
 import org.jboss.seam.annotations.Name;
 import org.jboss.seam.annotations.Scope;
 import org.jboss.seam.annotations.Startup;
+
+import java.util.List;
 
 /**
  * Created by
@@ -29,5 +33,20 @@ public class GroupDaoImpl implements GroupDao{
 
     public void updateGroup(Group group) {
         session.update(group);
+    }
+
+    public Group getGroupByName(String groupName) {
+
+        Query query = session.createQuery("from Group group where lower(group.groupName) = lower(:groupName)");
+        query.setString("groupName", groupName);
+        List<Group> groups = (List<Group>) query.list();
+
+
+        if (groups.size() != 0) {
+            return groups.get(0);
+        } else {
+            return null;
+        }
+
     }
 }

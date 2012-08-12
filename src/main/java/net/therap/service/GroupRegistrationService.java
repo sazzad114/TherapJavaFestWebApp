@@ -42,8 +42,9 @@ public class GroupRegistrationService {
     public String registerGroup(GroupRegCmd groupRegCmd) {
         if (loggedInContestant.getState() == ContestantState.SELECTED_CANDIDATE) {
             Contestant partner = contestantDao.getSelectedContestantByEmail(groupRegCmd.getPartnerEmail());
+            Group existingGroup = groupDao.getGroupByName(groupRegCmd.getGroupName());
 
-            if (partner != null) {
+            if (partner != null && existingGroup == null) {
                 Group group = new Group();
                 group.setGroupName(groupRegCmd.getGroupName());
 
@@ -63,8 +64,11 @@ public class GroupRegistrationService {
 
                 return "success";
 
-            } else {
+            } else if (partner == null) {
                 facesMessages.addToControl("partnerEmail", "Email does not exist or has already been registered");
+                return "failure";
+            } else if (existingGroup != null) {
+                facesMessages.addToControl("groupName", "A Group having this name has already been registered");
                 return "failure";
             }
         }

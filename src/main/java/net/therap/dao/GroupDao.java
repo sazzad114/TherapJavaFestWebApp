@@ -17,4 +17,6 @@ public interface GroupDao {
     public void saveGroup(Group group);
 
     public void updateGroup(Group group);
+
+    public Group getGroupByName(String groupName);
 }
