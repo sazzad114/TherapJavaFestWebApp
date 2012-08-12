@@ -37,7 +37,7 @@ public class GroupDaoImpl implements GroupDao{
 
     public Group getGroupByName(String groupName) {
 
-        Query query = session.createQuery("from Group group where lower(group.groupName) = lower(:groupName)");
+        Query query = session.createQuery("from Group myGroup where lower(myGroup.groupName) = lower(:groupName)");
         query.setString("groupName", groupName);
         List<Group> groups = (List<Group>) query.list();
 

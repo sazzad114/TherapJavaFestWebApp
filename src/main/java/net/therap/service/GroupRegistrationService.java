@@ -59,6 +59,8 @@ public class GroupRegistrationService {
                 loggedInContestant.setState(ContestantState.FINISHED_GROUP_REG);
                 partner.setState(ContestantState.FINISHED_GROUP_REG);
 
+                group.setMembers(groupMembers);
+
                 groupDao.saveGroup(group);
                 contestantDao.updateContestant(loggedInContestant);
 

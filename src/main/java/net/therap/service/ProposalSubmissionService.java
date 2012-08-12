@@ -43,9 +43,6 @@ public class ProposalSubmissionService {
     @In
     private ContestantDao contestantDao;
 
-    @In
-    private GroupDao groupDao;
-
     public String submitProposal(ProjectProposal projectProposal) {
         List<String> proposalFileType = new ArrayList<String>();
         proposalFileType.add("application/pdf");
