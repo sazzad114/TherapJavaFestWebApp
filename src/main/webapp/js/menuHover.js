@@ -18,7 +18,7 @@ function changeMenuBackground() {
     for (var i = 0, len = a_elements.length; len > i; i++) {
 
         alertString += a_elements[i].pathname +" ";
-        if (path.search(a_elements[i].pathname) >= 0 || (path.search("greetings") >=0 && a_elements[i].pathname.search("greetings") >= 0)) {
+        if ((path.search(a_elements[i].pathname) >= 0 || (path.search("greetings") >=0 && a_elements[i].pathname.search("greetings") >= 0)) && a_elements[i].pathname != "/") {
 
             a_elements[i].style.backgroundColor = '#f2622d';
         }
@@ -27,5 +27,5 @@ function changeMenuBackground() {
             a_elements[i].style.backgroundColor = '#0086df';
         }
     }
-   // alert(alertString);
+    //alert(alertString);
 }
