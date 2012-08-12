@@ -11,11 +11,10 @@
     <ui:define name="menu">
 
         <ul>
-            <li class="current_page_item"><s:link value="Home" view="/home.xhtml"/></li>
-            <li><a href="#">Profile</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Links</a></li>
-
+            <li><s:link value="Home" view="/greetings/greeting.xhtml"/></li>
+            <li><s:link value="Profile" view="/viewProfile.xhtml"/></li>
+            <li><s:link value="Change password" view="/changePassword.xhtml"/></li>
+            <li><s:link value="Logout" action="#{identity.logout}"/></li>
         </ul>
 
     </ui:define>
@@ -47,7 +46,8 @@
                                     <h:outputLabel value="Youtube Url*:" for="youtubeUrl"/>
                                 </td>
                                 <td>
-                                    <h:inputText id="youtubeUrl" value="#{existingProjectSubmission.youTubeUrl}" required="true"/>
+                                    <h:inputText id="youtubeUrl" value="#{existingProjectSubmission.youTubeUrl}"
+                                                 required="true"/>
                                 </td>
                                 <td>
                                     <h:message for="youtubeUrl" styleClass="error"/>

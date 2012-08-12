@@ -11,34 +11,14 @@
 
     <ui:define name="menu">
 
-        <script type="text/javascript">
-
-            function paint( sender ) {
-
-                var a_elements = sender.parentNode.parentNode.getElementsByTagName("a");
-
-                for (var i = 0, len = a_elements.length; len > i; i++ ) {
-                    a_elements[ i ].style.backgroundColor = '#0086df';
-                }
-
-                sender.style.backgroundColor = '#f2622d';
-            }
-
-        </script>
-
         <ul>
-            <li><a onclick="paint(this)" href="#">Home</a></li>
+            <li><s:link value="Home" view="/home.xhtml"/></li>
 
-            <li><a onclick="paint(this)" href="#">Blog</a></li>
+            <li><s:link value="Blog" view="/aboutUs.xhtml"/></li>
 
-            <li><a onclick="paint(this)" href="#">Photos</a></li>
+            <li><s:link value="About Us" view="/aboutUs.xhtml"/></li>
 
-            <li><a onclick="paint(this)" href="#">About</a></li>
-
-            <li><a onclick="paint(this)" href="#">Links</a></li>
-
-            <li><a onclick="paint(this)" href="#">Contact</a></li>
-
+            <li><s:link value="Contact" view="/aboutUs.xhtml"/></li>
         </ul>
 
     </ui:define>

@@ -8,58 +8,60 @@
                 template="formTemplate.xhtml">
 
 
-<ui:define name="menu">
+    <ui:define name="menu">
 
-    <ul>
-        <li class="current_page_item"><s:link value="Home" view="/home.xhtml"/></li>
-        <li><a href="#">Profile</a></li>
-        <li><a href="#">About</a></li>
-        <li><a href="#">Links</a></li>
 
-    </ul>
+        <ul>
+            <li><s:link value="Home" view="/greetings/greeting.xhtml"/></li>
+            <li><s:link value="Profile" view="/viewProfile.xhtml"/></li>
+            <li><s:link value="Change password" view="/changePassword.xhtml"/></li>
+            <li><s:link value="Logout" action="#{identity.logout}"/></li>
+        </ul>
 
-</ui:define>
 
-<ui:define name="content">
-<div class="post">
-<h2 class="title">Update Your Project Proposal</h2>
+    </ui:define>
 
-<p class="meta"></p>
+    <ui:define name="content">
+        <div class="post">
+            <h2 class="title">Update Your Project Proposal</h2>
 
-<div class="entry">
-<h:form id="updateProjectProposal" enctype="multipart/form-data">
+            <p class="meta"></p>
 
-<table>
-    <s:validateAll>
-          <tr>
-            <td>
-                <h:outputLabel value="Upload Your New Project Proposal*:" for="proposalUpload"/>
-            </td>
-            <td>
-                <s:fileUpload
-                        id="proposalUpload"
-                        data="#{existingProposal.uploadedProposal.fileData}"
-                        contentType="#{existingProposal.uploadedProposal.contentType}"
-                        fileSize="#{existingProposal.uploadedProposal.size}"
-                        />
-            </td>
-            <td>
-                <h:message for="proposalUpload" styleClass="error"/>
-            </td>
-        </tr>
+            <div class="entry">
+                <h:form id="updateProjectProposal" enctype="multipart/form-data">
 
-        <tr>
-            <td>
-                <h:commandButton value="Upload" action="#{proposalSubmissionService.updateProposal(existingProposal)}"/>
-            </td>
-        </tr>
-    </s:validateAll>
-</table>
-</h:form>
-</div>
-</div>
+                    <table>
+                        <s:validateAll>
+                            <tr>
+                                <td>
+                                    <h:outputLabel value="Upload Your New Project Proposal*:" for="proposalUpload"/>
+                                </td>
+                                <td>
+                                    <s:fileUpload
+                                            id="proposalUpload"
+                                            data="#{existingProposal.uploadedProposal.fileData}"
+                                            contentType="#{existingProposal.uploadedProposal.contentType}"
+                                            fileSize="#{existingProposal.uploadedProposal.size}"
+                                            />
+                                </td>
+                                <td>
+                                    <h:message for="proposalUpload" styleClass="error"/>
+                                </td>
+                            </tr>
 
-</ui:define>
+                            <tr>
+                                <td>
+                                    <h:commandButton value="Upload"
+                                                     action="#{proposalSubmissionService.updateProposal(existingProposal)}"/>
+                                </td>
+                            </tr>
+                        </s:validateAll>
+                    </table>
+                </h:form>
+            </div>
+        </div>
+
+    </ui:define>
 
 
 </ui:composition>
