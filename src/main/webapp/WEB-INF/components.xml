@@ -44,9 +44,4 @@ http://jboss.com/products/seam/mail ">
         <property name="session">#{therapJavaFestDbSession}</property>
     </component>
 
-    <event type="logout">
-        <action execute="#{identity.logout}"/>
-    </event>
-
-
 </components>
