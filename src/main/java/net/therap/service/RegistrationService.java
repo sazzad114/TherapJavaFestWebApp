@@ -70,13 +70,16 @@ public class RegistrationService {
             validationFails = true;
         }
 
-        if (!FileValidatorUtil.validateFileSize(contestant.getPdfFileWrapper(), cvFileSize)) {
-            facesMessages.addToControl("curriculumVitae", "file size must not exceed " + UPLOADED_CV_SIZE + "MB");
-            validationFails = true;
-        }
-        if (!FileValidatorUtil.validateFileType(contestant.getPdfFileWrapper(), cvFileTypes)) {
-            facesMessages.addToControl("curriculumVitae", "only pdf file is allowed");
-            validationFails = true;
+        if (contestant.getPdfFileWrapper().getSize() != 0) {
+
+            if (!FileValidatorUtil.validateFileSize(contestant.getPdfFileWrapper(), cvFileSize)) {
+                facesMessages.addToControl("curriculumVitae", "file size must not exceed " + UPLOADED_CV_SIZE + "MB");
+                validationFails = true;
+            }
+            if (!FileValidatorUtil.validateFileType(contestant.getPdfFileWrapper(), cvFileTypes)) {
+                facesMessages.addToControl("curriculumVitae", "only pdf file is allowed");
+                validationFails = true;
+            }
         }
 
         Contestant existingContestant = contestantDao.getContestantByEmail(contestant.getEmail());
@@ -101,6 +104,7 @@ public class RegistrationService {
             return "success";
         }
 
+        facesMessages.addToControl("verifyCaptcha", "Please enter captcha again");
         return "failed";
     }
 

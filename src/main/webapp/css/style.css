@@ -42,7 +42,7 @@ ul, ol {
 
 a {
     font-weight: BOLD;
-    color: #0086df;;
+    color: #0086df;
     text-decoration: none;
 
 }
@@ -114,9 +114,16 @@ img.aligncenter {
     height: 40px;
     margin: 0 auto;
     padding: 0;
-    background: #0086df;
+    background: WHITE;
     color: White;
 
+}
+
+#separator {
+    height: 2px;
+    width: 960px;
+    margin:auto;
+    background: #0086df;
 }
 
 #menu ul {
@@ -230,6 +237,7 @@ img.aligncenter {
     float: right;
     width: 300px;
     padding: 0px 0px 0px 0px;
+    background: WHITE;
 }
 
 #sidebar ul {

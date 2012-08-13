@@ -35,7 +35,7 @@
 <s:validateAll>
 <tr>
     <td>
-        <h:outputLabel value="*Contestant Name:" for="contestantName"/>
+        <span class="error">*</span><h:outputLabel value="Contestant Name :" for="contestantName"/>
     </td>
     <td>
         <h:inputText id="contestantName" value="#{newContestant.contestantName}" required="true"/>
@@ -46,7 +46,7 @@
 </tr>
 <tr>
     <td>
-        <h:outputLabel value="*Email:" for="email"/>
+        <span class="error">*</span><h:outputLabel value="Email :" for="email"/>
     </td>
     <td>
         <h:inputText id="email" value="#{newContestant.email}" required="true"/>
@@ -57,7 +57,7 @@
 </tr>
 <tr>
     <td>
-        <h:outputLabel value="*Phone" for="phone"/>
+        <span class="error">*</span><h:outputLabel value="Phone :" for="phone"/>
     </td>
     <td>
         <h:inputText id="phone" value="#{newContestant.phone}" required="true"/>
@@ -68,7 +68,7 @@
 </tr>
 <tr>
     <td>
-        <h:outputLabel value="*Student Id:" for="studentId"/>
+        <span class="error">*</span><h:outputLabel value="Student Id :" for="studentId"/>
     </td>
     <td>
         <h:inputText id="studentId" value="#{newContestant.studentId}" required="true"/>
@@ -79,7 +79,7 @@
 </tr>
 <tr>
     <td>
-        <h:outputLabel value="*Cgpa:" for="cgpa"/>
+        <span class="error">*</span><h:outputLabel value="Cgpa :" for="cgpa"/>
     </td>
     <td>
         <h:inputText id="cgpa" value="#{newContestant.cgpa}" required="true"/>
@@ -90,7 +90,7 @@
 </tr>
 <tr>
     <td>
-        <h:outputLabel value="*University:" for="university"/>
+        <span class="error">*</span><h:outputLabel value="University :" for="university"/>
     </td>
     <td>
         <h:selectOneMenu value="#{newContestant.university}" id="university" required="true">
@@ -106,7 +106,7 @@
 </tr>
 <tr>
     <td>
-        <h:outputLabel value="*Date Of Birth:" for="dateOfBirth"/>
+        <span class="error">*</span><h:outputLabel value="Date Of Birth :" for="dateOfBirth"/>
     </td>
     <td>
         <rich:calendar datePattern="yyyy-MM-dd" value="#{newContestant.dateOfBirth}" id="dateOfBirth"
@@ -118,7 +118,7 @@
 </tr>
 <tr>
     <td>
-        <h:outputLabel value="*Expected Graduation Date:" for="expectedGraduationDate"/>
+        <span class="error">*</span><h:outputLabel value="Expected Graduation Date :" for="expectedGraduationDate"/>
     </td>
     <td>
         <rich:calendar datePattern="yyyy-MM-dd" value="#{newContestant.expectedGraduationDate}"
@@ -131,7 +131,7 @@
 </tr>
 <tr>
     <td>
-        <h:outputLabel value="*Gender:" for="gender"/>
+        <span class="error">*</span><h:outputLabel value="Gender :" for="gender"/>
     </td>
     <td>
         <h:selectOneRadio value="#{newContestant.gender}" id="gender">
@@ -145,7 +145,7 @@
 </tr>
 <tr>
     <td>
-        <h:outputLabel value="*Description:" for="description"/>
+        <span class="error">*</span><h:outputLabel value="Description:" for="description"/>
     </td>
     <td>
         <h:inputTextarea id="description" value="#{newContestant.description}" required="true"/>
@@ -156,7 +156,7 @@
 </tr>
 <tr>
     <td>
-        <h:outputLabel value="LinkedIn Profile Url:" for="linkedInProfile"/>
+        <span class="error">*</span><h:outputLabel value="LinkedIn Profile Url:" for="linkedInProfile"/>
     </td>
     <td>
         <h:inputText id="linkedInProfile" value="#{newContestant.linkedInProfile}"/>
@@ -167,7 +167,7 @@
 </tr>
 <tr>
     <td>
-        <h:outputLabel value="*Language Proficiency:" for="languageProficiency"/>
+        <span class="error">*</span><h:outputLabel value="Language Proficiency :" for="languageProficiency"/>
     </td>
     <td>
         <h:inputText id="languageProficiency" value="#{newContestant.languageProficiency}" required="true"/>
@@ -178,7 +178,7 @@
 </tr>
 <tr>
     <td>
-        <h:outputLabel value="*Upload Image:" for="image"/>
+        <span class="error">*</span><h:outputLabel value="Upload Image :" for="image"/>
     </td>
     <td>
         <s:fileUpload
@@ -195,7 +195,7 @@
 
 <tr>
     <td>
-        <h:outputLabel value="Upload CV:" for="curriculumVitae"/>
+        <h:outputLabel value=" Upload CV :" for="curriculumVitae"/>
     </td>
     <td>
         <s:fileUpload
@@ -212,7 +212,7 @@
 
 <tr>
     <td>
-        <h:outputLabel value="Captcha:" for="verifyCaptcha"/>
+        <h:outputLabel value=" Captcha :" for="verifyCaptcha"/>
     </td>
     <td>
         <h:graphicImage value="/seam/resource/captcha"/>
@@ -221,7 +221,7 @@
 
 <tr>
     <td>
-        <h:outputLabel value="*Correctly enter the word:" for="verifyCaptcha"/>
+        <span class="error">*</span><h:outputLabel value="Correctly enter the word:" for="verifyCaptcha"/>
     </td>
 
     <td>

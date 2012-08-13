@@ -120,6 +120,7 @@ public class Contestant implements Serializable{
         this.university = university;
     }
 
+    @Range(max = 5,min = 2, message = "CGPA out of range")
     @Column(name = "CGPA")
     public double getCgpa() {
         return cgpa;
@@ -172,7 +173,7 @@ public class Contestant implements Serializable{
 
     @Column(name = "LINKEDIN_PROFILE",nullable = true)
 
-    @Pattern(regex = RegularExpressions.LINKED_IN)
+    @Pattern(regex = RegularExpressions.LINKED_IN, message = "invalid LinkedIn profile url")
     public String getLinkedInProfile() {
         return linkedInProfile;
     }
@@ -182,7 +183,7 @@ public class Contestant implements Serializable{
     }
 
     @Column(name = "LANGUAGE_PROFICIENCY")
-    @Pattern(regex = RegularExpressions.LANGUAGE_PROFICIENCY)
+    @Pattern(regex = RegularExpressions.LANGUAGE_PROFICIENCY, message = "Should be comma separated")
     public String getLanguageProficiency() {
         return languageProficiency;
     }

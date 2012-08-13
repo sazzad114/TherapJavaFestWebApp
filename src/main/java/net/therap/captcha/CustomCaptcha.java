@@ -43,6 +43,7 @@ public class CustomCaptcha extends Captcha {
     private void setCaptchaString() {
 
         String finalString = StringGeneratorUtil.generateString(charsToPrint);
+        finalString = finalString.toUpperCase();
         setChallenge(finalString);
         setCorrectResponse(finalString);
     }
@@ -120,7 +121,7 @@ public class CustomCaptcha extends Captcha {
 
     @Override
     public boolean validateResponse(String response) {
-        return getChallenge().equals(response);
+        return getChallenge().equals(response.toUpperCase());
 
     }
 

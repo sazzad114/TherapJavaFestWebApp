@@ -5,7 +5,7 @@
                 xmlns:h="http://java.sun.com/jsf/html"
                 xmlns:f="http://java.sun.com/jsf/core"
                 xmlns:s="http://jboss.com/products/seam/taglib" xmlns:c="http://java.sun.com/jstl/core"
-                template="template.xhtml">
+                template="formTemplate.xhtml">
 
     <!-- menu -->
 
@@ -15,8 +15,7 @@
             <li><s:link value="Home" view="/greetings/greeting.xhtml"/></li>
             <li><s:link value="Profile" view="/viewProfile.xhtml"/></li>
             <li><s:link value="Change password" view="/changePassword.xhtml"/></li>
-            <li><a href="http://therapjavafest.blogspot.com">Blog</a></li>
-            <li><s:link value="Logout" action="#{identity.logout}"/></li>
+            <li><s:link value="Logout" view="/logout.xhtml"/></li>
         </ul>
 
     </ui:define>
@@ -25,67 +24,78 @@
 
     <ui:define name="content">
 
-        <table>
-            <tr>
-                <td><h:outputLabel value="Name :" for="contestantName"/></td>
-                <td><h:outputText id="contestantName" value="#{myProfile.contestantName}"/></td>
-            </tr>
-            <tr>
-                <td><h:outputLabel value="Email :" for="email"/></td>
-                <td><h:outputText id="email" value="#{myProfile.email}"/></td>
-            </tr>
-            <tr>
-                <td><h:outputLabel value="Student Id :" for="studentId"/></td>
-                <td><h:outputText id="studentId" value="#{myProfile.studentId}"/></td>
-            </tr>
-            <tr>
-                <td><h:outputLabel value="Gender :" for="gender"/></td>
-                <td><h:outputText id="gender" value="#{myProfile.gender}"/></td>
-            </tr>
-            <tr>
-                <td><h:outputLabel value="CGPA :" for="cgpa"/></td>
-                <td><h:outputText id="cgpa" value="#{myProfile.cgpa}"/></td>
-            </tr>
-            <tr>
-                <td><h:outputLabel value="Date of Birth :" for="dateOfBirth"/></td>
-                <td><h:outputText id="dateOfBirth" value="#{myProfile.dateOfBirth}"/></td>
-            </tr>
-            <tr>
-                <td><h:outputLabel value="Language Proficiency :" for="languageProficiency"/></td>
-                <td><h:outputText id="languageProficiency" value="#{myProfile.languageProficiency}"/></td>
-            </tr>
-            <tr>
-                <td><h:outputLabel value="LinkedIn Profile :" for="linkedInProfile"/></td>
-                <c:choose>
-                    <c:when test="${empty myProfile.linkedInProfile}">
-                        <td><h:outputText id="linkedInProfile" value="Not Provided"/></td>
-                    </c:when>
-                    <c:otherwise>
-                        <td><h:outputText id="linkedInProfile" value="#{myProfile.linkedInProfile}"/></td>
-                    </c:otherwise>
-                </c:choose>
-            </tr>
-            <c:choose>
-                <c:when test="${myProfile.myGroup ne null}">
+        <div class="post">
+            <h2 class="title">Profile</h2>
+
+            <div class="entry">
+                <div>
+                    <img src="images/img03.jpg" alt="image"/>
+                </div>
+               <br/>
+
+                <table>
                     <tr>
-                        <td><h:outputLabel value="Group :" for="group"/></td>
-                        <td><h:outputText id="group" value="#{myProfile.myGroup.groupName}"/></td>
+                        <td><h:outputLabel value="Name :" for="contestantName"/></td>
+                        <td><h:outputText id="contestantName" value="#{myProfile.contestantName}"/></td>
                     </tr>
-                    <c:forEach var="member" items="#{myProfile.myGroup.members}">
-                        <c:if test="#{member.email ne myProfile.email}">
+                    <tr>
+                        <td><h:outputLabel value="Email :" for="email"/></td>
+                        <td><h:outputText id="email" value="#{myProfile.email}"/></td>
+                    </tr>
+                    <tr>
+                        <td><h:outputLabel value="Student Id :" for="studentId"/></td>
+                        <td><h:outputText id="studentId" value="#{myProfile.studentId}"/></td>
+                    </tr>
+                    <tr>
+                        <td><h:outputLabel value="Gender :" for="gender"/></td>
+                        <td><h:outputText id="gender" value="#{myProfile.gender}"/></td>
+                    </tr>
+                    <tr>
+                        <td><h:outputLabel value="CGPA :" for="cgpa"/></td>
+                        <td><h:outputText id="cgpa" value="#{myProfile.cgpa}"/></td>
+                    </tr>
+                    <tr>
+                        <td><h:outputLabel value="Date of Birth :" for="dateOfBirth"/></td>
+                        <td><h:outputText id="dateOfBirth" value="#{myProfile.dateOfBirth}"/></td>
+                    </tr>
+                    <tr>
+                        <td><h:outputLabel value="Language Proficiency :" for="languageProficiency"/></td>
+                        <td><h:outputText id="languageProficiency" value="#{myProfile.languageProficiency}"/></td>
+                    </tr>
+                    <tr>
+                        <td><h:outputLabel value="LinkedIn Profile :" for="linkedInProfile"/></td>
+                        <c:choose>
+                            <c:when test="${empty myProfile.linkedInProfile}">
+                                <td><h:outputText id="linkedInProfile" value="Not Provided"/></td>
+                            </c:when>
+                            <c:otherwise>
+                                <td><h:outputText id="linkedInProfile" value="#{myProfile.linkedInProfile}"/></td>
+                            </c:otherwise>
+                        </c:choose>
+                    </tr>
+                    <c:choose>
+                        <c:when test="${myProfile.myGroup ne null}">
                             <tr>
-                                <td><h:outputLabel value="Your Partner :" for="partner"/></td>
-                                <td><h:outputText id="partner" value="#{member.contestantName}"/></td>
+                                <td><h:outputLabel value="Group :" for="group"/></td>
+                                <td><h:outputText id="group" value="#{myProfile.myGroup.groupName}"/></td>
                             </tr>
-                        </c:if>
-                    </c:forEach>
-                </c:when>
-            </c:choose>
-            <tr>
-                <td><h:outputLabel value="About You :" for="description"/></td>
-                <td><h:outputText id="description" value="#{myProfile.description}"/></td>
-            </tr>
-        </table>
+                            <c:forEach var="member" items="#{myProfile.myGroup.members}">
+                                <c:if test="#{member.email ne myProfile.email}">
+                                    <tr>
+                                        <td><h:outputLabel value="Your Partner :" for="partner"/></td>
+                                        <td><h:outputText id="partner" value="#{member.contestantName}"/></td>
+                                    </tr>
+                                </c:if>
+                            </c:forEach>
+                        </c:when>
+                    </c:choose>
+                    <tr>
+                        <td><h:outputLabel value="About You :" for="description"/></td>
+                        <td><h:outputText id="description" value="#{myProfile.description}"/></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
 
     </ui:define>
 
