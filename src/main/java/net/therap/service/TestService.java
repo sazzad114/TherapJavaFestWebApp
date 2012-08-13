@@ -16,9 +16,7 @@ import org.jboss.seam.annotations.*;
 import org.jboss.seam.faces.Redirect;
 import org.jboss.seam.log.Log;
 
-import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
-import javax.servlet.ServletContext;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -170,17 +168,15 @@ public class TestService {
         log.info("Selected Option Id: " + selectedOptionId);
 
 
+        Map<String, String> paramMap = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap();
 
-        Map<String,String> paramMap = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap();
-
-        for (String key: paramMap.keySet()) {
+        for (String key : paramMap.keySet()) {
             log.info("Param: " + key + " Value: " + paramMap.get(key));
             if (key.contains("selectedQuestionOption")) {
                 log.info("OptionParam: " + key + " Value: " + paramMap.get(key));
                 selectedOptionId = Integer.parseInt(paramMap.get(key));
             }
         }
-
 
 
         if (currentQuestion.getCorrectOption().getOptionId() == selectedOptionId) {
@@ -205,11 +201,7 @@ public class TestService {
         log.info("Current Index: " + currentIndex);
 
         if (currentIndex == screeningTest.getQuestionOrderList().size()) {
-            loggedInContestant = contestantDao.getContestantById(loggedInContestant.getContestantId());
-            loggedInContestant.setState(ContestantState.PENDING_TEST_RESULT);
-            contestantDao.updateContestant(loggedInContestant);
             endTest();
-
         } else {
 
             log.info("Setting current question to: " + questionBank.getQuestions().get(screeningTest.getQuestionOrderList().get(currentIndex).getQuestionOrder()).getQuestionId());
@@ -239,13 +231,16 @@ public class TestService {
     public void endTest() {
         log.info("Ending test");
         log.info("Contestant state: " + loggedInContestant.getState());
+        loggedInContestant = contestantDao.getContestantById(loggedInContestant.getContestantId());
+        loggedInContestant.setState(ContestantState.PENDING_TEST_RESULT);
+        contestantDao.updateContestant(loggedInContestant);
         Redirect redirect = Redirect.instance();
         redirect.setViewId("/greetings/greeting.xhtml");
         redirect.execute();
     }
 
     public void shuffleOptions(Question question) {
-        List<Integer> generatedOptionOrder = orderGenerator.generateOrder(question.getOptions().size(),question.getOptions().size());
+        List<Integer> generatedOptionOrder = orderGenerator.generateOrder(question.getOptions().size(), question.getOptions().size());
 
         List<Option> reshuffledOptions = new ArrayList<Option>();
 
