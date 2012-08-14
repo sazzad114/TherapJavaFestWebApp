@@ -1,4 +1,4 @@
-package net.therap.service;
+package net.therap.action;
 
 import org.jboss.seam.ScopeType;
 import org.jboss.seam.annotations.*;

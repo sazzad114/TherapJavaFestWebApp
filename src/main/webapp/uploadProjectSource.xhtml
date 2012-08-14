@@ -8,84 +8,90 @@
                 template="formTemplate.xhtml">
 
 
-<ui:define name="menu">
+    <ui:define name="menu">
 
-    <ul>
-         <li><s:link value="Home" view="/greetings/greeting.xhtml"/></li>
-        <li><s:link value="Profile" view="/viewProfile.xhtml" /></li>
-        <li><s:link value="Change password" view="/changePassword.xhtml"/></li>
-         <li><s:link value="Logout" view="/logout.xhtml"/></li>
-    </ul>
+        <ul>
+            <li><s:link value="Home" view="/greetings/greeting.xhtml"/></li>
+            <li><s:link value="Profile" view="/viewProfile.xhtml"/></li>
+            <li><s:link value="Change password" view="/changePassword.xhtml"/></li>
+            <li><s:link value="Logout" view="/logout.xhtml"/></li>
+        </ul>
 
-</ui:define>
+    </ui:define>
 
-<ui:define name="content">
-<div class="post">
-<h2 class="title">Upload Your Project Source Code</h2>
+    <ui:define name="content">
+        <div class="post">
+            <h2 class="title">Upload Your Project Source Code</h2>
 
-<p class="meta"></p>
+            <p class="meta"></p>
 
-<div class="entry">
-<h:form id="uploadProjectSource" enctype="multipart/form-data">
+            <div class="entry">
+                <h:form id="uploadProjectSource" enctype="multipart/form-data">
 
-<table>
-    <s:validateAll>
-        <tr>
-            <td>
-                <h:outputLabel value="Github Url*:" for="githubUrl"/>
-            </td>
-            <td>
-                <h:inputText id="githubUrl" value="#{projectSubmission.gitHubUrl}"/>
-            </td>
-            <td>
-                <h:message for="githubUrl" styleClass="error"/>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <h:outputLabel value="Youtube Url*:" for="youtubeUrl"/>
-            </td>
-            <td>
-                <h:inputText id="youtubeUrl" value="#{projectSubmission.youTubeUrl}" required="true"/>
-            </td>
-            <td>
-                <h:message for="youtubeUrl" styleClass="error"/>
-            </td>
-        </tr>
-          <tr>
-            <td>
-                <h:outputLabel value="Upload Your Project Source Code*:" for="sourceCodeUpload"/>
-            </td>
-            <td>
-                <s:fileUpload
-                        id="sourceCodeUpload"
-                        data="#{projectSubmission.uploadedSourceCode.fileData}"
-                        contentType="#{projectSubmission.uploadedSourceCode.contentType}"
-                        fileSize="#{projectSubmission.uploadedSourceCode.size}"
-                        />
-            </td>
-            <td>
-                <h:message for="sourceCodeUpload" styleClass="error"/>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <h:messages globalOnly="true" styleClass="error"/>
-            </td>
-        </tr>
+                    <table>
+                        <s:validateAll>
 
-        <tr>
-            <td>
-                <h:commandButton value="Upload" action="#{projectSubmissionService.submitProjectSource(projectSubmission)}"/>
-            </td>
-        </tr>
-    </s:validateAll>
-</table>
-</h:form>
-</div>
-</div>
+                            <tr>
+                                <td>
+                                    <h:outputLabel value="Youtube Url*:" for="youtubeUrl"/>
+                                </td>
+                                <td>
+                                    <h:inputText id="youtubeUrl" value="#{projectSubmission.youTubeUrl}"
+                                                 required="true"/>
+                                </td>
+                                <td>
+                                    <h:message for="youtubeUrl" styleClass="error"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <h:outputLabel value="Github Url*:" for="githubUrl"/>
+                                </td>
+                                <td>
+                                    <h:inputText id="githubUrl" value="#{projectSubmission.gitHubUrl}"/>
+                                </td>
+                                <td>
+                                    <h:message for="githubUrl" styleClass="error"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>or</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <h:outputLabel value="Upload Your Project Source Code*:" for="sourceCodeUpload"/>
+                                </td>
+                                <td>
+                                    <s:fileUpload
+                                            id="sourceCodeUpload"
+                                            data="#{projectSubmission.uploadedSourceCode.fileData}"
+                                            contentType="#{projectSubmission.uploadedSourceCode.contentType}"
+                                            fileSize="#{projectSubmission.uploadedSourceCode.size}"
+                                            />
+                                </td>
+                                <td>
+                                    <h:message for="sourceCodeUpload" styleClass="error"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <h:messages globalOnly="true" styleClass="error"/>
+                                </td>
+                            </tr>
 
-</ui:define>
+                            <tr>
+                                <td>
+                                    <h:commandButton value="Upload"
+                                                     action="#{projectSubmissionService.submitProjectSource(projectSubmission)}"/>
+                                </td>
+                            </tr>
+                        </s:validateAll>
+                    </table>
+                </h:form>
+            </div>
+        </div>
+
+    </ui:define>
 
 
 </ui:composition>

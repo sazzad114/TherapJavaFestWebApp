@@ -19,37 +19,42 @@
 
     <!-- end #header -->
 
-    <div id="javascript_countdown_time">
-
-    </div>
 
     <div id="page">
         <div id="page-bgtop">
             <div id="page-bgbtm">
                 <div id="content-reg">
+                    <div class="post">
+                        <h2 class="title">Your screening test is running</h2>
 
-                    <h:form>
+                        <div id="javascript_countdown_time"/>
 
-                        <table>
-                            <tr>
-                                <td>
-                                    <s:label>#{currentQuestion.questionString}</s:label>
-                                </td>
-                            </tr>
-                            <h:selectOneRadio value="#{testService.selectedOptionId}" id="selectedQuestionOption"
-                                              layout="pageDirection">
-                                <s:selectItems var="selectedOption" value="#{currentQuestion.options}"
-                                               label="#{selectedOption.optionString}"
-                                               itemValue="#{selectedOption.optionId}"/>
+                        <div class="entry">
 
-                            </h:selectOneRadio>
-                            <h:commandButton value="Get Next Question" action="#{testService.postAnswer}"
-                                             immediate="true"/>
+                            <h:form>
 
-                            <h:commandButton value="End test" action="#{testService.endTest}" immediate="true"/>
-                        </table>
-                    </h:form>
+                                <table>
+                                    <tr>
+                                        <td>
+                                            <s:label>#{currentQuestion.questionString}</s:label>
+                                        </td>
+                                    </tr>
+                                    <h:selectOneRadio value="#{testService.selectedOptionId}"
+                                                      id="selectedQuestionOption"
+                                                      layout="pageDirection">
+                                        <s:selectItems var="selectedOption" value="#{currentQuestion.options}"
+                                                       label="#{selectedOption.optionString}"
+                                                       itemValue="#{selectedOption.optionId}"/>
 
+                                    </h:selectOneRadio>
+                                    <h:commandButton value="Get Next Question" action="#{testService.postAnswer}"
+                                                     immediate="true"/>
+
+                                    <h:commandButton value="End test" action="#{testService.endTest}" immediate="true"/>
+                                </table>
+                            </h:form>
+                        </div>
+                    </div>
                 </div>
 
                 <!-- end #content -->
@@ -61,8 +66,7 @@
     <!-- end #page -->
 </div>
 <div id="footer">
-    <p>Copyright (c) 2011 Sitename.com. All rights reserved. Design by <a
-            href="http://www.freecsstemplates.org/">FCT</a>.</p>
+    <p> &#169; Copyright Therap Services, LLC. 2003-2012. All Rights Reserved.</p>
 </div>
 <!-- end #footer -->
 </body>

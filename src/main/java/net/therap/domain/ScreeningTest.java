@@ -1,7 +1,5 @@
 package net.therap.domain;
 
-import org.hibernate.annotations.CollectionOfElements;
-
 import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
@@ -64,7 +62,7 @@ public class ScreeningTest {
         this.contestant = contestant;
     }
 
-    @OneToMany(mappedBy = "screeningTest",cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "screeningTest", cascade = CascadeType.ALL)
     @OrderBy("questionOrderId")
     public List<QuestionOrder> getQuestionOrderList() {
         return questionOrderList;

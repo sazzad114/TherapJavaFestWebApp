@@ -1,4 +1,4 @@
-package net.therap.service;
+package net.therap.action;
 
 import net.therap.dao.ContestantDao;
 import net.therap.dao.GroupDao;

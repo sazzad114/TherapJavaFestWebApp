@@ -183,7 +183,9 @@ public class Contestant implements Serializable{
     }
 
     @Column(name = "LANGUAGE_PROFICIENCY")
-    @Pattern(regex = RegularExpressions.LANGUAGE_PROFICIENCY, message = "Should be comma separated")
+    /*@Pattern(regex = RegularExpressions.LANGUAGE_PROFICIENCY, message = "Should be comma separated")*/
+    @NotEmpty
+    @NotNull
     public String getLanguageProficiency() {
         return languageProficiency;
     }

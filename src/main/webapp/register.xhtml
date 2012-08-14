@@ -17,7 +17,7 @@
 
         <li><s:link value="About Us" view="/aboutUs.xhtml"/></li>
 
-        <li><s:link value="Contact" view="/aboutUs.xhtml"/></li>
+        <li><s:link value="Contact" view="/contactUs.xhtml"/></li>
     </ul>
 
 </ui:define>
@@ -35,58 +35,74 @@
 <s:validateAll>
 <tr>
     <td>
-        <span class="error">*</span><h:outputLabel value="Contestant Name :" for="contestantName"/>
+        <span class="error">*</span><h:outputLabel value="Name :" for="contestantName"/>
     </td>
     <td>
-        <h:inputText id="contestantName" value="#{newContestant.contestantName}" required="true"/>
+        <h:inputText id="contestantName" value="#{newContestant.contestantName}" required="true" size="41"/>
     </td>
     <td>
         <h:message for="contestantName" styleClass="error"/>
     </td>
 </tr>
 <tr>
+    <td><br/></td>
+</tr>
+
+<tr>
     <td>
         <span class="error">*</span><h:outputLabel value="Email :" for="email"/>
     </td>
     <td>
-        <h:inputText id="email" value="#{newContestant.email}" required="true"/>
+        <h:inputText id="email" value="#{newContestant.email}" required="true" size="41"/>
     </td>
     <td>
         <h:message for="email" styleClass="error"/>
     </td>
 </tr>
 <tr>
+    <td><br/></td>
+</tr>
+<tr>
     <td>
         <span class="error">*</span><h:outputLabel value="Phone :" for="phone"/>
     </td>
     <td>
-        <h:inputText id="phone" value="#{newContestant.phone}" required="true"/>
+        <h:inputText id="phone" value="#{newContestant.phone}" required="true" size="41"/>
     </td>
     <td>
         <h:message for="phone" styleClass="error"/>
     </td>
 </tr>
 <tr>
+    <td><br/></td>
+</tr>
+<tr>
     <td>
         <span class="error">*</span><h:outputLabel value="Student Id :" for="studentId"/>
     </td>
     <td>
-        <h:inputText id="studentId" value="#{newContestant.studentId}" required="true"/>
+        <h:inputText id="studentId" value="#{newContestant.studentId}" required="true" size="41"/>
     </td>
     <td>
         <h:message for="studentId" styleClass="error"/>
     </td>
 </tr>
 <tr>
+    <td><br/></td>
+</tr>
+<tr>
     <td>
         <span class="error">*</span><h:outputLabel value="Cgpa :" for="cgpa"/>
     </td>
     <td>
-        <h:inputText id="cgpa" value="#{newContestant.cgpa}" required="true"/>
+        <h:inputText id="cgpa" value="#{newContestant.cgpa}" required="true" size="41"/>
     </td>
     <td>
         <h:message for="cgpa" styleClass="error"/>
     </td>
+</tr>
+<tr>
+    <td><br/></td>
 </tr>
 <tr>
     <td>
@@ -105,16 +121,22 @@
     </td>
 </tr>
 <tr>
+    <td><br/></td>
+</tr>
+<tr>
     <td>
         <span class="error">*</span><h:outputLabel value="Date Of Birth :" for="dateOfBirth"/>
     </td>
     <td>
         <rich:calendar datePattern="yyyy-MM-dd" value="#{newContestant.dateOfBirth}" id="dateOfBirth"
-                       required="true"/>
+                       required="true" cellHeight="30" cellWidth="30" inputSize="38"/>
     </td>
     <td>
         <rich:message for="dateOfBirth" styleClass="error"/>
     </td>
+</tr>
+<tr>
+    <td><br/></td>
 </tr>
 <tr>
     <td>
@@ -123,11 +145,14 @@
     <td>
         <rich:calendar datePattern="yyyy-MM-dd" value="#{newContestant.expectedGraduationDate}"
                        required="true"
-                       id="expectedGraduationDate"/>
+                       id="expectedGraduationDate" cellHeight="30" cellWidth="30" inputSize="38"/>
     </td>
     <td>
         <rich:message for="expectedGraduationDate" styleClass="error"/>
     </td>
+</tr>
+<tr>
+    <td><br/></td>
 </tr>
 <tr>
     <td>
@@ -144,37 +169,49 @@
     </td>
 </tr>
 <tr>
+    <td><br/></td>
+</tr>
+<tr>
     <td>
         <span class="error">*</span><h:outputLabel value="Description:" for="description"/>
     </td>
     <td>
-        <h:inputTextarea id="description" value="#{newContestant.description}" required="true"/>
+        <h:inputTextarea id="description" value="#{newContestant.description}" required="true" cols="50" rows="10"/>
     </td>
     <td>
         <h:message for="description" styleClass="error"/>
     </td>
 </tr>
 <tr>
+    <td><br/></td>
+</tr>
+<tr>
     <td>
         <span class="error">*</span><h:outputLabel value="LinkedIn Profile Url:" for="linkedInProfile"/>
     </td>
     <td>
-        <h:inputText id="linkedInProfile" value="#{newContestant.linkedInProfile}"/>
+        <h:inputText id="linkedInProfile" value="#{newContestant.linkedInProfile}" size="41"/>
     </td>
     <td>
         <h:message for="linkedInProfile" styleClass="error"/>
     </td>
 </tr>
 <tr>
+    <td><br/></td>
+</tr>
+<tr>
     <td>
-        <span class="error">*</span><h:outputLabel value="Language Proficiency :" for="languageProficiency"/>
+        <span class="error">*</span><h:outputLabel value="Favorite Programming Language :" for="languageProficiency"/>
     </td>
     <td>
-        <h:inputText id="languageProficiency" value="#{newContestant.languageProficiency}" required="true"/>
+        <h:inputText id="languageProficiency" value="#{newContestant.languageProficiency}" required="true" size="41"/>
     </td>
     <td>
         <h:message for="languageProficiency" styleClass="error"/>
     </td>
+</tr>
+<tr>
+    <td><br/></td>
 </tr>
 <tr>
     <td>
@@ -186,13 +223,15 @@
                 data="#{newContestant.imageFileWrapper.fileData}"
                 contentType="#{newContestant.imageFileWrapper.contentType}"
                 fileSize="#{newContestant.imageFileWrapper.size}"
-                />
+                size="31"/>
     </td>
     <td>
         <h:message for="image" styleClass="error"/>
     </td>
 </tr>
-
+<tr>
+    <td><br/></td>
+</tr>
 <tr>
     <td>
         <h:outputLabel value=" Upload CV :" for="curriculumVitae"/>
@@ -203,13 +242,15 @@
                 data="#{newContestant.pdfFileWrapper.fileData}"
                 contentType="#{newContestant.pdfFileWrapper.contentType}"
                 fileSize="#{newContestant.pdfFileWrapper.size}"
-                />
+                size="31"/>
     </td>
     <td>
         <h:message for="curriculumVitae" styleClass="error"/>
     </td>
 </tr>
-
+<tr>
+    <td><br/></td>
+</tr>
 <tr>
     <td>
         <h:outputLabel value=" Captcha :" for="verifyCaptcha"/>
@@ -218,18 +259,24 @@
         <h:graphicImage value="/seam/resource/captcha"/>
     </td>
 </tr>
-
+<tr>
+    <td><br/></td>
+</tr>
 <tr>
     <td>
         <span class="error">*</span><h:outputLabel value="Correctly enter the word:" for="verifyCaptcha"/>
     </td>
 
     <td>
-        <h:inputText id="verifyCaptcha" value="#{captcha.response}" required="true"/>
+        <h:inputText id="verifyCaptcha" value="#{captcha.response}" required="true" size="41"/>
     </td>
     <td>
         <h:message for="verifyCaptcha" styleClass="error"/>
     </td>
+</tr>
+
+<tr>
+    <td><br/></td>
 </tr>
 
 <tr>

@@ -14,7 +14,7 @@
             <li><s:link value="Home" view="/greetings/greeting.xhtml"/></li>
             <li><s:link value="Profile" view="/viewProfile.xhtml"/></li>
             <li><s:link value="Change password" view="/changePassword.xhtml"/></li>
-             <li><s:link value="Logout" view="/logout.xhtml"/></li>
+            <li><s:link value="Logout" view="/logout.xhtml"/></li>
         </ul>
 
     </ui:define>
@@ -30,6 +30,19 @@
 
                     <table>
                         <s:validateAll>
+
+                            <tr>
+                                <td>
+                                    <h:outputLabel value="Youtube Url*:" for="youtubeUrl"/>
+                                </td>
+                                <td>
+                                    <h:inputText id="youtubeUrl" value="#{existingProjectSubmission.youTubeUrl}"
+                                                 required="true"/>
+                                </td>
+                                <td>
+                                    <h:message for="youtubeUrl" styleClass="error"/>
+                                </td>
+                            </tr>
                             <tr>
                                 <td>
                                     <h:outputLabel value="Github Url*:" for="githubUrl"/>
@@ -42,16 +55,7 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td>
-                                    <h:outputLabel value="Youtube Url*:" for="youtubeUrl"/>
-                                </td>
-                                <td>
-                                    <h:inputText id="youtubeUrl" value="#{existingProjectSubmission.youTubeUrl}"
-                                                 required="true"/>
-                                </td>
-                                <td>
-                                    <h:message for="youtubeUrl" styleClass="error"/>
-                                </td>
+                                <td>or</td>
                             </tr>
                             <tr>
                                 <td>

@@ -11,7 +11,7 @@ var javascript_countdown = function () {
     var conversationId = 4;
 	var output_element_id = 'javascript_countdown_time';
 	var keep_counting = 1;
-	var no_time_left_message = 'No time left for JavaScript countdown!';
+	var no_time_left_message = 'Time\'s up';
 
 	function countdown() {
 		if(time_left < 2) {
