@@ -20,4 +20,6 @@ public interface ContestantDao {
 
     public Contestant getSelectedContestantByEmail(String email);
 
+    public byte[] getContestantImageById(long id);
+
 }

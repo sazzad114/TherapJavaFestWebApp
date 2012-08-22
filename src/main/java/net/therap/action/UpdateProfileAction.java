@@ -19,7 +19,7 @@ import java.util.List;
  */
 @Name("updateProfileAction")
 @Scope(ScopeType.EVENT)
-public class updateProfileAction {
+public class UpdateProfileAction {
 
     private final int UPLOADED_IMAGE_SIZE = 5;
     private final int UPLOADED_CV_SIZE = 5;

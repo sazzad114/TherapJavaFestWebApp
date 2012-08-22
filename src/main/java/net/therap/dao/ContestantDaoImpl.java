@@ -76,4 +76,10 @@ public class ContestantDaoImpl implements ContestantDao {
         }
 
     }
+
+    public byte[] getContestantImageById(long id) {
+        Query query = session.createQuery("select contestant.photo from Contestant contestant where contestant.id = :id");
+        query.setLong("id", id);
+        return (byte[])query.uniqueResult();
+    }
 }
