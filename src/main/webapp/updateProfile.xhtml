@@ -1,0 +1,214 @@
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:s="http://jboss.com/products/seam/taglib" xmlns:rich="http://richfaces.org/rich"
+                template="formTemplate.xhtml">
+
+
+    <ui:define name="menu">
+
+        <ul>
+            <li><s:link value="Home" view="/greetings/greeting.xhtml"/></li>
+            <li><s:link value="Profile" view="/viewProfile.xhtml"/></li>
+            <li><a href="http://therapjavafest.blogspot.com">Blog</a></li>
+            <li><s:link value="Logout" view="/logout.xhtml"/></li>
+        </ul>
+
+    </ui:define>
+
+    <ui:define name="content">
+        <div class="post">
+            <h2 class="title">Register for Therap Java Fest !</h2>
+
+            <p class="meta"></p>
+
+            <div class="entry">
+                <h:form id="register" enctype="multipart/form-data">
+
+                    <table>
+                        <s:validateAll>
+
+                            <tr>
+                                <td>
+                                    <span class="error">*</span><h:outputLabel value="Phone :" for="phone"/>
+                                </td>
+                                <td>
+                                    <h:inputText id="phone" value="#{editableContestant.phone}" required="true" size="41"/>
+                                </td>
+                                <td>
+                                    <h:message for="phone" styleClass="error"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><br/></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <span class="error">*</span><h:outputLabel value="Cgpa :" for="cgpa"/>
+                                </td>
+                                <td>
+                                    <h:inputText id="cgpa" value="#{editableContestant.cgpa}" required="true" size="41"/>
+                                </td>
+                                <td>
+                                    <h:message for="cgpa" styleClass="error"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><br/></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <span class="error">*</span><h:outputLabel value="Expected Graduation Date :"
+                                                                               for="expectedGraduationDate"/>
+                                </td>
+                                <td>
+                                    <rich:calendar datePattern="yyyy-MM-dd"
+                                                   value="#{editableContestant.expectedGraduationDate}"
+                                                   required="true"
+                                                   id="expectedGraduationDate" cellHeight="30" cellWidth="30"
+                                                   inputSize="38"/>
+                                </td>
+                                <td>
+                                    <rich:message for="expectedGraduationDate" styleClass="error"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><br/></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <span class="error">*</span><h:outputLabel value="Description:" for="description"/>
+                                </td>
+                                <td>
+                                    <h:inputTextarea id="description" value="#{editableContestant.description}"
+                                                     required="true" cols="50" rows="10"/>
+                                </td>
+                                <td>
+                                    <h:message for="description" styleClass="error"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><br/></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <span class="error">*</span><h:outputLabel value="LinkedIn Profile Url:"
+                                                                               for="linkedInProfile"/>
+                                </td>
+                                <td>
+                                    <h:inputText id="linkedInProfile" value="#{editableContestant.linkedInProfile}"
+                                                 size="41"/>
+                                </td>
+                                <td>
+                                    <h:message for="linkedInProfile" styleClass="error"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><br/></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <span class="error">*</span><h:outputLabel value="Favorite Programming Language :"
+                                                                               for="languageProficiency"/>
+                                </td>
+                                <td>
+                                    <h:inputText id="languageProficiency" value="#{editableContestant.languageProficiency}"
+                                                 required="true" size="41"/>
+                                </td>
+                                <td>
+                                    <h:message for="languageProficiency" styleClass="error"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><br/></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <span class="error">*</span><h:outputLabel value="Upload Image :" for="image"/>
+                                </td>
+                                <td>
+                                    <s:fileUpload
+                                            id="image"
+                                            data="#{editableContestant.imageFileWrapper.fileData}"
+                                            contentType="#{editableContestant.imageFileWrapper.contentType}"
+                                            fileSize="#{editableContestant.imageFileWrapper.size}"
+                                            size="31"/>
+                                </td>
+                                <td>
+                                    <h:message for="image" styleClass="error"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><br/></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <h:outputLabel value=" Upload CV :" for="curriculumVitae"/>
+                                </td>
+                                <td>
+                                    <s:fileUpload
+                                            id="curriculumVitae"
+                                            data="#{editableContestant.pdfFileWrapper.fileData}"
+                                            contentType="#{editableContestant.pdfFileWrapper.contentType}"
+                                            fileSize="#{editableContestant.pdfFileWrapper.size}"
+                                            size="31"/>
+                                </td>
+                                <td>
+                                    <h:message for="curriculumVitae" styleClass="error"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><br/></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <h:outputLabel value=" Captcha :" for="verifyCaptcha"/>
+                                </td>
+                                <td>
+                                    <h:graphicImage value="/seam/resource/captcha"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><br/></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <span class="error">*</span><h:outputLabel value="Correctly enter the word:"
+                                                                               for="verifyCaptcha"/>
+                                </td>
+
+                                <td>
+                                    <h:inputText id="verifyCaptcha" value="#{captcha.response}" required="true"
+                                                 size="41"/>
+                                </td>
+                                <td>
+                                    <h:message for="verifyCaptcha" styleClass="error"/>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td><br/></td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <h:commandButton value="Register"
+                                                     action="#{updateProfileAction.updateProfile(editableContestant)}"/>
+                                </td>
+                            </tr>
+                        </s:validateAll>
+                    </table>
+                </h:form>
+            </div>
+        </div>
+
+    </ui:define>
+
+
+</ui:composition>
+
+
+

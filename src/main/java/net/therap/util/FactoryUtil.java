@@ -71,10 +71,14 @@ public class FactoryUtil {
         return loggedInContestant.getMyGroup().getSubmittedProject();
     }
 
-    @Factory(value = "myProfile",scope = ScopeType.EVENT)
+    @Factory(value = "myProfile", scope = ScopeType.EVENT)
     public Contestant getMyProfile() {
         return contestantDao.getContestantById(loggedInContestant.getContestantId());
     }
 
+    @Factory(value = "editableContestant", scope = ScopeType.PAGE)
+    public Contestant getEditableContestant() {
+        return contestantDao.getContestantById(loggedInContestant.getContestantId());
+    }
 
 }

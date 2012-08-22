@@ -206,9 +206,6 @@
         </navigation>
     </page>
 
-
-    <!--done upto this-->
-
     <page view-id="/greetings/pendingProposalResultGreeting.xhtml" login-required="true"
           action="#{loggedInContestant.getState}">
         <navigation from-action="#{loggedInContestant.getState}">
@@ -325,6 +322,16 @@
         </navigation>
 
     </page>
+
+   <page view-id="/updateProfile.xhtml" login-required="true">
+        <navigation>
+            <rule if-outcome="success">
+                <redirect view-id="/greetings/greeting.xhtml"/>
+            </rule>
+        </navigation>
+    </page>
+
+
 
     <page view-id="/screeningTest.xhtml" login-required="true">
         <action execute="#{testService.loadFirstQuestion}"
