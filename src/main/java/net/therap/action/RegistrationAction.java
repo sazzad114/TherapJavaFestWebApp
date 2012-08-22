@@ -23,9 +23,9 @@ import java.util.List;
  * Time: 10:38 AM
  */
 
-@Name("registrationService")
+@Name("registrationAction")
 @Scope(ScopeType.EVENT)
-public class RegistrationService {
+public class RegistrationAction {
 
     private final int TEMPORARY_PASSWORD_LEN = 10;
     private final int UPLOADED_IMAGE_SIZE = 5;
@@ -35,7 +35,7 @@ public class RegistrationService {
     private ContestantDao contestantDao;
 
     @In(create = true)
-    private EmailService emailService;
+    private EmailAction emailAction;
 
     @In
     private FacesMessages facesMessages;
@@ -99,7 +99,7 @@ public class RegistrationService {
             contestant.setPassword(temporaryPassword);
             contestant.setState(ContestantState.TEMPORARY_CONTESTANT);
             contestantDao.saveContestant(contestant);
-            emailService.sendMessage();
+            emailAction.sendMessage();
             log.debug("Saved contestant");
             return "success";
         }

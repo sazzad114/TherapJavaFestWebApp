@@ -16,7 +16,7 @@ import org.jboss.seam.log.Log;
  */
 @Name("passwordChange")
 @Scope(ScopeType.PAGE)
-public class PasswordChangeService {
+public class PasswordChangeAction {
 
     @Logger
     private Log log;

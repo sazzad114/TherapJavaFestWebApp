@@ -29,9 +29,9 @@ import java.util.Map;
  * Time: 10:46 AM
  */
 
-@Name("testService")
+@Name("testAction")
 @Scope(ScopeType.CONVERSATION)
-public class TestService {
+public class TestAction {
 
     @Logger
     Log log;

@@ -334,9 +334,9 @@
 
 
     <page view-id="/screeningTest.xhtml" login-required="true">
-        <action execute="#{testService.loadFirstQuestion}"
+        <action execute="#{testAction.loadFirstQuestion}"
                 if="#{not notFirstLoad and not facesContext.renderKit.responseStateManager.isPostback(facesContext)}"/>
-        <action execute="#{testService.loadCurrentQuestion}"
+        <action execute="#{testAction.loadCurrentQuestion}"
                 if="#{notFirstLoad and not facesContext.renderKit.responseStateManager.isPostback(facesContext)}"/>
     </page>
 

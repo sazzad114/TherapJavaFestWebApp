@@ -22,9 +22,9 @@ import java.util.List;
  * Time: 4:29 PM
  */
 
-@Name("groupRegistrationService")
+@Name("groupRegistrationAction")
 @Scope(ScopeType.EVENT)
-public class GroupRegistrationService {
+public class GroupRegistrationAction {
 
     @In
     private GroupDao groupDao;

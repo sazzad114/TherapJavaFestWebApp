@@ -9,7 +9,7 @@
     <link href="/therapJavaFestWebApp/css/style.css" rel="stylesheet" type="text/css"/>
     <script src="/therapJavaFestWebApp/js/timer.js" type="text/javascript"></script>
 </head>
-<body onload="javascript_countdown.init('#{testService.timeLeft}','javascript_countdown_time','#{conversation.id}')">
+<body onload="javascript_countdown.init('#{testAction.timeLeft}','javascript_countdown_time','#{conversation.id}')">
 <div id="wrapper">
 
     <div id="header-wrapper">
@@ -39,7 +39,7 @@
                                             <s:label>#{currentQuestion.questionString}</s:label>
                                         </td>
                                     </tr>
-                                    <h:selectOneRadio value="#{testService.selectedOptionId}"
+                                    <h:selectOneRadio value="#{testAction.selectedOptionId}"
                                                       id="selectedQuestionOption"
                                                       layout="pageDirection">
                                         <s:selectItems var="selectedOption" value="#{currentQuestion.options}"
@@ -47,10 +47,10 @@
                                                        itemValue="#{selectedOption.optionId}"/>
 
                                     </h:selectOneRadio>
-                                    <h:commandButton value="Get Next Question" action="#{testService.postAnswer}"
+                                    <h:commandButton value="Get Next Question" action="#{testAction.postAnswer}"
                                                      immediate="true"/>
 
-                                    <h:commandButton value="End test" action="#{testService.endTest}" immediate="true"/>
+                                    <h:commandButton value="End test" action="#{testAction.endTest}" immediate="true"/>
                                 </table>
                             </h:form>
                         </div>

@@ -11,9 +11,9 @@ import org.jboss.seam.log.Log;
  * Date: 7/22/12
  * Time: 11:46 AM
  */
-@Name("emailService")
+@Name("emailAction")
 @Scope(ScopeType.EVENT)
-public class EmailService {
+public class EmailAction {
     @Logger
     private Log log;
 
