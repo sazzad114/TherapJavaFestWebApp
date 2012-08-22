@@ -23,9 +23,9 @@ import java.util.List;
  * Date: 8/5/12
  * Time: 6:04 PM
  */
-@Name("proposalSubmissionService")
+@Name("proposalSubmissionAction")
 @Scope(ScopeType.EVENT)
-public class ProposalSubmissionService {
+public class ProposalSubmissionAction {
 
     private final int UPLOADED_PROPOSAL_SIZE = 5;
 

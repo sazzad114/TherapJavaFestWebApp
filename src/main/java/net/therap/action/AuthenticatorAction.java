@@ -17,7 +17,7 @@ import java.util.Date;
 
 @Name("authenticator")
 @Scope(ScopeType.EVENT)
-public class AuthenticatorService {
+public class AuthenticatorAction {
 
 
     @In

@@ -26,7 +26,7 @@ import java.util.List;
  * Time: 1:14 PM
  */
 
-@Name("questionGeneratorService")
+@Name("questionGeneratorAction")
 @Scope(ScopeType.EVENT)
 public class QuestionGeneratorService {
 

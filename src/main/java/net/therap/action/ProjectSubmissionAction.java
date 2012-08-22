@@ -22,9 +22,9 @@ import java.util.List;
  * Time: 6:04 PM
  */
 
-@Name("projectSubmissionService")
+@Name("projectSubmissionAction")
 @Scope(ScopeType.EVENT)
-public class ProjectSubmissionService {
+public class ProjectSubmissionAction {
 
     @Logger
     Log log;
