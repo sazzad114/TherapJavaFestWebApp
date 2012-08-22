@@ -1,13 +1,34 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE html
-        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:s="http://jboss.com/products/seam/taglib" xml:lang="en" lang="en">
-<head>
-    <title></title>
-</head>
-<body>
-An email has been sent to your email address, please check...
-<s:link value = "Click here to login" action="/home.xhtml"/>
-</body>
-</html>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:s="http://jboss.com/products/seam/taglib" xmlns:rich="http://richfaces.org/rich"
+                template="template.xhtml">
+
+
+    <ui:define name="menu">
+
+        <ul>
+            <li><s:link value="Home" view="/home.xhtml"/></li>
+
+            <li><a href="http://therapjavafest.blogspot.com">Blog</a></li>
+
+            <li><s:link value="About Us" view="/aboutUs.xhtml"/></li>
+
+            <li><s:link value="Contact" view="/contactUs.xhtml"/></li>
+        </ul>
+
+    </ui:define>
+
+    <ui:define name="content">
+        An email has been sent to your email address, please check...
+        <s:link value=" Click here to login" action="/home.xhtml"/>
+    </ui:define>
+
+
+</ui:composition>
+
+
+
