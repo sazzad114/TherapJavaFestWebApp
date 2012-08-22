@@ -28,7 +28,7 @@ import java.util.List;
 
 @Name("questionGeneratorAction")
 @Scope(ScopeType.EVENT)
-public class QuestionGeneratorService {
+public class QuestionGeneratorAction {
 
     @Logger
     Log log;
