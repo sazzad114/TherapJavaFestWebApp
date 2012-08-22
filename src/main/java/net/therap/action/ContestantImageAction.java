@@ -27,7 +27,7 @@ public class ContestantImageAction {
     FacesContext facesContext = FacesContext.getCurrentInstance();
     HttpServletResponse response = (HttpServletResponse) facesContext.getExternalContext().getResponse();
 
-    response.addHeader("Content-Length", SIFDataConverter.getStringValue(bean.getData().length, false));
+   /* response.addHeader("Content-Length", SIFDataConverter.getStringValue(bean.getData().length, false));
     response.addHeader("Content-Disposition", "inline; filename=" + bean.getName());
     response.addHeader("Expires", "0");
     response.addHeader("Pragma", "cache");
@@ -43,7 +43,7 @@ public class ContestantImageAction {
     catch(Exception e)
     {
       e.printStackTrace();
-    }
+    }*/
     facesContext.responseComplete();
     }
 }
