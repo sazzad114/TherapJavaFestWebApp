@@ -30,7 +30,7 @@ public class UpdateProfileAction {
     @In
     private FacesMessages facesMessages;
 
-    @Out
+    @Out(required = false)
     private Contestant loggedInContestant;
 
 
@@ -54,13 +54,17 @@ public class UpdateProfileAction {
 
         boolean validationFails = false;
 
-        if (!FileValidatorUtil.validateFileSize(contestant.getImageFileWrapper(), imageFileSize)) {
-            facesMessages.addToControl("image", "file size must not exceed " + UPLOADED_IMAGE_SIZE + "MB");
-            validationFails = true;
-        }
-        if (!FileValidatorUtil.validateFileType(contestant.getImageFileWrapper(), imageFileTypes)) {
-            facesMessages.addToControl("image", "only gif,jpeg,png images are allowed");
-            validationFails = true;
+        if (contestant.getImageFileWrapper().getSize() != 0) {
+
+            if (!FileValidatorUtil.validateFileSize(contestant.getImageFileWrapper(), imageFileSize)) {
+                facesMessages.addToControl("image", "file size must not exceed " + UPLOADED_IMAGE_SIZE + "MB");
+                validationFails = true;
+            }
+
+            if (!FileValidatorUtil.validateFileType(contestant.getImageFileWrapper(), imageFileTypes)) {
+                facesMessages.addToControl("image", "only gif,jpeg,png images are allowed");
+                validationFails = true;
+            }
         }
 
         if (contestant.getPdfFileWrapper().getSize() != 0) {
@@ -79,8 +83,15 @@ public class UpdateProfileAction {
         if (!validationFails) {
 
             log.debug("About to save contestant");
-            contestant.setPhoto(contestant.getImageFileWrapper().getFileData());
-            contestant.setCurriculumVitae(contestant.getPdfFileWrapper().getFileData());
+
+            if (contestant.getImageFileWrapper().getSize() != 0) {
+                contestant.setPhoto(contestant.getImageFileWrapper().getFileData());
+            }
+
+            if (contestant.getPdfFileWrapper().getSize() != 0) {
+                contestant.setCurriculumVitae(contestant.getPdfFileWrapper().getFileData());
+            }
+
             contestantDao.updateContestant(contestant);
             loggedInContestant = contestant;
             log.debug("Saved contestant");
