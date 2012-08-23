@@ -329,7 +329,7 @@ img.aligncenter {
 
 #footer p {
     margin: 0;
-    padding-top: 18px;
+    padding-top: 10px;
     line-height: normal;
     font-size: 10px;
     text-align: center;
@@ -337,6 +337,5 @@ img.aligncenter {
 }
 
 #footer a {
-    color: #676767;
-    text-decoration: none;
+    color: #0086df;
 }

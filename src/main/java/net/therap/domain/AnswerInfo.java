@@ -19,6 +19,7 @@ public class AnswerInfo {
     private Contestant contestant;
     private long questionId;
     private boolean correct;
+    private int selectedOptionId;
     private long version;
 
 
@@ -60,6 +61,15 @@ public class AnswerInfo {
 
     public void setCorrect(boolean correct) {
         this.correct = correct;
+    }
+
+    @Column(name = "SELECTED_OPTION_ID")
+    public int getSelectedOptionId() {
+        return selectedOptionId;
+    }
+
+    public void setSelectedOptionId(int selectedOptionId) {
+        this.selectedOptionId = selectedOptionId;
     }
 
     @Version

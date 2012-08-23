@@ -23,7 +23,12 @@
     <!-- end #header -->
 
     <div id="menu">
-        <ui:insert name="menu"/>
+          <ul>
+            <li><s:link value="Home" view="/greetings/greeting.xhtml"/></li>
+            <li><s:link value="Profile" view="/viewProfile.xhtml"/></li>
+             <li><s:link value="Contact" view="/contactUs.xhtml"/></li>
+            <li><s:link value="Logout" view="/logout.xhtml"/></li>
+        </ul>
     </div>
 
     <div id="separator"/>
@@ -47,7 +52,7 @@
     <!-- end #page -->
 </div>
 <div id="footer">
-    <p> &#169; Copyright Therap Services, LLC. 2003-2012. All Rights Reserved.</p>
+    <p><s:link value="Terms and Conditions" view="/termsAndConditions.xhtml"/> </p> <p> &#169; Copyright <a href="http://www.therapservices.net">Therap Services, LLC</a>. 2003-2012. All Rights Reserved.</p>
 </div>
 <!-- end #footer -->
 </body>

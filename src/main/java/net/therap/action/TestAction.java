@@ -178,6 +178,7 @@ public class TestAction {
             }
         }
 
+        answerInfo.setSelectedOptionId(selectedOptionId);
 
         if (currentQuestion.getCorrectOption().getOptionId() == selectedOptionId) {
             answerInfo.setCorrect(true);

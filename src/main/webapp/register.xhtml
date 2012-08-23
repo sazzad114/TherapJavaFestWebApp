@@ -1,28 +1,44 @@
-<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<ui:composition xmlns="http://www.w3.org/1999/xhtml"
-                xmlns:ui="http://java.sun.com/jsf/facelets"
-                xmlns:h="http://java.sun.com/jsf/html"
-                xmlns:f="http://java.sun.com/jsf/core"
-                xmlns:s="http://jboss.com/products/seam/taglib" xmlns:rich="http://richfaces.org/rich"
-                template="formTemplate.xhtml">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:s="http://jboss.com/products/seam/taglib" xmlns:rich="http://richfaces.org/rich"
+      xmlns:f="http://java.sun.com/jsf/core">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title>Therap Java Fest</title>
+    <link href="/therapJavaFestWebApp/css/style.css" rel="stylesheet" type="text/css"/>
+    <script src="/therapJavaFestWebApp/js/menuHover.js" type="text/javascript"></script>
+</head>
+<body onload="changeMenuBackground()">
+<div id="wrapper">
+<div id="header-wrapper">
+    <div id="header">
+        <!--<div id="logo">
+            <h1><a href="#">Therap Java Fest </a></h1>
 
+            <p>Way to your dream...</p>
+        </div>-->
+    </div>
+</div>
+<!-- end #header -->
 
-<ui:define name="menu">
-
+<div id="menu">
     <ul>
         <li><s:link value="Home" view="/home.xhtml"/></li>
-
-        <li><a href="http://therapjavafest.blogspot.com">Blog</a></li>
-
         <li><s:link value="About Us" view="/aboutUs.xhtml"/></li>
-
         <li><s:link value="Contact" view="/contactUs.xhtml"/></li>
     </ul>
+</div>
 
-</ui:define>
+<div id="separator"/>
+<!-- end #menu -->
 
-<ui:define name="content">
+<div id="page">
+<div id="page-bgtop">
+<div id="page-bgbtm">
+<div id="content-reg">
+
 <div class="post">
 <h2 class="title">Register for Therap Java Fest !</h2>
 
@@ -290,10 +306,23 @@
 </div>
 </div>
 
-</ui:define>
+</div>
 
+<!-- end #content -->
 
-</ui:composition>
+<div style="clear: both;">&nbsp;</div>
+</div>
+</div>
+</div>
+<!-- end #page -->
+</div>
+<div id="footer">
+    <p><s:link value="Terms and Conditions" view="/termsAndConditions.xhtml"/> </p> <p> &#169; Copyright <a href="http://www.therapservices.net">Therap Services, LLC</a>. 2003-2012. All Rights Reserved.</p>
+</div>
+<!-- end #footer -->
+</body>
+</html>
+
 
 
 

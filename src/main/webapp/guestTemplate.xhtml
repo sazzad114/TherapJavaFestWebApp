@@ -1,0 +1,85 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!--
+Design by Free CSS Templates
+http://www.freecsstemplates.org
+Released for free under a Creative Commons Attribution 2.5 License
+
+Name       : Timeless
+Description: A two-column, fixed-width design with dark color scheme.
+Version    : 1.0
+Released   : 20110825
+
+-->
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:s="http://jboss.com/products/seam/taglib" xmlns:c="http://java.sun.com/jstl/core">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title>Therap Java Fest</title>
+    <link href="/therapJavaFestWebApp/css/style.css" rel="stylesheet" type="text/css"/>
+    <script src="/therapJavaFestWebApp/js/menuHover.js" type="text/javascript"></script>
+</head>
+<body onload="changeMenuBackground()">
+<div id="wrapper">
+    <div id="header-wrapper">
+        <div id="header">
+        </div>
+    </div>
+    <!-- end #header -->
+
+    <div id="menu">
+
+        <c:choose>
+            <c:when test="#{identity.isLoggedIn()}">
+                <ul>
+                    <li><s:link value="Home" view="/greetings/greeting.xhtml"/></li>
+                    <li><s:link value="Profile" view="/viewProfile.xhtml"/></li>
+                    <li><s:link value="Contact" view="/contactUs.xhtml"/></li>
+                    <li><s:link value="Logout" view="/logout.xhtml"/></li>
+                </ul>
+            </c:when>
+            <c:when test="#{!identity.isLoggedIn()}">
+                <ul>
+                    <li><s:link value="Home" view="/home.xhtml"/></li>
+
+                    <li><s:link value="About Us" view="/aboutUs.xhtml"/></li>
+                    <li><s:link value="Contact" view="/contactUs.xhtml"/></li>
+                </ul>
+            </c:when>
+        </c:choose>
+    </div>
+    <div id="separator"/>
+
+    <!-- end #menu -->
+    <div id="page">
+        <div id="page-bgtop">
+            <div id="page-bgbtm">
+                <div id="content" style="background:WHITE">
+
+                    <ui:insert name="content"/>
+
+                </div>
+
+                <!-- end #content -->
+
+                <div id="sidebar">
+                    <ul>
+                        <ui:insert name="sidebar"/>
+                    </ul>
+
+
+                </div>
+                <!-- end #sidebar -->
+                <div style="clear: both;">&nbsp;</div>
+            </div>
+        </div>
+    </div>
+    <!-- end #page -->
+</div>
+<div id="footer">
+    <p><s:link value="Terms and Conditions" view="/termsAndConditions.xhtml"/> </p> <p> &#169; Copyright <a href="http://www.therapservices.net">Therap Services, LLC</a>. 2003-2012. All Rights Reserved.</p>
+</div>
+<!-- end #footer -->
+</body>
+</html>

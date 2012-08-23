@@ -81,7 +81,7 @@ public class Contestant implements Serializable{
     }
 
     @Email
-    @Column(name = "EMAIL")
+    @Column(name = "EMAIL", nullable = false, unique = true)
     public String getEmail() {
         return email;
     }

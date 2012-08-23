@@ -63,7 +63,7 @@ public class ContestantDaoImpl implements ContestantDao {
 
     public Contestant getSelectedContestantByEmail(String email) {
 
-        Query query = session.createQuery("from Contestant contestant where contestant.email= :email and contestant.state = :state");
+        Query query = session.createQuery("from Contestant contestant where contestant.email = :email and contestant.state = :state");
         query.setString("email", email);
         query.setInteger("state", ContestantState.SELECTED_CANDIDATE);
         List<Contestant> contestantList = (List<Contestant>) query.list();

@@ -37,7 +37,7 @@ public class Group {
         this.groupId = groupId;
     }
 
-    @Column(name = "GROUP_NAME", nullable = false)
+    @Column(name = "GROUP_NAME", nullable = false, unique = true)
     @NotNull
     @NotEmpty
     public String getGroupName() {
