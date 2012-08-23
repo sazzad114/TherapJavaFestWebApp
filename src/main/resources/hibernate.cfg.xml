@@ -8,13 +8,21 @@
 
         <!--  postgre SQL configuration-->
 
-        <property name="connection.url">jdbc:mysql://localhost:3306/therapJavaFest</property>
+        <property name="connection.url">jdbc:mysql://localhost:3306/therapJavaFest?autoReconnect=true</property>
         <property name="connection.username">root</property>
         <property name="connection.password">therap</property>
         <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
         <property name="dialect">org.hibernate.dialect.MySQLDialect</property>
         <property name="show_sql">true</property>
         <property name="hbm2ddl.auto">update</property>
+
+        <property name="c3p0.min_size">5</property>
+        <property name="c3p0.max_size">20</property>
+        <property name="c3p0.timeout">1800</property>
+        <property name="c3p0.max_statements">50</property>
+        <property name="connection.provider_class">
+            org.hibernate.connection.C3P0ConnectionProvider
+        </property>
 
         <mapping class="net.therap.domain.Admin"/>
         <mapping class="net.therap.domain.AnswerInfo"/>

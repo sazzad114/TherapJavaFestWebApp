@@ -14,7 +14,9 @@ import org.jboss.seam.contexts.ServletLifecycle;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.Unmarshaller;
+import java.io.FileInputStream;
 import java.io.FileReader;
+import java.io.InputStream;
 import java.util.Arrays;
 import java.util.List;
 
@@ -51,8 +53,8 @@ public class FactoryUtil {
 
         JAXBContext questionBankContext = JAXBContext.newInstance(QuestionBank.class);
         Unmarshaller unmarshaller = questionBankContext.createUnmarshaller();
-        FileReader fileReader = new FileReader(ServletLifecycle.getServletContext().getRealPath(QUESTIONBANK_XML));
-        return (QuestionBank) unmarshaller.unmarshal(fileReader);
+        InputStream inputStream = new FileInputStream(ServletLifecycle.getServletContext().getRealPath(QUESTIONBANK_XML));
+        return (QuestionBank) unmarshaller.unmarshal(inputStream);
 
     }
 
