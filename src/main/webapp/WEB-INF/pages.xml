@@ -35,7 +35,7 @@
                 <redirect view-id="/greetings/readyForTestGreeting.xhtml"/>
             </rule>
             <rule if="#{loggedInContestant.state == contestantState.AT_TEST}">
-                <redirect view-id="/screeningTest.xhtml"/>
+                <redirect view-id="/greetings/atTestGreeting.xhtml"/>
             </rule>
             <rule if="#{loggedInContestant.state == contestantState.DISQUALIFIED_AT_TEST}">
                 <redirect view-id="/greetings/disqualifiedAtTestGreeting.xhtml"/>
@@ -110,6 +110,18 @@
                 <render view-id="/greetings/readyForTestGreeting.xhtml"/>
             </rule>
             <rule if="#{loggedInContestant.state != contestantState.READY_FOR_TEST}">
+                <redirect view-id="/greetings/greeting.xhtml"/>
+            </rule>
+        </navigation>
+    </page>
+
+    <page view-id="/greetings/atTestGreeting.xhtml" login-required="true" action="#{loggedInContestant.getState}">
+
+        <navigation from-action="#{loggedInContestant.getState}">
+            <rule if="#{loggedInContestant.state == contestantState.AT_TEST}">
+                <render view-id="/greetings/atTestGreeting.xhtml"/>
+            </rule>
+            <rule if="#{loggedInContestant.state != contestantState.AT_TEST}">
                 <redirect view-id="/greetings/greeting.xhtml"/>
             </rule>
         </navigation>
