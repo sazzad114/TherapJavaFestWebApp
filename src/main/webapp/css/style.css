@@ -140,6 +140,12 @@ img.aligncenter {
     background:WHITE;
 }
 
+#menu li.loggedInName {
+    float: right;
+    padding-top:8px;
+    color:#0086df;
+}
+
 #menu a {
     display: block;
     margin-right:1px;
@@ -152,6 +158,8 @@ img.aligncenter {
     background: #0086df;
 
 }
+
+
 
 #menu a:hover {
     text-decoration: none;
