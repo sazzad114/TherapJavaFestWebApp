@@ -31,10 +31,12 @@
                                     <h:message for="youtubeUrl" styleClass="error"/>
                                 </td>
                             </tr>
-                            <tr><td><br/></td></tr>
+                            <tr>
+                                <td><br/></td>
+                            </tr>
                             <tr>
                                 <td>
-                                    &#160;<h:outputLabel value="Github Url :" for="githubUrl"/>
+                                    &#160;&#160;<h:outputLabel value="Github Url :" for="githubUrl"/>
                                 </td>
                                 <td>
                                     <h:inputText id="githubUrl" value="#{projectSubmission.gitHubUrl}"/>
@@ -48,7 +50,8 @@
                             </tr>
                             <tr>
                                 <td>
-                                    &#160;<h:outputLabel value="Upload Your Project Source Code :" for="sourceCodeUpload"/>
+                                    &#160;&#160;<h:outputLabel value="Upload Your Project Source Code :"
+                                                         for="sourceCodeUpload"/>
                                 </td>
                                 <td>
                                     <s:fileUpload
@@ -57,24 +60,29 @@
                                             contentType="#{projectSubmission.uploadedSourceCode.contentType}"
                                             fileSize="#{projectSubmission.uploadedSourceCode.size}"
                                             />
+                                    <br/> <span class="error">(Only ZIP file is supported)</span>
                                 </td>
                                 <td>
                                     <h:message for="sourceCodeUpload" styleClass="error"/>
                                 </td>
                             </tr>
-                            <tr>
-                                <td>
-                                    <h:messages globalOnly="true" styleClass="error"/>
-                                </td>
-                            </tr>
-                            <tr><td><br/></td></tr>
-                            <tr>
-                                <td>
-                                    <h:commandButton value="Upload"
-                                                     action="#{projectSubmissionAction.submitProjectSource(projectSubmission)}"/>
-                                </td>
-                            </tr>
                         </s:validateAll>
+                    </table>
+                    <table>
+                        <tr>
+                            <h:messages globalOnly="true" styleClass="error"/>
+                        </tr>
+
+                        <tr>
+                            <td><br/></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <h:commandButton value="Upload"
+                                                 action="#{projectSubmissionAction.submitProjectSource(projectSubmission)}"/>
+                            </td>
+                        </tr>
+
                     </table>
                 </h:form>
             </div>
