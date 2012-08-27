@@ -254,7 +254,9 @@ img.aligncenter {
     float: right;
     width: 300px;
     padding: 0px 0px 0px 0px;
-    background: WHITE;
+    background-image: url("/therapJavaFestWebApp/images/paleblue.gif");
+    background-repeat: repeat-x;
+    min-height: 400px;
 }
 
 #sidebar ul {
@@ -287,10 +289,11 @@ img.aligncenter {
 }
 
 .sidebarheader {
-    padding: 8px 0 0 0px;
+
+    padding: 8px 8px 8px 8px;
     letter-spacing: -1px;
     font-size: 20px;
-    background-color: WHITE;
+    text-decoration:underline;
     color: #0086df;
 }
 
@@ -307,6 +310,8 @@ img.aligncenter {
 #sidebar p {
     margin: 0 0px;
     padding-bottom:20px;
+    padding-left:8px;
+    padding-right:8px;
     text-align: justify;
 }
 

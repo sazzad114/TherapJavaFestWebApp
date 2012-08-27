@@ -16,20 +16,20 @@
 
             <div class="entry">
 
-                <p>Therap (BD) Ltd. is hosting an online Java Festival for students of public and private universities,
-                    all over the country! We are looking to bring out the talent in the field of programming and
-                    interest them to explore the world of possibilities that Java opens up for them.
-                    This will be a great platform for tomorrow’s code builders to step into real life-like software
-                    development scenarios where they will be able to work through a complete software development
-                    life cycle starting from project proposal to implementation. If you think you have what it takes
-                    to take up the challenge and get into the world of Java.</p>
+                <p>Welcome to Therap's first online Java Festival for university students all over the country!
+                    We thank you for your interest and wish you the very best for the contest!</p>
 
-                <p>Prizes:</p>
-                <ul>
-                    <li>First prize : two Google Nexus 7 16GB</li>
-                    <li>Second prize : two Google Nexus 7 8GB</li>
-                    <li>Third prize : two Amazon Kindle touch</li>
-                </ul>
+                <p>This event is specifically designed to bring out the best in you and the best among you!
+                    During the course of the festival, you will get several opportunities to gather knowledge and
+                    apply it in real-world scenarios evolving as you create Java programs. You will also get multiple opportunities and
+                    platforms designed for you to discuss things you know or have learned. </p>
+
+                <p>
+                    We expect you to enthusiastically participate in all stages of the festival and give your 100% to make this endeavor a success.</p>
+
+                <p>
+                    Best of luck!</p>
+
             </div>
         </div>
         <div style="clear: both;">&nbsp;</div>
@@ -40,52 +40,52 @@
 
     <ui:define name="sidebar">
 
-            <li>
-                <h2 class="sidebarheader">Login</h2>
-                <hr style="color:#0086df;"/>
-                <p>
-                    <h:form id="login">
-                        <table>
-                            <tr>
-                                <td>
-                                    <h:outputLabel for="username">*Email:</h:outputLabel>
-                                </td>
-                                <td>
-                                    <h:inputText id="username" value="#{identity.username}"
-                                                 style="width: 175px;"/>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <h:outputLabel for="password">*Password:</h:outputLabel>
-                                </td>
-                                <td>
-                                    <h:inputSecret id="password" value="#{identity.password}"
-                                                   style="width: 175px;"/>
-                                </td>
-                            </tr>
-                        </table>
-                        <div>
-                            <h:outputLabel for="rememberMe">Remember Me: </h:outputLabel>
+        <li>
+            <h2 class="sidebarheader">Login</h2>
 
-                            <h:selectBooleanCheckbox id="rememberMe" value="#{identity.rememberMe}"/>
-                        </div>
+            <p>
+                <h:form id="login">
+                    <table>
+                        <tr>
+                            <td>
+                                <h:outputLabel for="username">*Email:</h:outputLabel>
+                            </td>
+                            <td>
+                                <h:inputText id="username" value="#{identity.username}"
+                                             style="width: 175px;"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <h:outputLabel for="password">*Password:</h:outputLabel>
+                            </td>
+                            <td>
+                                <h:inputSecret id="password" value="#{identity.password}"
+                                               style="width: 175px;"/>
+                            </td>
+                        </tr>
+                    </table>
+                    <div>
+                        <h:outputLabel for="rememberMe">Remember Me: </h:outputLabel>
 
-                        <h:messages globalOnly="true" styleClass="error"/>
+                        <h:selectBooleanCheckbox id="rememberMe" value="#{identity.rememberMe}"/>
+                    </div>
 
-                        <div>
-                            <h:commandButton id="login" action="#{identity.login}"
-                                             value="Login"/>
-                        </div>
+                    <h:messages globalOnly="true" styleClass="error"/>
 
-                    </h:form>
-                </p>
-            </li>
-            <li>
-                <h2 class="sidebarheader">Register</h2>
-                <hr style="color:#0086df;"/>
-                <p>Not registered yet? you can register<s:link value=" here" action="/register.xhtml"/>!</p>
-            </li>
+                    <div>
+                        <h:commandButton id="login" action="#{identity.login}"
+                                         value="Login"/>
+                    </div>
+
+                </h:form>
+            </p>
+        </li>
+        <li>
+            <h2 class="sidebarheader">Register</h2>
+
+            <p>Not registered yet? you can register<s:link value=" here" action="/register.xhtml"/>!</p>
+        </li>
 
     </ui:define>
 
