@@ -254,8 +254,8 @@ img.aligncenter {
     float: right;
     width: 300px;
     padding: 0px 0px 0px 0px;
-    background-image: url("/therapJavaFestWebApp/images/paleblue.gif");
-    background-repeat: repeat-x;
+    /*background-image: url("/therapJavaFestWebApp/images/paleblue.gif");
+    background-repeat: repeat-x;*/
     min-height: 400px;
 }
 
