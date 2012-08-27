@@ -21,7 +21,7 @@
                         <s:validateAll>
                             <tr>
                                 <td>
-                                    <h:outputLabel value="Upload Your New Project Proposal*:" for="proposalUpload"/>
+                                    <span class="error">*</span><h:outputLabel value="Upload Your New Project Proposal :" for="proposalUpload"/>
                                 </td>
                                 <td>
                                     <s:fileUpload
@@ -35,7 +35,7 @@
                                     <h:message for="proposalUpload" styleClass="error"/>
                                 </td>
                             </tr>
-
+                             <tr><td><br/></td></tr>
                             <tr>
                                 <td>
                                     <h:commandButton value="Upload"

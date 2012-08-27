@@ -21,7 +21,7 @@
 
                             <tr>
                                 <td>
-                                    <h:outputLabel value="Youtube Url*:" for="youtubeUrl"/>
+                                    <span class="error">*</span><h:outputLabel value="Youtube Url :" for="youtubeUrl"/>
                                 </td>
                                 <td>
                                     <h:inputText id="youtubeUrl" value="#{existingProjectSubmission.youTubeUrl}"
@@ -31,9 +31,10 @@
                                     <h:message for="youtubeUrl" styleClass="error"/>
                                 </td>
                             </tr>
+                            <tr><td><br/></td></tr>
                             <tr>
                                 <td>
-                                    <h:outputLabel value="Github Url*:" for="githubUrl"/>
+                                    &#160;<h:outputLabel value="Github Url :" for="githubUrl"/>
                                 </td>
                                 <td>
                                     <h:inputText id="githubUrl" value="#{existingProjectSubmission.gitHubUrl}"/>
@@ -43,11 +44,11 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td>or</td>
+                                <td>&#160;&#160;OR</td>
                             </tr>
                             <tr>
                                 <td>
-                                    <h:outputLabel value="Upload Your Project Source Code*:" for="sourceCodeUpload"/>
+                                    &#160;<h:outputLabel value="Upload Your Project Source Code :" for="sourceCodeUpload"/>
                                 </td>
                                 <td>
                                     <s:fileUpload
@@ -66,7 +67,7 @@
                                     <h:messages globalOnly="true" styleClass="error"/>
                                 </td>
                             </tr>
-
+                             <tr><td><br/></td></tr>
                             <tr>
                                 <td>
                                     <h:commandButton value="Upload"
