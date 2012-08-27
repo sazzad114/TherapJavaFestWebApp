@@ -57,12 +57,12 @@ public class UpdateProfileAction {
         if (contestant.getImageFileWrapper().getSize() != 0) {
 
             if (!FileValidatorUtil.validateFileSize(contestant.getImageFileWrapper(), imageFileSize)) {
-                facesMessages.addToControl("image", "file size must not exceed " + UPLOADED_IMAGE_SIZE + "MB");
+                facesMessages.addToControl("image", "File size must not exceed " + UPLOADED_IMAGE_SIZE + "MB");
                 validationFails = true;
             }
 
             if (!FileValidatorUtil.validateFileType(contestant.getImageFileWrapper(), imageFileTypes)) {
-                facesMessages.addToControl("image", "only gif,jpeg,png images are allowed");
+                facesMessages.addToControl("image", "Only GIF, JPEG, PNG files are allowed");
                 validationFails = true;
             }
         }
@@ -70,11 +70,11 @@ public class UpdateProfileAction {
         if (contestant.getPdfFileWrapper().getSize() != 0) {
 
             if (!FileValidatorUtil.validateFileSize(contestant.getPdfFileWrapper(), cvFileSize)) {
-                facesMessages.addToControl("curriculumVitae", "file size must not exceed " + UPLOADED_CV_SIZE + "MB");
+                facesMessages.addToControl("curriculumVitae", "File size must not exceed " + UPLOADED_CV_SIZE + "MB");
                 validationFails = true;
             }
             if (!FileValidatorUtil.validateFileType(contestant.getPdfFileWrapper(), cvFileTypes)) {
-                facesMessages.addToControl("curriculumVitae", "only pdf file is allowed");
+                facesMessages.addToControl("curriculumVitae", "Only PDF file is allowed");
                 validationFails = true;
             }
         }

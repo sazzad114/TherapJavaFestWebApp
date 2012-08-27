@@ -173,7 +173,7 @@ public class Contestant implements Serializable{
 
     @Column(name = "LINKEDIN_PROFILE",nullable = true)
 
-    @Pattern(regex = RegularExpressions.LINKED_IN, message = "invalid LinkedIn profile url")
+    @Pattern(regex = RegularExpressions.LINKED_IN, message = "Invalid LinkedIn profile url")
     public String getLinkedInProfile() {
         return linkedInProfile;
     }

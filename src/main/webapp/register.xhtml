@@ -56,7 +56,7 @@
     <td>
         <h:inputText id="contestantName" value="#{newContestant.contestantName}" required="true" size="41"/>
         <br/>
-        <span class="error">(name must be between 3 to 50 characters)</span>
+        <span class="error">(Name must be between 3 to 50 characters)</span>
     </td>
     <td>
         <h:message for="contestantName" styleClass="error"/>
@@ -110,7 +110,7 @@
 </tr>
 <tr>
     <td>
-        <span class="error">*</span><h:outputLabel value="Cgpa :" for="cgpa"/>
+        <span class="error">*</span><h:outputLabel value="CGPA :" for="cgpa"/>
     </td>
     <td>
         <h:inputText id="cgpa" value="#{newContestant.cgpa}" required="true" size="41"/>
@@ -177,7 +177,7 @@
         <span class="error">*</span><h:outputLabel value="Gender :" for="gender"/>
     </td>
     <td>
-        <h:selectOneRadio value="#{newContestant.gender}" id="gender">
+        <h:selectOneRadio value="#{newContestant.gender}" id="gender" required="true" requiredMessage="Please select your gender">
             <f:selectItem itemValue="Male" itemLabel="Male"/>
             <f:selectItem itemValue="Female" itemLabel="Female"/>
         </h:selectOneRadio>
@@ -191,12 +191,12 @@
 </tr>
 <tr>
     <td>
-        <span class="error">*</span><h:outputLabel value="Description :" for="description"/>
+        <span class="error">*</span><h:outputLabel value="About you :" for="description"/>
     </td>
     <td>
         <h:inputTextarea id="description" value="#{newContestant.description}" required="true" cols="50" rows="10"/>
         <br/>
-        <span class="error">(description must be between 5 to 300 characters)</span>
+        <span class="error">(About you must be between 5 to 300 characters)</span>
     </td>
     <td>
         <h:message for="description" styleClass="error"/>
@@ -244,6 +244,7 @@
                 contentType="#{newContestant.imageFileWrapper.contentType}"
                 fileSize="#{newContestant.imageFileWrapper.size}"
                 size="31"/>
+        <br/> <span class="error">(Only GIF, JPEG, PNG files are supported)</span>
     </td>
     <td>
         <h:message for="image" styleClass="error"/>
@@ -263,6 +264,7 @@
                 contentType="#{newContestant.pdfFileWrapper.contentType}"
                 fileSize="#{newContestant.pdfFileWrapper.size}"
                 size="31"/>
+        <br/> <span class="error">(Only PDF file is supported)</span>
     </td>
     <td>
         <h:message for="curriculumVitae" styleClass="error"/>

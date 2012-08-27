@@ -66,7 +66,7 @@ public class RegistrationAction {
             validationFails = true;
         }
         if (!FileValidatorUtil.validateFileType(contestant.getImageFileWrapper(), imageFileTypes)) {
-            facesMessages.addToControl("image", "only gif,jpeg,png images are allowed");
+            facesMessages.addToControl("image", "Only GIF, JPEG, PNG files are allowed");
             validationFails = true;
         }
 
@@ -77,7 +77,7 @@ public class RegistrationAction {
                 validationFails = true;
             }
             if (!FileValidatorUtil.validateFileType(contestant.getPdfFileWrapper(), cvFileTypes)) {
-                facesMessages.addToControl("curriculumVitae", "only pdf file is allowed");
+                facesMessages.addToControl("curriculumVitae", "Only PDF file is allowed");
                 validationFails = true;
             }
         }

@@ -80,7 +80,7 @@ public class ProjectSubmission implements Serializable{
     }
 
     @Column(name = "GITHUB_URL")
-    @Pattern(regex = RegularExpressions.GITHUB_URL, message = "invalid github project url")
+    @Pattern(regex = RegularExpressions.GITHUB_URL, message = "Invalid github project url")
     public String getGitHubUrl() {
         return gitHubUrl;
     }
@@ -90,7 +90,7 @@ public class ProjectSubmission implements Serializable{
     }
 
     @Column(name = "YOUTUBE_URL")
-    @Pattern(regex = RegularExpressions.YOUTUBE_URL, message = "invalid youtube video url")
+    @Pattern(regex = RegularExpressions.YOUTUBE_URL, message = "Invalid youtube video url")
     public String getYouTubeUrl() {
         return youTubeUrl;
     }

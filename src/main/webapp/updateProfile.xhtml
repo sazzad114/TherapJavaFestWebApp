@@ -35,7 +35,7 @@
                             </tr>
                             <tr>
                                 <td>
-                                    <span class="error">*</span><h:outputLabel value="Cgpa :" for="cgpa"/>
+                                    <span class="error">*</span><h:outputLabel value="CGPA :" for="cgpa"/>
                                 </td>
                                 <td>
                                     <h:inputText id="cgpa" value="#{editableContestant.cgpa}" required="true" size="41"/>
@@ -68,11 +68,13 @@
                             </tr>
                             <tr>
                                 <td>
-                                    <span class="error">*</span><h:outputLabel value="Description:" for="description"/>
+                                    <span class="error">*</span><h:outputLabel value="About you :" for="description"/>
                                 </td>
                                 <td>
                                     <h:inputTextarea id="description" value="#{editableContestant.description}"
                                                      required="true" cols="50" rows="10"/>
+                                    <br/>
+                                    <span class="error">(About you must be between 5 to 300 characters)</span>
                                 </td>
                                 <td>
                                     <h:message for="description" styleClass="error"/>
@@ -83,7 +85,7 @@
                             </tr>
                             <tr>
                                 <td>
-                                    &#160;<h:outputLabel value="LinkedIn Profile Url:"
+                                    &#160;<h:outputLabel value="LinkedIn Profile Url :"
                                                                                for="linkedInProfile"/>
                                 </td>
                                 <td>
@@ -124,6 +126,7 @@
                                             contentType="#{editableContestant.imageFileWrapper.contentType}"
                                             fileSize="#{editableContestant.imageFileWrapper.size}"
                                             size="31"/>
+                                    <br/> <span class="error">(Only GIF, JPEG, PNG files are supported)</span>
                                 </td>
                                 <td>
                                     <h:message for="image" styleClass="error"/>
@@ -143,6 +146,7 @@
                                             contentType="#{editableContestant.pdfFileWrapper.contentType}"
                                             fileSize="#{editableContestant.pdfFileWrapper.size}"
                                             size="31"/>
+                                    <br/> <span class="error">(Only PDF file is supported)</span>
                                 </td>
                                 <td>
                                     <h:message for="curriculumVitae" styleClass="error"/>
@@ -153,7 +157,7 @@
                             </tr>
                             <tr>
                                 <td>
-                                    &#160;<h:outputLabel value=" Captcha :" for="verifyCaptcha"/>
+                                    &#160;<h:outputLabel value="Captcha :" for="verifyCaptcha"/>
                                 </td>
                                 <td>
                                     <h:graphicImage value="/seam/resource/captcha"/>
@@ -164,7 +168,7 @@
                             </tr>
                             <tr>
                                 <td>
-                                    <span class="error">*</span><h:outputLabel value="Correctly enter the word:"
+                                    <span class="error">*</span><h:outputLabel value="Correctly enter the word :"
                                                                                for="verifyCaptcha"/>
                                 </td>
 
