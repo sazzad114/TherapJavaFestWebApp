@@ -77,7 +77,7 @@
                                 <td><h:outputText id="linkedInProfile" value="Not Provided"/></td>
                             </c:when>
                             <c:otherwise>
-                                <td><h:outputText id="linkedInProfile" value="#{myProfile.linkedInProfile}"/></td>
+                                <td><a href="#{myProfile.linkedInProfile}">#{myProfile.linkedInProfile}</a></td>
                             </c:otherwise>
                         </c:choose>
                     </tr>

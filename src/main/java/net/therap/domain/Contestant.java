@@ -70,7 +70,7 @@ public class Contestant implements Serializable{
     }
 
 
-    @Length(max = 50, min = 5)
+    @Length(max = 50, min = 3)
     @Column(name = "CONTESTANT_NAME", nullable = false)
     public String getContestantName() {
         return contestantName;

@@ -55,6 +55,8 @@
     </td>
     <td>
         <h:inputText id="contestantName" value="#{newContestant.contestantName}" required="true" size="41"/>
+        <br/>
+        <span class="error">(name must be between 3 to 50 characters)</span>
     </td>
     <td>
         <h:message for="contestantName" styleClass="error"/>
@@ -125,7 +127,7 @@
         <span class="error">*</span><h:outputLabel value="University :" for="university"/>
     </td>
     <td>
-        <h:selectOneMenu value="#{newContestant.university}" id="university" required="true">
+        <h:selectOneMenu value="#{newContestant.university}" id="university" required="true" requiredMessage="Please select your university">
             <s:selectItems var="university" value="#{universities}" label="#{university.universityName}"
                            itemValue="#{university.universityName}"
                            noSelectionLabel="-- Select --"/>
@@ -189,10 +191,12 @@
 </tr>
 <tr>
     <td>
-        <span class="error">*</span><h:outputLabel value="Description:" for="description"/>
+        <span class="error">*</span><h:outputLabel value="Description :" for="description"/>
     </td>
     <td>
         <h:inputTextarea id="description" value="#{newContestant.description}" required="true" cols="50" rows="10"/>
+        <br/>
+        <span class="error">(description must be between 5 to 300 characters)</span>
     </td>
     <td>
         <h:message for="description" styleClass="error"/>
@@ -203,7 +207,7 @@
 </tr>
 <tr>
     <td>
-        <h:outputLabel value="LinkedIn Profile Url:" for="linkedInProfile"/>
+        &#160;<h:outputLabel value="LinkedIn Profile Url :" for="linkedInProfile"/>
     </td>
     <td>
         <h:inputText id="linkedInProfile" value="#{newContestant.linkedInProfile}" size="41"/>
@@ -250,7 +254,7 @@
 </tr>
 <tr>
     <td>
-        <h:outputLabel value=" Upload CV :" for="curriculumVitae"/>
+        &#160;<h:outputLabel value="Upload CV :" for="curriculumVitae"/>
     </td>
     <td>
         <s:fileUpload
@@ -269,7 +273,7 @@
 </tr>
 <tr>
     <td>
-        <h:outputLabel value=" Captcha :" for="verifyCaptcha"/>
+        &#160;<h:outputLabel value="Captcha :" for="verifyCaptcha"/>
     </td>
     <td>
         <h:graphicImage value="/seam/resource/captcha"/>
@@ -280,7 +284,7 @@
 </tr>
 <tr>
     <td>
-        <span class="error">*</span><h:outputLabel value="Correctly enter the word:" for="verifyCaptcha"/>
+        <span class="error">*</span><h:outputLabel value="Correctly enter the word :" for="verifyCaptcha"/>
     </td>
 
     <td>

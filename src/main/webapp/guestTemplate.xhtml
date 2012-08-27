@@ -37,7 +37,7 @@ Released   : 20110825
                     <li><s:link value="Profile" view="/viewProfile.xhtml"/></li>
                     <li><s:link value="Contact" view="/contactUs.xhtml"/></li>
                     <li><s:link value="Logout" view="/logout.xhtml"/></li>
-                    <li class="loggedInName">#{loggedInContestant.email}</li>
+                    <li class="loggedInName"> Logged in as #{loggedInContestant.email}</li>
                 </ul>
             </c:when>
             <c:when test="#{!identity.isLoggedIn()}">
