@@ -235,7 +235,7 @@
 
 
     <build>
-        <finalName>therapJavaFestWebApp</finalName>
+        <finalName>ROOT</finalName>
         <plugins>
 
             <plugin>
