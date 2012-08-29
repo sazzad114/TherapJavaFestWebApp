@@ -23,18 +23,37 @@
     </div>
 </div>
 <!-- end #header -->
-
 <div class="menu">
     <ul>
-        <li><s:link value="Home" view="/greetings/greeting.xhtml"/></li>
-        <li><s:link value="Profile" view="/viewProfile.xhtml"/></li>
+        <li><s:link value="Home" view="/home.xhtml"/></li>
+        <li><s:link value="About" view="/aboutUs.xhtml"/></li>
         <li><s:link value="Contact" view="/contactUs.xhtml"/></li>
-        <li><s:link value="Logout" view="/logout.xhtml"/></li>
-        <li class="loggedInName"> Logged in as #{loggedInContestant.email}</li>
+        <li style="float:right;">
+            <h:form styleClass="login">
+
+                <h:outputLabel for="username" style="padding-right:3px;">Email</h:outputLabel>
+
+                <h:inputText id="username" value="#{identity.username}" style="border: solid WHITE 2px;"/>
+
+                <h:outputLabel for="password" style="padding: 0 3px 0 10px;">Password</h:outputLabel>
+
+                <h:inputSecret id="password" value="#{identity.password}"
+                               style="border: solid WHITE 2px; "/>
+
+                <h:commandButton id="login" action="#{identity.login}"
+                                 value="Login" style="margin:0 3px" styleClass="festentry"/>
+
+
+            </h:form>
+        </li>
     </ul>
 </div>
 <div class="separator">
     <hr style="background:#0086df; height:3px; margin: 0 auto; border-style:none;"/>
+    <!--<div style="padding:5px 10px;font-style:italic;">
+        <s:link value="Register Here" action="/register.xhtml" style="float:right;"/>
+    </div>-->
+
 </div>
 <!-- end #menu -->
 
