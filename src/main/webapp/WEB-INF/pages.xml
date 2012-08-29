@@ -24,6 +24,71 @@
 
     </page>
 
+    <page view-id="/aboutUs.xhtml" action="#{identity.isLoggedIn}">
+
+        <navigation from-action="#{identity.isLoggedIn}">
+            <rule if-outcome="true">
+                <redirect view-id="/greetings/greeting.xhtml"/>
+            </rule>
+            <rule if-outcome="false">
+                <render view-id="/aboutUs.xhtml"/>
+            </rule>
+        </navigation>
+
+    </page>
+
+    <page view-id="/register.xhtml" action="#{identity.isLoggedIn}">
+
+        <navigation from-action="#{identity.isLoggedIn}">
+            <rule if-outcome="true">
+                <redirect view-id="/greetings/greeting.xhtml"/>
+            </rule>
+            <rule if-outcome="false">
+                <render view-id="/register.xhtml"/>
+            </rule>
+        </navigation>
+
+    </page>
+
+    <page view-id="/termsAndConditions.xhtml" action="#{identity.isLoggedIn}">
+
+        <navigation from-action="#{identity.isLoggedIn}">
+            <rule if-outcome="true">
+                <redirect view-id="/greetings/greeting.xhtml"/>
+            </rule>
+            <rule if-outcome="false">
+                <render view-id="/termsAndConditions.xhtml"/>
+            </rule>
+        </navigation>
+
+    </page>
+
+    <page view-id="/contactUs.xhtml" action="#{identity.isLoggedIn}">
+
+        <navigation from-action="#{identity.isLoggedIn}">
+            <rule if-outcome="true">
+                <redirect view-id="/greetings/greeting.xhtml"/>
+            </rule>
+            <rule if-outcome="false">
+                <render view-id="/contactUs.xhtml"/>
+            </rule>
+        </navigation>
+
+    </page>
+
+    <page view-id="/emailSent.xhtml" action="#{identity.isLoggedIn}">
+
+        <navigation from-action="#{identity.isLoggedIn}">
+            <rule if-outcome="true">
+                <redirect view-id="/greetings/greeting.xhtml"/>
+            </rule>
+            <rule if-outcome="false">
+                <render view-id="/emailSent.xhtml"/>
+            </rule>
+        </navigation>
+
+    </page>
+
     <page view-id="/greetings/greeting.xhtml" login-required="true" action="#{loggedInContestant.getState}">
 
         <navigation from-action="#{loggedInContestant.getState}">
