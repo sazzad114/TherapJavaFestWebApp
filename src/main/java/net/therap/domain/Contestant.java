@@ -24,7 +24,7 @@ import java.util.List;
 
 @Name("loggedInContestant")
 @Scope(ScopeType.SESSION)
-@Role(name = "newContestant",scope = ScopeType.PAGE)
+@Role(name = "newContestant", scope = ScopeType.PAGE)
 @Entity
 @Table(name = "CONTESTANT")
 public class Contestant implements Serializable{
