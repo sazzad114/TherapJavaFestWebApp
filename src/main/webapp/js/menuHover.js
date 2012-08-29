@@ -9,7 +9,7 @@ function changeMenuBackground() {
 
     var path = window.location.pathname;
 
-    var menu = document.getElementsByClassName("menu")[0];
+    var menu = document.getElementById("menu");
     var a_elements = menu.getElementsByTagName("a");
 
 

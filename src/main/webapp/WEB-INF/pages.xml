@@ -3,14 +3,6 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://jboss.com/products/seam/pages http://jboss.com/products/seam/pages-2.0.xsd" >
 
-    <page view-id="/register.xhtml">
-        <navigation>
-            <rule if-outcome="success">
-                <redirect view-id="/emailSent.xhtml"/>
-            </rule>
-        </navigation>
-    </page>
-
     <page view-id="/home.xhtml" action="#{identity.isLoggedIn}">
 
         <navigation from-action="#{identity.isLoggedIn}">
@@ -24,19 +16,6 @@
 
     </page>
 
-    <page view-id="/aboutUs.xhtml" action="#{identity.isLoggedIn}">
-
-        <navigation from-action="#{identity.isLoggedIn}">
-            <rule if-outcome="true">
-                <redirect view-id="/greetings/greeting.xhtml"/>
-            </rule>
-            <rule if-outcome="false">
-                <render view-id="/aboutUs.xhtml"/>
-            </rule>
-        </navigation>
-
-    </page>
-
     <page view-id="/register.xhtml" action="#{identity.isLoggedIn}">
 
         <navigation from-action="#{identity.isLoggedIn}">
@@ -45,32 +24,6 @@
             </rule>
             <rule if-outcome="false">
                 <render view-id="/register.xhtml"/>
-            </rule>
-        </navigation>
-
-    </page>
-
-    <page view-id="/termsAndConditions.xhtml" action="#{identity.isLoggedIn}">
-
-        <navigation from-action="#{identity.isLoggedIn}">
-            <rule if-outcome="true">
-                <redirect view-id="/greetings/greeting.xhtml"/>
-            </rule>
-            <rule if-outcome="false">
-                <render view-id="/termsAndConditions.xhtml"/>
-            </rule>
-        </navigation>
-
-    </page>
-
-    <page view-id="/contactUs.xhtml" action="#{identity.isLoggedIn}">
-
-        <navigation from-action="#{identity.isLoggedIn}">
-            <rule if-outcome="true">
-                <redirect view-id="/greetings/greeting.xhtml"/>
-            </rule>
-            <rule if-outcome="false">
-                <render view-id="/contactUs.xhtml"/>
             </rule>
         </navigation>
 

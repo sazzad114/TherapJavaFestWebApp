@@ -11,6 +11,7 @@ import org.jboss.seam.annotations.Logger;
 import org.jboss.seam.annotations.Name;
 import org.jboss.seam.annotations.Scope;
 import org.jboss.seam.faces.FacesMessages;
+import org.jboss.seam.faces.Redirect;
 import org.jboss.seam.log.Log;
 
 import java.util.ArrayList;
@@ -101,7 +102,9 @@ public class RegistrationAction {
             contestantDao.saveContestant(contestant);
             emailAction.sendMessage();
             log.debug("Saved contestant");
-            return "success";
+            Redirect redirect = Redirect.instance();
+            redirect.setViewId("/emailSent.xhtml");
+            redirect.execute();
         }
 
         facesMessages.addToControl("verifyCaptcha", "Please enter captcha again");

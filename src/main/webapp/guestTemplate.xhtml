@@ -1,5 +1,5 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 transitional//EN"
-        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 strict//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <!--
 Design by Free CSS Templates
 http://www.freecsstemplates.org
@@ -30,10 +30,10 @@ Released   : 20110825
     </div>
     <!-- end #header -->
 
-
+<div id="menu">
     <c:choose>
         <c:when test="#{identity.isLoggedIn()}">
-            <div class="menu">
+
                 <ul>
                     <li><s:link value="Home" view="/greetings/greeting.xhtml"/></li>
                     <li><s:link value="Profile" view="/viewProfile.xhtml"/></li>
@@ -42,13 +42,9 @@ Released   : 20110825
                     <li class="loggedInName">#{loggedInContestant.email}</li>
 
                 </ul>
-            </div>
-            <div class="separator">
-                <hr style="background:#0086df; height:3px; margin: 0 auto; border-style:none;"/>
-            </div>
+
         </c:when>
         <c:when test="#{!identity.isLoggedIn()}">
-            <div class="menu">
                 <ul>
                     <li><s:link value="Home" view="/home.xhtml"/></li>
                     <li><s:link value="About" view="/aboutUs.xhtml"/></li>
@@ -72,17 +68,12 @@ Released   : 20110825
                         </h:form>
                     </li>
                 </ul>
-            </div>
-            <div class="separator">
-                <hr style="background:#0086df; height:3px; margin: 0 auto; border-style:none;"/>
-                <!--<div style="padding:5px 10px;font-style:italic;">
-                    <s:link value="Register Here" action="/register.xhtml" style="float:right;"/>
-                </div>-->
-
-            </div>
         </c:when>
     </c:choose>
-
+    </div>
+    <div class="separator">
+        <hr style="background:#0086df; height:3px; margin: 0 auto; border-style:none;"/>
+    </div>
 </div>
 
 
