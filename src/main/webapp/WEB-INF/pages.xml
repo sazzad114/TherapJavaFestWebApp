@@ -7,7 +7,6 @@
         <navigation>
             <rule if-outcome="success">
                 <redirect view-id="/emailSent.xhtml"/>
-
             </rule>
         </navigation>
     </page>

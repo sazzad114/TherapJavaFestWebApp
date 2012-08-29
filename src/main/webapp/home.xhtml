@@ -26,67 +26,15 @@
                     platforms designed for you to discuss things you know or have learned. </p>
 
                 <p>
-                    We expect you to enthusiastically participate in all stages of the festival and give your 100% to make this endeavor a success.</p>
+                    We expect you to enthusiastically participate in all stages of the festival and give your best effort to make this endeavor a success.</p>
 
                 <p>
                     Best of luck!</p>
 
+                <s:link action="/register.xhtml" style="float:right;"><img src="images/register_blue.png" alt="Register Here"/></s:link>
             </div>
         </div>
         <div style="clear: both;">&nbsp;</div>
-
-    </ui:define>
-
-    <!-- sidebar -->
-
-    <ui:define name="sidebar">
-
-        <li>
-            <h2 class="sidebarheader">Login</h2>
-
-            <p>
-                <h:form id="login">
-                    <table>
-                        <tr>
-                            <td>
-                                <h:outputLabel for="username">Email :</h:outputLabel>
-                            </td>
-                            <td>
-                                <h:inputText id="username" value="#{identity.username}"
-                                             style="width: 175px;"/>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <h:outputLabel for="password">Password :</h:outputLabel>
-                            </td>
-                            <td>
-                                <h:inputSecret id="password" value="#{identity.password}"
-                                               style="width: 175px;"/>
-                            </td>
-                        </tr>
-                    </table>
-                    <div>
-                        <h:outputLabel for="rememberMe">Remember Me :&#160;&#160;&#160;</h:outputLabel>
-
-                        <h:selectBooleanCheckbox id="rememberMe" value="#{identity.rememberMe}"/>
-                    </div>
-
-                    <h:messages globalOnly="true" styleClass="error"/>
-
-                    <div>
-                        <h:commandButton id="login" action="#{identity.login}"
-                                         value="Login"/>
-                    </div>
-
-                </h:form>
-            </p>
-        </li>
-        <li>
-            <h2 class="sidebarheader">Register</h2>
-
-            <p>Not registered yet? you can register<s:link value=" here" action="/register.xhtml"/>!</p>
-        </li>
 
     </ui:define>
 
