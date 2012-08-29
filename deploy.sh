@@ -1,7 +1,7 @@
 mvn clean package
-rm -r /usr/local/apache-tomcat-6.0.35/webapps/therapJavaFestWebApp
-rm /usr/local/apache-tomcat-6.0.35/webapps/therapJavaFestWebApp.war
-cp target/therapJavaFestWebApp.war /usr/local/apache-tomcat-6.0.35/webapps/
+rm /usr/local/apache-tomcat-7.0.29/webapps/ROOT.war
+rm -r /usr/local/apache-tomcat-7.0.29/webapps/ROOT
+cp target/ROOT.war /usr/local/apache-tomcat-7.0.29/webapps/
 
-/usr/local/apache-tomcat-6.0.35/bin/startup.sh
+/usr/local/apache-tomcat-7.0.29/bin/startup.sh
 

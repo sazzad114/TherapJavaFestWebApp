@@ -18,7 +18,7 @@ Released   : 20110825
     <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
     <title>Therap Java Fest</title>
     <link href="/css/style.css" rel="stylesheet" type="text/css"/>
-    <link rel="shortcut icon" href="/images/therapJavaFestLogo.jpg" type="image/jpeg" />
+    <link rel="shortcut icon" href="/images/therapJavaFestLogo.jpg" type="image/jpeg"/>
     <script src="/js/menuHover.js" type="text/javascript"></script>
 </head>
 <body onload="changeMenuBackground()">
@@ -29,16 +29,19 @@ Released   : 20110825
     </div>
     <!-- end #header -->
 
-    <div id="menu">
+    <div class="menu">
         <ul>
             <li><s:link value="Home" view="/greetings/greeting.xhtml"/></li>
             <li><s:link value="Profile" view="/viewProfile.xhtml"/></li>
             <li><s:link value="Contact" view="/contactUs.xhtml"/></li>
-            <li><s:link value="Logout" view="/logout.xhtml"/></li>
-            <li class="loggedInName"> Logged in as #{loggedInContestant.email}</li>
+            <li style="float:right;background:transparent;padding:0 5px"><s:button value="Logout" view="/logout.xhtml" style="margin:4px 3px" styleClass="festentry"/></li>
+            <li class="loggedInName">#{loggedInContestant.email}</li>
+
         </ul>
     </div>
-    <div id="separator"/>
+    <div class="separator">
+        <hr style="background:#0086df; height:3px; margin: 0 auto; border-style:none;"/>
+    </div>
 
     <!-- end #menu -->
     <div id="page">
@@ -53,32 +56,31 @@ Released   : 20110825
                 <!-- end #content -->
 
                 <div id="sidebar">
-                    <ul>
-                        <li>
-                            <h2 class="sidebarheader">Facebook Page</h2>
+                    <div class="sidebarCommonStyle facebook">
+                        <div class="sidebarCommonhead">Facebook Page</div>
+                        <div style="padding-left:5px;">
+                            Join us on <a
+                                href="http://www.facebook.com/therapjavafest"> Facebook</a> for regular updates and event specifics!
+                        </div>
+                    </div>
+                    <br/>
 
+                    <div class="sidebarCommonStyle google">
+                        <div class="sidebarCommonhead">Google Group</div>
+                        <div style="padding-left:5px;">
+                            Keep an eye on our Google<a
+                                href="https://groups.google.com/forum/?hl=en&amp;fromgroups#!forum/therap-java-fest"> Groups</a> Groups for interesting ideas and discussions.
+                        </div>
+                    </div>
+                    <br/>
 
-                            <p> Join us on <a
-                                    href="http://www.facebook.com/therapjavafest"> Facebook</a> for regular updates and event specifics!
-                            </p>
-                        </li>
-                        <li>
-                            <h2 class="sidebarheader">Google group</h2>
-
-                            <p> Keep an eye on our Google<a
-                                    href="https://groups.google.com/forum/?hl=en&amp;fromgroups#!forum/therap-java-fest"> Groups</a> Groups for interesting ideas and discussions.
-                            </p>
-                        </li>
-                        <li>
-                            <h2 class="sidebarheader">Blog</h2>
-
-                            <p>Curious about how people are loving the festival? Check out the <a
-                                    href="http://therapjavafest.blogspot.com"> blogs</a> for narratives from the participants and the host!
-                            </p>
-                        </li>
-                    </ul>
-
-
+                    <div class="sidebarCommonStyle blog">
+                        <div class="sidebarCommonhead">Blog</div>
+                        <div style="padding-left:5px;">
+                            Curious about how people are loving the festival? Check out the <a
+                                href="http://therapjavafest.blogspot.com"> blogs</a> for narratives from the participants and the host!
+                        </div>
+                    </div>
                 </div>
                 <!-- end #sidebar -->
                 <div style="clear: both;">&nbsp;</div>
@@ -88,7 +90,10 @@ Released   : 20110825
     <!-- end #page -->
 </div>
 <div id="footer">
-    <p><s:link value="Terms and Conditions" view="/termsAndConditions.xhtml"/> </p> <p> &#169; Copyright <a href="http://www.therapservices.net">Therap Services, LLC</a>. 2003-2012. All Rights Reserved.</p>
+    <p><s:link value="Terms and Conditions" view="/termsAndConditions.xhtml"/></p>
+
+    <p> &#169; Copyright <a
+            href="http://www.therapservices.net">Therap Services, LLC</a>. 2003-2012. All Rights Reserved.</p>
 </div>
 <!-- end #footer -->
 </body>

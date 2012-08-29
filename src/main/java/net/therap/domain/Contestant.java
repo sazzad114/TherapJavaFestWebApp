@@ -120,7 +120,7 @@ public class Contestant implements Serializable{
         this.university = university;
     }
 
-    @Range(max = 5,min = 2, message = "CGPA out of range")
+    @Range(max = 5,min = 0, message = "CGPA out of range")
     @Column(name = "CGPA")
     public double getCgpa() {
         return cgpa;
@@ -161,7 +161,7 @@ public class Contestant implements Serializable{
         this.gender = gender;
     }
 
-    @Length(min = 5, max=300)
+    @Length(min = 20, max=300)
     @Column(name = "DESCRIPTION")
     public String getDescription() {
         return description;

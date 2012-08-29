@@ -62,7 +62,7 @@ var javascript_countdown = function () {
 				setTimeout("javascript_countdown.timer();", 1000);
 			} else {
 				no_time_left();
-                window.location="/therapJavaFestWebApp/screeningTest.seam?cid="+conversationId;
+                window.location="/screeningTest.seam?cid="+conversationId;
 			}
 		},
 		//Kristian Messer requested recalculation of time that is left
