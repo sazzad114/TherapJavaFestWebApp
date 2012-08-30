@@ -106,7 +106,7 @@ img.aligncenter {
 
 /* Menu */
 
-.menu {
+#menu {
     width: 960px;
     height: 29px;
     margin: 0 auto;
@@ -116,7 +116,7 @@ img.aligncenter {
 
 }
 
-.menu ul {
+#menu ul {
     margin: 0;
     padding: 0px 0px 2px 0px;
     list-style: none;
@@ -125,12 +125,12 @@ img.aligncenter {
 
 }
 
-.menu li {
+#menu li {
     float: left;
     background: WHITE;
 }
 
-.menu li.loggedInName {
+#menu li.loggedInName {
     float: right;
     padding-top: 8px;
     padding-right: 2px;
@@ -138,15 +138,19 @@ img.aligncenter {
     background: transparent;
 }
 
-.menu a {
+#menu a {
     display: block;
     margin-right: 1px;
-    padding: 7px 20px 7px 20px;
+    padding: 6px 20px 6px 20px;
     text-decoration: none;
     font-weight: normal;
     color: WHITE;
     background: #0072b8;
+}
 
+#menu a:hover {
+    text-decoration: none;
+    background: #f2622d;
 }
 
 .separator {
@@ -197,10 +201,7 @@ img.aligncenter {
     top: 1px;
 }
 
-.menu a:hover {
-    text-decoration: none;
-    background: #f2622d;
-}
+
 
 /* Page */
 
