@@ -8,6 +8,8 @@ import org.jboss.seam.annotations.Name;
 import org.jboss.seam.annotations.Scope;
 import org.jboss.seam.annotations.Startup;
 
+import java.io.Serializable;
+
 /**
  * Created by
  *
@@ -18,7 +20,7 @@ import org.jboss.seam.annotations.Startup;
 @Name("auditInfoDao")
 @Scope(ScopeType.APPLICATION)
 @Startup
-public class AuditInfoDaoImpl implements AuditInfoDao{
+public class AuditInfoDaoImpl implements AuditInfoDao, Serializable {
 
     @In
     Session session;

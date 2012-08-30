@@ -15,6 +15,7 @@ import org.jboss.seam.annotations.*;
 import org.jboss.seam.faces.Redirect;
 import org.jboss.seam.log.Log;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -28,7 +29,7 @@ import java.util.List;
 
 @Name("questionGeneratorAction")
 @Scope(ScopeType.EVENT)
-public class QuestionGeneratorAction {
+public class QuestionGeneratorAction implements Serializable {
 
     @Logger
     Log log;

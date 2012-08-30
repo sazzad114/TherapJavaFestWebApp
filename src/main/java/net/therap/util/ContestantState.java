@@ -2,6 +2,8 @@ package net.therap.util;
 
 import org.jboss.seam.annotations.Name;
 
+import java.io.Serializable;
+
 /**
  * Created by
  * User: tahmid
@@ -10,7 +12,7 @@ import org.jboss.seam.annotations.Name;
  */
 
 @Name("contestantState")
-public class ContestantState {
+public class ContestantState implements Serializable {
 
     public static final int TEMPORARY_CONTESTANT = 1;
 

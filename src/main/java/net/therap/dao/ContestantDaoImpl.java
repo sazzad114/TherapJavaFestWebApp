@@ -10,6 +10,7 @@ import org.jboss.seam.annotations.Name;
 import org.jboss.seam.annotations.Scope;
 import org.jboss.seam.annotations.Startup;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
@@ -21,7 +22,7 @@ import java.util.List;
 @Name("contestantDao")
 @Scope(ScopeType.APPLICATION)
 @Startup
-public class ContestantDaoImpl implements ContestantDao {
+public class ContestantDaoImpl implements ContestantDao, Serializable {
 
     @In
     private Session session;

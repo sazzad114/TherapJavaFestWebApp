@@ -17,6 +17,7 @@ import org.jboss.seam.faces.Redirect;
 import org.jboss.seam.log.Log;
 
 import javax.faces.context.FacesContext;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -31,7 +32,7 @@ import java.util.Map;
 
 @Name("testAction")
 @Scope(ScopeType.CONVERSATION)
-public class TestAction {
+public class TestAction implements Serializable {
 
     @Logger
     Log log;

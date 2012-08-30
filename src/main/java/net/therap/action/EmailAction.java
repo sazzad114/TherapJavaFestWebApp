@@ -5,6 +5,8 @@ import org.jboss.seam.annotations.*;
 import org.jboss.seam.faces.Renderer;
 import org.jboss.seam.log.Log;
 
+import java.io.Serializable;
+
 /**
  * Created by IntelliJ IDEA.
  * User: sazzadur
@@ -13,7 +15,7 @@ import org.jboss.seam.log.Log;
  */
 @Name("emailAction")
 @Scope(ScopeType.EVENT)
-public class EmailAction {
+public class EmailAction implements Serializable {
     @Logger
     private Log log;
 

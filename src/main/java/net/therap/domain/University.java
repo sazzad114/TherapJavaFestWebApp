@@ -36,7 +36,8 @@ public enum University {
     CU("University of Chittagong"),
     DU("University of Dhaka"),
     ULAB("University of Liberal Arts Bangladesh"),
-    USA("University of South Asia, Bangladesh");
+    USA("University of South Asia, Bangladesh"),
+    OTHER("Other");
 
 
     private final String universityName;

@@ -2,6 +2,7 @@ package net.therap.util;
 
 import net.therap.domain.UploadedFile;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
@@ -10,7 +11,7 @@ import java.util.List;
  * Date: 8/2/12
  * Time: 2:17 PM
  */
-public class FileValidatorUtil {
+public class FileValidatorUtil implements Serializable {
 
     public static boolean validateFileSize(UploadedFile uploadedFile, int allowableSize) {
 

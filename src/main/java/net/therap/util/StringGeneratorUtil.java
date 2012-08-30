@@ -1,12 +1,14 @@
 package net.therap.util;
 
+import java.io.Serializable;
+
 /**
  * Created by
  * User: tahmid
  * Date: 7/23/12
  * Time: 1:38 PM
  */
-public class StringGeneratorUtil {
+public class StringGeneratorUtil implements Serializable {
 
 
     private static String elegibleChars = "ABDEFGHJKLMRSTUVWXYabdefhjkmnrstuvwxy23456789";

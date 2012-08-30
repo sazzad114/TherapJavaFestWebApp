@@ -7,6 +7,11 @@
     <display-name>Therap Java Fest</display-name>
     <description>Therap Java Fest</description>
 
+    <context-param>
+        <param-name>javax.faces.STATE_SAVING_METHOD</param-name>
+        <param-value>client</param-value>
+    </context-param>
+
     <!-- Seam -->
 
     <listener>

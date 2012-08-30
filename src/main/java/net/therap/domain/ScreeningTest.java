@@ -1,6 +1,7 @@
 package net.therap.domain;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
@@ -12,7 +13,7 @@ import java.util.List;
  */
 @Entity
 @Table(name = "SCREENING_TEST")
-public class ScreeningTest {
+public class ScreeningTest implements Serializable {
 
     private long screeningTestId;
     private Contestant contestant;

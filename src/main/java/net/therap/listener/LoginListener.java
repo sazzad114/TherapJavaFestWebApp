@@ -4,6 +4,8 @@ import org.jboss.seam.annotations.Name;
 import org.jboss.seam.annotations.Observer;
 import org.jboss.seam.faces.Redirect;
 
+import java.io.Serializable;
+
 /**
  * Created by
  * User: tahmid
@@ -12,7 +14,7 @@ import org.jboss.seam.faces.Redirect;
  */
 
 @Name("firstLoginListener")
-public class LoginListener {
+public class LoginListener implements Serializable {
 
     @Observer(value = "firstLogin")
     public void RedirectToChangePassword() {

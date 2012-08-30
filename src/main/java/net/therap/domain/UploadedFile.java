@@ -1,5 +1,7 @@
 package net.therap.domain;
 
+import java.io.Serializable;
+
 /**
  * Created by IntelliJ IDEA.
  * User: sazzadur
@@ -7,7 +9,7 @@ package net.therap.domain;
  * Time: 1:13 PM
  */
 
-public class UploadedFile {
+public class UploadedFile implements Serializable{
 
     private byte [] fileData;
     private String contentType;

@@ -3,6 +3,7 @@ package net.therap.domain;
 import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 /**
  * Created by IntelliJ IDEA.
@@ -13,7 +14,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "ANSWER_INFO")
-public class AnswerInfo {
+public class AnswerInfo implements Serializable {
 
     private long answerInfoId;
     private Contestant contestant;

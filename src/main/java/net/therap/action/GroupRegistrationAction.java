@@ -12,6 +12,7 @@ import org.jboss.seam.annotations.Name;
 import org.jboss.seam.annotations.Scope;
 import org.jboss.seam.faces.FacesMessages;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -24,7 +25,7 @@ import java.util.List;
 
 @Name("groupRegistrationAction")
 @Scope(ScopeType.EVENT)
-public class GroupRegistrationAction {
+public class GroupRegistrationAction implements Serializable {
 
     @In
     private GroupDao groupDao;

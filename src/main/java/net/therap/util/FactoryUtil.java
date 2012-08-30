@@ -17,6 +17,7 @@ import javax.xml.bind.Unmarshaller;
 import java.io.FileInputStream;
 import java.io.FileReader;
 import java.io.InputStream;
+import java.io.Serializable;
 import java.util.Arrays;
 import java.util.List;
 
@@ -27,7 +28,7 @@ import java.util.List;
  * Time: 3:46 PM
  */
 @Name("factory")
-public class FactoryUtil {
+public class FactoryUtil implements Serializable {
 
     private static final String QUESTIONBANK_XML = "/WEB-INF/classes/questionbank.xml";
 

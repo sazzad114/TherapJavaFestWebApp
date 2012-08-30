@@ -8,6 +8,8 @@ import org.jboss.seam.annotations.Name;
 import org.jboss.seam.annotations.Scope;
 import org.jboss.seam.annotations.Startup;
 
+import java.io.Serializable;
+
 /**
  * Created by IntelliJ IDEA.
  *
@@ -17,7 +19,7 @@ import org.jboss.seam.annotations.Startup;
 @Name("projectProposalDao")
 @Scope(ScopeType.APPLICATION)
 @Startup
-public class ProjectProposalDaoImpl implements ProjectProposalDao {
+public class ProjectProposalDaoImpl implements ProjectProposalDao, Serializable {
 
     @In
     Session session;

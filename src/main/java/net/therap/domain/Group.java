@@ -16,7 +16,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "CONTEST_GROUP")
-public class Group {
+public class Group implements Serializable{
 
     private long groupId;
     private String groupName;

@@ -8,6 +8,8 @@ import org.jboss.seam.annotations.Name;
 import org.jboss.seam.annotations.Scope;
 import org.jboss.seam.annotations.Startup;
 
+import java.io.Serializable;
+
 /**
  * Created by
  * User: tahmid
@@ -18,7 +20,7 @@ import org.jboss.seam.annotations.Startup;
 @Name("answerInfoDao")
 @Scope(ScopeType.APPLICATION)
 @Startup
-public class AnswerInfoDaoImpl implements AnswerInfoDao{
+public class AnswerInfoDaoImpl implements AnswerInfoDao, Serializable {
 
     @In
     Session session;

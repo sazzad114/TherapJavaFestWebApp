@@ -4,6 +4,7 @@ import javax.persistence.Column;
 import javax.persistence.Embeddable;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import java.io.Serializable;
 import java.util.Date;
 
 /**
@@ -13,7 +14,7 @@ import java.util.Date;
  * Time: 11:45 AM
  */
 @Embeddable
-public class ScreeningTestStateInfo {
+public class ScreeningTestStateInfo implements Serializable {
 
     private int currentQuestionId;
     private Date lastLoadingTime;

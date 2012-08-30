@@ -13,6 +13,7 @@ import org.jboss.seam.annotations.Out;
 import org.jboss.seam.annotations.Scope;
 import org.jboss.seam.faces.FacesMessages;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -25,7 +26,7 @@ import java.util.List;
  */
 @Name("proposalSubmissionAction")
 @Scope(ScopeType.EVENT)
-public class ProposalSubmissionAction {
+public class ProposalSubmissionAction implements Serializable {
 
     private final int UPLOADED_PROPOSAL_SIZE = 5;
 

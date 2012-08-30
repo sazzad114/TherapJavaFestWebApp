@@ -11,6 +11,7 @@ import org.jboss.seam.annotations.*;
 import org.jboss.seam.faces.FacesMessages;
 import org.jboss.seam.log.Log;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -24,7 +25,7 @@ import java.util.List;
 
 @Name("projectSubmissionAction")
 @Scope(ScopeType.EVENT)
-public class ProjectSubmissionAction {
+public class ProjectSubmissionAction implements Serializable {
 
     @Logger
     Log log;

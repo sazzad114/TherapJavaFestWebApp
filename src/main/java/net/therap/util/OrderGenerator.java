@@ -4,6 +4,7 @@ import org.jboss.seam.ScopeType;
 import org.jboss.seam.annotations.Name;
 import org.jboss.seam.annotations.Scope;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -17,7 +18,7 @@ import java.util.Random;
 
 @Name("orderGenerator")
 @Scope(ScopeType.STATELESS)
-public class OrderGenerator {
+public class OrderGenerator implements Serializable {
 
     private List<Integer> Order;
 

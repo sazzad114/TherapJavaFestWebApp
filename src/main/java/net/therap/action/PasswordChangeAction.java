@@ -8,6 +8,8 @@ import org.jboss.seam.faces.FacesMessages;
 import org.jboss.seam.faces.Redirect;
 import org.jboss.seam.log.Log;
 
+import java.io.Serializable;
+
 /**
  * Created by IntelliJ IDEA.
  * User: sazzadur
@@ -16,7 +18,7 @@ import org.jboss.seam.log.Log;
  */
 @Name("passwordChange")
 @Scope(ScopeType.PAGE)
-public class PasswordChangeAction {
+public class PasswordChangeAction implements Serializable {
 
     @Logger
     private Log log;

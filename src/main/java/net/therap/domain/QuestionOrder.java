@@ -1,6 +1,7 @@
 package net.therap.domain;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 /**
  * Created by
@@ -10,7 +11,7 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name = "QUESTION_ORDER")
-public class QuestionOrder  {
+public class QuestionOrder  implements Serializable {
 
     private long questionOrderId;
     private int questionOrder;

@@ -1,6 +1,7 @@
 package net.therap.domain;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 /**
  * Created by IntelliJ IDEA.
@@ -10,7 +11,7 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name = "ADMIN")
-public class Admin {
+public class Admin implements Serializable {
     private long adminId;
     private String adminName;
     private String adminUserName;

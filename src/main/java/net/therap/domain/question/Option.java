@@ -1,6 +1,7 @@
 package net.therap.domain.question;
 
 import javax.xml.bind.annotation.XmlRootElement;
+import java.io.Serializable;
 
 /**
  * Created by
@@ -10,7 +11,7 @@ import javax.xml.bind.annotation.XmlRootElement;
  */
 
 @XmlRootElement(name = "option")
-public class Option {
+public class Option implements Serializable {
 
     private int optionId;
     private String optionString;

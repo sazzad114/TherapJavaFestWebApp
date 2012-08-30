@@ -8,6 +8,7 @@ import org.jboss.seam.ScopeType;
 import org.jboss.seam.annotations.*;
 import org.jboss.seam.log.Log;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
@@ -20,7 +21,7 @@ import java.util.List;
 @Name("screeningTestDao")
 @Scope(ScopeType.APPLICATION)
 @Startup
-public class ScreeningTestDaoImpl implements ScreeningTestDao{
+public class ScreeningTestDaoImpl implements ScreeningTestDao, Serializable {
 
     @Logger
     Log log;

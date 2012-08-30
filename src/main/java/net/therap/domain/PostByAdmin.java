@@ -1,6 +1,7 @@
 package net.therap.domain;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Date;
 
 /**
@@ -11,7 +12,7 @@ import java.util.Date;
  */
 @Entity
 @Table(name = "POST_BY_ADMIN")
-public class PostByAdmin {
+public class PostByAdmin implements Serializable {
 
     private long postId;
     private Admin admin;

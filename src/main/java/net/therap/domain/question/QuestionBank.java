@@ -3,6 +3,7 @@ package net.therap.domain.question;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlElementWrapper;
 import javax.xml.bind.annotation.XmlRootElement;
+import java.io.Serializable;
 import java.util.List;
 
 /**
@@ -13,7 +14,7 @@ import java.util.List;
  */
 
 @XmlRootElement(name = "questionBank")
-public class QuestionBank {
+public class QuestionBank implements Serializable {
 
     private int questionBankId;
     private String questionBankName;

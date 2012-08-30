@@ -10,6 +10,7 @@ import org.jboss.seam.annotations.Name;
 import org.jboss.seam.annotations.Scope;
 import org.jboss.seam.annotations.Startup;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
@@ -22,7 +23,7 @@ import java.util.List;
 @Name("groupDao")
 @Scope(ScopeType.APPLICATION)
 @Startup
-public class GroupDaoImpl implements GroupDao{
+public class GroupDaoImpl implements GroupDao, Serializable {
 
     @In
     Session session;

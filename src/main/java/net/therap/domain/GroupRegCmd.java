@@ -4,6 +4,8 @@ import org.jboss.seam.ScopeType;
 import org.jboss.seam.annotations.Name;
 import org.jboss.seam.annotations.Scope;
 
+import java.io.Serializable;
+
 /**
  * Created by
  * User: tahmid
@@ -13,7 +15,7 @@ import org.jboss.seam.annotations.Scope;
 
 @Name("groupRegCmd")
 @Scope(ScopeType.PAGE)
-public class GroupRegCmd {
+public class GroupRegCmd implements Serializable {
 
     private String partnerEmail;
     private String groupName;

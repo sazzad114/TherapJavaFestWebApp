@@ -8,6 +8,7 @@ import org.jboss.seam.annotations.*;
 import org.jboss.seam.faces.FacesMessages;
 import org.jboss.seam.log.Log;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,7 +20,7 @@ import java.util.List;
  */
 @Name("updateProfileAction")
 @Scope(ScopeType.EVENT)
-public class UpdateProfileAction {
+public class UpdateProfileAction implements Serializable {
 
     private final int UPLOADED_IMAGE_SIZE = 5;
     private final int UPLOADED_CV_SIZE = 5;

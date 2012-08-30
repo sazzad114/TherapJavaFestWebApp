@@ -13,11 +13,12 @@ import org.jboss.seam.security.Identity;
 
 import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpServletRequest;
+import java.io.Serializable;
 import java.util.Date;
 
 @Name("authenticator")
 @Scope(ScopeType.EVENT)
-public class AuthenticatorAction {
+public class AuthenticatorAction implements Serializable{
 
 
     @In

@@ -18,11 +18,12 @@ import org.jboss.seam.captcha.Captcha;
 import java.awt.*;
 import java.awt.geom.AffineTransform;
 import java.awt.image.BufferedImage;
+import java.io.Serializable;
 
 @Name("org.jboss.seam.captcha.captcha")
 @Scope(ScopeType.SESSION)
 @Install(precedence = Install.APPLICATION)
-public class CustomCaptcha extends Captcha {
+public class CustomCaptcha extends Captcha implements Serializable {
 
     private Color backgroundColor = new Color(0xf5, 0xf5, 0xf5);
     private Font textFont = new Font("Arial", Font.PLAIN, 25);

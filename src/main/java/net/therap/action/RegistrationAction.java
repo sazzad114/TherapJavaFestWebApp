@@ -14,6 +14,7 @@ import org.jboss.seam.faces.FacesMessages;
 import org.jboss.seam.faces.Redirect;
 import org.jboss.seam.log.Log;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -26,7 +27,7 @@ import java.util.List;
 
 @Name("registrationAction")
 @Scope(ScopeType.EVENT)
-public class RegistrationAction {
+public class RegistrationAction implements Serializable {
 
     private final int TEMPORARY_PASSWORD_LEN = 10;
     private final int UPLOADED_IMAGE_SIZE = 5;
