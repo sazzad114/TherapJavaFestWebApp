@@ -47,13 +47,13 @@ public class TestAction implements Serializable {
     @Out
     private Contestant loggedInContestant;
 
-    @In
+    @In (create = true)
     private AnswerInfoDao answerInfoDao;
 
-    @In
+    @In (create = true)
     private ContestantDao contestantDao;
 
-    @In
+    @In (create = true)
     private ScreeningTestDao screeningTestDao;
 
     @In(create = true)

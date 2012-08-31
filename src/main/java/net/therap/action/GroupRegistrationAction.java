@@ -27,10 +27,10 @@ import java.util.List;
 @Scope(ScopeType.EVENT)
 public class GroupRegistrationAction implements Serializable {
 
-    @In
+    @In(create = true)
     private GroupDao groupDao;
 
-    @In
+    @In(create = true)
     private ContestantDao contestantDao;
 
     @In

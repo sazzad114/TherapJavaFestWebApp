@@ -18,8 +18,8 @@ import java.io.Serializable;
  */
 
 @Name("auditInfoDao")
-@Scope(ScopeType.APPLICATION)
-@Startup
+@Scope(ScopeType.EVENT)
+
 public class AuditInfoDaoImpl implements AuditInfoDao, Serializable {
 
     @In

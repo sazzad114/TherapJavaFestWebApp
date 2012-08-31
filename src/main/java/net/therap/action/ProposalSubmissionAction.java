@@ -37,10 +37,10 @@ public class ProposalSubmissionAction implements Serializable {
     @Out
     private Contestant loggedInContestant;
 
-    @In
+    @In (create = true)
     private ProjectProposalDao projectProposalDao;
 
-    @In
+    @In (create = true)
     private ContestantDao contestantDao;
 
     public String submitProposal(ProjectProposal projectProposal) {

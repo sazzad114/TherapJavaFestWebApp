@@ -20,8 +20,8 @@ import java.util.List;
  * Time: 5:58 PM
  */
 @Name("contestantDao")
-@Scope(ScopeType.APPLICATION)
-@Startup
+@Scope(ScopeType.EVENT)
+
 public class ContestantDaoImpl implements ContestantDao, Serializable {
 
     @In

@@ -40,10 +40,10 @@ public class QuestionGeneratorAction implements Serializable {
     @In
     private Contestant loggedInContestant;
 
-    @In
+    @In(create = true)
     private ScreeningTestDao screeningTestDao;
 
-    @In
+    @In(create = true)
     private ContestantDao contestantDao;
 
     @In(create = true)

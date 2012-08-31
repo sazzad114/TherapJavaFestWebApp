@@ -33,7 +33,7 @@ public class RegistrationAction implements Serializable {
     private final int UPLOADED_IMAGE_SIZE = 5;
     private final int UPLOADED_CV_SIZE = 5;
 
-    @In
+    @In(create = true)
     private ContestantDao contestantDao;
 
     @In(create = true)

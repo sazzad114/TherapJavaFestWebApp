@@ -17,8 +17,8 @@ import java.io.Serializable;
  * @since: 8/6/12 1:25 PM
  */
 @Name("projectProposalDao")
-@Scope(ScopeType.APPLICATION)
-@Startup
+@Scope(ScopeType.EVENT)
+
 public class ProjectProposalDaoImpl implements ProjectProposalDao, Serializable {
 
     @In
