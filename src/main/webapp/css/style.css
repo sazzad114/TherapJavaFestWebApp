@@ -48,6 +48,10 @@ a {
 
 }
 
+th {
+    vertical-align:top;
+}
+
 a:hover {
     text-decoration: underline;
 }

@@ -20,9 +20,9 @@
                         <s:validateAll>
 
                             <tr>
-                                <td>
+                                <th>
                                     <span style="color:red;">*</span><h:outputLabel value="Youtube Url :" for="youtubeUrl"/>
-                                </td>
+                                </th>
                                 <td>
                                     <h:inputText id="youtubeUrl" value="#{projectSubmission.youTubeUrl}"
                                                  required="true"/>
@@ -35,9 +35,9 @@
                                 <td><br/></td>
                             </tr>
                             <tr>
-                                <td>
+                                <th>
                                     &#160;&#160;<h:outputLabel value="Github Url :" for="githubUrl"/>
-                                </td>
+                                </th>
                                 <td>
                                     <h:inputText id="githubUrl" value="#{projectSubmission.gitHubUrl}"/>
                                 </td>
@@ -49,10 +49,10 @@
                                 <td>&#160;&#160;OR</td>
                             </tr>
                             <tr>
-                                <td>
+                                <th>
                                     &#160;&#160;<h:outputLabel value="Upload Your Project Source Code :"
                                                          for="sourceCodeUpload"/>
-                                </td>
+                                </th>
                                 <td>
                                     <s:fileUpload
                                             id="sourceCodeUpload"
@@ -60,9 +60,9 @@
                                             contentType="#{projectSubmission.uploadedSourceCode.contentType}"
                                             fileSize="#{projectSubmission.uploadedSourceCode.size}"
                                             />
-                                    <br/> <span>(Supported files: Zip)</span>
+                                    <br/> <span class="tips">Supported Format:  <b>ZIP</b> <br/>Max Size: <b>5MB</b></span>
                                 </td>
-                                <td>
+                                <td style="vertical-align:top;">
                                     <h:message for="sourceCodeUpload" styleClass="error"/>
                                 </td>
                             </tr>
