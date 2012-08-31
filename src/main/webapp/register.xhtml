@@ -67,17 +67,18 @@
 <h:form id="register" enctype="multipart/form-data">
 
 <table>
+<colgroup style="font-weight:bold;"/>
 <s:validateAll>
 <tr>
-    <td style="vertical-align:top">
+    <th>
         <span style="color:red;">*</span><h:outputLabel value="Name :" for="contestantName"/>
-    </td>
-    <td style="vertical-align:top">
+    </th>
+    <td>
         <h:inputText id="contestantName" value="#{newContestant.contestantName}" required="true" style="width:100%" maxlength="50"/>
         <br/>
-        <span>(3 to 50 characters)</span>
+        <span class="tips">3 to 50 characters</span>
     </td>
-    <td>
+    <td style="vertical-align:top">
         <h:message for="contestantName" styleClass="error"/>
     </td>
 </tr>
@@ -86,9 +87,9 @@
 </tr>
 
 <tr>
-    <td>
+    <th>
         <span style="color:red;">*</span><h:outputLabel value="Email :" for="email"/>
-    </td>
+    </th>
     <td>
         <h:inputText id="email" value="#{newContestant.email}" required="true" style="width:100%"/>
     </td>
@@ -100,9 +101,9 @@
     <td><br/></td>
 </tr>
 <tr>
-    <td>
+    <th>
         <span style="color:red;">*</span><h:outputLabel value="Phone :" for="phone"/>
-    </td>
+    </th>
     <td>
         <h:inputText id="phone" value="#{newContestant.phone}" required="true" style="width:100%" maxlength="20"/>
     </td>
@@ -114,9 +115,9 @@
     <td><br/></td>
 </tr>
 <tr>
-    <td>
+    <th>
         <span style="color:red;">*</span><h:outputLabel value="Student ID/Reg. No :" for="studentId"/>
-    </td>
+    </th>
     <td>
         <h:inputText id="studentId" value="#{newContestant.studentId}" required="true" style="width:100%"/>
     </td>
@@ -128,9 +129,9 @@
     <td><br/></td>
 </tr>
 <tr>
-    <td>
+    <th>
         &#160;&#160;<h:outputLabel value="CGPA :" for="cgpa"/>
-    </td>
+    </th>
     <td>
         <h:inputText id="cgpa" value="#{newContestant.cgpa}" style="width:100%" maxlength="4"/>
     </td>
@@ -142,9 +143,9 @@
     <td><br/></td>
 </tr>
 <tr>
-    <td>
+    <th>
         <span style="color:red;">*</span><h:outputLabel value="University :" for="university"/>
-    </td>
+    </th>
     <td>
         <h:selectOneMenu value="#{newContestant.university}" id="university" required="true"
                          requiredMessage="Please select your university">
@@ -162,9 +163,9 @@
     <td><br/></td>
 </tr>
 <tr>
-    <td>
+    <th>
         <span style="color:red;">*</span><h:outputLabel value="Date Of Birth :" for="dateOfBirth"/>
-    </td>
+    </th>
     <td>
         <rich:calendar datePattern="yyyy-MM-dd" value="#{newContestant.dateOfBirth}" id="dateOfBirth"
                        required="true" cellHeight="30" cellWidth="30" inputSize="38"/>
@@ -177,9 +178,9 @@
     <td><br/></td>
 </tr>
 <tr>
-    <td>
+    <th>
         <span style="color:red;">*</span><h:outputLabel value="Expected Graduation Date :" for="expectedGraduationDate"/>
-    </td>
+    </th>
     <td>
         <rich:calendar datePattern="yyyy-MM-dd" value="#{newContestant.expectedGraduationDate}"
                        required="true"
@@ -193,9 +194,9 @@
     <td><br/></td>
 </tr>
 <tr>
-    <td>
+    <th>
         <span style="color:red;">*</span><h:outputLabel value="Gender :" for="gender"/>
-    </td>
+    </th>
     <td>
         <h:selectOneRadio value="#{newContestant.gender}" id="gender" required="true"
                           requiredMessage="Please select your gender">
@@ -211,13 +212,13 @@
     <td><br/></td>
 </tr>
 <tr>
-    <td style="vertical-align:top">
+    <th>
         <span style="color:red;">*</span><h:outputLabel value="About you :" for="description"/>
-    </td>
+    </th>
     <td>
         <h:inputTextarea id="description" value="#{newContestant.description}" required="true" style="width:100%" rows="10"/>
         <br/>
-        <span>(20 to 300 characters)</span>
+        <span class="tips">20 to 300 characters</span>
     </td>
     <td style="vertical-align:top">
         <h:message for="description" styleClass="error"/>
@@ -227,9 +228,9 @@
     <td><br/></td>
 </tr>
 <tr>
-    <td>
+    <th>
         &#160;&#160;<h:outputLabel value="LinkedIn Profile Url :" for="linkedInProfile"/>
-    </td>
+    </th>
     <td>
         <h:inputText id="linkedInProfile" value="#{newContestant.linkedInProfile}" style="width:100%"/>
     </td>
@@ -241,9 +242,9 @@
     <td><br/></td>
 </tr>
 <tr>
-    <td>
+    <th>
         <span style="color:red;">*</span><h:outputLabel value="Favorite Programming Language :" for="languageProficiency"/>
-    </td>
+    </th>
     <td>
         <h:inputText id="languageProficiency" value="#{newContestant.languageProficiency}" required="true" style="width:100%"/>
     </td>
@@ -255,9 +256,9 @@
     <td><br/></td>
 </tr>
 <tr>
-    <td style="vertical-align:top">
+    <th>
         <span style="color:red;">*</span><h:outputLabel value="Upload Image :" for="image"/>
-    </td>
+    </th>
     <td>
         <s:fileUpload
                 id="image"
@@ -265,7 +266,7 @@
                 contentType="#{newContestant.imageFileWrapper.contentType}"
                 fileSize="#{newContestant.imageFileWrapper.size}"
                 style="width:80%"/>
-        <br/> <span>(Files supported: GIF, JPEG, PNG and Max-size: 500KB)</span>
+        <br/><span class="tips">Supported Formats:  <b>GIF, JPEG, PNG</b> <br/>Max Size: <b>500KB</b></span>
     </td>
     <td>
         <h:message for="image" styleClass="error"/>
@@ -275,9 +276,9 @@
     <td><br/></td>
 </tr>
 <tr>
-    <td>
+    <th>
         &#160;&#160;<h:outputLabel value="Upload CV :" for="curriculumVitae"/>
-    </td>
+    </th>
     <td style="vertical-align:top">
         <s:fileUpload
                 id="curriculumVitae"
@@ -285,7 +286,7 @@
                 contentType="#{newContestant.pdfFileWrapper.contentType}"
                 fileSize="#{newContestant.pdfFileWrapper.size}"
                 style="width:80%"/>
-        <br/> <span>(Files supported: PDF and Max-size: 5MB)</span>
+        <br/> <span class="tips">Supported Format: <b>PDF</b> <br/>Max Size: <b>5MB</b></span>
     </td>
     <td>
         <h:message for="curriculumVitae" styleClass="error"/>
@@ -295,31 +296,39 @@
     <td><br/></td>
 </tr>
 <tr>
-    <td>
-    </td>
+    <th>
+    </th>
     <td>
         <h:graphicImage value="/seam/resource/captcha"/>
     </td>
 </tr>
 <tr>
-    <td>
+    <th>
         <span style="color:red;">*</span><h:outputLabel value="Correctly enter the word :" for="verifyCaptcha"/>
-    </td>
+    </th>
 
     <td>
-        <h:inputText id="verifyCaptcha" value="#{captcha.response}" required="true" style="width:100%"/>
+        <h:inputText id="verifyCaptcha" value="#{captcha.response}" required="true"/>
     </td>
     <td>
         <h:message for="verifyCaptcha" styleClass="error"/>
     </td>
 </tr>
-
-<tr>
+  <tr>
     <td><br/></td>
 </tr>
-
 <tr>
-    <td></td>
+    <th></th>
+    <td><h:selectBooleanCheckbox id="termsAndConditionCheckbox" style="padding-right:20px" value="#{newContestant.agreeWithTermsAndCondition}" validator="#{checkBoxValidator.validate}" validatorMessage="You must agree to terms and conditions"/>I have read and agreed to <s:link value=" Terms and Conditions" view="/termsAndConditions.xhtml"/></td>
+    <td>
+        <h:message for="termsAndConditionCheckbox" styleClass="error"/>
+    </td>
+</tr>
+ <tr>
+    <td><br/></td>
+</tr>
+<tr>
+    <th></th>
     <td>
         <h:commandButton value="Register" action="#{registrationAction.register(newContestant)}"/>
     </td>
