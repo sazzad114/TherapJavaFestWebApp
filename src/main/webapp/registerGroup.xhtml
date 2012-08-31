@@ -20,9 +20,9 @@
                     <table>
                         <s:validateAll>
                             <tr>
-                                <td>
+                                <th>
                                     <span style="color:red;">*</span><h:outputLabel value="Group Name:" for="groupName"/>
-                                </td>
+                                </th>
                                 <td>
                                     <h:inputText id="groupName" value="#{groupRegCmd.groupName}" required="true"/>
                                 </td>
@@ -32,9 +32,9 @@
                             </tr>
                             <tr><td><br/></td></tr>
                             <tr>
-                                <td>
+                                <th>
                                     <span style="color:red;">*</span><h:outputLabel value="Partner's email:" for="partnerEmail"/>
-                                </td>
+                                </th>
                                 <td>
                                     <h:inputText id="partnerEmail" value="#{groupRegCmd.partnerEmail}" required="true"/>
                                 </td>
@@ -45,13 +45,11 @@
                              <tr><td><br/></td></tr>
                             <tr>
                                 <td>
-                                    &#160;<h:outputLabel value="Captcha:" for="verifyCaptcha"/>
                                 </td>
                                 <td>
                                     <h:graphicImage value="/seam/resource/captcha"/>
                                 </td>
                             </tr>
-                             <tr><td><br/></td></tr>
                             <tr>
                                 <td>
                                     <span style="color:red;">*</span><h:outputLabel value="Correctly enter the word:" for="verifyCaptcha"/>

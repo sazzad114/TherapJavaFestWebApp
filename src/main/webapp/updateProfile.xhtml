@@ -14,6 +14,7 @@
             <p class="meta"></p>
 
             <div class="entry">
+                  <script type="text/javascript" src="/js/characterCounter.js"></script>
                 <h:form id="register" enctype="multipart/form-data">
 
                     <table>
@@ -51,7 +52,7 @@
                             <tr>
                                 <th>
                                     <span style="color:red;">*</span><h:outputLabel value="Expected Graduation Date :"
-                                                                               for="expectedGraduationDate"/>
+                                                                                    for="expectedGraduationDate"/>
                                 </th>
                                 <td>
                                     <rich:calendar datePattern="yyyy-MM-dd"
@@ -69,13 +70,17 @@
                             </tr>
                             <tr>
                                 <th>
-                                    <span style="color:red;">*</span><h:outputLabel value="About you :" for="description"/>
+                                    <span style="color:red;">*</span><h:outputLabel value="About you :"
+                                                                                    for="description"/>
                                 </th>
                                 <td>
                                     <h:inputTextarea id="description" value="#{editableContestant.description}"
-                                                     required="true" style="width:100%" rows="10"/>
+                                                     required="true" style="width:100%" rows="5"
+                                                     onkeydown="textCounter(this,'chars',300)"
+                                                     onkeyup="textCounter(this,'chars',300)"
+                                            />
                                     <br/>
-                                    <span>(20 to 300 characters)</span>
+                                    <span class="tips"><b id="chars">300</b> characters left <br/><b>20</b> character is minimum</span>
                                 </td>
                                 <td style="vertical-align:top">
                                     <h:message for="description" styleClass="error"/>
@@ -102,8 +107,9 @@
                             </tr>
                             <tr>
                                 <th>
-                                    <span style="color:red;">*</span><h:outputLabel value="Favorite Programming Language :"
-                                                                               for="languageProficiency"/>
+                                    <span style="color:red;">*</span><h:outputLabel
+                                        value="Favorite Programming Language :"
+                                        for="languageProficiency"/>
                                 </th>
                                 <td>
                                     <h:inputText id="languageProficiency"
@@ -128,7 +134,8 @@
                                             contentType="#{editableContestant.imageFileWrapper.contentType}"
                                             fileSize="#{editableContestant.imageFileWrapper.size}"
                                             style="width:80%"/>
-                                    <br/> <span>(Suppored files: GIF, JPEG, PNG and Max-size: 500KB)</span>
+                                    <br/> <span
+                                        class="tips">Supported Formats:  <b>GIF, JPEG, PNG</b> <br/>Max Size: <b>500KB</b></span>
                                 </td>
                                 <td>
                                     <h:message for="image" styleClass="error"/>
@@ -148,7 +155,8 @@
                                             contentType="#{editableContestant.pdfFileWrapper.contentType}"
                                             fileSize="#{editableContestant.pdfFileWrapper.size}"
                                             style="width:80%"/>
-                                    <br/> <span>(Supported files: PDF and Max-size: 5MB)</span>
+                                    <br/> <span
+                                        class="tips">Supported Format: <b>PDF</b> <br/>Max Size: <b>5MB</b></span>
                                 </td>
                                 <td>
                                     <h:message for="curriculumVitae" styleClass="error"/>

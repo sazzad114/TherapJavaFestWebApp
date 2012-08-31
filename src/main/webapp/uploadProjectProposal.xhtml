@@ -19,9 +19,9 @@
                     <table>
                         <s:validateAll>
                             <tr>
-                                <td>
+                                <th>
                                     <span style="color:red;">*</span><h:outputLabel value="Upload Your Project Proposal :" for="proposalUpload"/>
-                                </td>
+                                </th>
                                 <td>
                                     <s:fileUpload
                                             id="proposalUpload"
@@ -29,9 +29,9 @@
                                             contentType="#{projectProposal.uploadedProposal.contentType}"
                                             fileSize="#{projectProposal.uploadedProposal.size}"
                                             />
-                                    <br/> <span>(Only PDF file is supported)</span>
+                                    <br/> <span class="tips">Supported Format:  <b>PDF</b> <br/>Max Size: <b>5MB</b></span>
                                 </td>
-                                <td>
+                                <td style="vertical-align:top;">
                                     <h:message for="proposalUpload" styleClass="error"/>
                                 </td>
                             </tr>
