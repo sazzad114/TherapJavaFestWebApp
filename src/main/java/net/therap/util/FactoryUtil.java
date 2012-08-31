@@ -15,7 +15,6 @@ import org.jboss.seam.contexts.ServletLifecycle;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.Unmarshaller;
 import java.io.FileInputStream;
-import java.io.FileReader;
 import java.io.InputStream;
 import java.io.Serializable;
 import java.util.Arrays;
@@ -82,6 +81,11 @@ public class FactoryUtil implements Serializable {
     @Factory(value = "editableContestant", scope = ScopeType.PAGE)
     public Contestant getEditableContestant() {
         return contestantDao.getContestantById(loggedInContestant.getContestantId());
+    }
+
+    @Factory(value = "loginFailed",scope = ScopeType.CONVERSATION)
+    public Boolean loginFailed(){
+        return false;
     }
 
 }

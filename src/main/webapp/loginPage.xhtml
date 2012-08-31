@@ -1,0 +1,147 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 strict//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!--
+Design by Free CSS Templates
+http://www.freecsstemplates.org
+Released for free under a Creative Commons Attribution 2.5 License
+
+Name       : Timeless
+Description: A two-column, fixed-width design with dark color scheme.
+Version    : 1.0
+Released   : 20110825
+
+-->
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:s="http://jboss.com/products/seam/taglib" xmlns:c="http://java.sun.com/jstl/core">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title>Therap Java Fest</title>
+    <link href="/css/style.css" rel="stylesheet" type="text/css"/>
+    <link rel="shortcut icon" href="/images/therapJavaFestLogo.jpg" type="image/jpeg"/>
+    <script src="/js/menuHover.js" type="text/javascript"></script>
+</head>
+<body onload="changeMenuBackground()">
+<div id="wrapper">
+    <div id="header-wrapper">
+        <div id="header">
+        </div>
+    </div>
+    <!-- end #header -->
+
+    <div id="menu">
+        <ul>
+            <li><s:link value="Home" view="/home.xhtml"/></li>
+            <li><s:link value="About" view="/aboutUs.xhtml"/></li>
+            <li><s:link value="Contact" view="/contactUs.xhtml"/></li>
+        </ul>
+    </div>
+    <div class="separator">
+        <hr style="background:#0086df; height:3px; margin: 0 auto; border-style:none;"/>
+    </div>
+</div>
+
+
+<!-- end #menu -->
+<div id="page">
+    <div id="page-bgtop">
+        <div id="page-bgbtm">
+            <div id="content" style="background:WHITE">
+
+                <div class="post">
+                    <h2 class="title">Login</h2>
+
+                    <p class="meta"></p>
+
+                    <div class="entry">
+                        <c:choose>
+                            <c:when test="#{loginFailed}">
+                                <div style="padding: 10px; margin-bottom:10px; width:100%; border-color:red; background-color:#feaeae;">
+                                    Please re-enter your email/password.
+                                    <br/>
+                                    The email/password you entered is incorrect.
+                                    Please try again (make sure your caps lock is off).
+                                    <br/>
+                                    Forgot your password?
+                                    <s:link view="/forgotPassword.xhtml" value="Request a new one"/>.
+                                </div>
+                            </c:when>
+                        </c:choose>
+                        <fieldset>
+                            <h:form id="loginForm">
+
+                                <table>
+                                    <tr>
+                                        <th>
+                                            <h:outputLabel for="username">Email</h:outputLabel>
+                                        </th>
+                                        <td>
+                                            <h:inputText id="username" value="#{identity.username}"/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>
+                                            <h:outputLabel for="password">Password</h:outputLabel>
+                                        </th>
+                                        <td>
+                                            <h:inputSecret id="password" value="#{identity.password}"/>
+                                        </td>
+                                    </tr>
+                                </table>
+
+                                <h:commandButton id="login" action="#{identity.login}"
+                                                 value="Login" style="margin:0 3px" styleClass="festentry"/>
+                            </h:form>
+                        </fieldset>
+
+                    </div>
+                </div>
+                <div style="clear: both;">&nbsp;</div>
+
+            </div>
+
+            <!-- end #content -->
+
+            <div id="sidebar">
+                <div class="sidebarCommonStyle facebook">
+                    <div class="sidebarCommonhead">Facebook Page</div>
+                    <div style="padding-left:5px;">
+                        Join us on <a
+                            href="http://www.facebook.com/therapjavafest"> Facebook</a> for regular updates and event specifics!
+                    </div>
+                </div>
+                <br/>
+
+                <div class="sidebarCommonStyle google">
+                    <div class="sidebarCommonhead">Google Group</div>
+                    <div style="padding-left:5px;">
+                        Keep an eye on our Google<a
+                            href="https://groups.google.com/forum/?hl=en&amp;fromgroups#!forum/therap-java-fest"> Groups</a> for interesting ideas and discussions.
+                    </div>
+                </div>
+                <br/>
+
+                <div class="sidebarCommonStyle blog">
+                    <div class="sidebarCommonhead">Blog</div>
+                    <div style="padding-left:5px;">
+                        Curious about how people are loving the festival? Check out the <a
+                            href="http://therapjavafest.blogspot.com"> blogs</a> for narratives from the participants and the host!
+                    </div>
+                </div>
+            </div>
+            <!-- end #sidebar -->
+            <div style="clear: both;">&nbsp;</div>
+        </div>
+    </div>
+</div>
+
+<div id="footer">
+    <p><s:link value="Terms and Conditions" view="/termsAndConditions.xhtml"/></p>
+
+    <p> &#169; Copyright <a
+            href="http://www.therapservices.net">Therap Services, LLC</a>. 2003-2012. All Rights Reserved.</p>
+</div>
+<!-- end #footer -->
+</body>
+</html>
