@@ -52,6 +52,7 @@ public class Contestant implements Serializable{
     private long version;
     private UploadedFile pdfFileWrapper;
     private UploadedFile imageFileWrapper;
+    private boolean agreeWithTermsAndCondition;
 
     public Contestant() {
         pdfFileWrapper = new UploadedFile();
@@ -287,5 +288,14 @@ public class Contestant implements Serializable{
 
     public void setImageFileWrapper(UploadedFile imageFileWrapper) {
         this.imageFileWrapper = imageFileWrapper;
+    }
+
+    @Transient
+    public boolean isAgreeWithTermsAndCondition() {
+        return agreeWithTermsAndCondition;
+    }
+
+    public void setAgreeWithTermsAndCondition(boolean agreeWithTermsAndCondition) {
+        this.agreeWithTermsAndCondition = agreeWithTermsAndCondition;
     }
 }

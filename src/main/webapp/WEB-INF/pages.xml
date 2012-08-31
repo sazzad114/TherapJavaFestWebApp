@@ -351,7 +351,7 @@
     <page view-id="/updateProfile.xhtml" login-required="true">
         <navigation>
             <rule if-outcome="success">
-                <redirect view-id="/greetings/greeting.xhtml"/>
+                <redirect view-id="/viewProfile.xhtml"/>
             </rule>
         </navigation>
     </page>

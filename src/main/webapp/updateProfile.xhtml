@@ -20,9 +20,9 @@
                         <s:validateAll>
 
                             <tr>
-                                <td>
+                                <th>
                                     <span style="color:red;">*</span><h:outputLabel value="Phone :" for="phone"/>
-                                </td>
+                                </th>
                                 <td>
                                     <h:inputText id="phone" value="#{editableContestant.phone}" required="true"
                                                  style="width:100%"/>
@@ -35,9 +35,9 @@
                                 <td><br/></td>
                             </tr>
                             <tr>
-                                <td>
+                                <th>
                                     &#160;&#160;<h:outputLabel value="CGPA :" for="cgpa"/>
-                                </td>
+                                </th>
                                 <td>
                                     <h:inputText id="cgpa" value="#{editableContestant.cgpa}" style="width:100%"/>
                                 </td>
@@ -49,10 +49,10 @@
                                 <td><br/></td>
                             </tr>
                             <tr>
-                                <td>
+                                <th>
                                     <span style="color:red;">*</span><h:outputLabel value="Expected Graduation Date :"
                                                                                for="expectedGraduationDate"/>
-                                </td>
+                                </th>
                                 <td>
                                     <rich:calendar datePattern="yyyy-MM-dd"
                                                    value="#{editableContestant.expectedGraduationDate}"
@@ -68,9 +68,9 @@
                                 <td><br/></td>
                             </tr>
                             <tr>
-                                <td style="vertical-align:top;">
+                                <th>
                                     <span style="color:red;">*</span><h:outputLabel value="About you :" for="description"/>
-                                </td>
+                                </th>
                                 <td>
                                     <h:inputTextarea id="description" value="#{editableContestant.description}"
                                                      required="true" style="width:100%" rows="10"/>
@@ -85,10 +85,10 @@
                                 <td><br/></td>
                             </tr>
                             <tr>
-                                <td>
+                                <th>
                                     &#160;&#160;<h:outputLabel value="LinkedIn Profile Url :"
                                                                for="linkedInProfile"/>
-                                </td>
+                                </th>
                                 <td>
                                     <h:inputText id="linkedInProfile" value="#{editableContestant.linkedInProfile}"
                                                  style="width:100%"/>
@@ -101,10 +101,10 @@
                                 <td><br/></td>
                             </tr>
                             <tr>
-                                <td>
+                                <th>
                                     <span style="color:red;">*</span><h:outputLabel value="Favorite Programming Language :"
                                                                                for="languageProficiency"/>
-                                </td>
+                                </th>
                                 <td>
                                     <h:inputText id="languageProficiency"
                                                  value="#{editableContestant.languageProficiency}"
@@ -118,9 +118,9 @@
                                 <td><br/></td>
                             </tr>
                             <tr>
-                                <td>
+                                <th>
                                     <span style="color:red;">*</span><h:outputLabel value="Upload Image :" for="image"/>
-                                </td>
+                                </th>
                                 <td>
                                     <s:fileUpload
                                             id="image"
@@ -138,9 +138,9 @@
                                 <td><br/></td>
                             </tr>
                             <tr>
-                                <td>
+                                <th>
                                     &#160;&#160;<h:outputLabel value=" Upload CV :" for="curriculumVitae"/>
-                                </td>
+                                </th>
                                 <td>
                                     <s:fileUpload
                                             id="curriculumVitae"
@@ -154,31 +154,6 @@
                                     <h:message for="curriculumVitae" styleClass="error"/>
                                 </td>
                             </tr>
-                            <tr>
-                                <td><br/></td>
-                            </tr>
-                            <tr>
-                                <td>
-                                </td>
-                                <td>
-                                    <h:graphicImage value="/seam/resource/captcha"/>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <span style="color:red;">*</span><h:outputLabel value="Correctly enter the word :"
-                                                                               for="verifyCaptcha"/>
-                                </td>
-
-                                <td>
-                                    <h:inputText id="verifyCaptcha" value="#{captcha.response}" required="true"
-                                                 style="width:80%"/>
-                                </td>
-                                <td>
-                                    <h:message for="verifyCaptcha" styleClass="error"/>
-                                </td>
-                            </tr>
-
                             <tr>
                                 <td><br/></td>
                             </tr>
