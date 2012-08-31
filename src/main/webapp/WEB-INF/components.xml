@@ -23,7 +23,6 @@ http://jboss.com/products/seam/mail ">
     <persistence:hibernate-session-factory name="hibernateSessionFactory"/>
 
     <persistence:managed-hibernate-session name="therapJavaFestDbSession"
-                                           session-factory-jndi-name="java:/therapJavaFestDbSessionFactory"
                                            auto-create="true"
                                            session-factory="#{hibernateSessionFactory}"/>
 

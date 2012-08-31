@@ -4,7 +4,7 @@
         "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
 
 <hibernate-configuration>
-    <session-factory name="java:/therapJavaFestDbSessionFactory">
+    <session-factory>
 
         <!--  postgre SQL configuration-->
 

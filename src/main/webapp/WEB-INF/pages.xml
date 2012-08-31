@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <pages xmlns="http://jboss.com/products/seam/pages"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://jboss.com/products/seam/pages http://jboss.com/products/seam/pages-2.0.xsd" >
+       xsi:schemaLocation="http://jboss.com/products/seam/pages http://jboss.com/products/seam/pages-2.0.xsd">
 
     <page view-id="/home.xhtml" action="#{identity.isLoggedIn}">
 
@@ -17,16 +17,11 @@
     </page>
 
     <page view-id="/register.xhtml" action="#{identity.isLoggedIn}">
-
         <navigation from-action="#{identity.isLoggedIn}">
             <rule if-outcome="true">
                 <redirect view-id="/greetings/greeting.xhtml"/>
             </rule>
-            <rule if-outcome="false">
-                <render view-id="/register.xhtml"/>
-            </rule>
         </navigation>
-
     </page>
 
     <page view-id="/emailSent.xhtml" action="#{identity.isLoggedIn}">
@@ -171,7 +166,8 @@
         </navigation>
     </page>
 
-    <page view-id="/greetings/eliminatedAtTestGreeting.xhtml" login-required="true" action="#{loggedInContestant.getState}">
+    <page view-id="/greetings/eliminatedAtTestGreeting.xhtml" login-required="true"
+          action="#{loggedInContestant.getState}">
 
         <navigation from-action="#{loggedInContestant.getState}">
             <rule if="#{loggedInContestant.state == contestantState.ELIMINATED_AT_TEST}">
@@ -352,14 +348,13 @@
 
     </page>
 
-   <page view-id="/updateProfile.xhtml" login-required="true">
+    <page view-id="/updateProfile.xhtml" login-required="true">
         <navigation>
             <rule if-outcome="success">
                 <redirect view-id="/greetings/greeting.xhtml"/>
             </rule>
         </navigation>
     </page>
-
 
 
     <page view-id="/screeningTest.xhtml" login-required="true">
@@ -432,7 +427,7 @@
                 <redirect view-id="/greetings/greeting.xhtml"/>
             </rule>
         </navigation>
-         <navigation from-action="#{loggedInContestant.getState}">
+        <navigation from-action="#{loggedInContestant.getState}">
             <rule if="#{loggedInContestant.state == contestantState.PENDING_SUBMISSION_RESULT}">
                 <render view-id="/updateProjectSource.xhtml"/>
             </rule>
@@ -464,6 +459,17 @@
         <redirect view-id="/home.xhtml">
             <message severity="warn">Session expired, please log in again</message>
         </redirect>
+    </exception>
+
+    <exception class="javax.persistence.OptimisticLockException">
+        <end-conversation/>
+        <redirect view-id="/exceptionPage.xhtml">
+            <message severity="warn">Another user changed the same data, please try again</message>
+        </redirect>
+    </exception>
+
+    <exception>
+        <redirect view-id="/exceptionPage.xhtml"/>
     </exception>
 
 </pages>
