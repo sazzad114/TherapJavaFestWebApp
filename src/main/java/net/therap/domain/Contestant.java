@@ -121,7 +121,7 @@ public class Contestant implements Serializable{
         this.university = university;
     }
 
-    @Range(max = 5,min = 0, message = "CGPA out of range")
+    @Range(max = 5,min = 0, message = "CGPA must be within 0 to 5.0")
     @Column(name = "CGPA")
     public double getCgpa() {
         return cgpa;

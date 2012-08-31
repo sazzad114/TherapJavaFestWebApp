@@ -1,0 +1,27 @@
+<m:message xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:m="http://jboss.com/products/seam/mail"
+    xmlns:h="http://java.sun.com/jsf/html">
+
+    <m:from name="TherapJavafest" address="javafest@therapservices.net" />
+    <m:to name="#{newContestant.contestantName}" address="#{newContestant.email}" />
+    <m:subject>Login Information for Therap Java Fest</m:subject>
+    <m:body>
+        <p><h:outputText value="Dear #{newContestant.contestantName}" />,</p>
+        <p>
+            Thanks for registering at Therap Java Fest.
+            Here is the required information to log in to your Therap Java Fest account:
+        </p>
+        <p>
+            Email: &#169;&#169;&#169;<b>#{newContestant.email}</b><br/>
+            Password: <b>#{newContestant.password}"</b>
+        </p>
+
+        <p>Once logged in, you should change this temporary password.</p>
+
+        <p>Regards,</p>
+        <p>
+            Therap Java Fest Team<br/>
+            <a href="http://therapjavafest.com">http://therapjavafest.com</a>
+        </p>
+    </m:body>
+</m:message>
