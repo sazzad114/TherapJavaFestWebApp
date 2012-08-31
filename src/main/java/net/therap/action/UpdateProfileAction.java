@@ -25,7 +25,7 @@ public class UpdateProfileAction implements Serializable {
     private final int UPLOADED_IMAGE_SIZE = 5;
     private final int UPLOADED_CV_SIZE = 5;
 
-    @In
+    @In (create = true)
     private ContestantDao contestantDao;
 
     @In

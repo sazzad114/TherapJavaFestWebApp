@@ -19,8 +19,8 @@ import java.util.List;
  */
 
 @Name("screeningTestDao")
-@Scope(ScopeType.APPLICATION)
-@Startup
+@Scope(ScopeType.EVENT)
+
 public class ScreeningTestDaoImpl implements ScreeningTestDao, Serializable {
 
     @Logger

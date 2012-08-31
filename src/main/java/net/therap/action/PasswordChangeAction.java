@@ -27,7 +27,7 @@ public class PasswordChangeAction implements Serializable {
     @Out
     private Contestant loggedInContestant;
 
-    @In
+    @In(create = true)
     private ContestantDao contestantDao;
 
 

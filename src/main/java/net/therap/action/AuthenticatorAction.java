@@ -21,10 +21,10 @@ import java.util.Date;
 public class AuthenticatorAction implements Serializable{
 
 
-    @In
+    @In(create = true)
     private ContestantDao contestantDao;
 
-    @In
+    @In(create = true)
     private AuditInfoDao auditInfoDao;
 
     @In

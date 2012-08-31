@@ -21,8 +21,8 @@ import java.util.List;
  */
 
 @Name("groupDao")
-@Scope(ScopeType.APPLICATION)
-@Startup
+@Scope(ScopeType.EVENT)
+
 public class GroupDaoImpl implements GroupDao, Serializable {
 
     @In
