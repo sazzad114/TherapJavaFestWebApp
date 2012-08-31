@@ -54,7 +54,7 @@ public class RegistrationAction implements Serializable {
         imageFileTypes.add("image/jpeg");
         imageFileTypes.add("image/png");
 
-        int imageFileSize = 5 * 1024 * 1024;
+        int imageFileSize = 500 * 1024;
 
         List<String> cvFileTypes = new ArrayList<String>();
         cvFileTypes.add("application/pdf");

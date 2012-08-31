@@ -14,6 +14,7 @@ import org.jboss.seam.annotations.Install;
 import org.jboss.seam.annotations.Name;
 import org.jboss.seam.annotations.Scope;
 import org.jboss.seam.captcha.Captcha;
+import org.jboss.seam.captcha.CaptchaResponse;
 
 import java.awt.*;
 import java.awt.geom.AffineTransform;
@@ -126,5 +127,9 @@ public class CustomCaptcha extends Captcha implements Serializable {
 
     }
 
-
+    @CaptchaResponse(message="The word Entered was incorrect")
+    @Override
+    public String getResponse() {
+        return super.getResponse();    //To change body of overridden methods use File | Settings | File Templates.
+    }
 }

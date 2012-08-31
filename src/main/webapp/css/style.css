@@ -101,7 +101,7 @@ img.aligncenter {
 
 .error {
     color: RED;
-
+    padding-left:10px;
 }
 
 /* Menu */

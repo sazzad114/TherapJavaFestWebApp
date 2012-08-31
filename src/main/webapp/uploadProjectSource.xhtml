@@ -21,7 +21,7 @@
 
                             <tr>
                                 <td>
-                                    <span class="error">*</span><h:outputLabel value="Youtube Url :" for="youtubeUrl"/>
+                                    <span style="color:red;">*</span><h:outputLabel value="Youtube Url :" for="youtubeUrl"/>
                                 </td>
                                 <td>
                                     <h:inputText id="youtubeUrl" value="#{projectSubmission.youTubeUrl}"
@@ -60,7 +60,7 @@
                                             contentType="#{projectSubmission.uploadedSourceCode.contentType}"
                                             fileSize="#{projectSubmission.uploadedSourceCode.size}"
                                             />
-                                    <br/> <span>(Only ZIP file is supported)</span>
+                                    <br/> <span>(Supported files: Zip)</span>
                                 </td>
                                 <td>
                                     <h:message for="sourceCodeUpload" styleClass="error"/>
