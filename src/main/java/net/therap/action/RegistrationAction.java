@@ -101,7 +101,7 @@ public class RegistrationAction implements Serializable {
             contestant.setPassword(temporaryPassword);
             contestant.setState(ContestantState.TEMPORARY_CONTESTANT);
             contestantDao.saveContestant(contestant);
-            emailAction.sendMessage();
+            emailAction.sendMessage("registrationEmail.xhtml");
             log.debug("Saved contestant");
             Redirect redirect = Redirect.instance();
             redirect.setViewId("/emailSent.xhtml");

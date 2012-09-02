@@ -5,6 +5,7 @@ import org.hibernate.validator.*;
 import org.jboss.seam.ScopeType;
 import org.jboss.seam.annotations.Name;
 import org.jboss.seam.annotations.Role;
+import org.jboss.seam.annotations.Roles;
 import org.jboss.seam.annotations.Scope;
 import org.jboss.seam.core.Events;
 
@@ -121,7 +122,7 @@ public class Contestant implements Serializable{
         this.university = university;
     }
 
-    @Range(max = 5,min = 0, message = "CGPA out of range")
+    @Range(max = 5,min = 0, message = "CGPA must be within 0 to 5.0")
     @Column(name = "CGPA")
     public double getCgpa() {
         return cgpa;
