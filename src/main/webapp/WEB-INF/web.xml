@@ -18,6 +18,12 @@
         <listener-class>org.jboss.seam.servlet.SeamListener</listener-class>
     </listener>
 
+    <listener>
+        <listener-class>
+            net.therap.listener.SessionCounter
+        </listener-class>
+    </listener>
+
     <filter>
         <filter-name>Seam Filter</filter-name>
         <filter-class>org.jboss.seam.servlet.SeamFilter</filter-class>
