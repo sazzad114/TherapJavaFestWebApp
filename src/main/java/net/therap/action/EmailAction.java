@@ -27,7 +27,7 @@ public class EmailAction implements Serializable {
         try {
             renderer.render("/" + emailContentFileName);
         } catch (Exception e) {
-            log.error("Error Email Send #0" + e.getMessage());
+            log.error("Error Email Send ",e);
         }
     }
 }

@@ -5,6 +5,7 @@ import org.hibernate.validator.*;
 import org.jboss.seam.ScopeType;
 import org.jboss.seam.annotations.Name;
 import org.jboss.seam.annotations.Role;
+import org.jboss.seam.annotations.Roles;
 import org.jboss.seam.annotations.Scope;
 import org.jboss.seam.core.Events;
 
