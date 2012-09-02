@@ -451,6 +451,8 @@
 
     </page>
 
+    <page view-id="/showStatistics.xhtml"/>
+
     <page view-id="/logout.xhtml" login-required="true" action="#{identity.logout}"/>
 
     <exception class="org.jboss.seam.security.NotLoggedInException">

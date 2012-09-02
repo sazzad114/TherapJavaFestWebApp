@@ -1,16 +1,19 @@
 package net.therap.dao;
 
 import net.therap.domain.Contestant;
+import net.therap.domain.ContestantPerUniversityCount;
 import net.therap.util.ContestantState;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.jboss.seam.ScopeType;
 import org.jboss.seam.annotations.In;
+import org.jboss.seam.annotations.Logger;
 import org.jboss.seam.annotations.Name;
 import org.jboss.seam.annotations.Scope;
-import org.jboss.seam.annotations.Startup;
+import org.jboss.seam.log.Log;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -26,6 +29,9 @@ public class ContestantDaoImpl implements ContestantDao, Serializable {
 
     @In
     private Session session;
+
+    @Logger
+    private Log log;
 
     public Session getSession() {
         return session;
@@ -81,6 +87,26 @@ public class ContestantDaoImpl implements ContestantDao, Serializable {
     public byte[] getContestantImageById(long id) {
         Query query = session.createQuery("select contestant.photo from Contestant contestant where contestant.id = :id");
         query.setLong("id", id);
-        return (byte[])query.uniqueResult();
+        return (byte[]) query.uniqueResult();
+    }
+
+    public List<ContestantPerUniversityCount> getListOfContestantsGroupedByUniversity() {
+        Query query = session.createQuery("select contestant.university,count(contestant.email) from Contestant contestant group by contestant.university");
+
+        List objectList = query.list();
+
+        List<ContestantPerUniversityCount> contestantPerUniversityCountList = new ArrayList<ContestantPerUniversityCount>();
+
+        for (Object o : objectList) {
+
+            Object[] objArray = (Object[]) o;
+            ContestantPerUniversityCount contestantPerUniversityCount = new ContestantPerUniversityCount();
+            contestantPerUniversityCount.setUniversity((String) objArray[0]);
+            contestantPerUniversityCount.setContestantCount((Long) objArray[1]);
+            contestantPerUniversityCountList.add(contestantPerUniversityCount);
+
+            log.info("" + (String) objArray[0] + " " + (Long) objArray[1]);
+        }
+        return contestantPerUniversityCountList;
     }
 }

@@ -1,6 +1,10 @@
 package net.therap.dao;
 
 import net.therap.domain.Contestant;
+import net.therap.domain.ContestantPerUniversityCount;
+
+import java.util.List;
+import java.util.Map;
 
 /**
  * Created by IntelliJ IDEA.
@@ -21,5 +25,7 @@ public interface ContestantDao {
     public Contestant getSelectedContestantByEmail(String email);
 
     public byte[] getContestantImageById(long id);
+
+    public List<ContestantPerUniversityCount> getListOfContestantsGroupedByUniversity();
 
 }
