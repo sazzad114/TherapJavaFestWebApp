@@ -26,6 +26,7 @@ Released   : 20110825
 <div id="wrapper">
     <div id="header-wrapper">
         <div id="header">
+            <a href="http://www.therapservices.net"><img src="/images/banner.jpg" alt="banner" style="border:none;"/></a>
         </div>
     </div>
     <!-- end #header -->
@@ -57,14 +58,10 @@ Released   : 20110825
                     <div class="entry">
                         <c:choose>
                             <c:when test="#{loginFailed}">
-                                <div style="padding: 10px; margin-bottom:10px; width:100%; border-color:red; background-color:#feaeae;">
-                                    Please re-enter your email/password.
-                                    <br/>
-                                    The email/password you entered is incorrect.
-                                    Please try again (make sure your caps lock is off).
-                                    <br/>
-                                    Forgot your password?
-                                    <s:link view="/forgotPassword.xhtml" value="Request a new one"/>.
+                                <div style="padding: 10px; margin-bottom:10px; border: 1px solid red; background-color:#fcdede;">
+                                    <p>The email/password you entered is incorrect.
+                                    Please try again. (Make sure your caps lock is off).</p>
+                                    <!--Forgot your password?<s:link view="/forgotPassword.xhtml" value=" Request a new one"/>.-->
                                 </div>
                             </c:when>
                         </c:choose>
@@ -125,8 +122,8 @@ Released   : 20110825
                 <div class="sidebarCommonStyle blog">
                     <div class="sidebarCommonhead">Blog</div>
                     <div style="padding-left:5px;">
-                        Curious about how people are loving the festival? Check out the <a
-                            href="http://therapjavafest.blogspot.com"> blogs</a> for narratives from the participants and the host!
+                        Check out the <a
+                                href="http://therapjavafest.blogspot.com"> blogs</a> for narratives from us!
                     </div>
                 </div>
             </div>

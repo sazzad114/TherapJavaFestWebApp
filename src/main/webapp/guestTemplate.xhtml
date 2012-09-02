@@ -26,25 +26,31 @@ Released   : 20110825
 <div id="wrapper">
     <div id="header-wrapper">
         <div id="header">
+            <a href="http://www.therapservices.net"><img src="/images/banner.jpg" alt="banner"
+                                                         style="border:none;"/></a>
         </div>
     </div>
     <!-- end #header -->
 
-<div id="menu">
-    <c:choose>
-        <c:when test="#{identity.isLoggedIn()}">
+    <div id="menu">
+        <c:choose>
+            <c:when test="#{identity.isLoggedIn()}">
 
                 <ul>
                     <li><s:link value="Home" view="/greetings/greeting.xhtml"/></li>
                     <li><s:link value="Profile" view="/viewProfile.xhtml"/></li>
                     <li><s:link value="Contact" view="/contactUs.xhtml"/></li>
-                    <li style="float:right; background:transparent;padding:0 5px"><s:button value="Logout" view="/logout.xhtml" style="margin:4px 3px" styleClass="festentry"/></li>
+                    <li style="float:right; background:transparent;padding:0 5px"><s:button value="Logout"
+                                                                                            view="/logout.xhtml"
+                                                                                            style="margin:4px 3px"
+                                                                                            styleClass="festentry"/>
+                    </li>
                     <li class="loggedInName">#{loggedInContestant.email}</li>
 
                 </ul>
 
-        </c:when>
-        <c:when test="#{!identity.isLoggedIn()}">
+            </c:when>
+            <c:when test="#{!identity.isLoggedIn()}">
                 <ul>
                     <li><s:link value="Home" view="/home.xhtml"/></li>
                     <li><s:link value="About" view="/aboutUs.xhtml"/></li>
@@ -68,8 +74,8 @@ Released   : 20110825
                         </h:form>
                     </li>
                 </ul>
-        </c:when>
-    </c:choose>
+            </c:when>
+        </c:choose>
     </div>
     <div class="separator">
         <hr style="background:#0086df; height:3px; margin: 0 auto; border-style:none;"/>
@@ -111,8 +117,8 @@ Released   : 20110825
                 <div class="sidebarCommonStyle blog">
                     <div class="sidebarCommonhead">Blog</div>
                     <div style="padding-left:5px;">
-                        Curious about how people are loving the festival? Check out the <a
-                            href="http://therapjavafest.blogspot.com"> blogs</a> for narratives from the participants and the host!
+                        Check out the <a
+                            href="http://therapjavafest.blogspot.com"> blogs</a> for narratives from us!
                     </div>
                 </div>
             </div>
