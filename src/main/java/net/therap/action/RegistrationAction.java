@@ -16,6 +16,7 @@ import org.jboss.seam.log.Log;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -30,7 +31,7 @@ import java.util.List;
 public class RegistrationAction implements Serializable {
 
     private final int TEMPORARY_PASSWORD_LEN = 10;
-    private final int UPLOADED_IMAGE_SIZE = 5;
+    private final float UPLOADED_IMAGE_SIZE = 0.5f;
     private final int UPLOADED_CV_SIZE = 5;
 
     @In(create = true)
@@ -54,7 +55,7 @@ public class RegistrationAction implements Serializable {
         imageFileTypes.add("image/jpeg");
         imageFileTypes.add("image/png");
 
-        int imageFileSize = 500 * 1024;
+        int imageFileSize = (int) (UPLOADED_IMAGE_SIZE * 1024 * 1024);
 
         List<String> cvFileTypes = new ArrayList<String>();
         cvFileTypes.add("application/pdf");
@@ -64,7 +65,7 @@ public class RegistrationAction implements Serializable {
         boolean validationFails = false;
 
         if (!FileValidatorUtil.validateFileSize(contestant.getImageFileWrapper(), imageFileSize)) {
-            facesMessages.addToControl("image", "file size must not exceed " + UPLOADED_IMAGE_SIZE + "MB");
+            facesMessages.addToControl("image", "file size must not exceed 500 KB");
             validationFails = true;
         }
         if (!FileValidatorUtil.validateFileType(contestant.getImageFileWrapper(), imageFileTypes)) {
@@ -102,7 +103,7 @@ public class RegistrationAction implements Serializable {
             contestant.setState(ContestantState.TEMPORARY_CONTESTANT);
             contestantDao.saveContestant(contestant);
             emailAction.sendMessage("registrationEmail.xhtml");
-            log.debug("Saved contestant");
+            log.info("Saved contestant at" + new Date());
             Redirect redirect = Redirect.instance();
             redirect.setViewId("/emailSent.xhtml");
             redirect.execute();

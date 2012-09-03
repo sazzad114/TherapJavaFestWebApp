@@ -22,7 +22,7 @@ import java.util.List;
 @Scope(ScopeType.EVENT)
 public class UpdateProfileAction implements Serializable {
 
-    private final int UPLOADED_IMAGE_SIZE = 5;
+    private final float UPLOADED_IMAGE_SIZE = 0.5f;
     private final int UPLOADED_CV_SIZE = 5;
 
     @In (create = true)
@@ -46,7 +46,7 @@ public class UpdateProfileAction implements Serializable {
         imageFileTypes.add("image/jpeg");
         imageFileTypes.add("image/png");
 
-        int imageFileSize = 500 * 1024;
+        int imageFileSize = (int) (UPLOADED_IMAGE_SIZE * 1024 * 1024);
 
         List<String> cvFileTypes = new ArrayList<String>();
         cvFileTypes.add("application/pdf");
@@ -58,7 +58,7 @@ public class UpdateProfileAction implements Serializable {
         if (contestant.getImageFileWrapper().getSize() != 0) {
 
             if (!FileValidatorUtil.validateFileSize(contestant.getImageFileWrapper(), imageFileSize)) {
-                facesMessages.addToControl("image", "File size must not exceed " + UPLOADED_IMAGE_SIZE + "MB");
+                facesMessages.addToControl("image", "File size must not exceed 500 KB");
                 validationFails = true;
             }
 

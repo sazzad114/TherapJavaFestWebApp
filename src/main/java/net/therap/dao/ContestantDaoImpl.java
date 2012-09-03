@@ -14,6 +14,7 @@ import org.jboss.seam.log.Log;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -96,6 +97,7 @@ public class ContestantDaoImpl implements ContestantDao, Serializable {
         List objectList = query.list();
 
         List<ContestantPerUniversityCount> contestantPerUniversityCountList = new ArrayList<ContestantPerUniversityCount>();
+        long total = 0;
 
         for (Object o : objectList) {
 
@@ -103,10 +105,16 @@ public class ContestantDaoImpl implements ContestantDao, Serializable {
             ContestantPerUniversityCount contestantPerUniversityCount = new ContestantPerUniversityCount();
             contestantPerUniversityCount.setUniversity((String) objArray[0]);
             contestantPerUniversityCount.setContestantCount((Long) objArray[1]);
+            total += (Long)objArray[1];
             contestantPerUniversityCountList.add(contestantPerUniversityCount);
-
-            log.info("" + (String) objArray[0] + " " + (Long) objArray[1]);
         }
+
+        ContestantPerUniversityCount contestantPerUniversityCount = new ContestantPerUniversityCount();
+        contestantPerUniversityCount.setUniversity("Total");
+        contestantPerUniversityCount.setContestantCount(total);
+        contestantPerUniversityCountList.add(contestantPerUniversityCount);
+
+        Collections.sort(contestantPerUniversityCountList);
         return contestantPerUniversityCountList;
     }
 }
