@@ -47,13 +47,13 @@ public class TestAction implements Serializable {
     @Out
     private Contestant loggedInContestant;
 
-    @In (create = true)
+    @In(create = true)
     private AnswerInfoDao answerInfoDao;
 
-    @In (create = true)
+    @In(create = true)
     private ContestantDao contestantDao;
 
-    @In (create = true)
+    @In(create = true)
     private ScreeningTestDao screeningTestDao;
 
     @In(create = true)
@@ -63,6 +63,9 @@ public class TestAction implements Serializable {
 
     @Out(required = false)
     private Question currentQuestion;
+
+    @In(create = true)
+    QuestionGeneratorAction questionGeneratorAction;
 
     private long timeLeft;
 
@@ -82,7 +85,12 @@ public class TestAction implements Serializable {
 
     @Begin(join = true)
     public void loadFirstQuestion() {
-        if (loggedInContestant.getState() == ContestantState.AT_TEST) {
+        if (loggedInContestant.getState() == ContestantState.READY_FOR_TEST) {
+            questionGeneratorAction.generateQuestion();
+        }
+
+        else if (loggedInContestant.getState() == ContestantState.AT_TEST) {
+
             log.info("Invoking loadFirstQuestion");
             selectedOptionId = -1;
             ScreeningTest screeningTest = screeningTestDao.getScreeningTestForContestant(loggedInContestant);

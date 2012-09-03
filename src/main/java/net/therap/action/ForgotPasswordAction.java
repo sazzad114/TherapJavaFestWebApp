@@ -38,6 +38,7 @@ public class ForgotPasswordAction implements Serializable {
 
     private String email;
 
+
     public void resetPassword() {
         String tempPass = StringGeneratorUtil.generateString(TEMPORARY_PASSWORD_LEN);
         passwordResettingContestant = contestantDao.getContestantByEmail(email);
@@ -49,6 +50,7 @@ public class ForgotPasswordAction implements Serializable {
             Contexts.getSessionContext().remove("passwordResettingContestant");
 
         }
+
         Redirect redirect = Redirect.instance();
         redirect.setViewId("/emailSent.xhtml");
         redirect.execute();
