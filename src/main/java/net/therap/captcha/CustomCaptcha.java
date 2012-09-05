@@ -92,8 +92,8 @@ public class CustomCaptcha extends Captcha implements Serializable {
             double angle = (Math.random() - 0.5) * rotationRange;
             charGraphics.transform(AffineTransform.getRotateInstance(angle));
             charGraphics.translate(-halfCharDim, -halfCharDim);
-            int charColor = 60 + (int) (Math.random() * 90);
-            charGraphics.setColor(new Color(charColor, charColor, charColor));
+            int charColor = 120 + (int) (Math.random() * 90);
+            charGraphics.setColor(new Color(charColor, 0, charColor));
             charGraphics.setFont(textFont);
             int charX = (int) (0.5 * charDim - 0.5 * charWidth);
             charGraphics.drawString("" + charToPrint, charX, ((charDim - fontMetrics.getAscent()) / 2 + fontMetrics.getAscent()));
