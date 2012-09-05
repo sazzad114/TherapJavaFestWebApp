@@ -50,6 +50,8 @@ public class RegistrationAction implements Serializable {
 
     public String register(Contestant contestant) {
 
+        printRegistrationInfoInLog(contestant);
+
         List<String> imageFileTypes = new ArrayList<String>();
         imageFileTypes.add("image/gif");
         imageFileTypes.add("image/jpeg");
@@ -111,6 +113,36 @@ public class RegistrationAction implements Serializable {
 
         facesMessages.addToControl("verifyCaptcha", "Please enter captcha again");
         return "failed";
+    }
+
+    public void printRegistrationInfoInLog(Contestant contestant) {
+
+        String contestantName = contestant.getContestantName();
+        String email = contestant.getEmail();
+        String phone = contestant.getPhone();
+        String studentId = contestant.getStudentId();
+        Double cgpa = contestant.getCgpa();
+        String university = contestant.getUniversity();
+        Date dateOfBirth = contestant.getDateOfBirth();
+        Date expectedGraduationDate = contestant.getExpectedGraduationDate();
+        String gender = contestant.getGender();
+        String description = contestant.getDescription();
+        String linkedInProfile = contestant.getLinkedInProfile();
+        String languageProficiency = contestant.getLanguageProficiency();
+
+        log.info("Contestant Name: " + contestantName);
+        log.info("Email: " +email);
+        log.info("Phone: " + phone);
+        log.info("Student Id: " + studentId);
+        log.info("CGPA: " + cgpa);
+        log.info("University: " + university);
+        log.info("Date of Birth: " + dateOfBirth);
+        log.info("Expected Graduation Date: " + expectedGraduationDate);
+        log.info("Gender: " + gender);
+        log.info("Description: " + description);
+        log.info("LinkedIn Profile: " + linkedInProfile);
+        log.info("Favorite language: " + languageProficiency);
+
     }
 
 
