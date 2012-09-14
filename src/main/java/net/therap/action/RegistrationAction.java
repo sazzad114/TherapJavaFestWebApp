@@ -16,6 +16,7 @@ import org.jboss.seam.log.Log;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -30,7 +31,7 @@ import java.util.List;
 public class RegistrationAction implements Serializable {
 
     private final int TEMPORARY_PASSWORD_LEN = 10;
-    private final int UPLOADED_IMAGE_SIZE = 5;
+    private final float UPLOADED_IMAGE_SIZE = 0.5f;
     private final int UPLOADED_CV_SIZE = 5;
 
     @In(create = true)
@@ -49,12 +50,14 @@ public class RegistrationAction implements Serializable {
 
     public String register(Contestant contestant) {
 
+        printRegistrationInfoInLog(contestant);
+
         List<String> imageFileTypes = new ArrayList<String>();
         imageFileTypes.add("image/gif");
         imageFileTypes.add("image/jpeg");
         imageFileTypes.add("image/png");
 
-        int imageFileSize = 500 * 1024;
+        int imageFileSize = (int) (UPLOADED_IMAGE_SIZE * 1024 * 1024);
 
         List<String> cvFileTypes = new ArrayList<String>();
         cvFileTypes.add("application/pdf");
@@ -64,7 +67,7 @@ public class RegistrationAction implements Serializable {
         boolean validationFails = false;
 
         if (!FileValidatorUtil.validateFileSize(contestant.getImageFileWrapper(), imageFileSize)) {
-            facesMessages.addToControl("image", "file size must not exceed " + UPLOADED_IMAGE_SIZE + "MB");
+            facesMessages.addToControl("image", "file size must not exceed 500 KB");
             validationFails = true;
         }
         if (!FileValidatorUtil.validateFileType(contestant.getImageFileWrapper(), imageFileTypes)) {
@@ -101,8 +104,8 @@ public class RegistrationAction implements Serializable {
             contestant.setPassword(temporaryPassword);
             contestant.setState(ContestantState.TEMPORARY_CONTESTANT);
             contestantDao.saveContestant(contestant);
-            emailAction.sendMessage();
-            log.debug("Saved contestant");
+            emailAction.sendMessage("registrationEmail.xhtml");
+            log.info("Saved contestant at" + new Date());
             Redirect redirect = Redirect.instance();
             redirect.setViewId("/emailSent.xhtml");
             redirect.execute();
@@ -110,6 +113,36 @@ public class RegistrationAction implements Serializable {
 
         facesMessages.addToControl("verifyCaptcha", "Please enter captcha again");
         return "failed";
+    }
+
+    public void printRegistrationInfoInLog(Contestant contestant) {
+
+        String contestantName = contestant.getContestantName();
+        String email = contestant.getEmail();
+        String phone = contestant.getPhone();
+        String studentId = contestant.getStudentId();
+        Double cgpa = contestant.getCgpa();
+        String university = contestant.getUniversity();
+        Date dateOfBirth = contestant.getDateOfBirth();
+        Date expectedGraduationDate = contestant.getExpectedGraduationDate();
+        String gender = contestant.getGender();
+        String description = contestant.getDescription();
+        String linkedInProfile = contestant.getLinkedInProfile();
+        String languageProficiency = contestant.getLanguageProficiency();
+
+        log.info("Contestant Name: " + contestantName);
+        log.info("Email: " +email);
+        log.info("Phone: " + phone);
+        log.info("Student Id: " + studentId);
+        log.info("CGPA: " + cgpa);
+        log.info("University: " + university);
+        log.info("Date of Birth: " + dateOfBirth);
+        log.info("Expected Graduation Date: " + expectedGraduationDate);
+        log.info("Gender: " + gender);
+        log.info("Description: " + description);
+        log.info("LinkedIn Profile: " + linkedInProfile);
+        log.info("Favorite language: " + languageProficiency);
+
     }
 
 

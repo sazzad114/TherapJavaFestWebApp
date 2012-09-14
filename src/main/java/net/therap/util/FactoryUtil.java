@@ -88,4 +88,9 @@ public class FactoryUtil implements Serializable {
         return false;
     }
 
+    @Factory(value = "passwordResettingContestant", scope = ScopeType.PAGE)
+    public Contestant getPassWordResettingContestant() {
+        return new Contestant();
+    }
+
 }

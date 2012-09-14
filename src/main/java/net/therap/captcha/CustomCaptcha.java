@@ -9,12 +9,10 @@ package net.therap.captcha;
 
 import net.therap.util.StringGeneratorUtil;
 import org.jboss.seam.ScopeType;
-import org.jboss.seam.annotations.Create;
-import org.jboss.seam.annotations.Install;
-import org.jboss.seam.annotations.Name;
-import org.jboss.seam.annotations.Scope;
+import org.jboss.seam.annotations.*;
 import org.jboss.seam.captcha.Captcha;
 import org.jboss.seam.captcha.CaptchaResponse;
+import org.jboss.seam.log.Log;
 
 import java.awt.*;
 import java.awt.geom.AffineTransform;
@@ -34,6 +32,9 @@ public class CustomCaptcha extends Captcha implements Serializable {
     private int circlesToDraw = 4;
     private float horizMargin = 20.0f;
     private double rotationRange = 0.2;
+
+    @Logger
+    private Log log;
 
 
     @Override
@@ -91,8 +92,8 @@ public class CustomCaptcha extends Captcha implements Serializable {
             double angle = (Math.random() - 0.5) * rotationRange;
             charGraphics.transform(AffineTransform.getRotateInstance(angle));
             charGraphics.translate(-halfCharDim, -halfCharDim);
-            int charColor = 60 + (int) (Math.random() * 90);
-            charGraphics.setColor(new Color(charColor, charColor, charColor));
+            int charColor = 120 + (int) (Math.random() * 90);
+            charGraphics.setColor(new Color(charColor, 0, charColor));
             charGraphics.setFont(textFont);
             int charX = (int) (0.5 * charDim - 0.5 * charWidth);
             charGraphics.drawString("" + charToPrint, charX, ((charDim - fontMetrics.getAscent()) / 2 + fontMetrics.getAscent()));
@@ -123,6 +124,9 @@ public class CustomCaptcha extends Captcha implements Serializable {
 
     @Override
     public boolean validateResponse(String response) {
+        if(!getChallenge().equals(response.toUpperCase())) {
+            log.info("Captcha failed");
+        }
         return getChallenge().equals(response.toUpperCase());
 
     }

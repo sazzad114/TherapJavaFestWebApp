@@ -9,13 +9,19 @@
 
     <context-param>
         <param-name>javax.faces.STATE_SAVING_METHOD</param-name>
-        <param-value>server</param-value>
+        <param-value>client</param-value>
     </context-param>
 
     <!-- Seam -->
 
     <listener>
         <listener-class>org.jboss.seam.servlet.SeamListener</listener-class>
+    </listener>
+
+    <listener>
+        <listener-class>
+            net.therap.listener.SessionCounter
+        </listener-class>
     </listener>
 
     <filter>
@@ -69,9 +75,7 @@
 
     <error-page>
         <error-code>404</error-code>
-        <location>/exceptionPage.seam</location>
+        <location>/errorPage.seam</location>
     </error-page>
-
-
 </web-app>
 

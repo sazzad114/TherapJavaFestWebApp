@@ -32,7 +32,7 @@
 
                         <div class="entry">
 
-                            <h:form>
+                            <h:form id="screeningTestForm">
 
                                 <table>
                                     <tr>
@@ -48,10 +48,10 @@
                                                        itemValue="#{selectedOption.optionId}"/>
 
                                     </h:selectOneRadio>
-                                    <h:commandButton value="Get Next Question" action="#{testAction.postAnswer}"
+                                    <h:commandButton id="goToNextQuestion" value="Get Next Question" action="#{testAction.postAnswer}"
                                                      immediate="true"/>
 
-                                    <h:commandButton value="End test" action="#{testAction.endTest}" immediate="true"/>
+                                    <h:commandButton id="endTest" value="End test" action="#{testAction.endTest}" immediate="true"/>
                                 </table>
                             </h:form>
                         </div>

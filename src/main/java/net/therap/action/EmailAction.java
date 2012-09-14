@@ -22,12 +22,12 @@ public class EmailAction implements Serializable {
     @In(create = true)
     private Renderer renderer;
 
-    public void sendMessage() {
+    public void sendMessage(String emailContentFileName) {
         log.info("inside send message");
         try {
-            renderer.render("/email.xhtml");
+            renderer.render("/" + emailContentFileName);
         } catch (Exception e) {
-            log.error("Error Email Send #0" + e.getMessage());
+            log.error("Error Email Send ",e);
         }
     }
 }
