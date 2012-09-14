@@ -60,13 +60,17 @@
 
     <context-param>
         <param-name>facelets.DEVELOPMENT</param-name>
-        <param-value>true</param-value>
+        <param-value>false</param-value>
     </context-param>
 
     <welcome-file-list>
         <welcome-file>index.jsp</welcome-file>
     </welcome-file-list>
 
+    <error-page>
+        <error-code>404</error-code>
+        <location>/exceptionPage.seam</location>
+    </error-page>
 
 
 </web-app>
