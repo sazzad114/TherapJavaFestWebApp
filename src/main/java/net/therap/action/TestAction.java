@@ -69,7 +69,7 @@ public class TestAction implements Serializable {
 
     private long timeLeft;
 
-    private Integer selectedOptionId;
+    private Integer selectedOptionId = -1;
 
     public int getSelectedOptionId() {
         return selectedOptionId;
@@ -129,7 +129,7 @@ public class TestAction implements Serializable {
             log.info("Invoking loadCurrentQuestion");
 
 
-            ScreeningTest screeningTest = loggedInContestant.getScreeningTest();
+            ScreeningTest screeningTest = screeningTestDao.getScreeningTestForContestant(loggedInContestant);
             Question question = questionBank.getQuestions().get(screeningTest.getCurrentQuestionState().getCurrentQuestionId());
             Date currentDateTime = new Date();
             long timeElapsed = currentDateTime.getTime() - screeningTest.getCurrentQuestionState().getLastLoadingTime().getTime();
@@ -197,7 +197,7 @@ public class TestAction implements Serializable {
 
         answerInfoDao.saveAnswerInfo(answerInfo);
 
-        ScreeningTest screeningTest = loggedInContestant.getScreeningTest();
+       ScreeningTest screeningTest = screeningTestDao.getScreeningTestForContestant(loggedInContestant);
 
         int currentIndex = 0;
 
