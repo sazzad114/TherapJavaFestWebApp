@@ -31,7 +31,7 @@ import java.util.List;
 @Scope(ScopeType.EVENT)
 public class QuestionGeneratorAction implements Serializable {
 
-    private final int NUMBER_OF_QUESTIONS = 30;
+    private final int NUMBER_OF_QUESTIONS = 20;
 
     @Logger
     Log log;

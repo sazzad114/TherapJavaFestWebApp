@@ -261,4 +261,18 @@ public class TestAction implements Serializable {
 
         question.setOptions(reshuffledOptions);
     }
+
+    public int getCurrentQuestionIndex(){
+        int currentIndex = 0;
+
+        for (int i = 0; i < loggedInContestant.getScreeningTest().getQuestionOrderList().size(); i++) {
+            if (currentQuestion.getQuestionId() == loggedInContestant.getScreeningTest().getQuestionOrderList().get(i).getQuestionOrder()) {
+                currentIndex = i + 1;
+                return currentIndex;
+            }
+        }
+        return currentIndex;
+    }
+
+
 }

@@ -256,9 +256,9 @@ img {
 }
 
 #javascript_countdown_time {
-    font-size: 20px;
+    font-size: 40px;
     font-weight: bold;
-    font-color: Green;
+    color:#0086df;
     float: right;
 }
 
