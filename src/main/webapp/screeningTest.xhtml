@@ -37,7 +37,7 @@
                                 <table>
                                     <tr>
                                         <td>
-                                            <s:label>#{currentQuestion.questionString}</s:label>
+                                            <h:outputText escape="false" value="#{currentQuestion.questionString}"/>
                                         </td>
                                     </tr>
                                     <h:selectOneRadio value="#{testAction.selectedOptionId}"

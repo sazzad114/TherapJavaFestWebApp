@@ -5,246 +5,391 @@
     <questions>
         <questions>
             <questionId>0</questionId>
-            <questionString>What is your name, robot no.0 ?</questionString>
+            <questionString><![CDATA[What will be the output of the following program?
+				<pre>
+    public class X {
+        public static void main(String[] args) {
+                try {
+                    badMethod();
+                    System.out.print("A");
+                } catch (RuntimeException ex) {
+                    System.out.print("B");
+                } catch (Exception ex1) {
+                    System.out.print("C");
+                } finally {
+                    System.out.print("D");
+                }
+                System.out.print("E");
+            }
+
+        public static void badMethod() {
+                throw new RuntimeException();
+        }
+    }
+				</pre>
+				]]>
+            </questionString>
             <options>
                 <option>
                     <optionId>1</optionId>
-                    <optionString>Hashmot</optionString>
+                    <optionString>BD</optionString>
                 </option>
                 <option>
                     <optionId>2</optionId>
-                    <optionString>Swastie</optionString>
+                    <optionString>BCD</optionString>
                 </option>
                 <option>
                     <optionId>3</optionId>
-                    <optionString>Habijabi</optionString>
+                    <optionString>BDE</optionString>
                 </option>
                 <option>
                     <optionId>4</optionId>
-                    <optionString>Hijibiji</optionString>
+                    <optionString>BCDE</optionString>
                 </option>
             </options>
             <correctOption>
-                <optionId>1</optionId>
-                <optionString>Hashmot</optionString>
+                <optionId>3</optionId>
+                <optionString>BDE</optionString>
             </correctOption>
-            <allottedTime>10</allottedTime>
+            <allottedTime>120</allottedTime>
         </questions>
         <questions>
             <questionId>1</questionId>
-            <questionString>What is your name, robot no.1 ?</questionString>
+            <questionString><![CDATA[What is the output of the following code snippet?
+					<pre>
+    public class Main {
+
+        public static void main(String[] args) {
+
+            List aList = new ArrayList();
+
+            aList.add(1);
+            aList.add(2);
+            aList.add(7);
+            aList.add(3);
+            aList.add(6);
+
+            int index = Collections.binarySearch(aList, 6);
+
+            System.out.println(index);
+
+        }
+    }
+					</pre>
+                            ]]>
+            </questionString>
             <options>
                 <option>
                     <optionId>1</optionId>
-                    <optionString>Hashmot</optionString>
+                    <optionString>3</optionString>
                 </option>
                 <option>
                     <optionId>2</optionId>
-                    <optionString>Swastie</optionString>
+                    <optionString>5</optionString>
                 </option>
                 <option>
                     <optionId>3</optionId>
-                    <optionString>Habijabi</optionString>
+                    <optionString>4</optionString>
                 </option>
                 <option>
                     <optionId>4</optionId>
-                    <optionString>Hijibiji</optionString>
+                    <optionString>None of the above</optionString>
                 </option>
             </options>
             <correctOption>
-                <optionId>1</optionId>
-                <optionString>Hashmot</optionString>
+                <optionId>4</optionId>
+                <optionString>None of the above</optionString>
             </correctOption>
-            <allottedTime>10</allottedTime>
+            <allottedTime>90</allottedTime>
         </questions>
         <questions>
             <questionId>2</questionId>
-            <questionString>What is your name, robot no.2 ?</questionString>
+            <questionString><![CDATA[
+                    What will the following code result in:
+                    <pre>
+                        float a = 9 / 0;
+                    </pre>
+                    ]]></questionString>
             <options>
                 <option>
                     <optionId>1</optionId>
-                    <optionString>Hashmot</optionString>
+                    <optionString>Compilation error: Divisions must be in a try block</optionString>
                 </option>
                 <option>
                     <optionId>2</optionId>
-                    <optionString>Swastie</optionString>
+                    <optionString>Compilation error: DivideByZeroException</optionString>
                 </option>
                 <option>
                     <optionId>3</optionId>
-                    <optionString>Habijabi</optionString>
+                    <optionString>Runtime Exception</optionString>
                 </option>
                 <option>
                     <optionId>4</optionId>
-                    <optionString>Hijibiji</optionString>
+                    <optionString>No Error: a is NaN</optionString>
                 </option>
             </options>
             <correctOption>
-                <optionId>1</optionId>
-                <optionString>Hashmot</optionString>
+                <optionId>3</optionId>
+                <optionString>Runtime Exception</optionString>
             </correctOption>
-            <allottedTime>10</allottedTime>
+            <allottedTime>60</allottedTime>
         </questions>
         <questions>
             <questionId>3</questionId>
-            <questionString>What is your name, robot no.3 ?</questionString>
+            <questionString>Out of 8 balls, one weighs less than the others. You have a scale. What is the minimum
+                number of weighs to determine the ball that weighs less?
+            </questionString>
             <options>
                 <option>
                     <optionId>1</optionId>
-                    <optionString>Hashmot</optionString>
+                    <optionString>2</optionString>
                 </option>
                 <option>
                     <optionId>2</optionId>
-                    <optionString>Swastie</optionString>
+                    <optionString>3</optionString>
                 </option>
                 <option>
                     <optionId>3</optionId>
-                    <optionString>Habijabi</optionString>
+                    <optionString>4</optionString>
                 </option>
                 <option>
                     <optionId>4</optionId>
-                    <optionString>Hijibiji</optionString>
+                    <optionString>5</optionString>
                 </option>
             </options>
             <correctOption>
                 <optionId>1</optionId>
-                <optionString>Hashmot</optionString>
+                <optionString>2</optionString>
             </correctOption>
-            <allottedTime>10</allottedTime>
+            <allottedTime>300</allottedTime>
         </questions>
         <questions>
             <questionId>4</questionId>
-            <questionString>What is your name, robot no.4 ?</questionString>
+            <questionString>What does encapsulation mean in terms of object orientation?</questionString>
             <options>
                 <option>
                     <optionId>1</optionId>
-                    <optionString>Hashmot</optionString>
+                    <optionString>The code is layered; typical layers are: user interface, business logic and
+                        persistence.
+                    </optionString>
                 </option>
                 <option>
                     <optionId>2</optionId>
-                    <optionString>Swastie</optionString>
+                    <optionString>Logically related data and procedures are grouped in a class while hiding the internal
+                        behaviour and data structure for other objects.
+                    </optionString>
                 </option>
                 <option>
                     <optionId>3</optionId>
-                    <optionString>Habijabi</optionString>
+                    <optionString>Objects can only access their own attributes.</optionString>
                 </option>
                 <option>
                     <optionId>4</optionId>
-                    <optionString>Hijibiji</optionString>
+                    <optionString>Encapsulation establishes the implementation, after that only the public interface can
+                        be adapted.
+                    </optionString>
                 </option>
             </options>
             <correctOption>
-                <optionId>1</optionId>
-                <optionString>Hashmot</optionString>
+                <optionId>2</optionId>
+                <optionString>Logically related data and procedures are grouped in a class while hiding the internal
+                    behaviour and data structure for other objects.
+                </optionString>
             </correctOption>
-            <allottedTime>10</allottedTime>
+            <allottedTime>90</allottedTime>
         </questions>
         <questions>
             <questionId>5</questionId>
-            <questionString>What is your name, robot no.5 ?</questionString>
+            <questionString><![CDATA[
+                    Consider the following code snippet:
+                    <pre>
+                        String s = "Chase the ball.";
+                        StringBuffer sb = new StringBuffer(s);
+                    </pre>
+                    Which code segment below produces a string equal to "Chase kicked the ball." using s
+                    and sb as shown above?
+                    ]]>
+            </questionString>
             <options>
                 <option>
                     <optionId>1</optionId>
-                    <optionString>Hashmot</optionString>
+                    <optionString>
+                        <![CDATA[
+                            <pre>
+                                sb.delete(6,15);
+                                sb.append("kicked the ball.");
+                                s = sb.toString();
+                            </pre>
+                        ]]>
+                    </optionString>
                 </option>
                 <option>
                     <optionId>2</optionId>
-                    <optionString>Swastie</optionString>
+                    <optionString>
+                        <![CDATA[
+                            <pre>
+                                sb.substring(0,6);
+                                sb.append("kicked the ball.");
+                                s = sb.toString();
+                            </pre>
+                        ]]>
+                    </optionString>
                 </option>
                 <option>
                     <optionId>3</optionId>
-                    <optionString>Habijabi</optionString>
+                    <optionString>
+                        <![CDATA[
+                            <pre>
+                                sb.append(8,"kicked ");
+                                s = sb.toString();
+                            </pre>
+                        ]]>
+                    </optionString>
                 </option>
                 <option>
                     <optionId>4</optionId>
-                    <optionString>Hijibiji</optionString>
+                    <optionString>All of the above</optionString>
                 </option>
             </options>
             <correctOption>
                 <optionId>1</optionId>
-                <optionString>Hashmot</optionString>
+                <optionString>
+                     <![CDATA[
+                            <pre>
+                                sb.delete(6,15);
+                                sb.append("kicked the ball.");
+                                s = sb.toString();
+                            </pre>
+                        ]]>
+                </optionString>
             </correctOption>
-            <allottedTime>10</allottedTime>
+            <allottedTime>210</allottedTime>
         </questions>
         <questions>
             <questionId>6</questionId>
-            <questionString>What is your name, robot no.6 ?</questionString>
+            <questionString><![CDATA[
+                    Arrange the following statements in order to successfully connect a client with a server.
+<br/>
+a. The connection between the Server and Client established.
+<br/>
+b. The Server assigns a hidden local port y to serve the Client.
+<br/>
+c. The Client opens a Socket to the port x.
+<br/>
+d. The Multithreaded Server opens the ServerSocket to port x.
+<br/>
+e. The Data Transfer is carried out by the Server and Client.
+<br/>
+f. The Client knows the port x where the Server opens it ServerSocket.
+<br/>
+<br/>
+Which one is the correct order of execution?
+                    ]]></questionString>
             <options>
                 <option>
                     <optionId>1</optionId>
-                    <optionString>Hashmot</optionString>
+                    <optionString>d-f-c-a-b-e</optionString>
                 </option>
                 <option>
                     <optionId>2</optionId>
-                    <optionString>Swastie</optionString>
+                    <optionString>d-f-a-c-b-e</optionString>
                 </option>
                 <option>
                     <optionId>3</optionId>
-                    <optionString>Habijabi</optionString>
+                    <optionString>f-d-c-a-b-e</optionString>
                 </option>
                 <option>
                     <optionId>4</optionId>
-                    <optionString>Hijibiji</optionString>
+                    <optionString>f-d-a-c-b-e</optionString>
                 </option>
             </options>
             <correctOption>
                 <optionId>1</optionId>
-                <optionString>Hashmot</optionString>
+                <optionString>d-f-c-a-b-e</optionString>
             </correctOption>
-            <allottedTime>10</allottedTime>
+            <allottedTime>240</allottedTime>
         </questions>
         <questions>
             <questionId>7</questionId>
-            <questionString>What is your name, robot no.7 ?</questionString>
+            <questionString><![CDATA[
+                    <pre>
+                        Integer a = new Integer(2);
+                        Integer b = new Integer(2);
+                    </pre>
+                    What happens when you do if(a==b)?
+                    ]]></questionString>
             <options>
                 <option>
                     <optionId>1</optionId>
-                    <optionString>Hashmot</optionString>
+                    <optionString>true</optionString>
                 </option>
                 <option>
                     <optionId>2</optionId>
-                    <optionString>Swastie</optionString>
+                    <optionString>false</optionString>
                 </option>
                 <option>
                     <optionId>3</optionId>
-                    <optionString>Habijabi</optionString>
+                    <optionString>Compiler error</optionString>
                 </option>
                 <option>
                     <optionId>4</optionId>
-                    <optionString>Hijibiji</optionString>
+                    <optionString>Runtime Exception</optionString>
                 </option>
             </options>
             <correctOption>
-                <optionId>1</optionId>
-                <optionString>Hashmot</optionString>
+                <optionId>2</optionId>
+                <optionString>false</optionString>
             </correctOption>
-            <allottedTime>10</allottedTime>
+            <allottedTime>60</allottedTime>
         </questions>
         <questions>
             <questionId>8</questionId>
-            <questionString>What is your name, robot no.8 ?</questionString>
+            <questionString><![CDATA[
+                    What is the output of the following program?
+                    <pre>
+    public class Test {
+        public static void main(String[] args){
+
+          String s1 = “abc”;
+          String s2 = “abc”;
+
+          if (s1 == s2)
+              System.out.print(1);
+          else
+              System.out.print(2);
+
+          if (s1.equals(s2))
+              System.out.print(3);
+          else
+              System.out.print(4);
+       }
+   }
+</pre>
+                    ]]>
+            </questionString>
             <options>
                 <option>
                     <optionId>1</optionId>
-                    <optionString>Hashmot</optionString>
+                    <optionString>13</optionString>
                 </option>
                 <option>
                     <optionId>2</optionId>
-                    <optionString>Swastie</optionString>
+                    <optionString>14</optionString>
                 </option>
                 <option>
                     <optionId>3</optionId>
-                    <optionString>Habijabi</optionString>
+                    <optionString>24</optionString>
                 </option>
                 <option>
                     <optionId>4</optionId>
-                    <optionString>Hijibiji</optionString>
+                    <optionString>None of the above</optionString>
                 </option>
             </options>
             <correctOption>
                 <optionId>1</optionId>
-                <optionString>Hashmot</optionString>
+                <optionString>13</optionString>
             </correctOption>
-            <allottedTime>10</allottedTime>
+            <allottedTime>90</allottedTime>
         </questions>
         <questions>
             <questionId>9</questionId>
