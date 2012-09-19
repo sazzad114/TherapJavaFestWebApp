@@ -47,6 +47,9 @@
             <rule if="#{loggedInContestant.state == contestantState.NEW_CONTESTANT}">
                 <redirect view-id="/greetings/newContestantGreeting.xhtml"/>
             </rule>
+            <rule if="#{loggedInContestant.state == contestantState.PENDING_SCREENING_TEST}">
+                <redirect view-id="/greetings/pendingScreeningTestGreeting.xhtml"/>
+            </rule>
             <rule if="#{loggedInContestant.state == contestantState.READY_FOR_TEST}">
                 <redirect view-id="/greetings/readyForTestGreeting.xhtml"/>
             </rule>
@@ -114,6 +117,19 @@
                 <render view-id="/greetings/newContestantGreeting.xhtml"/>
             </rule>
             <rule if="#{loggedInContestant.state != contestantState.NEW_CONTESTANT}">
+                <redirect view-id="/greetings/greeting.xhtml"/>
+            </rule>
+        </navigation>
+    </page>
+
+    <page view-id="/greetings/pendingScreeningTestGreeting.xhtml" login-required="true"
+          action="#{loggedInContestant.getState}">
+
+        <navigation from-action="#{loggedInContestant.getState}">
+            <rule if="#{loggedInContestant.state == contestantState.PENDING_SCREENING_TEST}">
+                <render view-id="/greetings/pendingScreeningTestGreeting.xhtml"/>
+            </rule>
+            <rule if="#{loggedInContestant.state != contestantState.PENDING_SCREENING_TEST}">
                 <redirect view-id="/greetings/greeting.xhtml"/>
             </rule>
         </navigation>
