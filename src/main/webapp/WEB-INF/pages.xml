@@ -25,6 +25,9 @@
             <rule if-outcome="true">
                 <redirect view-id="/greetings/greeting.xhtml"/>
             </rule>
+            <rule if-outcome="false">
+                <redirect view-id="/registrationClosed.xhtml"/>
+            </rule>
         </navigation>
     </page>
 
@@ -39,6 +42,17 @@
             </rule>
         </navigation>
 
+    </page>
+
+    <page view-id="/registrationClosed.xhtml" action="#{identity.isLoggedIn}">
+        <navigation from-action="#{identity.isLoggedIn}">
+            <rule if-outcome="true">
+                <redirect view-id="/greetings/greeting.xhtml"/>
+            </rule>
+            <rule if-outcome="false">
+                <redirect view-id="/registrationClosed.xhtml"/>
+            </rule>
+        </navigation>
     </page>
 
     <page view-id="/greetings/greeting.xhtml" login-required="true" action="#{loggedInContestant.getState}">

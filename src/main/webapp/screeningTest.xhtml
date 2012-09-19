@@ -10,6 +10,14 @@
     <script src="/js/timer.js" type="text/javascript"></script>
 </head>
 <body onload="javascript_countdown.init('#{testAction.timeLeft}','javascript_countdown_time','#{conversation.id}')">
+
+<script type="text/javascript">
+    function confirmAction(){
+      var confirmed = confirm("Are you sure you want to end the test");
+      return confirmed;
+}
+</script>
+
 <div id="wrapper">
 
     <div id="header-wrapper">
@@ -70,7 +78,7 @@
 
                                     <h:commandButton id="endTest" value="End test"
                                                      action="#{testAction.endTest}"
-                                                     immediate="true" style="float:right"/>
+                                                     immediate="true" style="float:right" onclick="return confirmAction()"/>
 
                                 </div>
                             </h:form>
