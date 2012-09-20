@@ -50,7 +50,7 @@
                 <redirect view-id="/greetings/greeting.xhtml"/>
             </rule>
             <rule if-outcome="false">
-                <redirect view-id="/registrationClosed.xhtml"/>
+                <render view-id="/registrationClosed.xhtml"/>
             </rule>
         </navigation>
     </page>
