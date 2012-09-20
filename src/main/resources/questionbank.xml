@@ -96,12 +96,12 @@ What is the output of the following code snippet?
                 </option>
                 <option>
                     <optionId>4</optionId>
-                    <optionString>None of the above</optionString>
+                    <optionString>None of the other options</optionString>
                 </option>
             </options>
             <correctOption>
                 <optionId>4</optionId>
-                <optionString>None of the above</optionString>
+                <optionString>None of the other options</optionString>
             </correctOption>
             <allottedTime>90</allottedTime>
         </question>
@@ -248,7 +248,7 @@ and sb as shown above?
                 </option>
                 <option>
                     <optionId>4</optionId>
-                    <optionString>All of the above</optionString>
+                    <optionString>All of the other options</optionString>
                 </option>
             </options>
             <correctOption>
@@ -385,7 +385,7 @@ What is the output of the following program?
                 </option>
                 <option>
                     <optionId>4</optionId>
-                    <optionString>None of the above</optionString>
+                    <optionString>None of the other options</optionString>
                 </option>
             </options>
             <correctOption>
@@ -541,7 +541,7 @@ What is the output of the following program?
                 </option>
                 <option>
                     <optionId>5</optionId>
-                    <optionString>none</optionString>
+                    <optionString>None of the other options</optionString>
                 </option>
             </options>
             <correctOption>
@@ -570,7 +570,7 @@ What is the output of the following program?
                 </option>
                 <option>
                     <optionId>4</optionId>
-                    <optionString>B or C above</optionString>
+                    <optionString>None of the other options</optionString>
                 </option>
                 <option>
                     <optionId>5</optionId>
@@ -607,7 +607,7 @@ What is the output of the following program?
                 </option>
                 <option>
                     <optionId>5</optionId>
-                    <optionString>none of the above</optionString>
+                    <optionString>None of the other options</optionString>
                 </option>
             </options>
             <correctOption>

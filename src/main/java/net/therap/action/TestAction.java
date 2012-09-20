@@ -91,7 +91,7 @@ public class TestAction implements Serializable {
 
         else if (loggedInContestant.getState() == ContestantState.AT_TEST) {
 
-            log.info("Invoking loadFirstQuestion");
+            //log.info("Invoking loadFirstQuestion");
             selectedOptionId = -1;
             ScreeningTest screeningTest = screeningTestDao.getScreeningTestForContestant(loggedInContestant);
             for (int i = 0; i < screeningTest.getQuestionOrderList().size(); i++) {
@@ -104,7 +104,7 @@ public class TestAction implements Serializable {
             timeElapsed = timeElapsed / 1000;
             log.info("value of time elapsed" + timeElapsed);
 
-            log.info("get current question");
+            //log.info("get current question");
             screeningTest.getCurrentQuestionState().setLastLoadingTime(currentDateTime);
             timeLeft = screeningTest.getCurrentQuestionState().getTimeLeft() - timeElapsed;
             screeningTest.getCurrentQuestionState().setTimeLeft(timeLeft);
@@ -126,7 +126,7 @@ public class TestAction implements Serializable {
 
     public void loadCurrentQuestion() {
         if (loggedInContestant.getState() == ContestantState.AT_TEST) {
-            log.info("Invoking loadCurrentQuestion");
+            //log.info("Invoking loadCurrentQuestion");
 
 
             ScreeningTest screeningTest = screeningTestDao.getScreeningTestForContestant(loggedInContestant);
@@ -141,15 +141,11 @@ public class TestAction implements Serializable {
             log.info("Selected Option Id: " + selectedOptionId);
 
             if (timeElapsed + 2 >= screeningTest.getCurrentQuestionState().getTimeLeft() || selectedOptionId != -1) {
-                log.info("into next question");
-                if (selectedOptionId != -1) {
-                    log.info("came from postback");
-                }
                 getNextQuestion();
                 selectedOptionId = -1;
 
             } else {
-                log.info("get current question");
+                //log.info("get current question");
                 screeningTest.getCurrentQuestionState().setLastLoadingTime(currentDateTime);
                 timeLeft = screeningTest.getCurrentQuestionState().getTimeLeft() - timeElapsed;
                 screeningTest.getCurrentQuestionState().setTimeLeft(timeLeft);
@@ -168,21 +164,22 @@ public class TestAction implements Serializable {
     @Begin(join = true)
     public void getNextQuestion() {
 
-        log.info("Invoking getNextQuestion");
+        //log.info("Invoking getNextQuestion");
 
         AnswerInfo answerInfo = new AnswerInfo();
 
         answerInfo.setContestant(loggedInContestant);
         answerInfo.setQuestionId(currentQuestion.getQuestionId());
-        log.info("Selected Option Id: " + selectedOptionId);
+        answerInfo.setTimeOfAnswer(new Date());
+        //log.info("Selected Option Id: " + selectedOptionId);
 
 
         Map<String, String> paramMap = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap();
 
         for (String key : paramMap.keySet()) {
-            log.info("Param: " + key + " Value: " + paramMap.get(key));
+            //log.info("Param: " + key + " Value: " + paramMap.get(key));
             if (key.contains("selectedQuestionOption")) {
-                log.info("OptionParam: " + key + " Value: " + paramMap.get(key));
+                //log.info("OptionParam: " + key + " Value: " + paramMap.get(key));
                 selectedOptionId = Integer.parseInt(paramMap.get(key));
             }
         }
@@ -193,6 +190,18 @@ public class TestAction implements Serializable {
             answerInfo.setCorrect(true);
         } else {
             answerInfo.setCorrect(false);
+        }
+
+        log.info("Answer Information:");
+        log.info("Contestant: " + answerInfo.getContestant().getContestantName() + " Id: " + answerInfo.getContestant().getContestantId());
+        log.info("Id of Answered Question: " + answerInfo.getQuestionId());
+        log.info("Contestant selected option: " + answerInfo.getSelectedOptionId());
+        log.info("Time of answer was:" + answerInfo.getTimeOfAnswer());
+        if (answerInfo.isCorrect()) {
+            log.info("Selected answer was correct");
+        }
+        else {
+            log.info("Selected answer was incorrect");
         }
 
         answerInfoDao.saveAnswerInfo(answerInfo);

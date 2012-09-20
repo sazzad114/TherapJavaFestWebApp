@@ -4,6 +4,7 @@ import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Date;
 
 /**
  * Created by IntelliJ IDEA.
@@ -21,6 +22,7 @@ public class AnswerInfo implements Serializable {
     private long questionId;
     private boolean correct;
     private int selectedOptionId;
+    private Date timeOfAnswer;
     private long version;
 
 
@@ -71,6 +73,16 @@ public class AnswerInfo implements Serializable {
 
     public void setSelectedOptionId(int selectedOptionId) {
         this.selectedOptionId = selectedOptionId;
+    }
+
+    @Column(name = "TIME_OF_ANSWER")
+    @Temporal(TemporalType.TIMESTAMP)
+    public Date getTimeOfAnswer() {
+        return timeOfAnswer;
+    }
+
+    public void setTimeOfAnswer(Date timeOfAnswer) {
+        this.timeOfAnswer = timeOfAnswer;
     }
 
     @Version
