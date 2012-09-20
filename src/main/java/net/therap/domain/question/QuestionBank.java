@@ -38,7 +38,7 @@ public class QuestionBank implements Serializable {
     }
 
     @XmlElementWrapper(name = "questions")
-    @XmlElement
+    @XmlElement(name = "question")
     public List<Question> getQuestions() {
         return questions;
     }

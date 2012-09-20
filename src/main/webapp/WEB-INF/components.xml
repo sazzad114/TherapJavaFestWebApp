@@ -18,7 +18,7 @@ http://jboss.com/products/seam/mail ">
                   concurrent-request-timeout="5000"
                   conversation-id-parameter="cid"/>
 
-    <core:init debug="true"/>
+    <!--core:init debug="true"/>-->
 
     <persistence:hibernate-session-factory name="hibernateSessionFactory"/>
 

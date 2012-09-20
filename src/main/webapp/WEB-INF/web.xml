@@ -7,10 +7,42 @@
     <display-name>Therap Java Fest</display-name>
     <description>Therap Java Fest</description>
 
+    <!-- JSF parameters -->
+
     <context-param>
-        <param-name>javax.faces.STATE_SAVING_METHOD</param-name>
-        <param-value>client</param-value>
+        <param-name>org.richfaces.LoadStyleStrategy</param-name>
+        <param-value>ALL</param-value>
     </context-param>
+
+    <context-param>
+        <param-name>org.richfaces.LoadScriptStrategy</param-name>
+        <param-value>ALL</param-value>
+    </context-param>
+
+    <context-param>
+        <param-name>javax.faces.DEFAULT_SUFFIX</param-name>
+        <param-value>.xhtml</param-value>
+    </context-param>
+
+    <!--<context-param>-->
+    <!--<param-name>org.ajax4jsf.VIEW_HANDLERS</param-name>-->
+    <!--<param-value>com.sun.facelets.FaceletViewHandler</param-value>-->
+    <!--</context-param>-->
+
+    <context-param>
+        <param-name>facelets.REFRESH_PERIOD</param-name>
+        <param-value>-1</param-value>
+    </context-param>
+
+    <context-param>
+        <param-name>facelets.DEVELOPMENT</param-name>
+        <param-value>false</param-value>
+    </context-param>
+
+    <!--<context-param>-->
+    <!--<param-name>com.sun.faces.responseBufferSize</param-name>-->
+    <!--<param-value>500000</param-value>-->
+    <!--</context-param>-->
 
     <!-- Seam -->
 
@@ -19,9 +51,7 @@
     </listener>
 
     <listener>
-        <listener-class>
-            net.therap.listener.SessionCounter
-        </listener-class>
+        <listener-class>net.therap.listener.SessionCounter</listener-class>
     </listener>
 
     <filter>
@@ -57,17 +87,23 @@
         <url-pattern>*.seam</url-pattern>
     </servlet-mapping>
 
-    <!-- JSF parameters -->
 
-    <context-param>
-        <param-name>javax.faces.DEFAULT_SUFFIX</param-name>
-        <param-value>.xhtml</param-value>
-    </context-param>
+    <!--<context-param>-->
+    <!--<param-name>facelets.BUFFER_SIZE</param-name>-->
+    <!--<param-value>500000</param-value>-->
+    <!--</context-param>-->
 
-    <context-param>
-        <param-name>facelets.DEVELOPMENT</param-name>
-        <param-value>false</param-value>
-    </context-param>
+
+    <!--<context-param>-->
+    <!--<param-name>com.sun.faces.numberOfViewsInSession</param-name>-->
+    <!--<param-value>150</param-value>-->
+    <!--</context-param>-->
+
+
+    <!--<context-param>-->
+    <!--<param-name>com.sun.faces.numberOfLogicalViews</param-name>-->
+    <!--<param-value>150</param-value>-->
+    <!--</context-param>-->
 
     <welcome-file-list>
         <welcome-file>index.jsp</welcome-file>
@@ -84,4 +120,3 @@
     </session-config>
 
 </web-app>
-

@@ -28,7 +28,7 @@ public class ContestantState implements Serializable {
 
     public static final int ELIMINATED_AT_TEST = 7;
 
-    public static final int PENDING_GROUP_FORMATION = 8;
+    public static final int PENDING_SCREENING_TEST = 8;
 
     public static final int ELIGIBLE_FOR_GROUP_REG = 9;
 
@@ -86,8 +86,8 @@ public class ContestantState implements Serializable {
         return ELIMINATED_AT_TEST;
     }
 
-    public int getPENDING_GROUP_FORMATION() {
-        return PENDING_GROUP_FORMATION;
+    public int getPENDING_SCREENING_TEST() {
+        return PENDING_SCREENING_TEST;
     }
 
     public int getELIGIBLE_FOR_GROUP_REG() {

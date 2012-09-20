@@ -25,6 +25,9 @@
             <rule if-outcome="true">
                 <redirect view-id="/greetings/greeting.xhtml"/>
             </rule>
+            <rule if-outcome="false">
+                <redirect view-id="/registrationClosed.xhtml"/>
+            </rule>
         </navigation>
     </page>
 
@@ -41,11 +44,25 @@
 
     </page>
 
+    <page view-id="/registrationClosed.xhtml" action="#{identity.isLoggedIn}">
+        <navigation from-action="#{identity.isLoggedIn}">
+            <rule if-outcome="true">
+                <redirect view-id="/greetings/greeting.xhtml"/>
+            </rule>
+            <rule if-outcome="false">
+                <render view-id="/registrationClosed.xhtml"/>
+            </rule>
+        </navigation>
+    </page>
+
     <page view-id="/greetings/greeting.xhtml" login-required="true" action="#{loggedInContestant.getState}">
 
         <navigation from-action="#{loggedInContestant.getState}">
             <rule if="#{loggedInContestant.state == contestantState.NEW_CONTESTANT}">
                 <redirect view-id="/greetings/newContestantGreeting.xhtml"/>
+            </rule>
+            <rule if="#{loggedInContestant.state == contestantState.PENDING_SCREENING_TEST}">
+                <redirect view-id="/greetings/pendingScreeningTestGreeting.xhtml"/>
             </rule>
             <rule if="#{loggedInContestant.state == contestantState.READY_FOR_TEST}">
                 <redirect view-id="/greetings/readyForTestGreeting.xhtml"/>
@@ -114,6 +131,19 @@
                 <render view-id="/greetings/newContestantGreeting.xhtml"/>
             </rule>
             <rule if="#{loggedInContestant.state != contestantState.NEW_CONTESTANT}">
+                <redirect view-id="/greetings/greeting.xhtml"/>
+            </rule>
+        </navigation>
+    </page>
+
+    <page view-id="/greetings/pendingScreeningTestGreeting.xhtml" login-required="true"
+          action="#{loggedInContestant.getState}">
+
+        <navigation from-action="#{loggedInContestant.getState}">
+            <rule if="#{loggedInContestant.state == contestantState.PENDING_SCREENING_TEST}">
+                <render view-id="/greetings/pendingScreeningTestGreeting.xhtml"/>
+            </rule>
+            <rule if="#{loggedInContestant.state != contestantState.PENDING_SCREENING_TEST}">
                 <redirect view-id="/greetings/greeting.xhtml"/>
             </rule>
         </navigation>

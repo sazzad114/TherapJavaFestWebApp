@@ -31,6 +31,8 @@ import java.util.List;
 @Scope(ScopeType.EVENT)
 public class QuestionGeneratorAction implements Serializable {
 
+    private final int NUMBER_OF_QUESTIONS = 20;
+
     @Logger
     Log log;
 
@@ -55,7 +57,7 @@ public class QuestionGeneratorAction implements Serializable {
             screeningTest.setContestant(loggedInContestant);
             screeningTest.setStartingTime(new Date());
 
-            List<Integer> generatedQuestionOrder = orderGenerator.generateOrder(questionBank.getQuestions().size(), 5); // order generation temporarily
+            List<Integer> generatedQuestionOrder = orderGenerator.generateOrder(NUMBER_OF_QUESTIONS,NUMBER_OF_QUESTIONS); // order generation temporarily
 
             List<QuestionOrder> questionOrderList = new ArrayList<QuestionOrder>();
 
