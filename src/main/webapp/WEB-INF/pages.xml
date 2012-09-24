@@ -505,6 +505,7 @@
     </exception>
 
     <exception>
+        <end-conversation/>
         <redirect view-id="/exceptionPage.xhtml"/>
     </exception>
 
