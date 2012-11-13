@@ -45,7 +45,7 @@ public class GroupRegistrationAction implements Serializable {
             Contestant partner = contestantDao.getSelectedContestantByEmail(groupRegCmd.getPartnerEmail());
             Group existingGroup = groupDao.getGroupByName(groupRegCmd.getGroupName());
 
-            if (partner != null && existingGroup == null) {
+            if (partner != null && existingGroup == null && !partner.getEmail().equals(loggedInContestant.getEmail())) {
                 Group group = new Group();
                 group.setGroupName(groupRegCmd.getGroupName());
 

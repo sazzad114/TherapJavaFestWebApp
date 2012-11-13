@@ -716,8 +716,8 @@ What is the value returned from mystery(2, 3)?
                 </option>
             </options>
             <correctOption>
-                <optionId>1</optionId>
-                <optionString>127</optionString>
+                <optionId>2</optionId>
+                <optionString>126</optionString>
             </correctOption>
             <allottedTime>180</allottedTime>
         </question>

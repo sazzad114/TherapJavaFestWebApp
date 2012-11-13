@@ -90,7 +90,7 @@ public class ProjectSubmission implements Serializable{
     }
 
     @Column(name = "YOUTUBE_URL")
-    @Pattern(regex = RegularExpressions.YOUTUBE_URL, message = "Invalid youtube video url")
+    @Pattern(regex = RegularExpressions.YOUTUBE_URL+"|" + RegularExpressions.VIMEO_URL, message = "Invalid video url")
     public String getYouTubeUrl() {
         return youTubeUrl;
     }

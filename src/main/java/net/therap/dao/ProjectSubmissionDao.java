@@ -1,5 +1,6 @@
 package net.therap.dao;
 
+import net.therap.domain.Contestant;
 import net.therap.domain.ProjectSubmission;
 
 /**
@@ -13,4 +14,6 @@ public interface ProjectSubmissionDao {
     public void saveProjectSubmission(ProjectSubmission projectSubmission);
 
     public void updateProjectSubmission(ProjectSubmission projectSubmission);
+
+    public ProjectSubmission getProjectSubmissionByContestant(Contestant contestant);
 }

@@ -1,12 +1,340 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE html
-        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
-<head>
-    <title></title>
-</head>
-<body>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 strict//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!--
+Design by Free CSS Templates
+http://www.freecsstemplates.org
+Released for free under a Creative Commons Attribution 2.5 License
 
+Name       : Timeless
+Description: A two-column, fixed-width design with dark color scheme.
+Version    : 1.0
+Released   : 20110825
+
+-->
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:s="http://jboss.com/products/seam/taglib" xmlns:c="http://java.sun.com/jstl/core">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title>Therap Java Fest</title>
+    <link href="/css/style.css" rel="stylesheet" type="text/css"/>
+    <link rel="shortcut icon" href="/images/therapJavaFestLogo.jpg" type="image/jpeg"/>
+    <script src="/js/menuHover.js" type="text/javascript"></script>
+</head>
+<body onload="changeMenuBackground()">
+<div id="wrapper">
+    <div id="header-wrapper">
+        <div id="header">
+            <a href="http://www.therapservices.net"><img src="/images/banner.jpg" alt="banner"
+                                                         style="border:none;"/></a>
+        </div>
+    </div>
+    <!-- end #header -->
+
+    <div id="menu">
+        <c:choose>
+            <c:when test="#{identity.isLoggedIn()}">
+
+                <ul>
+                    <li><s:link value="Home" view="/greetings/greeting.xhtml"/></li>
+                    <li><s:link value="Profile" view="/viewProfile.xhtml"/></li>
+                    <li><s:link value="Contact" view="/contactUs.xhtml"/></li>
+                    <li style="float:right; background:transparent;padding:0 5px"><s:button value="Logout"
+                                                                                            view="/logout.xhtml"
+                                                                                            style="margin:4px 3px"
+                                                                                            styleClass="festentry"/>
+                    </li>
+                    <li class="loggedInName">#{loggedInContestant.email}</li>
+
+                </ul>
+
+            </c:when>
+            <c:when test="#{!identity.isLoggedIn()}">
+                <ul>
+                    <li><s:link value="Home" view="/home.xhtml"/></li>
+                    <li><s:link value="About" view="/aboutUs.xhtml"/></li>
+                    <li><s:link value="Contact" view="/contactUs.xhtml"/></li>
+                    <li style="float:right;">
+                        <h:form id="login">
+
+                            <h:outputLabel for="username" style="padding-right:3px;">Email</h:outputLabel>
+
+                            <h:inputText id="username" value="#{identity.username}" style="border: solid WHITE 2px;"/>
+
+                            <h:outputLabel for="password" style="padding: 0 3px 0 10px;">Password</h:outputLabel>
+
+                            <h:inputSecret id="password" value="#{identity.password}"
+                                           style="border: solid WHITE 2px; "/>
+
+                            <h:commandButton id="login" action="#{identity.login}"
+                                             value="Login" style="margin:0 3px" styleClass="festentry"/>
+
+
+                        </h:form>
+                    </li>
+                </ul>
+            </c:when>
+        </c:choose>
+    </div>
+    <div class="separator">
+        <hr style="background:#0086df; height:3px; margin: 0 auto; border-style:none;"/>
+    </div>
+</div>
+
+
+<!-- end #menu -->
+<div id="page">
+<div id="page-bgtop">
+<div id="page-bgbtm">
+<div id="content" style="background:WHITE">
+<div class="post">
+<h2 class="title">Selected Candidates From Screening Test</h2>
+
+<p class="meta"></p>
+
+<div class="entry">
+
+<pre>
++-------------------------------+-----------------------------------------------------+
+| contestant_name               | university                                          |
++-------------------------------+-----------------------------------------------------+
+| D.M. Anisuzzaman              | Ahsanullah University of Science and Technology     |
+| Manuel Rony Gomes             | Ahsanullah University of Science and Technology     |
+| Md. Ashaduzzaman              | Ahsanullah University of Science and Technology     |
+| Md. Fasihul Kabir             | Ahsanullah University of Science and Technology     |
+| MD. Shams Ul Arifin Bhuyan    | Ahsanullah University of Science and Technology     |
+| Sumia Akter                   | Ahsanullah University of Science and Technology     |
+| Arefeen Mansur                | American International University-Bangladesh        |
+| Mohammad Shafayat Alam        | American International University-Bangladesh        |
+| SHAH MD. YASIN ISLAM          | American International University-Bangladesh        |
+| Siddiq Abu Bakkar             | American International University-Bangladesh        |
+| A. B. M. Faisal               | Bangladesh University of Engineering and Technology |
+| A.H.M.Modasser Billah         | Bangladesh University of Engineering and Technology |
+| A.T.M. SALEH                  | Bangladesh University of Engineering and Technology |
+| Abu Hasan Masud               | Bangladesh University of Engineering and Technology |
+| Ahmed Sayeed Faruk            | Bangladesh University of Engineering and Technology |
+| Ashutosh Dutta                | Bangladesh University of Engineering and Technology |
+| Avijit Sarker                 | Bangladesh University of Engineering and Technology |
+| Babar                         | Bangladesh University of Engineering and Technology |
+| Dipon Lal Shaw                | Bangladesh University of Engineering and Technology |
+| Dipranjan Das                 | Bangladesh University of Engineering and Technology |
+| F A Rezaur Rahman Chowdhury   | Bangladesh University of Engineering and Technology |
+| Farzana Beente Yusuf          | Bangladesh University of Engineering and Technology |
+| FAYSAL HOSSAIN SHEZAN         | Bangladesh University of Engineering and Technology |
+| Hossain Md. Cyrus             | Bangladesh University of Engineering and Technology |
+| Imtiaz Ahmad                  | Bangladesh University of Engineering and Technology |
+| Kazi Nasir Uddin              | Bangladesh University of Engineering and Technology |
+| Khan Aues Monowar             | Bangladesh University of Engineering and Technology |
+| Mahfuzul islam                | Bangladesh University of Engineering and Technology |
+| Mamunoor Rashid               | Bangladesh University of Engineering and Technology |
+| Md Imran Hasan Hira           | Bangladesh University of Engineering and Technology |
+| Md Naushad Alam               | Bangladesh University of Engineering and Technology |
+| Md. Arafat Al Mahmud          | Bangladesh University of Engineering and Technology |
+| Md. Ibrahim Rashid            | Bangladesh University of Engineering and Technology |
+| Md. Lisul Islam               | Bangladesh University of Engineering and Technology |
+| MD. Lutfar Rahman             | Bangladesh University of Engineering and Technology |
+| Md. Maksud Alam Chowdhury     | Bangladesh University of Engineering and Technology |
+| Md. Maruf Hossain             | Bangladesh University of Engineering and Technology |
+| Md. Mehedi Hasan Khan         | Bangladesh University of Engineering and Technology |
+| Md. Monsur Hossain Tonmoy     | Bangladesh University of Engineering and Technology |
+| MD. MONZURUL AMIN IFATH       | Bangladesh University of Engineering and Technology |
+| Md. Muntakim Sadik            | Bangladesh University of Engineering and Technology |
+| Md. Nasim                     | Bangladesh University of Engineering and Technology |
+| Md. Nazmus Sadat              | Bangladesh University of Engineering and Technology |
+| Md. Rabbi Alam                | Bangladesh University of Engineering and Technology |
+| Md. Rafayet Ali               | Bangladesh University of Engineering and Technology |
+| Md. Shamim Hasnath            | Bangladesh University of Engineering and Technology |
+| Mohammad Hafiz Uddin          | Bangladesh University of Engineering and Technology |
+| Mohammad Omar Faruk           | Bangladesh University of Engineering and Technology |
+| Mohd. Momin Al Aziz           | Bangladesh University of Engineering and Technology |
+| Mohiuddin Ahmed Sohel         | Bangladesh University of Engineering and Technology |
+| Mosfiqur Rahman               | Bangladesh University of Engineering and Technology |
+| Muhammad Nazmul Hasan         | Bangladesh University of Engineering and Technology |
+| Muhammad Tasnim Mohiuddin     | Bangladesh University of Engineering and Technology |
+| Musahher Musanna              | Bangladesh University of Engineering and Technology |
+| Nasheen Nur                   | Bangladesh University of Engineering and Technology |
+| Nasif Ahmed                   | Bangladesh University of Engineering and Technology |
+| Nayeem Hossain Faruque        | Bangladesh University of Engineering and Technology |
+| Pratyai Mazumder              | Bangladesh University of Engineering and Technology |
+| Radi Muhammad Reza            | Bangladesh University of Engineering and Technology |
+| Rafi Kamal                    | Bangladesh University of Engineering and Technology |
+| Ridwan Ahmed Khan             | Bangladesh University of Engineering and Technology |
+| Samidhya Sarker               | Bangladesh University of Engineering and Technology |
+| Samin Yasar                   | Bangladesh University of Engineering and Technology |
+| Shafiul Azam Chowdhury        | Bangladesh University of Engineering and Technology |
+| Shuhana Azmin                 | Bangladesh University of Engineering and Technology |
+| Sultan Ahmed                  | Bangladesh University of Engineering and Technology |
+| Tanvir Ahmed Khan             | Bangladesh University of Engineering and Technology |
+| Tanzim Ahmed                  | Bangladesh University of Engineering and Technology |
+| Tazrian Siddiqui              | Bangladesh University of Engineering and Technology |
+| AMIT KUMAR DEY                | BRAC University                                     |
+| Dipankar Chaki                | BRAC University                                     |
+| Golam Kayas                   | BRAC University                                     |
+| Imran Kader Chowdhury         | BRAC University                                     |
+| MD. ASHRAF-UL-HUQUE           | BRAC University                                     |
+| Onishim Hasdak                | BRAC University                                     |
+| S.Mahbub-Uz-Zaman             | BRAC University                                     |
+| Syed Shaiyan Kamran Waliullah | BRAC University                                     |
+| Tanjina Islam                 | BRAC University                                     |
+| Tanvir Roushan                | BRAC University                                     |
+| Ahmed Hasib                   | Islamic University of Technology                    |
+| Asif Khan                     | Islamic University of Technology                    |
+| Farhan Bashar                 | Islamic University of Technology                    |
+| H. M. RAINE AHMED             | Islamic University of Technology                    |
+| Imam Ibn Hasan                | Islamic University of Technology                    |
+| MD. Faishal Yousuf            | Islamic University of Technology                    |
+| Mir Rayat Imtiaz Hossain      | Islamic University of Technology                    |
+| Muhammad Atiqur Rahman Imon   | Islamic University of Technology                    |
+| Syed Sabir Salman-Al-Musawi   | Islamic University of Technology                    |
+| A.K.M Shamsuddoha             | Jahangirnagar University                            |
+| Barshan                       | Jahangirnagar University                            |
+| Farhana Irin                  | Jahangirnagar University                            |
+| Fuad Hasan                    | Jahangirnagar University                            |
+| Md. Abdur Rafi Ibne Mahmood   | Jahangirnagar University                            |
+| MD. ABU SAIF                  | Jahangirnagar University                            |
+| Md. Newaz Sharif              | Jahangirnagar University                            |
+| Md. Zaki Imam                 | Jahangirnagar University                            |
+| Md.Asadujjaman Nur            | Jahangirnagar University                            |
+| Md.Mahfujur Rahman Raju       | Jahangirnagar University                            |
+| Mezbah Salman                 | Jahangirnagar University                            |
+| Mostafizur Rahman             | Jahangirnagar University                            |
+| Sarwar Miral                  | Jahangirnagar University                            |
+| Shahriar Mohammad             | Jahangirnagar University                            |
+| shamir shakir                 | Jahangirnagar University                            |
+| Aminul Islam                  | Khulna University                                   |
+| RAYHAN FERDOUS                | Khulna University                                   |
+| Abidur Rahman Mallik          | Khulna University of Engineering &amp; Technology       |
+| Jamiur Rahman                 | Khulna University of Engineering &amp; Technology       |
+| Pritam Biswas                 | Khulna University of Engineering &amp; Technology       |
+| Sk. Imran Hossain             | Khulna University of Engineering &amp; Technology       |
+| Afifa Tahira                  | Military Institute of Science and Technology        |
+| Chowdhury Hasan Ibne Obayed   | Military Institute of Science and Technology        |
+| Iffatur Ridwan                | Military Institute of Science and Technology        |
+| M. Nafeh Bin Mosharraf        | Military Institute of Science and Technology        |
+| Md. Yusuf                     | Military Institute of Science and Technology        |
+| Md.Momenul Islam              | Military Institute of Science and Technology        |
+| Nusrat Sharmin                | Military Institute of Science and Technology        |
+| Sabah Binte Noor              | Military Institute of Science and Technology        |
+| Samina Tasnia Islam           | Military Institute of Science and Technology        |
+| Sanjida Nasreen Tumpa         | Military Institute of Science and Technology        |
+| Tahmima Chowdhury             | Military Institute of Science and Technology        |
+| Ahmad Faiyaz                  | North South University                              |
+| Faisal Mahmud Niloy           | North South University                              |
+| Faysal Ahmed                  | North South University                              |
+| Mahmud Ridwan                 | North South University                              |
+| Minhaz Ahmed Syrus            | North South University                              |
+| Mohammad Tariqul Islam        | North South University                              |
+| Sheikh Raiyan                 | North South University                              |
+| Tahsin Rahman                 | North South University                              |
+| Md. Adnanul Islam             | Rajshahi University                                 |
+| Aqib Ashef                    | Shahjalal University of Science and Technology      |
+| Arifuzzaman Sohel             | Shahjalal University of Science and Technology      |
+| Aynun NIsha                   | Shahjalal University of Science and Technology      |
+| Dibya Jyoti Pramanik          | Shahjalal University of Science and Technology      |
+| Eaiman Shoshi                 | Shahjalal University of Science and Technology      |
+| IstiyakSiddiquee              | Shahjalal University of Science and Technology      |
+| Md. Abu Shahriar Ratul        | Shahjalal University of Science and Technology      |
+| Md. Jumman Hossain            | Shahjalal University of Science and Technology      |
+| Md. Shaiful Islam             | Shahjalal University of Science and Technology      |
+| Rakib Ansary Saikot           | Shahjalal University of Science and Technology      |
+| Raman Karmakar                | Shahjalal University of Science and Technology      |
+| Sudipta Kar                   | Shahjalal University of Science and Technology      |
+| Md. Foysal Ahamed             | United International University                     |
+| Md. Mahfuz Islam Bhuiyan      | United International University                     |
+| Saimoom Safayet Akash         | United International University                     |
+| Sajid Rabbani                 | United International University                     |
+| Khandker Tafiqul Islam        | University of Asia Pacific                          |
+| Md. Ataur Rahman              | University of Chittagong                            |
+| Peash Ranjan Saha             | University of Chittagong                            |
+| Samina Naznin                 | University of Chittagong                            |
+| A. N. M. Bazlur Rahman        | University of Dhaka                                 |
+| ABUL FATTAH TUHIN             | University of Dhaka                                 |
+| Ahmad Tahmid                  | University of Dhaka                                 |
+| Akash Islam                   | University of Dhaka                                 |
+| Ashis Kumar Chanda            | University of Dhaka                                 |
+| Atish Kumar                   | University of Dhaka                                 |
+| Fakhrul Islam                 | University of Dhaka                                 |
+| Hossain Muhammad Muctadir     | University of Dhaka                                 |
+| Iftekhar Ahmed                | University of Dhaka                                 |
+| Imtiaz Evan                   | University of Dhaka                                 |
+| M Shakhawat Hossain           | University of Dhaka                                 |
+| Md. Habibur Rahman            | University of Dhaka                                 |
+| Md. Hasan Ibrahim             | University of Dhaka                                 |
+| Md. Mahmudul Hasan            | University of Dhaka                                 |
+| Md. Mainul Haque              | University of Dhaka                                 |
+| Md. Moniruzzaman              | University of Dhaka                                 |
+| Md. Naimul Hoque              | University of Dhaka                                 |
+| Md. Nazmus Sakib Miazi        | University of Dhaka                                 |
+| Md. Ruhul Quddus              | University of Dhaka                                 |
+| Md. Saeed Siddik              | University of Dhaka                                 |
+| Md.Ahasanuzzaman              | University of Dhaka                                 |
+| Md.Rabiul Islam               | University of Dhaka                                 |
+| Mithun Mondal                 | University of Dhaka                                 |
+| Mohayeminul Islam             | University of Dhaka                                 |
+| moshii                        | University of Dhaka                                 |
+| Mostafizur Rahman             | University of Dhaka                                 |
+| Muhammad Ariful Islam Malik   | University of Dhaka                                 |
+| Nadia Nahar                   | University of Dhaka                                 |
+| Nazib Abdun Nasir             | University of Dhaka                                 |
+| panthotanvir                  | University of Dhaka                                 |
+| Rafiqul Alam Chisty           | University of Dhaka                                 |
+| Rashedul Hasan Rijul          | University of Dhaka                                 |
+| Rayhan Hossain                | University of Dhaka                                 |
+| Rayhanur Rahman               | University of Dhaka                                 |
+| Ridi Hossain                  | University of Dhaka                                 |
+| Rifatul Islam                 | University of Dhaka                                 |
+| S.M Forhad Ali                | University of Dhaka                                 |
+| Sabiha Salma                  | University of Dhaka                                 |
+| sadid                         | University of Dhaka                                 |
+| saikat bose                   | University of Dhaka                                 |
+| Sanjay Saha                   | University of Dhaka                                 |
+| Shibbir Hossain               | University of Dhaka                                 |
+| Shihab Rahman                 | University of Dhaka                                 |
+| Tawkir Ahmed Fakir            | University of Dhaka                                 |
++-------------------------------+-----------------------------------------------------+
+
+
+And
+
++-------------------------------+-----------------------------------------------------+
+| Contestant Name               | Email                                               |
++-------------------------------+-----------------------------------------------------+
+| Ali Sajjad                    | alisajjadcse AT gmail DOT                           |
+| Anik Newaz                    | anik0917 AT gmail DOT com                           |
+| Asraf Uddin Ahmed             | 13ratul AT gmail DOT com                            |
+| Fahim Faysal                  | fahimfaysal10 AT gmail DOT com                      |
+| khirulislam                   | khirulislam.uoda AT gmail DOT com                   |
+| MD. Mahsin-Ul-Islam           | mahsin.islam AT gmail DOT com                       |
+| Meskat Jahan                  | meskat.jahan AT gmail DOT com                       |
+| Mohammed Jubayer              | mohammed.jubayer AT gmail DOT com                   |
+| Samonta Roy                   | samontaroy AT gmail DOT com                         |
++-------------------------------+-----------------------------------------------------+
+
+</pre>
+</div>
+</div>
+
+</div>
+
+<!-- end #content -->
+
+<div style="clear: both;">&nbsp;</div>
+</div>
+</div>
+</div>
+
+<div id="footer">
+    <p><s:link value="Terms and Conditions" view="/termsAndConditions.xhtml"/></p>
+
+    <p> &#169; Copyright <a
+            href="http://www.therapservices.net">Therap Services, LLC</a>. 2003-2012. All Rights Reserved.</p>
+</div>
+<!-- end #footer -->
 </body>
 </html>
+
+
+
+
+

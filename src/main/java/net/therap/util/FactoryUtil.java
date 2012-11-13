@@ -1,6 +1,8 @@
 package net.therap.util;
 
 import net.therap.dao.ContestantDao;
+import net.therap.dao.ProjectProposalDao;
+import net.therap.dao.ProjectSubmissionDao;
 import net.therap.domain.Contestant;
 import net.therap.domain.ProjectProposal;
 import net.therap.domain.ProjectSubmission;
@@ -37,6 +39,12 @@ public class FactoryUtil implements Serializable {
     @In(create = true)
     private ContestantDao contestantDao;
 
+    @In(create = true)
+    private ProjectProposalDao projectProposalDao;
+
+    @In(create = true)
+    private ProjectSubmissionDao projectSubmissionDao;
+
     @Factory("universities")
     public List<University> getUniversities() {
         return Arrays.asList(University.values());
@@ -65,12 +73,16 @@ public class FactoryUtil implements Serializable {
 
     @Factory(value = "existingProposal", scope = ScopeType.PAGE)
     public ProjectProposal getProjectProposal() {
-        return loggedInContestant.getMyGroup().getProjectProposal();
+        ProjectProposal projectProposal =  projectProposalDao.getProjectProposalByContestant(loggedInContestant);
+        loggedInContestant.getMyGroup().setProjectProposal(projectProposal);
+        return projectProposal;
     }
 
     @Factory(value = "existingProjectSubmission", scope = ScopeType.PAGE)
     public ProjectSubmission getExistingProjectSubmission() {
-        return loggedInContestant.getMyGroup().getSubmittedProject();
+        ProjectSubmission projectSubmission = projectSubmissionDao.getProjectSubmissionByContestant(loggedInContestant);
+        loggedInContestant.getMyGroup().setSubmittedProject(projectSubmission);
+        return projectSubmission;
     }
 
     @Factory(value = "myProfile", scope = ScopeType.EVENT)
@@ -91,6 +103,16 @@ public class FactoryUtil implements Serializable {
     @Factory(value = "passwordResettingContestant", scope = ScopeType.PAGE)
     public Contestant getPassWordResettingContestant() {
         return new Contestant();
+    }
+
+    @Factory(value = "contestantProposalInfo", scope = ScopeType.PAGE)
+    public ProjectProposal getContestantProposalInfo() {
+          return projectProposalDao.getProjectProposalByContestant(loggedInContestant);
+    }
+
+     @Factory(value = "contestantProjectSubmissionInfo", scope = ScopeType.PAGE)
+    public ProjectSubmission getSubmittedProjectSourceInfo() {
+          return projectSubmissionDao.getProjectSubmissionByContestant(loggedInContestant);
     }
 
 }

@@ -11,9 +11,9 @@
 
     <ui:define name="dependingOnstate">
 
-        Welcome,  #{loggedInContestant.contestantName} ...
+        Welcome,  #{loggedInContestant.contestantName}.
 
-        We have received your project submission. Please keep an eye on our group regarding any feedback.
+        We have received your project submission.The last submission was by #{contestantProjectSubmissionInfo.lastSubmittedBy.contestantName} on #{contestantProjectSubmissionInfo.lastSubmissionTime}. Please keep an eye on our group regarding any feedback.
         You can resubmit your project <s:link view="/updateProjectSource.xhtml" value=" here"/>.
 
 

@@ -12,11 +12,10 @@
     <ui:define name="dependingOnstate">
 
 
-        Welcome,  #{loggedInContestant.contestantName} ...
+        Welcome,  #{loggedInContestant.contestantName},
 
-        We have received your project proposal. Please keep an eye on our group regarding any feedback.
+        We have received your project proposal. The Proposal is last submitted by #{contestantProposalInfo.lastModifiedBy.contestantName} on #{contestantProposalInfo.lastModificationTime}.
         You can resubmit your proposal <s:link value=" here" view="/updateProjectProposal.xhtml"/>.
-
 
     </ui:define>
 </ui:composition>

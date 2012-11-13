@@ -1,12 +1,75 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE html
-        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:c="http://java.sun.com/jstl/core"
+      xmlns:s="http://jboss.com/products/seam/taglib">
 <head>
-    <title></title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="cache-control" content="no-cache"/>
+    <title>Therap Java Fest Screening Test Question</title>
 </head>
 <body>
+<div id="wrapper">
 
+    <div id="header-wrapper">
+        <div id="header">
+            <div style="text-align:center; padding-top:100px; margin-bottom:20px; font-size:30px;">SCREENING TEST QUESTIONS</div>
+        </div>
+    </div>
+
+    <!-- end #header -->
+
+
+    <div id="page">
+        <div id="page-bgtop">
+            <div id="page-bgbtm">
+                <div id="content">
+                    <div class="post">
+                        <div class="entry">
+
+                            <c:forEach var="question" items="#{questionBank.questions}">
+                                <table>
+                                    <tr>
+                                        <td>
+                                            <h:outputText value="#{question.questionId+1}"/>.
+                                            <h:outputText escape="false" value="#{question.questionString}"/>
+
+                                        </td>
+                                    </tr>
+                                </table>
+                                <ul>
+                                    <c:forEach var="option" items="#{question.options}">
+                                        <c:choose>
+                                            <c:when test="${option.optionId eq question.correctOption.optionId}">
+                                                <li><b><h:outputText value="#{option.optionString}"/></b></li>
+                                            </c:when>
+                                            <c:otherwise>
+                                                <li><h:outputText value="#{option.optionString}"/></li>
+                                            </c:otherwise>
+                                        </c:choose>
+                                    </c:forEach>
+                                </ul>
+                                <br/>
+                            </c:forEach>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- end #content -->
+
+                <div style="clear: both;">&nbsp;</div>
+            </div>
+        </div>
+    </div>
+    <!-- end #page -->
+</div>
+<div id="footer">
+    <p><s:link value="Terms and Conditions" view="/termsAndConditions.xhtml"/></p>
+
+    <p> &#169; Copyright <a
+            href="http://www.therapservices.net">Therap Services, LLC</a>. 2003-2012. All Rights Reserved.</p>
+</div>
+<!-- end #footer -->
 </body>
 </html>

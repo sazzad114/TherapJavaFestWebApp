@@ -44,11 +44,19 @@ public class ProjectSubmissionAction implements Serializable {
     private ContestantDao contestantDao;
 
 
-    private final int UPLOADED_SOURCE_CODE_SIZE = 10;
+    private final int UPLOADED_SOURCE_CODE_SIZE = 15;
 
     public String submitProjectSource(ProjectSubmission projectSubmission) {
         List<String> sourceCodeFileType = new ArrayList<String>();
         sourceCodeFileType.add("application/zip");
+        sourceCodeFileType.add("application/x-zip");
+        sourceCodeFileType.add("application/x-zip-compressed");
+        sourceCodeFileType.add("application/octet-stream");
+        sourceCodeFileType.add("application/x-compress");
+        sourceCodeFileType.add("application/x-compressed");
+        sourceCodeFileType.add("multipart/x-zip");
+
+
 
         int sourceCodeFileSize = UPLOADED_SOURCE_CODE_SIZE * 1024 * 1024;
         boolean validationFails = false;
@@ -102,6 +110,12 @@ public class ProjectSubmissionAction implements Serializable {
     public String updateProjectSource(ProjectSubmission projectSubmission) {
         List<String> sourceCodeFileType = new ArrayList<String>();
         sourceCodeFileType.add("application/zip");
+        sourceCodeFileType.add("application/x-zip");
+        sourceCodeFileType.add("application/x-zip-compressed");
+        sourceCodeFileType.add("application/octet-stream");
+        sourceCodeFileType.add("application/x-compress");
+        sourceCodeFileType.add("application/x-compressed");
+        sourceCodeFileType.add("multipart/x-zip");
 
         int sourceCodeFileSize = UPLOADED_SOURCE_CODE_SIZE * 1024 * 1024;
         boolean validationFails = false;

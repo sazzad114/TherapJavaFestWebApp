@@ -5,6 +5,7 @@
                 xmlns:h="http://java.sun.com/jsf/html"
                 xmlns:f="http://java.sun.com/jsf/core"
                 xmlns:s="http://jboss.com/products/seam/taglib"
+                xmlns:c="http://java.sun.com/jstl/core"
                 template="greeting.xhtml">
 
     <!-- menu -->
@@ -12,8 +13,16 @@
     <ui:define name="dependingOnstate">
 
         Welcome,  #{loggedInContestant.contestantName} ...
+        <br/>
+        Your group registration is finished and your partner is
+        <c:forEach var="member" items="#{loggedInContestant.myGroup.members}">
+            <c:if test="#{member.email ne myProfile.email}">
 
-        You have finished your group registration. You will soon be able to submit your project proposal.
+                <b><h:outputText id="partner" value="#{member.contestantName}"/></b>
+
+            </c:if>
+        </c:forEach>.
+        You will soon be able to submit your project proposal.
 
 
     </ui:define>
